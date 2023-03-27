@@ -36,6 +36,7 @@ public class Personnel {
 		this.prenom = prenom;
 		this.age = age;
 		this.profession = profession;
+		System.out.println("patate");
 	}
 	
 	
