@@ -1,5 +1,6 @@
 package fr.eni.javaee.bo;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Utilisateur {
@@ -16,11 +17,14 @@ public class Utilisateur {
 	private String Ville;
 	private String mdp;
 	private Integer Credit;
+	private List<Enchere> ListeEnchereUser;
+	private List<Article> ListArticleUser;
 	
 	
 	public Utilisateur() {
 		super();
 	}
+	
 	public Utilisateur(Integer noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
 			String rue, String cP, String ville, String mdp, Integer credit) {
 		super();
@@ -35,7 +39,41 @@ public class Utilisateur {
 		Ville = ville;
 		this.mdp = mdp;
 		Credit = credit;
+		
 	}
+
+	public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone, String rue, String cP,
+			String ville, String mdp, Integer credit) {
+		super();
+		this.pseudo = pseudo;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.telephone = telephone;
+		this.rue = rue;
+		CP = cP;
+		Ville = ville;
+		this.mdp = mdp;
+		Credit = credit;
+	
+	}
+
+	public List<Enchere> getListeEnchereUser() {
+		return ListeEnchereUser;
+	}
+
+	public void setListeEnchereUser(List<Enchere> listeEnchereUser) {
+		ListeEnchereUser = listeEnchereUser;
+	}
+
+	public List<Article> getListArticleUser() {
+		return ListArticleUser;
+	}
+
+	public void setListArticleUser(List<Article> listArticleUser) {
+		ListArticleUser = listArticleUser;
+	}
+
 	public Integer getNoUtilisateur() {
 		return noUtilisateur;
 	}
