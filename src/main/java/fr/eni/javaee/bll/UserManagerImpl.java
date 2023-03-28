@@ -1,43 +1,46 @@
-package fr.eni.javaee.dal;
+package fr.eni.javaee.bll;
 
 import fr.eni.javaee.bo.Utilisateur;
+import fr.eni.javaee.dal.DAOFactory;
+import fr.eni.javaee.dal.UtilisateurDAO;
 
-public class UtilisateurImpl implements UtilisateurDAO{
+public class UserManagerImpl implements UserManager {
+	private UtilisateurDAO dao = DAOFactory.getInstance();
 
 	@Override
 	public void creationUtilisateur(Utilisateur utilisateur) {
-		// TODO Auto-generated method stub
-		
+		dao.creationUtilisateur(utilisateur);
+
 	}
 
 	@Override
 	public void modificationUtilisateur(Utilisateur utilisateur) {
-		// TODO Auto-generated method stub
-		
+		dao.modificationUtilisateur(utilisateur);
+
 	}
 
 	@Override
 	public void suppressionUtilisateur(Utilisateur utilisateur) {
-		// TODO Auto-generated method stub
-		
+	dao.suppressionUtilisateur(utilisateur);
+
 	}
 
 	@Override
 	public void authentificationUtilisateur(Utilisateur utilisateur) {
-		// TODO Auto-generated method stub
-		
+		dao.authentificationUtilisateur(utilisateur);
+
 	}
 
 	@Override
 	public void deconnexionUtilisateur(Utilisateur utilisateur) {
-		// TODO Auto-generated method stub
-		
+		dao.deconnexionUtilisateur(utilisateur);
+
 	}
 
 	@Override
 	public void afficherUtilisateur(Utilisateur utilisateur) {
-		// TODO Auto-generated method stub
-		
+	dao.afficherUtilisateur(utilisateur);
+
 	}
 
 }

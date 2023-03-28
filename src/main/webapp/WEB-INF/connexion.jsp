@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Page de connexion</title>
 </head>
 <body>
 
@@ -14,7 +14,7 @@
 		<br/>
 		<label for="idPass">Mot de passe : </label><input type="password" id="idPass" name="pass" value="<%=request.getParameter("mdp")%>"/>
 		<br/>
-		<input type="submit" value="Se connecter"/>
+		<input type="submit" value="Connexion"/>
 	</form>
 </body>
 </html>
