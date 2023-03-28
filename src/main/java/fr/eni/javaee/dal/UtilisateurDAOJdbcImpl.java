@@ -24,7 +24,6 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 	@Override
 	public void authentificationUtilisateur(Utilisateur utilisateur) {
-		// TODO Auto-generated method stub
 
 	}
 
