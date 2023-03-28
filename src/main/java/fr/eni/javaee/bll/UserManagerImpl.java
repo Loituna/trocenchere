@@ -21,33 +21,36 @@ public class UserManagerImpl implements UserManager {
 
 	@Override
 	public void suppressionUtilisateur(Utilisateur utilisateur) {
-	dao.suppressionUtilisateur(utilisateur);
+		dao.suppressionUtilisateur(utilisateur);
 
 	}
 
 	@Override
-	public void authentificationUtilisateur(Utilisateur utilisateur) {
-		try {
-			dao.authentificationUtilisateur(utilisateur);
-		} catch (BusinessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
 
+	public void authentificationUtilisateur(String pseudo, String mdp) {
+
+		// Utilisateur instance = new Utilisateur(pseudo,mdp);
+
+		Utilisateur instance = new Utilisateur();
+		instance.setMdp(mdp);
+		instance.setPseudo(pseudo);
+		try {
+			dao.authentificationUtilisateur(instance);
+		} catch (BusinessException e) {
+			e.printStackTrace();
+			System.out.println("Erreur coo depuis servlet");
+		}
 	}
 
 	@Override
 	public void deconnexionUtilisateur(Utilisateur utilisateur) {
-		dao.deconnexionUtilisateur(utilisateur);
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void afficherUtilisateur(Utilisateur utilisateur) {
-	dao.afficherUtilisateur(utilisateur);
+		// TODO Auto-generated method stub
 
 	}
-
 }

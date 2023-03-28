@@ -11,7 +11,7 @@ public interface UserManager {
 
 	public void suppressionUtilisateur(Utilisateur utilisateur);
 
-	public void authentificationUtilisateur(Utilisateur utilisateur);
+	public void authentificationUtilisateur(String pseudo, String mdp);
 
 	public void deconnexionUtilisateur(Utilisateur utilisateur);
 
