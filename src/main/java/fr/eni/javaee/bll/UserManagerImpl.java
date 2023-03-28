@@ -5,7 +5,7 @@ import fr.eni.javaee.dal.DAOFactory;
 import fr.eni.javaee.dal.UtilisateurDAO;
 
 public class UserManagerImpl implements UserManager {
-	private UtilisateurDAO dao = DAOFactory.getInstance();
+	private UtilisateurDAO dao = DAOFactory.getUtilisateurDAO();
 
 	@Override
 	public void creationUtilisateur(Utilisateur utilisateur) {
