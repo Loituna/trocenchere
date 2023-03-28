@@ -27,7 +27,14 @@ public class UserManagerImpl implements UserManager {
 
 	@Override
 	public void authentificationUtilisateur(Utilisateur utilisateur) {
-		dao.authentificationUtilisateur(utilisateur);
+		try {
+			dao.authentificationUtilisateur(utilisateur);
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 
 	}
 
