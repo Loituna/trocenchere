@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.User;
 
@@ -55,7 +56,12 @@ public class ServletConnexion extends HttpServlet {
 		UserManager instance = UserManagerSingleton.getInstance();		
 		
 		instance.authentificationUtilisateur(pseudo,mdp);
-		doGet(request, response);
+		
+		HttpSession session = request.getSession();
+        session.setAttribute(SESSION_UTILISATEUR_ID, pseudo);
+        session.setAttribute(SESSION_UTILISATEUR_PSEUDO, pseudo);
+		
+		response.sendRedirect("./ServletAccueil");
 	}
 
 }
