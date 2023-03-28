@@ -17,6 +17,5 @@ public interface UtilisateurDAO {
 	
 	public void afficherUtilisateur (Utilisateur utilisateur);
 	
-	
 
 }

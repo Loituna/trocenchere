@@ -10,19 +10,10 @@ import fr.eni.javaee.bo.Utilisateur;
 
 public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
-	private static final String CREATION_UTILISATEUR = "INSERT INTO utilisateur(pseudo, email, mdp) VALUES(?,?,?);";
-	private static final String SELECT_UTILISATEUR = "SELECT id FROM utilisateur WHERE pseudo = ? AND mdp = ?;";
-	private static final String DELETE_UTILISATEUR = "DELETE FROM UTILISATEUR where noUtilisateur =?";
-	private static final String UPDATE_UTILISATEUR = "UPDATE Utilisateur set pseudo = ?, "
-			+ "nom = ?, "
-			+ "prenom = ?,"
-			+ "email = ?,"
-			+ "telephone = ?,"
-			+ "rue = ?,"
-			+ "cp = ?,"
-			+ "ville = ?"
-			+ "mdp = ?,"
-			+ "credit = ? WHERE noUtilisateur" ;
+	private static final String CREATION_UTILISATEUR = "INSERT INTO UTILISATEUR(pseudo, nom, prenom, email, telephone,rue,code_postal,ville,mots_passe,credit) VALUES(?,?,?,?,?,?,?,?,?,?)";
+	private static final String SELECT_UTILISATEUR = "SELECT no_utilisateur FROM utilisateur WHERE pseudo = ? AND mots_passe = ?";
+	private static final String DELETE_UTILISATEUR = "DELETE FROM UTILISATEUR where no_utilisateur =?";
+	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEUR set pseudo = ?, nom =? , prenom =. ,email =?,telephone =? ,rue =? ,code_postal =? ,ville =? , mots_passe =? , credit =?  WHERE no_utilisateur =?";
 
 	@Override
 	public void creationUtilisateur(Utilisateur utilisateur) throws BusinessException {
