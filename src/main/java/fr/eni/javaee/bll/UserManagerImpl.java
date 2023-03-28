@@ -8,7 +8,7 @@ public class UserManagerImpl implements UserManager {
 	private UtilisateurDAO dao = DAOFactory.getUtilisateurDAO();
 
 	@Override
-	public void creationUtilisateur(Utilisateur utilisateur) {
+	public void creationUtilisateur(Utilisateur utilisateur) throws BusinessException {
 		dao.creationUtilisateur(utilisateur);
 
 	}
