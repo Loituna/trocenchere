@@ -5,7 +5,7 @@ import fr.eni.javaee.bo.Utilisateur;
 
 public interface UserManager {
 
-	public void creationUtilisateur(Utilisateur utilisateur);
+	public void creationUtilisateur(Utilisateur utilisateur) throws BusinessException;
 
 	public void modificationUtilisateur(Utilisateur utilisateur);
 
