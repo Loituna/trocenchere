@@ -26,8 +26,13 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		// TODO Auto-generated method stub
 
 	}
+<<<<<<< HEAD
 
 	private static final String SELECT="SELECT id FROM utilisateur WHERE pseudo = ? AND mdp = ?;";
+=======
+	// Prenom ? pseudo plutot ? ( le chien de mickey )
+	private static final String SELECT="SELECT id FROM utilisateur WHERE prenom = ? AND mdp = ?;";
+>>>>>>> branch 'master' of https://github.com/Loituna/trocenchere.git
 
 	@Override
 	public void authentificationUtilisateur(Utilisateur utilisateur) throws BusinessException {
