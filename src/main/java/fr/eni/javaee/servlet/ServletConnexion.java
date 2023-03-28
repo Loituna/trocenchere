@@ -50,8 +50,9 @@ public class ServletConnexion extends HttpServlet {
 		
 			pseudo = request.getParameter("pseudo");
 			mdp = request.getParameter("mdp");
-			// Singleton ? Que faut il faire ici ? Si probleme actuellement = ici
-		UserManager instance = new UserManagerSingleton().getInstance();		
+			new UserManagerSingleton();
+		
+		UserManager instance = UserManagerSingleton.getInstance();		
 		
 		instance.authentificationUtilisateur(pseudo,mdp);
 		doGet(request, response);

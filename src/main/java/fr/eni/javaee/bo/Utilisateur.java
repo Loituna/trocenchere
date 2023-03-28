@@ -39,10 +39,10 @@ public class Utilisateur {
 		this.email = email;
 		this.telephone = telephone;
 		this.rue = rue;
-		CP = cP;
-		Ville = ville;
+		this.CP = cP;
+		this.Ville = ville;
 		this.mdp = mdp;
-		Credit = credit;
+		this.Credit = credit;
 		
 	}
 
@@ -55,10 +55,10 @@ public class Utilisateur {
 		this.email = email;
 		this.telephone = telephone;
 		this.rue = rue;
-		CP = cP;
-		Ville = ville;
+		this.CP = cP;
+		this.Ville = ville;
 		this.mdp = mdp;
-		Credit = credit;
+		this.Credit = credit;
 	
 	}
 
