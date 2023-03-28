@@ -9,6 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.User;
+
+import fr.eni.javaee.bll.UserManager;
+import fr.eni.javaee.bll.UserManagerImpl;
+import fr.eni.javaee.bll.UserManagerSingleton;
+
 /**
  * Servlet implementation class ServletConnexion
  */
@@ -41,6 +47,13 @@ public class ServletConnexion extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String pseudo;
 		String mdp;
+		
+			pseudo = request.getParameter("pseudo");
+			mdp = request.getParameter("mdp");
+			
+		UserManager instance = new UserManagerSingleton().getInstance();		
+		
+		instance.authentificationUtilisateur(pseudo,mdp);
 		doGet(request, response);
 	}
 

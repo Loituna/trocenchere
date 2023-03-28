@@ -26,8 +26,14 @@ public class UserManagerImpl implements UserManager {
 	}
 
 	@Override
-	public void authentificationUtilisateur(Utilisateur utilisateur) {
-		dao.authentificationUtilisateur(utilisateur);
+	public void authentificationUtilisateur(String pseudo, String mdp) {
+		
+		//Utilisateur instance = new Utilisateur(pseudo,mdp);
+		
+		Utilisateur instance = new Utilisateur();
+		instance.setMdp(mdp);
+		instance.setPseudo(pseudo);
+		dao.authentificationUtilisateur(instance);
 
 	}
 

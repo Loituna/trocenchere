@@ -24,6 +24,10 @@ public class Utilisateur {
 	public Utilisateur() {
 		super();
 	}
+	public Utilisateur(String pseudo, String mdp) {
+		this.pseudo=pseudo;
+		this.mdp=mdp;
+	}
 	
 	public Utilisateur(Integer noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
 			String rue, String cP, String ville, String mdp, Integer credit) {
