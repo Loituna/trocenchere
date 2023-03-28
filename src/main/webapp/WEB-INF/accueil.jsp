@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MICKSTOIKICODELAJSP</title>
+<title>Accueil</title>
 </head>
 <body>
+
+<h1>Liste des enchères</h1>
+
+<p> pas de connexion</p>
 
 </body>
 </html>
