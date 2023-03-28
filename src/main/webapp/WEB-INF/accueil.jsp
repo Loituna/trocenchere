@@ -12,5 +12,11 @@
 
 <p> pas de connexion</p>
 
+
+<a href="ServletConnexion">Se connecter</a>
+<a href="ServletInscription">S'inscrire</a>
+
+
+
 </body>
 </html>
