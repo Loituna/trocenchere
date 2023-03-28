@@ -1,5 +1,6 @@
 package fr.eni.javaee.dal;
 
+import fr.eni.javaee.bll.BusinessException;
 import fr.eni.javaee.bo.Utilisateur;
 
 public interface UtilisateurDAO {
@@ -10,7 +11,7 @@ public interface UtilisateurDAO {
 	
 	public void suppressionUtilisateur (Utilisateur utilisateur);
 	
-	public void authentificationUtilisateur(Utilisateur utilisateur);
+	public void authentificationUtilisateur(Utilisateur utilisateur) throws BusinessException;
 	
 	public void deconnexionUtilisateur (Utilisateur utilisateur);
 	
