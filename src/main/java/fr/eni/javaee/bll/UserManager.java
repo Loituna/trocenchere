@@ -7,7 +7,7 @@ public interface UserManager {
 
 	public void creationUtilisateur(Utilisateur utilisateur) throws BusinessException;
 
-	public void modificationUtilisateur(Utilisateur utilisateur);
+	public void modificationUtilisateur(Utilisateur utilisateur) throws BusinessException;
 
 	public void suppressionUtilisateur(Utilisateur utilisateur);
 

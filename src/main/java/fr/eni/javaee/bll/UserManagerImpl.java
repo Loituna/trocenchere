@@ -14,7 +14,7 @@ public class UserManagerImpl implements UserManager {
 	}
 
 	@Override
-	public void modificationUtilisateur(Utilisateur utilisateur) {
+	public void modificationUtilisateur(Utilisateur utilisateur) throws BusinessException {
 		dao.modificationUtilisateur(utilisateur);
 
 	}
