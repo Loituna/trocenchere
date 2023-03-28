@@ -27,7 +27,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 	}
 
-	private static final String SELECT="SELECT id FROM utilisateur WHERE prenom = ? AND mdp = ?;";
+	private static final String SELECT="SELECT id FROM utilisateur WHERE pseudo = ? AND mdp = ?;";
 
 	@Override
 	public void authentificationUtilisateur(Utilisateur utilisateur) throws BusinessException {
