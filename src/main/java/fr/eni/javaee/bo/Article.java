@@ -1,6 +1,5 @@
 package fr.eni.javaee.bo;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
