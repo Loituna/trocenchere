@@ -81,7 +81,7 @@ public class ServletConnexion extends HttpServlet {
         session.setAttribute(SESSION_UTILISATEUR_ID, pseudo);
         session.setAttribute(SESSION_UTILISATEUR_PSEUDO, pseudo);
         
-		response.sendRedirect("./ServletAccueil");
+		response.sendRedirect("./ServletAccueuil");
 	}
 
 }
