@@ -20,7 +20,10 @@ public abstract class CodesResultatDAL {
 	 */
 	public static final int SELECT_UTILISATEUR_ECHEC=10002;
 	
-	public static final int SELECT_UTILISATEUR_MDP_ECHEC=10003;
+	public static final int DELETE_UTILISATEUR_ECHEC = 10003;
+	
+	public static final int SELECT_UTILISATEUR_MDP_ECHEC=10004;
+
 	
 	
 }
