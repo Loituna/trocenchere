@@ -129,14 +129,8 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 	@Override
 	public void deconnexionUtilisateur(Utilisateur utilisateur) throws BusinessException {
-	    BusinessException businessException = new BusinessException();
-	    if (utilisateur == null) {
-	        businessException.ajouterErreur(CodesResultatDAL.UTILISATEUR_NON_CONNECTE);
-	        throw businessException;
-	    }
-	    utilisateur.setNoUtilisateur(null);
-	    // Vous pouvez également ajouter d'autres actions à effectuer lors de la déconnexion, 
-	    // comme réinitialiser les données de session, vider le panier, etc.
+
+
 	}
 
 
