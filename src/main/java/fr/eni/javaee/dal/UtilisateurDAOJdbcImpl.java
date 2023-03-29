@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import fr.eni.javaee.bll.BusinessException;
+import fr.eni.javaee.bll.UserManager;
+import fr.eni.javaee.bll.UserManagerImpl;
 import fr.eni.javaee.bo.Utilisateur;
 
 public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
@@ -14,6 +16,18 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	private static final String SELECT_UTILISATEUR = "SELECT no_utilisateur FROM utilisateur WHERE pseudo = ? AND mots_passe = ?";
 	private static final String DELETE_UTILISATEUR = "DELETE FROM UTILISATEUR where no_utilisateur =?";
 	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEUR set pseudo = ?, nom =? , prenom =. ,email =?,telephone =? ,rue =? ,code_postal =? ,ville =? , mots_passe =? , credit =?  WHERE no_utilisateur =?";
+
+	private static UtilisateurDAOJdbcImpl instance ;
+	
+	public static UtilisateurDAOJdbcImpl getInstance() {
+		if (instance == null) {
+			instance = new UtilisateurDAOJdbcImpl();
+		}
+		return instance ;
+	}
+
+	private UtilisateurDAOJdbcImpl() {
+	}
 
 	@Override
 	public void creationUtilisateur(Utilisateur utilisateur) throws BusinessException {
