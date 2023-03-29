@@ -14,14 +14,15 @@ import fr.eni.javaee.dal.UtilisateurDAOJdbcImpl;
 /**
  * Servlet implementation class ServletTestDal
  */
-@WebServlet("/ServletTestDal")
-public class ServletTestDal extends HttpServlet {
+@WebServlet("/ServletTestInsertUser")
+public class ServletTestInsertUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ServletTestDal() {
+	
+	public ServletTestInsertUser() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

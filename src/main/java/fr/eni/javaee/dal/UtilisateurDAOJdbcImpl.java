@@ -34,7 +34,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			pstmt.setString(6, utilisateur.getRue());
 			pstmt.setString(7, utilisateur.getCP());
 			pstmt.setString(8, utilisateur.getVille());
-			pstmt.setString(9, utilisateur.getMdp());		
+			pstmt.setString(9, utilisateur.getMdp());
 			pstmt.executeUpdate();
 			ResultSet rs = pstmt.getGeneratedKeys();
 			if (rs.next()) {
@@ -59,7 +59,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 	@Override
 	public void modificationUtilisateur(Utilisateur utilisateur) throws BusinessException {
-		try (Connection cnx = ConnectionProvider.getConnection()){
+		try (Connection cnx = ConnectionProvider.getConnection()) {
 			PreparedStatement pstmt = cnx.prepareStatement(UPDATE_UTILISATEUR);
 			pstmt.setString(1, utilisateur.getPseudo());
 			pstmt.setString(2, utilisateur.getNom());
@@ -72,14 +72,13 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			pstmt.setString(9, utilisateur.getMdp());
 			pstmt.setInt(10, utilisateur.getCredit());
 			pstmt.executeUpdate();
-		}catch (Exception e) {
-			e.printStackTrace();;
+		} catch (Exception e) {
+			e.printStackTrace();
+			;
 			BusinessException businessException = new BusinessException();
 			businessException.ajouterErreur(CodesResultatDAL.ECHEC_UPDATE_UTILISATEUR);
 			throw businessException;
 		}
-		
-		
 
 	}
 
@@ -129,9 +128,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	@Override
 	public void deconnexionUtilisateur(Utilisateur utilisateur) {
 
-
 	}
-
 
 	@Override
 	public void afficherUtilisateur(Utilisateur utilisateur) {
