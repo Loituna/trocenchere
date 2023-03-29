@@ -10,7 +10,7 @@ import fr.eni.javaee.bo.Utilisateur;
 
 public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
-	private static final String CREATION_UTILISATEUR = "INSERT INTO UTILISATEUR(pseudo, nom, prenom, email, telephone,rue,code_postal,ville,mots_passe,credit) VALUES(?,?,?,?,?,?,?,?,?,?)";
+	private static final String CREATION_UTILISATEUR = "INSERT INTO UTILISATEUR(pseudo, nom, prenom, email, telephone,rue,code_postal,ville,mots_passe) VALUES(?,?,?,?,?,?,?,?,?)";
 	private static final String SELECT_UTILISATEUR = "SELECT no_utilisateur FROM utilisateur WHERE pseudo = ? AND mots_passe = ?";
 	private static final String DELETE_UTILISATEUR = "DELETE FROM UTILISATEUR where no_utilisateur =?";
 	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEUR set pseudo = ?, nom =? , prenom =. ,email =?,telephone =? ,rue =? ,code_postal =? ,ville =? , mots_passe =? , credit =?  WHERE no_utilisateur =?";
@@ -34,8 +34,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			pstmt.setString(6, utilisateur.getRue());
 			pstmt.setString(7, utilisateur.getCP());
 			pstmt.setString(8, utilisateur.getVille());
-			pstmt.setString(9, utilisateur.getMdp());
-			pstmt.setInt(10, utilisateur.getCredit());
+			pstmt.setString(9, utilisateur.getMdp());		
 			pstmt.executeUpdate();
 			ResultSet rs = pstmt.getGeneratedKeys();
 			if (rs.next()) {

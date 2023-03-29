@@ -1,4 +1,4 @@
-package fr.eni.javaee.servlet;
+package fr.eni.javaee.servlet.test;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -31,7 +31,7 @@ public class ServletTestDal extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		Utilisateur u = new Utilisateur("Dell", "Bpm", "Toto", "azerty@gmail.com", "0685462929", "5 rue mendes", "35000", "Rennes", "1234", 100);
+		Utilisateur u = new Utilisateur("Dell", "Bpm", "Toto", "azerty@gmail.com", "0685462929", "5 rue mendes", "35000", "Rennes", "1234");
 		
 		UtilisateurDAOJdbcImpl dao = new UtilisateurDAOJdbcImpl();
 		try {

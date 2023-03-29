@@ -25,7 +25,7 @@
 		<br>
 		<label for="idVille">Ville : </label><input type="text" id="idVille" name="Ville" value="<%=request.getParameter("Ville")%>"/>
 		<br>
-		<label for="idMDP">Mot de passe : </label><input type="text" id="idMDP" name="MDP" value="<%=request.getParameter("pseudo")%>"/>
+		<label for="idMDP">Mot de passe : </label><input type="text" id="idMDP" name="MDP" value="<%=request.getParameter("MDP")%>"/>
 		<br>
 		<label for="idMDPconfirm">Confirmation Mot de Passe : </label><input type="text" id="idMDPconfirm" name="MDPconfirm" value="<%=request.getParameter("MDPConfirm")%>"/>
 		<br>
