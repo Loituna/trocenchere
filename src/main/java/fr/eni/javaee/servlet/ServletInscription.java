@@ -1,6 +1,9 @@
 package fr.eni.javaee.servlet;
 
 import java.io.IOException;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,9 +12,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.javaee.bll.BusinessException;
 import fr.eni.javaee.bll.UserManager;
+import fr.eni.javaee.bll.UserManagerImpl;
 import fr.eni.javaee.bll.UserManagerSingleton;
 import fr.eni.javaee.bo.Utilisateur;
+import fr.eni.javaee.dal.UtilisateurDAOJdbcImpl;
+import fr.eni.javaee.messages.LecteurMessage;
 
 /**
  * Servlet implementation class ServletInscription
@@ -61,17 +68,32 @@ public class ServletInscription extends HttpServlet {
 		creation.setPseudo(pseudo = request.getParameter("pseudo"));
 		creation.setNom(nom = request.getParameter("Nom"));
 		creation.setPrenom(prenom = request.getParameter("Prenom"));
-		creation.setEmail(email = request.getParameter("Nom"));
-		creation.setTelephone(telephone = request.getParameter("Nom"));
-		creation.setRue(rue = request.getParameter("Nom"));
-		creation.setCP(CP = request.getParameter("Nom"));
-		creation.setVille(Ville = request.getParameter("Nom"));
-
-		if ((MDP = request.getParameter("MDP")).equalsIgnoreCase(MDPconfirm = request.getParameter("MDPconfirm")))
-			creation.setMdp(MDPconfirm);
-		else {// lever exception mdp different
+		creation.setEmail(email = request.getParameter("Email"));
+		creation.setTelephone(telephone = request.getParameter("Telephone"));
+		creation.setRue(rue = request.getParameter("Rue"));
+		creation.setCP(CP = request.getParameter("CodePostal"));
+		creation.setVille(Ville = request.getParameter("Ville"));
 			
+		
+		if ((MDP = request.getParameter("MDP")).equals(MDPconfirm = request.getParameter("MDPconfirm")))
+			creation.setMdp(MDPconfirm);
+		else {
+			System.out.println(" Erreur mdp > mdp confirm");
 
+		}
+			
+		try {
+			UserManagerSingleton.getInstance().creationUtilisateur(creation);
+
+		} catch (BusinessException e) {
+			request.setAttribute("listeCodesErreur", e.getListeCodesErreur());
+			request.setAttribute("ListeMessageErreur", e.getListeCodesErreur().stream()
+					.map(x -> LecteurMessage.getMessageErreur(x)).collect(Collectors.toList()));
+			e.printStackTrace();
+			System.out.println("Erreur creation utilisateur");
+		}
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/accueilConnecte.jsp");
+		rd.forward(request, response);
 	}
-	}
+
 }
