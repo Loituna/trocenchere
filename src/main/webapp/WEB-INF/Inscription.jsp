@@ -37,6 +37,8 @@
 			
 	
 	</form>
-		<input type="submit" value="Annulation"/>
+		<a href="ServletAccueil">
+			<input type="submit" value="Annulation"/>
+		</a>
 </body>
 </html>
