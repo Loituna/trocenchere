@@ -9,7 +9,7 @@ public interface UtilisateurDAO {
 
 	public void modificationUtilisateur(Utilisateur utilisateur) throws BusinessException;
 
-	public void suppressionUtilisateur(Utilisateur utilisateur);
+	public void suppressionUtilisateur(Integer noUtilisateur) throws BusinessException;
 
 	public void authentificationUtilisateur(Utilisateur utilisateur) throws BusinessException;
 
