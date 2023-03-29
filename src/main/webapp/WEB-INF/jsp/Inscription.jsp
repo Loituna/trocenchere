@@ -6,11 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Formulaire d'inscription</title>
+
+<link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
 <%
 		List<String> listeMessagesErreur = (List<String>)request.getAttribute("listeMessagesErreur");
 	%>
+	
+	<h1>Mon profil</h1>
+	
 	<form action="<%=request.getContextPath()%>/ServletInscription"method="post">
 		<label for="idPseudo">Pseudo : </label><input type="text" id="idPseudo" name="pseudo"  required="required" value="<%=listeMessagesErreur!=null?request.getParameter("pseudo"):""%>"/>
 		<br>

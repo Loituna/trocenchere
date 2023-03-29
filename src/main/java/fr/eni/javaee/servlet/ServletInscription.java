@@ -35,7 +35,7 @@ public class ServletInscription extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/Inscription.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/Inscription.jsp");
 		rd.forward(request, response);
 	}
 
@@ -78,7 +78,7 @@ public class ServletInscription extends HttpServlet {
 			System.out.println("PATATE");
 			e.printStackTrace();
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/accueilConnecte.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueilConnecte.jsp");
 		rd.forward(request, response);	
 	
 	}
