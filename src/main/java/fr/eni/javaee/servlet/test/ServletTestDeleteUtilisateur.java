@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.javaee.bll.BusinessException;
 import fr.eni.javaee.bll.UserManager;
+import fr.eni.javaee.bll.UserManagerSingleton;
+import fr.eni.javaee.bo.Utilisateur;
 
 /**
  * Servlet implementation class ServletTestDeleteUtilisateur
@@ -30,8 +32,8 @@ public class ServletTestDeleteUtilisateur extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UserManager manager = new UserManager();
-		try { manager.suppressionUtilisateur(1);
+		Utilisateur util = new Utilisateur();
+		try { UserManagerSingleton.getInstance().suppressionUtilisateur(util);
 
 		} catch (BusinessException e){
 			e.printStackTrace();

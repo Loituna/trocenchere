@@ -20,7 +20,7 @@ public class UserManagerImpl implements UserManager {
 	}
 
 	@Override
-	public void suppressionUtilisateur(Utilisateur utilisateur) {
+	public void suppressionUtilisateur(Utilisateur utilisateur) throws BusinessException {
 		dao.suppressionUtilisateur(utilisateur);
 
 	}
@@ -52,5 +52,17 @@ public class UserManagerImpl implements UserManager {
 	public void afficherUtilisateur(Utilisateur utilisateur) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public Utilisateur getUserByNometPassWord(String nom, String password) throws BusinessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Utilisateur getUserById(int id) throws BusinessException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
