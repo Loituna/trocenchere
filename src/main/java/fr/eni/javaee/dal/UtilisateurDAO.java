@@ -4,18 +4,17 @@ import fr.eni.javaee.bll.BusinessException;
 import fr.eni.javaee.bo.Utilisateur;
 
 public interface UtilisateurDAO {
-	
-	public void creationUtilisateur (Utilisateur utilisateur) throws BusinessException;
-	
-	public void modificationUtilisateur (Utilisateur utilisateur) throws BusinessException;
-	
-	public void suppressionUtilisateur (Utilisateur utilisateur);
-	
+
+	public void creationUtilisateur(Utilisateur utilisateur) throws BusinessException;
+
+	public void modificationUtilisateur(Utilisateur utilisateur) throws BusinessException;
+
+	public void suppressionUtilisateur(Utilisateur utilisateur);
+
 	public void authentificationUtilisateur(Utilisateur utilisateur) throws BusinessException;
-	
-	public void deconnexionUtilisateur (Utilisateur utilisateur) throws BusinessException;
-	
-	public void afficherUtilisateur (Utilisateur utilisateur);
-	
+
+	public void deconnexionUtilisateur(Utilisateur utilisateur) ;
+
+	public void afficherUtilisateur(Utilisateur utilisateur);
 
 }

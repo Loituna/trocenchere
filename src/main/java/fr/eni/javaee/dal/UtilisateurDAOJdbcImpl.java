@@ -128,7 +128,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	}
 
 	@Override
-	public void deconnexionUtilisateur(Utilisateur utilisateur) throws BusinessException {
+	public void deconnexionUtilisateur(Utilisateur utilisateur) {
 
 
 	}
