@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import fr.eni.javaee.bll.BusinessException;
+import fr.eni.javaee.bll.UserManager;
+import fr.eni.javaee.bll.UserManagerImpl;
 import fr.eni.javaee.bo.Utilisateur;
 
 public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
@@ -14,6 +16,18 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	private static final String SELECT_UTILISATEUR = "SELECT no_utilisateur FROM utilisateur WHERE pseudo = ? AND mots_passe = ?";
 	private static final String DELETE_UTILISATEUR = "DELETE FROM UTILISATEUR where no_utilisateur =?";
 	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEUR set pseudo = ?, nom =? , prenom =. ,email =?,telephone =? ,rue =? ,code_postal =? ,ville =? , mots_passe =? , credit =?  WHERE no_utilisateur =?";
+
+	private static UtilisateurDAOJdbcImpl instance ;
+	
+	public static UtilisateurDAOJdbcImpl getInstance() {
+		if (instance == null) {
+			instance = new UtilisateurDAOJdbcImpl();
+		}
+		return instance ;
+	}
+
+	private UtilisateurDAOJdbcImpl() {
+	}
 
 	@Override
 	public void creationUtilisateur(Utilisateur utilisateur) throws BusinessException {
@@ -34,7 +48,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			pstmt.setString(6, utilisateur.getRue());
 			pstmt.setString(7, utilisateur.getCP());
 			pstmt.setString(8, utilisateur.getVille());
-			pstmt.setString(9, utilisateur.getMdp());
+			pstmt.setString(9, utilisateur.getMdp());		
 			pstmt.executeUpdate();
 			ResultSet rs = pstmt.getGeneratedKeys();
 			if (rs.next()) {
@@ -59,7 +73,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 	@Override
 	public void modificationUtilisateur(Utilisateur utilisateur) throws BusinessException {
-		try (Connection cnx = ConnectionProvider.getConnection()) {
+		try (Connection cnx = ConnectionProvider.getConnection()){
 			PreparedStatement pstmt = cnx.prepareStatement(UPDATE_UTILISATEUR);
 			pstmt.setString(1, utilisateur.getPseudo());
 			pstmt.setString(2, utilisateur.getNom());
@@ -72,13 +86,14 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			pstmt.setString(9, utilisateur.getMdp());
 			pstmt.setInt(10, utilisateur.getCredit());
 			pstmt.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-			;
+		}catch (Exception e) {
+			e.printStackTrace();;
 			BusinessException businessException = new BusinessException();
 			businessException.ajouterErreur(CodesResultatDAL.ECHEC_UPDATE_UTILISATEUR);
 			throw businessException;
 		}
+		
+		
 
 	}
 
@@ -128,7 +143,9 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	@Override
 	public void deconnexionUtilisateur(Utilisateur utilisateur) {
 
+
 	}
+
 
 	@Override
 	public void afficherUtilisateur(Utilisateur utilisateur) {

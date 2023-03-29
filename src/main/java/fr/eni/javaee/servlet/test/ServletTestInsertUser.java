@@ -37,7 +37,7 @@ public class ServletTestInsertUser extends HttpServlet {
 		Utilisateur u = new Utilisateur("Dell", "Bpm", "Toto", "azerty@gmail.com", "0685462929", "5 rue mendes",
 				"35000", "Rennes", "1234");
 
-		UtilisateurDAOJdbcImpl dao = new UtilisateurDAOJdbcImpl();
+		UtilisateurDAOJdbcImpl dao = UtilisateurDAOJdbcImpl.getInstance();
 		try {
 			dao.creationUtilisateur(u);
 		} catch (BusinessException e) {
