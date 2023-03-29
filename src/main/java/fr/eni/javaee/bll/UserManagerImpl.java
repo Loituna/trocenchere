@@ -38,7 +38,7 @@ public class UserManagerImpl implements UserManager {
 			dao.authentificationUtilisateur(instance);
 		} catch (BusinessException e) {
 			e.printStackTrace();
-			System.out.println("Erreur coo depuis servlet");
+			System.out.println("Erreur coo depuis manager");
 		}
 	}
 
