@@ -26,6 +26,8 @@ public abstract class CodesResultatDAL {
 
 	public static final int ECHEC_UPDATE_UTILISATEUR = 10005;
 
+	public static final int UTILISATEUR_NON_CONNECTE = 10006;
+
 	
 	
 }
