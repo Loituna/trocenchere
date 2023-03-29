@@ -53,4 +53,16 @@ public class UserManagerImpl implements UserManager {
 		// TODO Auto-generated method stub
 
 	}
+
+	@Override
+	public Utilisateur getUserByNometPassWord(String nom, String password) throws BusinessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Utilisateur getUserById(int id) throws BusinessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

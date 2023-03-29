@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<form action="<%=request.getContextPath()%>/ServletConnexion"method="post">
+	<form action="<%=request.getContextPath()%>/ServletInscription"method="post">
 		<label for="idPseudo">Pseudo : </label><input type="text" id="idPseudo" name="pseudo" value="<%=request.getParameter("pseudo")%>"/>
 		<br>
 		<label for="idNom">Nom : </label><input type="text" id="idNom" name="Nom" value="<%=request.getParameter("Nom")%>"/>

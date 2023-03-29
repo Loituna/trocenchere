@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.javaee.bll.BusinessException;
+<<<<<<< HEAD
+=======
+import fr.eni.javaee.bll.UserManager;
+>>>>>>> branch 'master' of https://github.com/Loituna/trocenchere.git
 import fr.eni.javaee.bll.UserManagerSingleton;
 import fr.eni.javaee.bo.Utilisateur;
 
@@ -31,10 +35,17 @@ public class ServletTestDeleteUtilisateur extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+<<<<<<< HEAD
 		Utilisateur user = new Utilisateur();
 		try {
 			UserManagerSingleton.getInstance().suppressionUtilisateur(user);
 		}catch (BusinessException e) {
+=======
+		Utilisateur util = new Utilisateur();
+		try { UserManagerSingleton.getInstance().suppressionUtilisateur(util);
+
+		} catch (BusinessException e){
+>>>>>>> branch 'master' of https://github.com/Loituna/trocenchere.git
 			e.printStackTrace();
 		}
 		

@@ -6,10 +6,9 @@ public class UserManagerSingleton {
 	
 	public static UserManager getInstance() {
 		if (instance == null) {
-			instance = new UserManagerImpl();
-			
+			instance = new UserManagerImpl();	
 		}
 		return instance ;
 	}
-	
+	  
 }

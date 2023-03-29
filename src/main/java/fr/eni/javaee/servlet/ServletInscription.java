@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.javaee.bll.BusinessException;
 import fr.eni.javaee.bll.UserManager;
 import fr.eni.javaee.bll.UserManagerSingleton;
 import fr.eni.javaee.bo.Utilisateur;
@@ -61,17 +62,24 @@ public class ServletInscription extends HttpServlet {
 		creation.setPseudo(pseudo = request.getParameter("pseudo"));
 		creation.setNom(nom = request.getParameter("Nom"));
 		creation.setPrenom(prenom = request.getParameter("Prenom"));
-		creation.setEmail(email = request.getParameter("Nom"));
-		creation.setTelephone(telephone = request.getParameter("Nom"));
-		creation.setRue(rue = request.getParameter("Nom"));
-		creation.setCP(CP = request.getParameter("Nom"));
-		creation.setVille(Ville = request.getParameter("Nom"));
+		creation.setEmail(email = request.getParameter("Email"));
+		creation.setTelephone(telephone = request.getParameter("Telephone"));
+		creation.setRue(rue = request.getParameter("Rue"));
+		creation.setCP(CP = request.getParameter("CodePostal"));
+		creation.setVille(Ville = request.getParameter("Ville"));
 
-		if ((MDP = request.getParameter("MDP")).equalsIgnoreCase(MDPconfirm = request.getParameter("MDPconfirm")))
+		if ((MDP = request.getParameter("MDP")).equalsIgnoreCase(MDPconfirm = request.getParameter("MDPconfirm"))) {
 			creation.setMdp(MDPconfirm);
-		else {// lever exception mdp different
 			
-
-	}
+		}
+		try {
+			UserManagerSingleton.getInstance().creationUtilisateur(creation);
+		} catch (BusinessException e) {
+			System.out.println("PATATE");
+			e.printStackTrace();
+		}
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/accueilConnecte.jsp");
+		rd.forward(request, response);	
+	
 	}
 }
