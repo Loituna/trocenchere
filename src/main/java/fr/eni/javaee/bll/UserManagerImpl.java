@@ -20,7 +20,7 @@ public class UserManagerImpl implements UserManager {
 	}
 
 	@Override
-	public void suppressionUtilisateur(Utilisateur utilisateur) {
+	public void suppressionUtilisateur(Utilisateur utilisateur) throws BusinessException {
 		dao.suppressionUtilisateur(utilisateur);
 
 	}
