@@ -98,11 +98,11 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	}
 
 	@Override
-	public void suppressionUtilisateur(Utilisateur utilisateur) {
+	public void suppressionUtilisateur(Integer noUtilisateur) {
 		// TODO Auto-generated method stub
 		try (Connection cnx = ConnectionProvider.getConnection()) {
 			PreparedStatement pstmt = cnx.prepareStatement(DELETE_UTILISATEUR);
-			pstmt.setInt(1, utilisateur.getNoUtilisateur());
+			pstmt.setInt(1, noUtilisateur);
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
