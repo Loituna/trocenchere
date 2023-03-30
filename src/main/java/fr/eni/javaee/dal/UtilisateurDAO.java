@@ -11,7 +11,7 @@ public interface UtilisateurDAO {
 
 	public void suppressionUtilisateur(Utilisateur utilisateur) throws BusinessException;
 
-	public void authentificationUtilisateur(Utilisateur utilisateur) throws BusinessException;
+	public Utilisateur authentificationUtilisateur(Utilisateur utilisateur) throws BusinessException;
 
 	public void deconnexionUtilisateur(Utilisateur utilisateur) ;
 

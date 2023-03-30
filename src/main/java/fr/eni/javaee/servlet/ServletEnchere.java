@@ -1,4 +1,4 @@
-package fr.eni.javaee.servlet.test;
+package fr.eni.javaee.servlet;
 
 import java.io.IOException;
 
@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ServletTestAffichageUtilisateur
+ * Servlet implementation class ServletEnchere
  */
-@WebServlet("/ServletTestAffichageUtilisateur")
-public class ServletTestAffichageUtilisateur extends HttpServlet {
+@WebServlet("/ServletEnchere")
+public class ServletEnchere extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletTestAffichageUtilisateur() {
+    public ServletEnchere() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,10 +28,10 @@ public class ServletTestAffichageUtilisateur extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/afficherUtilisateur.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/NouvelleEnchere.jsp");
 		rd.forward(request, response);
 	}
-  
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
