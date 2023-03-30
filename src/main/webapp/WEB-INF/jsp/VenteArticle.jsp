@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
 <%@page import="java.util.List"%>
 <link href="./css/style.css" rel="stylesheet">
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
