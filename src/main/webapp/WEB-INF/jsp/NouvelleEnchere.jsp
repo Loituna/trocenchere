@@ -2,18 +2,20 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@page import="java.util.List"%>
-<%@page import="fr.eni.javaee.bo.Article;" %>
+<%@page import="fr.eni.javaee.bo.Article" %>
 
-<%
-		List<String> listeMessagesErreur = (List<String>)request.getAttribute("listeMessagesErreur");
-	%>
-	<% Article instance ; %>
+
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Enchere</title>
 </head>
 <body>
+<%
+		List<String> listeMessagesErreur = (List<String>)request.getAttribute("listeMessagesErreur");
+	%>
+	<% Article instance ; %>
+
 	<h3>Site d'enchere en ligne le plus beau de la promo</h3>
 	<h1>Détails Vente </h1>
 	
