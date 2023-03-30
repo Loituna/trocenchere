@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+h4{
+	text-align: center;
+}
+
+.article{
+	position : relative ;
+	text-align: center;
+	border : solid 0.1px;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+	width : 400px;
+	height : 200px;
+	border-radius: 10px;
+	margin : auto;
+}
+
+.bouton{
+	width : 80px;
+	height : 40px;
+	border : solid 0.1px;
+	border-radius: 6px;
+}
