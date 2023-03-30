@@ -51,7 +51,7 @@ public class ServletVenteArticle extends HttpServlet {
 		creation.setDescription(request.getParameter("descriptionArticle"));
 		creation.setDateDebutEnchere(LocalDateTime.parse(request.getParameter("DebutEnchere")));
 		creation.setDateFinEnchere(LocalDateTime.parse(request.getParameter("FinEnchere")));
-		creation.setPrixInitial(Integer.parseInt(request.getParameter("crédit")));
+		creation.setPrixInitial(Integer.parseInt(request.getParameter("credit")));
 		
 		
 		try {

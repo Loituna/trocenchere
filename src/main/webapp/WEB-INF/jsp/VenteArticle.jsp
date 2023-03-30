@@ -18,11 +18,11 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 	<form action="<%=request.getContextPath()%>/ServletVenteArticle"
 		method="post">
 		<label for="nomArticle">Article : </label><input type="text"
-			id="nomArticle" name="nom de l'article" required="required"
+			id="nomArticle" name="nomArticle" required="required"
 			value="<%=listeMessagesErreur != null ? request.getParameter("nomArticle") : ""%>" />
 			<br>
 		<label for="descriptionArticle">Description : </label><input
-			type="text" id="descriptionArticle" name="description article" required="required"
+			type="text" id="descriptionArticle" name="descriptionArticle" required="required"
 			value="<%=listeMessagesErreur != null ? request.getParameter("descriptionArticle") : ""%>" />
 			<br>
 		<select name="Liste Categorie" id="listcate">
@@ -38,13 +38,13 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		<label>Photo de l'article </label>
 		<input type="file" id="photoArticle" name="Bouton cliquable pour uloader la Photo de votre Article" >
 		<br>
-		<input type="number" id="credit" name ="Mise de départ" min ="100" max="1000">
+		<input type="number" id="credit" name ="credit" min ="100" max="1000">
 		<br>
 		
 		<label for="DebutEnchere">Debut de votre enchère</label>
 
 		<input type="datetime-local" id="DebutEnchere"
-       name="Debut de votre enchere" value="2023-03-12T6:53"
+       name="DebutEnchere" value="2023-03-12T6:53"
        min="2023-03-12T6:53" max="2023-06-14T00:00">
 		
 		<br>
@@ -52,21 +52,21 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		<label for="FinEnchere">Fin de votre enchère</label>
 
 		<input type="datetime-local" id="FinEnchere"
-       name="Fin de votre enchere" value="2023-03-12T6:53"
+       name="FinEnchere" value="2023-03-12T6:53"
        min="2023-03-12T6:53" max="2030-06-14T00:00">
        
        <div>
        <h2>Retrait</h2>
        <label for="rueRetrait">Rue :  </label><input type="text"
-			id="rueRetrait" name="adresse de retrait de l'article" required="required"
+			id="rueRetrait" name="rueRetrait" required="required"
 			value="<%=listeMessagesErreur != null ? request.getParameter("adresseRetrait") : "Adresse par default a completer"%>" />
 			<br>
 			<label for="CPRetrait">Rue :  </label><input type="text"
-			id="CPRetrait" name="code postale de retrait de l'article" required="required"
+			id="CPRetrait" name="CPRetrait" required="required"
 			value="<%=listeMessagesErreur != null ? request.getParameter("CPRetrait") : "CP par default a completer"%>" />
 			<br>
 				<label for="VilleRetrait">Rue :  </label><input type="text"
-			id="VilleRetrait" name="Ville de retrait de l'article" required="required"
+			id="VilleRetrait" name="VilleRetrait" required="required"
 			value="<%=listeMessagesErreur != null ? request.getParameter("VilleRetrait") : "Ville par default a completer"%>" />
 			<br>
        

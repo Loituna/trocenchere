@@ -11,7 +11,7 @@
 <title>Enchere</title>
 </head>
 <body>
-
+<% 
 		List<String> listeMessagesErreur = (List<String>)request.getAttribute("listeMessagesErreur");
 	%>
 	<% Article instance ; %>
