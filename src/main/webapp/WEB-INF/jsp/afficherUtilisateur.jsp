@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="fr.eni.javaee.bo.Utilisateur" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,23 +10,24 @@
 </head>
 <h3>Site d'enchere en ligne le plus beau de la promo</h3>
 <body>
-
-		<label for="idPseudo">Pseudo : </label><label<%=request.getParameter("pseudo")%>> </label>
+	
+	<form action="<%=request.getContextPath()%>/ServletTestAffichageUtilisateur method="post">
+		<label for="idPseudo">Pseudo : </label>${utilisateur.pseudo}
 		<br>
-		<label for="idNom">Nom : </label><input type="text" id="idNom" name="Nom" value="<%=request.getParameter("Nom")%>"/>
+		<label for="idNom">Nom : </label>${utilisateur.nom}
 		<br>
-		<label for="idPrenom">Prenom : </label><input type="text" id="idPrenom" name="Prenom" value="<%=request.getParameter("Prenom")%>"/>
+		<label for="idPrenom">Prenom : </label>${utilisateur.prenom}
 		<br>
-		<label for="idEmail">Email : </label><input type="text" id="idEmail" name="Email" value="<%=request.getParameter("Email")%>"/>
+		<label for="idEmail">Email : </label> ${utilisateur.email}
 		<br>
-		<label for="idTelephone">Téléphone : </label><input type="text" id="idTelephone" name="Telephone" value="<%=request.getParameter("Telephone")%>"/>
+		<label for="idTelephone">Téléphone : </label> ${utilisateur.telephone}
 		<br>
-		<label for="idRue">Rue : </label><input type="text" id="idRue" name="Rue" value="<%=request.getParameter("Rue")%>"/>
+		<label for="idRue">Rue : </label>${utilisateur.rue}
 		<br>
-		<label for="idCodePostal">Code Postal : </label><input type="text" id="idCodePostal" name="CodePostal" value="<%=request.getParameter("CodePostal")%>"/>
+		<label for="idCodePostal">Code Postal : </label>${utilisateur.CP}
 		<br>
-		<label for="idVille">Ville : </label><input type="text" id="idVille" name="Ville" value="<%=request.getParameter("Ville")%>"/>
+		<label for="idVille">Ville : </label> ${utilisateur.ville}	
 		<br>
-
+</form>
 </body>
 </html>

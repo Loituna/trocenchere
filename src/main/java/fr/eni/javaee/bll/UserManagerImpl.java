@@ -65,7 +65,6 @@ public class UserManagerImpl implements UserManager {
 
 	@Override
 	public Utilisateur getUserById(int id) throws BusinessException {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.selectByNoUtilisateur (id);
 	}
 }
