@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.javaee.bll.BusinessException;
 import fr.eni.javaee.bo.Article;
 import fr.eni.javaee.bo.Enchere;
 import fr.eni.javaee.dal.DAOFactory;
@@ -53,8 +54,15 @@ public class ServletVenteArticle extends HttpServlet {
 		creation.setPrixInitial(Integer.parseInt(request.getParameter("crédit")));
 		
 		
-		
-		doGet(request, response);
+		try {
+			DAOFactory.getArticleDao().insertArticle(creation);
+		} catch (BusinessException e) {
+			request.setAttribute("Erreur", "PATATE");
+			System.out.println("PATATE");
+			e.printStackTrace();
+		}
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueilConnecte.jsp");
+		rd.forward(request, response);	
 	}
 
 }

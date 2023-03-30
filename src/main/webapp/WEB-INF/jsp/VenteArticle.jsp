@@ -65,12 +65,13 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 			value="<%=listeMessagesErreur != null ? request.getParameter("CPRetrait") : "CP par default a completer"%>" />
 			<br>
 				<label for="VilleRetrait">Rue :  </label><input type="text"
-			id="VilleRetrait" name="cVille de retrait de l'article" required="required"
+			id="VilleRetrait" name="Ville de retrait de l'article" required="required"
 			value="<%=listeMessagesErreur != null ? request.getParameter("VilleRetrait") : "Ville par default a completer"%>" />
 			<br>
        
        </div>
        <input type="submit" value="Validation Enchere"/>
+       
 	</form>
 	<a href="ServletAccueilCoo">
 			<input type="submit" value="Annulation"/>
