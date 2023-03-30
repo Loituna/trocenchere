@@ -49,7 +49,7 @@
 		<button type="button">Supprimer mon compte</button>
 		
 </form>
-	<a href="./ServletAccueillCoo"> <button  type="button">Annuler</button> </a>
+	<a href="./ServletAccueilCoo"> <button  type="button">Annuler</button> </a>
 
 
 </body>
