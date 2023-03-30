@@ -45,6 +45,8 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
        name="Debut de votre enchere" value="2023-03-12T6:53"
        min="2023-03-12T6:53" max="2023-06-14T00:00">
 		
+		<br>
+		
 		<label for="FinEnchere">Fin de votre enchère</label>
 
 		<input type="datetime-local" id="FinEnchere"
@@ -53,8 +55,24 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
        
        <div>
        <h2>Retrait</h2>
+       <label for="rueRetrait">Rue :  </label><input type="text"
+			id="rueRetrait" name="adresse de retrait de l'article" required="required"
+			value="<%=listeMessagesErreur != null ? request.getParameter("adresseRetrait") : "Adresse par default a completer"%>" />
+			<br>
+			<label for="CPRetrait">Rue :  </label><input type="text"
+			id="CPRetrait" name="code postale de retrait de l'article" required="required"
+			value="<%=listeMessagesErreur != null ? request.getParameter("CPRetrait") : "CP par default a completer"%>" />
+			<br>
+				<label for="VilleRetrait">Rue :  </label><input type="text"
+			id="VilleRetrait" name="cVille de retrait de l'article" required="required"
+			value="<%=listeMessagesErreur != null ? request.getParameter("VilleRetrait") : "Ville par default a completer"%>" />
+			<br>
        
        </div>
+       <input type="submit" value="Validation Enchere"/>
 	</form>
+	<a href="ServletAccueilCoo">
+			<input type="submit" value="Annulation"/>
+		</a>
 </body>
 </html>
