@@ -12,9 +12,12 @@
 
 <ul>
 <a href="ServletVenteArticle">Vendre un article</a>
-<a href="ServletTestAffichageUtilisateur">Enchères</a>
-<a href="ServletAccueuilCoo">Mon Profil</a>
-<a href="ServletAccueuil">Deconnexion</a>
+
+<a href="ServletAccueuilCoo">Enchères</a>
+
+<a href="ServletTestAffichageUtilisateur">Mon profil</a>
+
+<a href="ServletAccueil">Deconnexion</a>
 
 
 </ul>
@@ -22,7 +25,7 @@
 
 
 <p>Filtres : </p> <br>
-<form action="<%=request.getContextPath()%>/ServletAcueuil"method="post">
+<form action="<%=request.getContextPath()%>/ServletAcceuil"method="post">
 <input type="texte" id="searchart" name="barre de recherche article" value = "Le nom de l'article contient">
 
  </form>

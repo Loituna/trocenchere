@@ -6,8 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Formulaire d'inscription</title>
+
+
+<link href="./css/style1.css" rel="stylesheet">
+
 <h3>Site d'enchere en ligne le plus beau de la promo</h3>
-<link href="./css/style.css" rel="stylesheet">
+
 </head>
 <body>
 <%
