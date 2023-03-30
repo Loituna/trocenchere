@@ -26,6 +26,8 @@ public abstract class CodesResultatDAL {
 
 	public static final int ECHEC_UPDATE_UTILISATEUR = 10005;
 
+	public static final int INSERT_ARTICLE_NULL = 10006;
+
 
 	
 	

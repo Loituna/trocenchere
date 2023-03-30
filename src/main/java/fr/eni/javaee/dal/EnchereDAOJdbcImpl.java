@@ -5,6 +5,15 @@ import fr.eni.javaee.bo.Utilisateur;
 
 public class EnchereDAOJdbcImpl implements EnchereDAO {
 
+	private static EnchereDAOJdbcImpl instance;
+
+	public static EnchereDAOJdbcImpl getInstance() {
+		if (instance == null) {
+			instance = new EnchereDAOJdbcImpl();
+		}
+		return instance;
+	}
+
 	@Override
 	public void venteAricle(Enchere enchere) {
 		// TODO Auto-generated method stub

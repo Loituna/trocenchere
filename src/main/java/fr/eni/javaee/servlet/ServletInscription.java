@@ -46,38 +46,39 @@ public class ServletInscription extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String pseudo;
-		String nom;
-		String prenom;
-		String email;
-		String telephone;
-		String rue;
-		String CP;
-		String Ville;
-		String MDP;
-		String MDPconfirm;
 
-		Utilisateur creation = new Utilisateur();
-
-		creation.setPseudo(pseudo = request.getParameter("pseudo"));
-		creation.setNom(nom = request.getParameter("Nom"));
-		creation.setPrenom(prenom = request.getParameter("Prenom"));
-		creation.setEmail(email = request.getParameter("Email"));
-		creation.setTelephone(telephone = request.getParameter("Telephone"));
-		creation.setRue(rue = request.getParameter("Rue"));
-		creation.setCP(CP = request.getParameter("CodePostal"));
-		creation.setVille(Ville = request.getParameter("Ville"));
-
-		if ((MDP = request.getParameter("MDP")).equalsIgnoreCase(MDPconfirm = request.getParameter("MDPconfirm"))) {
-			creation.setMdp(MDPconfirm);
+		if ((request.getParameter("MDP")).equalsIgnoreCase(request.getParameter("MDPconfirm"))) {
+			
+			Utilisateur creation = new Utilisateur();
+	
+			creation.setPseudo(request.getParameter("pseudo"));
+			creation.setNom(request.getParameter("Nom"));
+			creation.setPrenom(request.getParameter("Prenom"));
+			creation.setEmail(request.getParameter("Email"));
+			creation.setTelephone(request.getParameter("Telephone"));
+			creation.setRue(request.getParameter("Rue"));
+			creation.setCP(request.getParameter("CodePostal"));
+			creation.setVille(request.getParameter("Ville"));
+			creation.setMdp(request.getParameter("MDP"));
+			
+			try {
+				UserManagerSingleton.getInstance().creationUtilisateur(creation);
+			} catch (BusinessException e) {
+				request.setAttribute("Erreur", "PATATE");
+				System.out.println("PATATE");
+				e.printStackTrace();
+			}
 			
 		}
-		try {
-			UserManagerSingleton.getInstance().creationUtilisateur(creation);
-		} catch (BusinessException e) {
-			System.out.println("PATATE");
-			e.printStackTrace();
+		else {
+			//erreur à gérer !!!
+
+			request.setAttribute("Erreur", "mauvaise confirmation du mot de passe");
+			//mot de passe pas bon
 		}
+		
+		
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueilConnecte.jsp");
 		rd.forward(request, response);	
 	

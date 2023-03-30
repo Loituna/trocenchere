@@ -22,8 +22,7 @@ import fr.eni.javaee.bo.Utilisateur;
 @WebServlet("/ServletConnexion")
 public class ServletConnexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String SESSION_UTILISATEUR_PSEUDO = "pseudo";
-	private static final String SESSION_UTILISATEUR_ID = "id";
+	private static final String SESSION_UTILISATEUR= "utilisateur";
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -50,21 +49,21 @@ public class ServletConnexion extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String pseudo;
-		String mdp;
 		try {
-
-			pseudo = request.getParameter("pseudo");
-			mdp = request.getParameter("mdp");
 
 			UserManager instance = UserManagerSingleton.getInstance();
 
-			Utilisateur util = instance.authentificationUtilisateur(pseudo, mdp);
+			Utilisateur util = instance.authentificationUtilisateur(request.getParameter("pseudo"), 
+																	request.getParameter("mdp"));
 			
-			
-			if (util != null) {
+			if (util != null) { 
+				HttpSession session = request.getSession();
+				session.setAttribute(SESSION_UTILISATEUR, util);
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueilConnecte.jsp");
 				rd.forward(request, response);
+			}
+			else {
+				//TODO gestion erreur!!!!
 			}
 
 		} catch (BusinessException e) {
@@ -81,9 +80,6 @@ public class ServletConnexion extends HttpServlet {
 			return;
 		}
 
-		HttpSession session = request.getSession();
-		session.setAttribute(SESSION_UTILISATEUR_ID, pseudo);
-		session.setAttribute(SESSION_UTILISATEUR_PSEUDO, pseudo);
 
 		response.sendRedirect("./ServletAccueil");
 	}
