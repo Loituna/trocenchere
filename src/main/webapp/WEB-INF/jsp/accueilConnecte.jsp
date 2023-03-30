@@ -17,7 +17,7 @@
 
 <a href="ServletTestAffichageUtilisateur">Mon profil</a>
 
-<a href="ServletAccueuil">Deconnexion</a>
+<a href="ServletAccueil">Deconnexion</a>
 
 
 </ul>
