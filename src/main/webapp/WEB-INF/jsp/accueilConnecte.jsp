@@ -7,7 +7,7 @@
 <title>Accueil connecté</title>
 </head>
 <body>
-
+<h3>Site d'enchere en ligne le plus beau de la promo</h3>
 <h1>JSP connecté</h1>
 
 <ul>

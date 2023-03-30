@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Page de connexion</title>
 </head>
+<h3>Site d'enchere en ligne le plus beau de la promo</h3>
 <body>
 <%
 		List<String> listeMessagesErreur = (List<String>)request.getAttribute("listeMessagesErreur");
