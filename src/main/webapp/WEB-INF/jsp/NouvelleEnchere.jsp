@@ -8,6 +8,8 @@
 </head>
 <body>
 	<h3>Site d'enchere en ligne le plus beau de la promo</h3>
-	<h1></h1>
+	<h1>Détails Vente </h1>
+	
+	<label for="nomArticle">Article</label><label> </label>
 </body>
 </html>
