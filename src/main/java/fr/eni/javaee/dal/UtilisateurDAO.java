@@ -16,5 +16,7 @@ public interface UtilisateurDAO {
 	public void deconnexionUtilisateur(Utilisateur utilisateur) ;
 
 	public void afficherUtilisateur(Utilisateur utilisateur);
+	
+	public Utilisateur selectByNoUtilisateur (Integer noUtilisateur) ;
 
 }

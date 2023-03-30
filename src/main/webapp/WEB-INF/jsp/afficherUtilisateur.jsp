@@ -8,22 +8,27 @@
 </head>
 <body>
 
-		<label for="idPseudo">Pseudo : </label><label<%=request.getParameter("pseudo")%>> </label>
+	<%int noUtilisateur = Integer.parseInt(request.getParameter("noUtilisateur"));
+	
+	
+	%>
+<form>
+		<label for="idPseudo">Pseudo : </label><output<%=request.getParameter("pseudo")%>> </output>
 		<br>
-		<label for="idNom">Nom : </label><input type="text" id="idNom" name="Nom" value="<%=request.getParameter("Nom")%>"/>
+		<label for="idNom">Nom : </label><output<%=request.getParameter("Nom")%>></output>
 		<br>
-		<label for="idPrenom">Prenom : </label><input type="text" id="idPrenom" name="Prenom" value="<%=request.getParameter("Prenom")%>"/>
+		<label for="idPrenom">Prenom : </label><output<%=request.getParameter("Prenom")%>></output>
 		<br>
-		<label for="idEmail">Email : </label><input type="text" id="idEmail" name="Email" value="<%=request.getParameter("Email")%>"/>
+		<label for="idEmail">Email : </label><output<%=request.getParameter("Email")%>></output>
 		<br>
-		<label for="idTelephone">Téléphone : </label><input type="text" id="idTelephone" name="Telephone" value="<%=request.getParameter("Telephone")%>"/>
+		<label for="idTelephone">Téléphone : </label><output"<%=request.getParameter("Telephone")%>></output>
 		<br>
-		<label for="idRue">Rue : </label><input type="text" id="idRue" name="Rue" value="<%=request.getParameter("Rue")%>"/>
+		<label for="idRue">Rue : </label><output<%=request.getParameter("Rue")%>></output>
 		<br>
-		<label for="idCodePostal">Code Postal : </label><input type="text" id="idCodePostal" name="CodePostal" value="<%=request.getParameter("CodePostal")%>"/>
+		<label for="idCodePostal">Code Postal : </label><output<%=request.getParameter("CodePostal")%>></output>
 		<br>
-		<label for="idVille">Ville : </label><input type="text" id="idVille" name="Ville" value="<%=request.getParameter("Ville")%>"/>
+		<label for="idVille">Ville : </label><output<%=request.getParameter("Ville")%>></output>
 		<br>
-
+</form>
 </body>
 </html>
