@@ -53,6 +53,16 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			ResultSet rs = pstmt.getGeneratedKeys();
 			if (rs.next()) {
 				utilisateur.setNoUtilisateur(rs.getInt(1));
+				utilisateur.setNom(rs.getString(2));
+				utilisateur.setPrenom(rs.getNString(3));
+				utilisateur.setEmail(rs.getNString(4));				
+				utilisateur.setTelephone(rs.getNString(5));
+				utilisateur.setRue(rs.getNString(7));
+				utilisateur.setCP(rs.getNString(8));
+				utilisateur.setVille(rs.getNString(9));
+				utilisateur.setMdp(rs.getNString(10));
+				utilisateur.setCredit(rs.getInt(11));
+			
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
