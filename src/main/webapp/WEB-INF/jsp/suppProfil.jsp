@@ -45,11 +45,11 @@
 		<label for="credit">Credit : </label>${utilisateur.credit}
 		<br>
 		<br>
-		<button type="button">Enregistrer</button>
-		<button type="button">Supprimer mon compte</button>
+		<button type="button" onclick="alert('Modifié !')">Enregistrer</button>
+		<button type="button" onclick="alert('Compte supprimé !')">Supprimer mon compte</button>
 		
 </form>
-	<a href="./ServletAccueilCoo"> <button  type="button">Annuler</button> </a>
+	<a href="./ServletAccueilCoo"> <button  type="button">Retourner à l'accueil</button> </a>
 
 
 </body>
