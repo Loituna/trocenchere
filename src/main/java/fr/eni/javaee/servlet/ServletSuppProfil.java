@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.javaee.bll.BusinessException;
+import fr.eni.javaee.bll.UserManagerSingleton;
+import fr.eni.javaee.bo.Utilisateur;
+
 /**
  * Servlet implementation class ServletSuppProfil
  */
@@ -28,6 +32,18 @@ public class ServletSuppProfil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		//TODO récupérer l'utilsateur dans la session
+		
+		Utilisateur util;
+		try {
+			util = UserManagerSingleton.getInstance().getUserById(3);
+			request.setAttribute("utilisateur", util);
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/suppProfil.jsp");
 		rd.forward(request, response);
