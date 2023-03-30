@@ -19,27 +19,27 @@
 <br>
 
 <form action="<%=request.getContextPath()%>/ServletSuppProfil method="post">
-		<label for="idPseudo">Pseudo : </label><input value="${utilisateur.pseudo}"/>
+		<label for="idPseudo">Pseudo : </label><input name="pseudo" value="${utilisateur.pseudo}"/>
 		<br>
-		<label for="idNom">Nom : </label><input value=" ${utilisateur.nom}"/>
+		<label for="idNom">Nom : </label><input name="nom" value=" ${utilisateur.nom}"/>
 		<br>
-		<label for="idPrenom">Prenom : </label> <input value="${utilisateur.prenom}"/>
+		<label for="idPrenom">Prenom : </label> <input name="prenom" value="${utilisateur.prenom}"/>
 		<br>
-		<label for="idEmail">Email : </label> <input value=" ${utilisateur.email}"/>
+		<label for="idEmail">Email : </label> <input name="email" value=" ${utilisateur.email}"/>
 		<br>
-		<label for="idTelephone">Téléphone : </label> <input value="${utilisateur.telephone}"/>
+		<label for="idTelephone">Téléphone : </label> <input name="telephone" value="${utilisateur.telephone}"/>
 		<br>
-		<label for="idRue">Rue : </label> <input value="${utilisateur.rue}"/>
+		<label for="idRue">Rue : </label> <input name="rue" value="${utilisateur.rue}"/>
 		<br>
-		<label for="idCodePostal">Code Postal : </label> <input value="${utilisateur.CP}"/>
+		<label for="idCodePostal">Code Postal : </label> <input name="cp" value="${utilisateur.CP}"/>
 		<br>
-		<label for="idVille">Ville : </label> <input value="${utilisateur.ville}"/>	
+		<label for="idVille">Ville : </label> <input name="ville" value="${utilisateur.ville}"/>	
 		<br>
 		<label for="idMotsPasse">Mots de passe actuel : </label> <input type="text" required="required" value=""/>
 		<br>
-		<label for="idMDP">Nouveau mots de passe : </label> <input type="text" id="idMDP" name="MDP" required="required" value="<%=listeMessagesErreur!=null?request.getParameter("MDP"):""%>"/>
+		<label for="idMDP">Nouveau mots de passe : </label> <input name="mdp" type="text" id="idMDP" name="MDP" required="required" value="<%=listeMessagesErreur!=null?request.getParameter("MDP"):""%>"/>
 		<br>
-		<label for="idMDPconfirm">Confirmez le mots de passe : </label> <input type="text" id="idMDPconfirm" name="MDPconfirm" required="required" value="<%=listeMessagesErreur!=null?request.getParameter("MDPConfirm"):""%>"/>
+		<label for="idMDPconfirm">Confirmez le mots de passe : </label> <input name="confirmMDP" type="text" id="idMDPconfirm" name="MDPconfirm" required="required" value="<%=listeMessagesErreur!=null?request.getParameter("MDPConfirm"):""%>"/>
 		<br>
 		<br>
 		<label for="credit">Credit : </label>${utilisateur.credit}
