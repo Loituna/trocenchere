@@ -14,7 +14,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	private static final String SELECT_UTILISATEUR = "SELECT * FROM utilisateur WHERE pseudo = ? AND mots_passe = ?";
 	private static final String DELETE_UTILISATEUR = "DELETE FROM UTILISATEUR where no_utilisateur =?";
 	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEUR set pseudo = ?, nom =? , prenom =. ,email =?,telephone =? ,rue =? ,code_postal =? ,ville =? , mots_passe =? , credit =?  WHERE no_utilisateur =?";
-	private static final String SELECT_BY_ID = "SELECT no_utilisateur, pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mots_passe FROM utilisateur where no_utilisateur=?";
+	private static final String SELECT_BY_ID = "SELECT pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mots_passe, credit FROM utilisateur where no_utilisateur=?";
 	
 	private static UtilisateurDAOJdbcImpl instance ;
 	
@@ -182,7 +182,8 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			pstmt.setInt(1, noUtilisateur);
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next()) {
-				utilisateur.setNoUtilisateur(rs.getInt("noUtilisateur"));
+				utilisateur.setNoUtilisateur(noUtilisateur);
+				utilisateur.setPseudo(rs.getString("pseudo"));
 				utilisateur.setNom(rs.getString("nom"));
 				utilisateur.setPrenom(rs.getString("prenom"));
 				utilisateur.setEmail(rs.getString("email"));

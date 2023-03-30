@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="fr.eni.javaee.bo.Utilisateur" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,27 +10,23 @@
 </head>
 <h3>Site d'enchere en ligne le plus beau de la promo</h3>
 <body>
-
-	<%int noUtilisateur = Integer.parseInt(request.getParameter("noUtilisateur"));
 	
-	
-	%>
-<form>
-		<label for="idPseudo">Pseudo : </label><output<%=request.getParameter("pseudo")%>> </output>
+	<form action="<%=request.getContextPath()%>/ServletTestAffichageUtilisateur method="post">
+		<label for="idPseudo">Pseudo : </label>${utilisateur.pseudo}
 		<br>
-		<label for="idNom">Nom : </label><output<%=request.getParameter("Nom")%>></output>
+		<label for="idNom">Nom : </label>${utilisateur.nom}
 		<br>
-		<label for="idPrenom">Prenom : </label><output<%=request.getParameter("Prenom")%>></output>
+		<label for="idPrenom">Prenom : </label>${utilisateur.prenom}
 		<br>
-		<label for="idEmail">Email : </label><output<%=request.getParameter("Email")%>></output>
+		<label for="idEmail">Email : </label> ${utilisateur.email}
 		<br>
-		<label for="idTelephone">Téléphone : </label><output"<%=request.getParameter("Telephone")%>></output>
+		<label for="idTelephone">Téléphone : </label> ${utilisateur.telephone}
 		<br>
-		<label for="idRue">Rue : </label><output<%=request.getParameter("Rue")%>></output>
+		<label for="idRue">Rue : </label>${utilisateur.rue}
 		<br>
-		<label for="idCodePostal">Code Postal : </label><output<%=request.getParameter("CodePostal")%>></output>
+		<label for="idCodePostal">Code Postal : </label>${utilisateur.CP}
 		<br>
-		<label for="idVille">Ville : </label><output<%=request.getParameter("Ville")%>></output>
+		<label for="idVille">Ville : </label> ${utilisateur.ville}	
 		<br>
 </form>
 </body>
