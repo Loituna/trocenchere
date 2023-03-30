@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Accueil co</title>
+<title>Accueil connecté</title>
 </head>
 <body>
 
@@ -12,6 +12,8 @@
 
 <a href="ServletConnexion">Se connecter</a>
 <a href="ServletInscription">S'inscrire</a>
+
+<a href="ServletTestAffichageUtilisateur">Votre Profil</a>
 
 </body>
 </html>

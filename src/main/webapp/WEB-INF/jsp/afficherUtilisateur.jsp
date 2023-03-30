@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Affichage utilisateur</title>
+<title>Profil utilisateur</title>
 </head>
 <body>
 
