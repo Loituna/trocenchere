@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.javaee.bll.BusinessException;
 import fr.eni.javaee.bll.UserManagerSingleton;
@@ -19,7 +20,8 @@ import fr.eni.javaee.bo.Utilisateur;
 @WebServlet("/ServletTestAffichageUtilisateur")
 public class ServletTestAffichageUtilisateur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private static final String SESSION_UTILISATEUR= "utilisateur";
+   
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -40,10 +42,19 @@ public class ServletTestAffichageUtilisateur extends HttpServlet {
 			request.setAttribute("utilisateur", util);
 			
 			System.out.println("utilisateur : " + util);
+			
+			if (util!=null) {
+				HttpSession session = request.getSession();
+				session.setAttribute(SESSION_UTILISATEUR, util);
+			}
+			
+			
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/afficherUtilisateur.jsp");
 		rd.forward(request, response);
