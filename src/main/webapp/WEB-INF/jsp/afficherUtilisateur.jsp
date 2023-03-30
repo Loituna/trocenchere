@@ -4,8 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Affichage utilisateur</title>
+<title>Profil utilisateur</title>
 </head>
+<h3>Site d'enchere en ligne le plus beau de la promo</h3>
 <body>
 
 	<%int noUtilisateur = Integer.parseInt(request.getParameter("noUtilisateur"));

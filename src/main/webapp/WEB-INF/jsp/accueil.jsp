@@ -8,15 +8,36 @@
 </head>
 <body>
 
+<h3>Site d'enchere en ligne le plus beau de la promo</h3>
+
+
+
 <h1>Liste des enchères</h1>
 
-<p> pas de connexion</p>
+
 
 
 <a href="ServletConnexion">Se connecter</a>
 <a href="ServletInscription">S'inscrire</a>
 
+<p>Filtres : </p> <br>
+<form action="<%=request.getContextPath()%>/ServletAcueuil"method="post">
+<input type="texte" id="searchart" name="barre de recherche article" value = "Le nom de l'article contient">
 
+ </form>
+
+<form class="Formcate" action="<%=request.getContextPath()%>/ServletInscription"method="post">
+	<select name="Liste Categorie" id="listcate">
+	<option value="Informatique">Informatique</option>
+	<option value="Ameublement">Ameublement</option>
+	<option value="Vetement">Vetement</option>
+	<option value="Sport">Sport</option>
+	<option value="Loisir">Loisir</option>
+	
+	</select>
+	
+	<input type = "submit" value"Rechercher">
+</form>
 
 </body>
 </html>
