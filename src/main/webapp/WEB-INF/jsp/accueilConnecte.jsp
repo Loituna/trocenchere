@@ -42,5 +42,21 @@
 	
 	<input type = "submit" value"Rechercher">
 </form>
+
+<br>
+
+<form action="">
+	<div>
+		<input type="radio" name="achat" value="achats">
+		<label for="achats">Achats</label>
+		
+		<input type="radio" name="achat" value="mesVentes">
+		<label for="achats">Mes Ventes</label>
+	</div>
+	
+	
+	
+</form>
+
 </body>
 </html>
