@@ -1,6 +1,7 @@
 package fr.eni.javaee.servlet;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import fr.eni.javaee.bo.Article;
+import fr.eni.javaee.bo.Enchere;
+import fr.eni.javaee.dal.DAOFactory;
 
 /**
  * Servlet implementation class ServletVenteArticle
@@ -30,13 +35,25 @@ public class ServletVenteArticle extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/VenteArticle.jsp");
 		rd.forward(request, response);
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		
+		Article creation = new Article();
+		
+		creation.setNomArticle(request.getParameter("nomArticle"));
+		creation.setDescription(request.getParameter("descriptionArticle"));
+		creation.setDateDebutEnchere(LocalDateTime.parse(request.getParameter("debutEnchere")));
+		creation.setDateFinEnchere(LocalDateTime.parse(request.getParameter("FinEnchere")));
+		creation.setPrixInitial(Integer.parseInt(request.getParameter("crédit")));
+		
+		
+		
 		doGet(request, response);
 	}
 
