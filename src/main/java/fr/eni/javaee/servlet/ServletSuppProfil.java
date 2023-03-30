@@ -55,7 +55,7 @@ public class ServletSuppProfil extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
-		if ((request.getParameter("MDP")).equalsIgnoreCase(request.getParameter("MDPconfirm"))) {
+		if ((request.getParameter("MDP")).equals(request.getParameter("MDPconfirm"))) {
 		
 			Utilisateur util = new Utilisateur();
 			
@@ -67,7 +67,7 @@ public class ServletSuppProfil extends HttpServlet {
 			util.setRue(request.getParameter("rue"));
 			util.setCP(request.getParameter("cp"));
 			util.setVille(request.getParameter("ville"));
-			util.setMdp(request.getParameter("mdp"));
+			util.setMdp(request.getParameter("MDP"));
 			
 			try {
 				UserManagerSingleton.getInstance().modificationUtilisateur(util);
@@ -82,9 +82,9 @@ public class ServletSuppProfil extends HttpServlet {
 			request.setAttribute("Erreur", "mauvaise confirmation du mot de passe");
 			//mot de passe pas bon
 		}
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/suppProfil.jsp");
+		rd.forward(request, response);	
 		
-		
-		doGet(request, response);
 	}
 
 }
