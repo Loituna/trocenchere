@@ -28,6 +28,12 @@
 		<br>
 		<label for="idVille">Ville : </label> ${utilisateur.ville}	
 		<br>
+		
 </form>
+
+<div class ="boutton modifier">
+
+	<a href="ServletSuppProfil"><button class = "modifier">Modifier</button></a>
+</div>
 </body>
 </html>

@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.javaee.bll.BusinessException;
-import fr.eni.javaee.bll.UserManager;
 import fr.eni.javaee.bll.UserManagerSingleton;
 import fr.eni.javaee.bo.Utilisateur;
 
@@ -55,8 +54,9 @@ public class ServletTestAffichageUtilisateur extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/suppProfil.jsp");
+		rd.forward(request, response);
+
 	}
 
 }
