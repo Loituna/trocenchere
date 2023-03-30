@@ -17,11 +17,11 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 	<form action="<%=request.getContextPath()%>/ServletVenteArticle"
 		method="post">
 		<label for="nomArticle">Article : </label><input type="text"
-			id="nomArtcile" name="nom de l'article" required="required"
+			id="nomArticle" name="nom de l'article" required="required"
 			value="<%=listeMessagesErreur != null ? request.getParameter("nomArticle") : ""%>" />
 			<br>
 		<label for="descriptionArticle">Description : </label><input
-			type="text" id="idPseudo" name="pseudo" required="required"
+			type="text" id="descriptionArticle" name="description article" required="required"
 			value="<%=listeMessagesErreur != null ? request.getParameter("descriptionArticle") : ""%>" />
 			<br>
 		<select name="Liste Categorie" id="listcate">
@@ -42,7 +42,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		
 		<label for="DebutEnchere">Debut de votre enchère</label>
 
-		<input type="datetime-local" id="FinEnchere"
+		<input type="datetime-local" id="DebutEnchere"
        name="Debut de votre enchere" value="2023-03-12T6:53"
        min="2023-03-12T6:53" max="2023-06-14T00:00">
 		

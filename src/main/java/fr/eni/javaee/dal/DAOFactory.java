@@ -7,7 +7,12 @@ public abstract class DAOFactory {
 	}
 
 	public static EnchereDAO getEnchereDAO() {
-		return new EnchereDAOJdbcImpl();
+		return  EnchereDAOJdbcImpl.getInstance();
 
-		}
 	}
+
+	public static ArticleDao getArticleDao() {
+		return ArticleDAOJDBCImpl.getInstance();
+
+	}
+}
