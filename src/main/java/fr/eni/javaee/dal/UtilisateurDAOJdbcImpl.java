@@ -13,7 +13,7 @@ import fr.eni.javaee.bo.Utilisateur;
 public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 	private static final String CREATION_UTILISATEUR = "INSERT INTO UTILISATEUR(pseudo, nom, prenom, email, telephone,rue,code_postal,ville,mots_passe) VALUES(?,?,?,?,?,?,?,?,?)";
-	private static final String SELECT_UTILISATEUR = "SELECT no_utilisateur FROM utilisateur WHERE pseudo = ? AND mots_passe = ?";
+	private static final String SELECT_UTILISATEUR = "SELECT * FROM utilisateur WHERE pseudo = ? AND mots_passe = ?";
 	private static final String DELETE_UTILISATEUR = "DELETE FROM UTILISATEUR where no_utilisateur =?";
 	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEUR set pseudo = ?, nom =? , prenom =. ,email =?,telephone =? ,rue =? ,code_postal =? ,ville =? , mots_passe =? , credit =?  WHERE no_utilisateur =?";
 
@@ -113,7 +113,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	}
 
 	@Override
-	public void authentificationUtilisateur(Utilisateur utilisateur) throws BusinessException {
+	public Utilisateur authentificationUtilisateur(Utilisateur utilisateur) throws BusinessException {
 
 		BusinessException businessException = new BusinessException();
 		if (utilisateur == null) {
@@ -127,6 +127,16 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 				ResultSet rs = pstmt.getResultSet();
 				if (rs.next()) {
 					utilisateur.setNoUtilisateur(rs.getInt(1));
+					utilisateur.setPseudo(rs.getNString(2));
+					utilisateur.setNom(rs.getNString(3));
+					utilisateur.setPrenom(rs.getNString(4));
+					utilisateur.setEmail(rs.getNString(5));
+					utilisateur.setTelephone(rs.getNString(6));
+					utilisateur.setRue(rs.getNString(7));
+					utilisateur.setCP(rs.getNString(8));
+					utilisateur.setVille(rs.getNString(9));
+					utilisateur.setMdp(rs.getNString(10));
+					utilisateur.setCredit(rs.getInt(11));
 				} else {
 					businessException.ajouterErreur(CodesResultatDAL.SELECT_UTILISATEUR_MDP_ECHEC);
 				}
@@ -138,6 +148,8 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		}
 		if (businessException.hasErreurs())
 			throw businessException;
+		
+		return utilisateur;
 	}
 
 	@Override

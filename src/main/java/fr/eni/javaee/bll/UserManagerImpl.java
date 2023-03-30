@@ -27,7 +27,7 @@ public class UserManagerImpl implements UserManager {
 
 	@Override
 
-	public void authentificationUtilisateur(String pseudo, String mdp) {
+	public Utilisateur authentificationUtilisateur(String pseudo, String mdp) {
 
 		// Utilisateur instance = new Utilisateur(pseudo,mdp);
 
@@ -36,10 +36,13 @@ public class UserManagerImpl implements UserManager {
 		instance.setPseudo(pseudo);
 		try {
 			dao.authentificationUtilisateur(instance);
+			System.out.println(instance.getMdp());
+			System.out.println(instance.getPseudo());
 		} catch (BusinessException e) {
 			e.printStackTrace();
 			System.out.println("Erreur coo depuis manager");
 		}
+		return instance;
 	}
 
 	@Override
