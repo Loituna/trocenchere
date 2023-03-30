@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.javaee.bll.BusinessException;
+import fr.eni.javaee.bll.UserManagerSingleton;
+import fr.eni.javaee.bo.Utilisateur;
+
 /**
  * Servlet implementation class ServletVenteRemportee
  */
@@ -28,6 +32,18 @@ public class ServletVenteRemportee extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		try {
+			Utilisateur util = UserManagerSingleton.getInstance().getUserById(4);
+			request.setAttribute("utilisateur", util);
+			
+			System.out.println("utilisateur : " + util);
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/VenteRemportee.jsp");
 		rd.forward(request, response);
 	}

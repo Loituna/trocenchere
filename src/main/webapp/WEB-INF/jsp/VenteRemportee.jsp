@@ -39,7 +39,7 @@
 
 </head>
 <body>
-	<h4>Pseudo à remporté l'enchère</h4>
+	<h4>${utilisateur.pseudo} à remporté l'enchère</h4>
 	<div class="article">
 		<div>
 		<img src="./images/RTX-SD.jpg" alt="Ma superbe image">
