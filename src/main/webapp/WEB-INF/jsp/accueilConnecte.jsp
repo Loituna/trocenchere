@@ -40,7 +40,7 @@
 	
 	</select>
 	
-	<input type = "submit" value"Rechercher">
+	<input type = "submit" value="Rechercher">
 </form>
 
 <br>
