@@ -10,7 +10,7 @@
 
 <form action="<%=request.getContextPath()%>/ServletSuppProfil" method="post">
 
-		<p>Identifiant : name="identifiant" ${utilisateur.noUtilisateur}</p>
+		<label for="id">Votre identifiant :</label><input type="text" id="id" name="identifiant" value="${utilisateur.noUtilisateur}">
 		<br>
 		<label for="idPseudo">Pseudo : </label>${utilisateur.pseudo}
 		<br>
@@ -27,14 +27,7 @@
 		<label for="idCodePostal">Code Postal : </label>${utilisateur.CP}
 		<br>
 		<label for="idVille">Ville : </label> ${utilisateur.ville}	
-		<br>
-		
-		<label for="nom">Nom :</label>
-		  <input type="text" id="nom" name="nom"><br><br>
-		  <label for="prenom">Prénom :</label>
-		  <input type="text" id="prenom" name="prenom"><br><br>
-		  <input type="submit" value="Envoyer">
-		
+		<br>		
 		<input type="submit" onclick="alert('Compte supprimé !')" value="Supprimer mon compte"/>
 		<a href="./ServletAccueilCoo"> <button  type="button">Retourner à l'accueil</button> </a>
 </form>

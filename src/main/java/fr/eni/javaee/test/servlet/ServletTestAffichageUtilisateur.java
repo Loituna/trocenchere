@@ -1,4 +1,4 @@
-package fr.eni.javaee.servlet.test;
+package fr.eni.javaee.test.servlet;
 
 import java.io.IOException;
 
