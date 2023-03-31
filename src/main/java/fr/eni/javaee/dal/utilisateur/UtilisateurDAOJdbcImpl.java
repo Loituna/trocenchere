@@ -10,15 +10,23 @@ import fr.eni.javaee.bo.Utilisateur;
 import fr.eni.javaee.dal.tools.CodesResultatDAL;
 import fr.eni.javaee.dal.tools.ConnectionProvider;
 
- class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
+class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 	private static final String CREATION_UTILISATEUR = "INSERT INTO UTILISATEUR(pseudo, nom, prenom, email, telephone,rue,code_postal,ville,mots_passe) VALUES(?,?,?,?,?,?,?,?,?)";
 	private static final String SELECT_UTILISATEUR = "SELECT * FROM utilisateur WHERE pseudo = ? AND mots_passe = ?";
 	private static final String DELETE_UTILISATEUR = "DELETE FROM UTILISATEUR where no_utilisateur =?";
-	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEUR set pseudo = ?, nom =? , prenom =. ,email =?,telephone =? ,rue =? ,code_postal =? ,ville =? , mots_passe =? , credit =?  WHERE no_utilisateur =?";
+	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEUR set pseudo = ?, nom =? , prenom =? ,email =?,telephone =? ,rue =? ,code_postal =? ,ville =? , mots_passe =? WHERE no_utilisateur =?";
 	private static final String SELECT_BY_ID = "SELECT pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mots_passe, credit FROM utilisateur where no_utilisateur=?";
 	
+	private static UtilisateurDAOJdbcImpl instance ;
 	
+	public static UtilisateurDAOJdbcImpl getInstance() {
+		if (instance == null) {
+			instance = new UtilisateurDAOJdbcImpl();
+		}
+		return instance ;
+	}
+
 
 
 	@Override
@@ -52,9 +60,7 @@ import fr.eni.javaee.dal.tools.ConnectionProvider;
 				utilisateur.setRue(rs.getNString(7));
 				utilisateur.setCP(rs.getNString(8));
 				utilisateur.setVille(rs.getNString(9));
-				utilisateur.setMdp(rs.getNString(10));
-				utilisateur.setCredit(rs.getInt(11));
-			
+				utilisateur.setMdp(rs.getNString(10));			
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -77,6 +83,7 @@ import fr.eni.javaee.dal.tools.ConnectionProvider;
 	public void modificationUtilisateur(Utilisateur utilisateur) throws BusinessException {
 		try (Connection cnx = ConnectionProvider.getConnection()){
 			PreparedStatement pstmt = cnx.prepareStatement(UPDATE_UTILISATEUR);
+			
 			pstmt.setString(1, utilisateur.getPseudo());
 			pstmt.setString(2, utilisateur.getNom());
 			pstmt.setString(3, utilisateur.getPrenom());
@@ -86,7 +93,7 @@ import fr.eni.javaee.dal.tools.ConnectionProvider;
 			pstmt.setString(7, utilisateur.getCP());
 			pstmt.setString(8, utilisateur.getVille());
 			pstmt.setString(9, utilisateur.getMdp());
-			pstmt.setInt(10, utilisateur.getCredit());
+			pstmt.setInt(10, utilisateur.getNoUtilisateur());
 			pstmt.executeUpdate();
 		}catch (Exception e) {
 			e.printStackTrace();;
