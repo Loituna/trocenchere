@@ -18,6 +18,8 @@ public class TestBoArticle {
 	// Création d'un nouvel article
 	Article article = new Article();
 	
+	
+	
 	article.setNoArticle(1);
 	article.setNomArticle("carte graphique");
 	article.setDescription("carte de ouf");
@@ -29,6 +31,7 @@ public class TestBoArticle {
 	article.setNoCategorie(null);
 	article.setNoUtilisateur(null);
 	
+	// methode toString
 	System.out.println(article.toString());
 	
 	}

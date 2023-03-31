@@ -38,7 +38,7 @@ public class TestBoUtilisateur {
 
 	System.out.println();
 	
-	//test setters
+	//test setter pseudo
 	Utilisateur utilisateur3 = new Utilisateur();
 	utilisateur3.setPseudo("Beber");
 	System.out.println("Pseudo utilisateur : " + utilisateur3.getPseudo());
