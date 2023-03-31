@@ -18,7 +18,7 @@
 <h1>Mon profil</h1>
 <br>
 
-<form action="<%=request.getContextPath()%>/ServletSuppProfil method="post">
+<form action="<%=request.getContextPath()%>/ServletSuppProfil" method="post">
 		<label for="idPseudo">Pseudo : </label><input name="pseudo" value="${utilisateur.pseudo}"/>
 		<br>
 		<label for="idNom">Nom : </label><input name="nom" value=" ${utilisateur.nom}"/>
@@ -37,15 +37,15 @@
 		<br>
 		<label for="idMotsPasse">Mots de passe actuel : </label> <input type="text" required="required" value=""/>
 		<br>
-		<label for="idMDP">Nouveau mots de passe : </label> <input name="mdp" type="text" id="idMDP" name="MDP" required="required" value="<%=listeMessagesErreur!=null?request.getParameter("MDP"):""%>"/>
+		<label for="idMDP">Nouveau mots de passe : </label> <input type="text" id="idMDP" name="MDP" required="required" value="<%=listeMessagesErreur!=null?request.getParameter("MDP"):""%>"/>
 		<br>
-		<label for="idMDPconfirm">Confirmez le mots de passe : </label> <input name="confirmMDP" type="text" id="idMDPconfirm" name="MDPconfirm" required="required" value="<%=listeMessagesErreur!=null?request.getParameter("MDPConfirm"):""%>"/>
+		<label for="idMDPconfirm">Confirmez le mots de passe : </label> <input type="text" id="idMDPconfirm" name="MDPconfirm" required="required" value="<%=listeMessagesErreur!=null?request.getParameter("MDPConfirm"):""%>"/>
 		<br>
 		<br>
 		<label for="credit">Credit : </label>${utilisateur.credit}
 		<br>
 		<br>
-		<button type="button" onclick="alert('Modifié !')">Enregistrer</button>
+		<input type="submit" onclick="alert('Modifié !')" value="Enregistrer"/>
 		<button type="button" onclick="alert('Compte supprimé !')">Supprimer mon compte</button>
 		
 </form>
