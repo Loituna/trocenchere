@@ -1,4 +1,4 @@
-package fr.eni.javaee.dal;
+package fr.eni.javaee.dal.tools;
 
 /**
  * Les codes disponibles sont entre 10000 et 19999

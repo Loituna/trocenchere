@@ -2,7 +2,7 @@ package fr.eni.javaee.bll;
 
 import fr.eni.javaee.bo.Utilisateur;
 import fr.eni.javaee.dal.DAOFactory;
-import fr.eni.javaee.dal.UtilisateurDAO;
+import fr.eni.javaee.dal.utilisateur.UtilisateurDAO;
 
 public class UserManagerImpl implements UserManager {
 	private UtilisateurDAO dao = DAOFactory.getUtilisateurDAO();

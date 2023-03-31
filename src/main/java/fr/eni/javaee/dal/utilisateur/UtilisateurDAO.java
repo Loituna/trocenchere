@@ -1,4 +1,4 @@
-package fr.eni.javaee.dal;
+package fr.eni.javaee.dal.utilisateur;
 
 import fr.eni.javaee.bll.BusinessException;
 import fr.eni.javaee.bo.Utilisateur;

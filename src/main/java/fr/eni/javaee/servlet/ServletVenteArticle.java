@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.javaee.bll.BusinessException;
 import fr.eni.javaee.bo.Article;
-import fr.eni.javaee.bo.Enchere;
+import fr.eni.javaee.bo.Retrait;
 import fr.eni.javaee.dal.DAOFactory;
 
 /**
@@ -46,12 +46,16 @@ public class ServletVenteArticle extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		Article creation = new Article();
+		Retrait retraitcreation = new Retrait();
 		
 		creation.setNomArticle(request.getParameter("nomArticle"));
 		creation.setDescription(request.getParameter("descriptionArticle"));
 		creation.setDateDebutEnchere(LocalDateTime.parse(request.getParameter("DebutEnchere")));
 		creation.setDateFinEnchere(LocalDateTime.parse(request.getParameter("FinEnchere")));
 		creation.setPrixInitial(Integer.parseInt(request.getParameter("credit")));
+		retraitcreation.setRue(request.getParameter("rueRetrait"));
+		retraitcreation.setVille(request.getParameter("VilleRetrait"));
+		retraitcreation.setCodePostal(request.getParameter("CPRetrait"));
 		
 		
 		try {
