@@ -1,5 +1,6 @@
-package fr.eni.javaee.bll;
+package fr.eni.javaee.bll.utilisateur;
 
+import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Utilisateur;
 
 public interface UserManager {

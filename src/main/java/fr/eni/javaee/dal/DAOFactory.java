@@ -11,19 +11,20 @@ import fr.eni.javaee.dal.utilisateur.UtilisateurSingleton;
 
 public abstract class DAOFactory {
 
-	public static UtilisateurDAO getUtilisateurDAO() {
-		return UtilisateurSingleton.getInstance();
-	}
-
-	public static EnchereDAO getEnchereDAO() {
-		return  EnchereSingleton.getInstance();
-
-	}
-
 	public static ArticleDao getArticleDao() {
 		return ArticleSingleton.getInstance();
 
 	}
+
+	public static EnchereDAO getEnchereDAO() {
+		return EnchereSingleton.getInstance();
+
+	}
+
+	public static UtilisateurDAO getUtilisateurDAO() {
+		return UtilisateurSingleton.getInstance();
+	}
+
 	public static RetraitDao getRetraitDao() {
 		return RetraitSingleton.getInstance();
 	}

@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fr.eni.javaee.bll.BusinessException;
-import fr.eni.javaee.bll.UserManagerSingleton;
+import fr.eni.javaee.bll.tools.BusinessException;
+import fr.eni.javaee.bll.utilisateur.UserManagerSingleton;
 import fr.eni.javaee.bo.Utilisateur;
 import fr.eni.javaee.dal.DAOFactory;
 

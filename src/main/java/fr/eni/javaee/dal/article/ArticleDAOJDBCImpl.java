@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 
-import fr.eni.javaee.bll.BusinessException;
+import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Article;
 import fr.eni.javaee.dal.tools.CodesResultatDAL;
 import fr.eni.javaee.dal.tools.ConnectionProvider;

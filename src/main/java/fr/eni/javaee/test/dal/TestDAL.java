@@ -1,6 +1,6 @@
 package fr.eni.javaee.test.dal;
 
-import fr.eni.javaee.bll.BusinessException;
+import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Retrait;
 import fr.eni.javaee.dal.DAOFactory;
 

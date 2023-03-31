@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.eni.javaee.bll.BusinessException;
-import fr.eni.javaee.bll.UserManager;
-import fr.eni.javaee.bll.UserManagerSingleton;
+import fr.eni.javaee.bll.tools.BusinessException;
+import fr.eni.javaee.bll.utilisateur.UserManager;
+import fr.eni.javaee.bll.utilisateur.UserManagerSingleton;
 import fr.eni.javaee.bo.Utilisateur;
 
 /**

@@ -1,4 +1,4 @@
-package fr.eni.javaee.bll;
+package fr.eni.javaee.bll.utilisateur;
 
 public class UserManagerSingleton {
 	

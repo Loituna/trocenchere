@@ -1,5 +1,6 @@
-package fr.eni.javaee.bll;
+package fr.eni.javaee.bll.utilisateur;
 
+import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Utilisateur;
 import fr.eni.javaee.dal.DAOFactory;
 import fr.eni.javaee.dal.utilisateur.UtilisateurDAO;
