@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.eni.javaee.bll.tools.BusinessException;
+import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bo.Retrait;
 import fr.eni.javaee.dal.DAOFactory;
 
@@ -33,14 +33,12 @@ public class ServletTestRetrait extends HttpServlet {
 		
 		Retrait RRRrrr = new Retrait("6 rue de la retraite", "35000", "Rennes");
 		
-		try {
-		
-			DAOFactory.getRetraitDao().insert(RRRrrr);
-			System.out.println("test aprés");
+	
+			BLLFactory.getRetraitManager().insert(RRRrrr);
 			
-		}catch(BusinessException e) {
-			e.printStackTrace();
-		}
+			
+			
+	
 		
 		System.out.println(RRRrrr+"Test servlet");
 		
