@@ -52,16 +52,16 @@ public class TestBoArticle {
 	System.out.println();
 	
 	//test des getters
-	System.out.println("Numero + " + article.getNoArticle());
-	System.out.println("Nom + " + article.getNomArticle());
-	System.out.println("Description + " + article.getDescription());
-	System.out.println("Date de début de l'enchère + " + article.getDateDebutEnchere());
-	System.out.println("Date de fin de l'enchère + " + article.getDateFinEnchere());
-	System.out.println("Prix initial + " + article.getPrixInitial());
-	System.out.println("Prix de vente + " + article.getPrixVente());
-	System.out.println("Etat de la vente + " + article.getEtatVente());
-	System.out.println("Numero Categorie + " + article.getNoCategorie());
-	System.out.println("Numero Utilisateur + " + article.getNoUtilisateur());
+	System.out.println("Numero " + article.getNoArticle());
+	System.out.println("Nom " + article.getNomArticle());
+	System.out.println("Description " + article.getDescription());
+	System.out.println("Date de début de l'enchère " + article.getDateDebutEnchere());
+	System.out.println("Date de fin de l'enchère " + article.getDateFinEnchere());
+	System.out.println("Prix initial " + article.getPrixInitial());
+	System.out.println("Prix de vente " + article.getPrixVente());
+	System.out.println("Etat de la vente " + article.getEtatVente());
+	System.out.println("Numero Categorie " + article.getNoCategorie());
+	System.out.println("Numero Utilisateur " + article.getNoUtilisateur());
 	
 	System.out.println();
 	
