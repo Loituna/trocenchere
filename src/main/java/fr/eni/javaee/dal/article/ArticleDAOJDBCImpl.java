@@ -34,6 +34,9 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 			pstmt.setDate(4, Date.valueOf(article.getDateFinEnchere().toLocalDate()));
 			pstmt.setInt(5, article.getPrixInitial());
 			pstmt.setInt(6, article.getPrixInitial());
+			pstmt.setInt(7, article.getNoUtilisateur());
+			pstmt.setInt(8, article.getNoCategorie());
+			pstmt.setInt(9, article.getNoCategorie());
 			pstmt.executeUpdate();
 			ResultSet rs = pstmt.getGeneratedKeys();
 			System.out.println("Ca passe peut etre la");

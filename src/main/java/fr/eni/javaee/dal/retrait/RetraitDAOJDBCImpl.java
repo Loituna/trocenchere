@@ -28,19 +28,15 @@ class RetraitDAOJDBCImpl implements RetraitDao {
 		
 			pstmt.setString(1, retrait.getRue());
 			pstmt.setString(2, retrait.getCodePostal());
-			pstmt.setString(3, retrait.getVille());
-			System.out.println(retrait.toString()+"Debug avant exe");
-			pstmt.executeUpdate();
-			System.out.println("Ici debug avant rsnext");
-			ResultSet rs = pstmt.getGeneratedKeys();
-		
+			pstmt.setString(3, retrait.getVille());			
+			pstmt.executeUpdate();		
+			ResultSet rs = pstmt.getGeneratedKeys();		
 			
 			if (rs.next()) {
 				retrait.setNoArticle(rs.getInt(1));
 				retrait.setRue(rs.getString(2));
 				retrait.setCodePostal(rs.getString(3));
-				retrait.setVille(rs.getString(4));
-				System.out.println("Debug aprés rs next");
+				retrait.setVille(rs.getString(4));			
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -48,16 +44,10 @@ class RetraitDAOJDBCImpl implements RetraitDao {
 			BusinessException businessException = new BusinessException();
 			businessException.ajouterErreur(CodesResultatDAL.INSERT_RETRAIT_ECHEC);
 			throw businessException;
-		} finally {
-			if (pstmt != null)
-				try {
-					pstmt.close();
-				} catch (SQLException e) {
-					e.printStackTrace();/* , PreparedStatement.RETURN_GENERATED_KEYS */
-				}
-		}
+		} 
+		
 
 	}
 
-	// TODO DAL MYSQL Retrait
+
 }
