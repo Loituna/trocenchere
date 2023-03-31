@@ -20,8 +20,6 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	
 
 
-
-
 	@Override
 	public void creationUtilisateur(Utilisateur utilisateur) throws BusinessException {
 		if (utilisateur == null) {
@@ -72,6 +70,7 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		}
 	}
 
+	
 	@Override
 	public void modificationUtilisateur(Utilisateur utilisateur) throws BusinessException {
 		try (Connection cnx = ConnectionProvider.getConnection()){
@@ -94,11 +93,9 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			businessException.ajouterErreur(CodesResultatDAL.ECHEC_UPDATE_UTILISATEUR);
 			throw businessException;
 		}
-		
-		
-
 	}
 
+	
 	@Override
 	public void suppressionUtilisateur(Utilisateur utilisateur) {
 		// TODO Auto-generated method stub
@@ -111,7 +108,6 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			BusinessException businessException = new BusinessException();
 			businessException.ajouterErreur(CodesResultatDAL.DELETE_UTILISATEUR_ECHEC);
 		}
-
 	}
 
 	@Override
@@ -153,15 +149,10 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		
 		return utilisateur;
 	}
-
+	
 	@Override
 	public void deconnexionUtilisateur(Utilisateur utilisateur) {
-
-
 	}
-
-
-	
 
 	
 	public Utilisateur selectByNoUtilisateur(Integer noUtilisateur) {
@@ -182,7 +173,6 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 				utilisateur.setVille(rs.getString("ville"));
 				utilisateur.setMdp(rs.getString("mots_passe"));
 				utilisateur.setCredit(rs.getInt("credit"));
-				
 			}
 					
 		} catch (Exception e) {
@@ -190,5 +180,9 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			e.printStackTrace();
 		}
 		return utilisateur;
-	} 
+	}  
+	
+
+	
+	
 }

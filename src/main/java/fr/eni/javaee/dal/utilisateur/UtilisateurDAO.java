@@ -13,9 +13,7 @@ public interface UtilisateurDAO {
 
 	public Utilisateur authentificationUtilisateur(Utilisateur utilisateur) throws BusinessException;
 
-	public void deconnexionUtilisateur(Utilisateur utilisateur) ;
-
-	
+	public void deconnexionUtilisateur(Utilisateur utilisateur) ;	
 	
 	public Utilisateur selectByNoUtilisateur (Integer noUtilisateur) ;
 

@@ -13,6 +13,7 @@ import fr.eni.javaee.dal.tools.ConnectionProvider;
 class RetraitDAOJDBCImpl implements RetraitDao {
 
 	private static final String INSERT = "INSERT INTO RETRAIT(rue, code_postal, ville) VALUES (?,?,?)";
+	private static final String SELECT_POUR_RETRAIT = "SELECT rue, code_postal, ville  FROM utilisateur where no_utilisateur=?";
 
 	@Override
 	public void insert(Retrait retrait) throws BusinessException {
@@ -48,6 +49,31 @@ class RetraitDAOJDBCImpl implements RetraitDao {
 		
 
 	}
+	
+	@Override
+
+	public Retrait selectByIdRetrait(Integer noUtilisateur) {
+		
+		
+		Retrait retrait = new Retrait();
+		try(Connection cnx = ConnectionProvider.getConnection()){
+			PreparedStatement pstmt = cnx.prepareStatement(SELECT_POUR_RETRAIT);
+			pstmt.setInt(1, noUtilisateur);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				retrait.setNoArticle(noUtilisateur);
+				retrait.setRue(rs.getString("rue"));
+				retrait.setCodePostal("code_postal");
+				retrait.setVille(rs.getString("ville"));				
+			}
+					
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return retrait;
+	} 
+	
 
 
 }
