@@ -49,7 +49,6 @@
 		<br>
 		<br>
 		<input type="submit" onclick="alert('Modifié !')" value="Enregistrer"/>
-		<button type="button" onclick="alert('Compte supprimé !')">Supprimer mon compte</button>
 		
 </form>
 
