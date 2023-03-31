@@ -32,5 +32,9 @@ public class TestBo {
 	System.out.println("Ville : " + utilisateur2.getVille());
 	System.out.println("Mot de passe : " + utilisateur2.getMdp());
 
+	System.out.println();
+	
+	
+	System.out.println(utilisateur.toString());
 	}
 }
