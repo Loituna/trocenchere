@@ -1,29 +1,45 @@
 package fr.eni.javaee.bll.utilisateur;
 
+import java.sql.SQLException;
+
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Utilisateur;
 import fr.eni.javaee.dal.DAOFactory;
+import fr.eni.javaee.dal.tools.DalException;
 import fr.eni.javaee.dal.utilisateur.UtilisateurDAO;
 
 public class UserManagerImpl implements UserManager {
 
-
 	@Override
 	public void creationUtilisateur(Utilisateur utilisateur) throws BusinessException {
-		DAOFactory.getUtilisateurDAO().creationUtilisateur(utilisateur);
-	
+		try {
+			DAOFactory.getUtilisateurDAO().creationUtilisateur(utilisateur);
+		} catch (DalException  e) {
+			System.out.println("Echec Creation UserManager");
+			e.printStackTrace();
+		}
 
 	}
 
 	@Override
 	public void modificationUtilisateur(Utilisateur utilisateur) throws BusinessException {
-		DAOFactory.getUtilisateurDAO().modificationUtilisateur(utilisateur);
+		try {
+			DAOFactory.getUtilisateurDAO().modificationUtilisateur(utilisateur);
+		} catch (DalException e) {
+			System.out.println("Echec Modification UserManager");
+			e.printStackTrace();
+		}
 
 	}
 
 	@Override
 	public void suppressionUtilisateur(Utilisateur utilisateur) throws BusinessException {
-		DAOFactory.getUtilisateurDAO().suppressionUtilisateur(utilisateur);
+		try {
+			DAOFactory.getUtilisateurDAO().suppressionUtilisateur(utilisateur);
+		} catch (DalException e) {
+			System.out.println("Echec Suppresion UserManager");
+			e.printStackTrace();
+		}
 
 	}
 
@@ -40,9 +56,9 @@ public class UserManagerImpl implements UserManager {
 			DAOFactory.getUtilisateurDAO().authentificationUtilisateur(instance);
 			System.out.println(instance.getMdp());
 			System.out.println(instance.getPseudo());
-		} catch (BusinessException e) {
+		} catch (DalException e) {
 			e.printStackTrace();
-			System.out.println("Erreur coo depuis manager");
+			System.out.println("Echec Authentification UserManager");
 		}
 		return instance;
 	}
@@ -54,19 +70,14 @@ public class UserManagerImpl implements UserManager {
 	}
 
 	@Override
-	public void afficherUtilisateur(Utilisateur utilisateur) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Utilisateur getUserByNometPassWord(String nom, String password) throws BusinessException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Utilisateur getUserById(int id) throws BusinessException {
-		return DAOFactory.getUtilisateurDAO().selectByNoUtilisateur(id);
+	public Utilisateur getUserById(int id)  throws BusinessException {
+		Utilisateur User = null;
+		try {
+			 User =DAOFactory.getUtilisateurDAO().selectByNoUtilisateur(id);
+		} catch (DalException e) {
+			e.printStackTrace();
+			System.out.println("Echec Authentification UserManager");
+		}
+		return User;
 	}
 }

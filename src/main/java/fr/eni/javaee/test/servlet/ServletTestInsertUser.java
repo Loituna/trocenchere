@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Utilisateur;
 import fr.eni.javaee.dal.DAOFactory;
+import fr.eni.javaee.dal.tools.DalException;
 
 /**
  * Servlet implementation class ServletTestDal
@@ -40,7 +41,7 @@ public class ServletTestInsertUser extends HttpServlet {
 
 		try {
 			DAOFactory.getUtilisateurDAO().creationUtilisateur(u);
-		} catch (BusinessException e) {
+		} catch (DalException  e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

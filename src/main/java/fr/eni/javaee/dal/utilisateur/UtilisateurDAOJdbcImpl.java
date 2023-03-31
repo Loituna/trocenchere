@@ -9,6 +9,7 @@ import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Utilisateur;
 import fr.eni.javaee.dal.tools.CodesResultatDAL;
 import fr.eni.javaee.dal.tools.ConnectionProvider;
+import fr.eni.javaee.dal.tools.DalException;
 
 class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
@@ -17,15 +18,13 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	private static final String DELETE_UTILISATEUR = "DELETE FROM UTILISATEUR where no_utilisateur =?";
 	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEUR set pseudo = ?, nom =? , prenom =? ,email =?,telephone =? ,rue =? ,code_postal =? ,ville =? , mots_passe =? WHERE no_utilisateur =?";
 	private static final String SELECT_BY_ID = "SELECT pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mots_passe, credit FROM utilisateur where no_utilisateur=?";
-	
-
 
 	@Override
-	public void creationUtilisateur(Utilisateur utilisateur) throws BusinessException {
+	public void creationUtilisateur(Utilisateur utilisateur) throws DalException {
 		if (utilisateur == null) {
-			BusinessException businessException = new BusinessException();
-			businessException.ajouterErreur(CodesResultatDAL.INSERT_UTILISATEUR_NULL);
-			throw businessException;
+			DalException dalException = new DalException();
+			dalException.ajouterErreur(CodesResultatDAL.INSERT_UTILISATEUR_NULL);
+
 		}
 
 		PreparedStatement pstmt = null;
@@ -39,43 +38,34 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			pstmt.setString(6, utilisateur.getRue());
 			pstmt.setString(7, utilisateur.getCP());
 			pstmt.setString(8, utilisateur.getVille());
-			pstmt.setString(9, utilisateur.getMdp());		
+			pstmt.setString(9, utilisateur.getMdp());
 			pstmt.executeUpdate();
 			ResultSet rs = pstmt.getGeneratedKeys();
 			if (rs.next()) {
 				utilisateur.setNoUtilisateur(rs.getInt(1));
 				utilisateur.setNom(rs.getString(2));
 				utilisateur.setPrenom(rs.getNString(3));
-				utilisateur.setEmail(rs.getNString(4));				
+				utilisateur.setEmail(rs.getNString(4));
 				utilisateur.setTelephone(rs.getNString(5));
 				utilisateur.setRue(rs.getNString(7));
 				utilisateur.setCP(rs.getNString(8));
 				utilisateur.setVille(rs.getNString(9));
-				utilisateur.setMdp(rs.getNString(10));			
+				utilisateur.setMdp(rs.getNString(10));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			BusinessException businessException = new BusinessException();
+			DalException dalException = new DalException();
 
-			businessException.ajouterErreur(CodesResultatDAL.INSERT_UTILISATEUR_ECHEC);
+			dalException.ajouterErreur(CodesResultatDAL.INSERT_UTILISATEUR_ECHEC);
 
-			throw businessException;
-		} finally {
-			if (pstmt != null)
-				try {
-					pstmt.close();
-				} catch (SQLException e) {
-					e.printStackTrace();/* , PreparedStatement.RETURN_GENERATED_KEYS */
-				}
 		}
 	}
 
-	
 	@Override
-	public void modificationUtilisateur(Utilisateur utilisateur) throws BusinessException {
-		try (Connection cnx = ConnectionProvider.getConnection()){
+	public void modificationUtilisateur(Utilisateur utilisateur) throws DalException {
+		try (Connection cnx = ConnectionProvider.getConnection()) {
 			PreparedStatement pstmt = cnx.prepareStatement(UPDATE_UTILISATEUR);
-			
+
 			pstmt.setString(1, utilisateur.getPseudo());
 			pstmt.setString(2, utilisateur.getNom());
 			pstmt.setString(3, utilisateur.getPrenom());
@@ -87,35 +77,40 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			pstmt.setString(9, utilisateur.getMdp());
 			pstmt.setInt(10, utilisateur.getNoUtilisateur());
 			pstmt.executeUpdate();
-		}catch (Exception e) {
-			e.printStackTrace();;
-			BusinessException businessException = new BusinessException();
-			businessException.ajouterErreur(CodesResultatDAL.ECHEC_UPDATE_UTILISATEUR);
-			throw businessException;
+		} catch (Exception e) {
+			e.printStackTrace();
+			;
+			DalException dalException = new DalException();
+			dalException.ajouterErreur(CodesResultatDAL.ECHEC_UPDATE_UTILISATEUR);
+
 		}
 	}
 
-	
 	@Override
-	public void suppressionUtilisateur(Utilisateur utilisateur) {
-		// TODO Auto-generated method stub
+	public void suppressionUtilisateur(Utilisateur utilisateur) throws DalException {
+		DalException dalException = new DalException();
+		if (utilisateur == null) {
+			dalException.ajouterErreur(CodesResultatDAL.SUPPRESSION_UTILISATEUR_NULL);
 		try (Connection cnx = ConnectionProvider.getConnection()) {
 			PreparedStatement pstmt = cnx.prepareStatement(DELETE_UTILISATEUR);
 			pstmt.setInt(1, utilisateur.getNoUtilisateur());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
-			BusinessException businessException = new BusinessException();
-			businessException.ajouterErreur(CodesResultatDAL.DELETE_UTILISATEUR_ECHEC);
+			
+			dalException.ajouterErreur(CodesResultatDAL.DELETE_UTILISATEUR_ECHEC);
 		}
+		if (dalException.hasErreurs())
+			throw dalException;}
+		
 	}
 
 	@Override
-	public Utilisateur authentificationUtilisateur(Utilisateur utilisateur) throws BusinessException {
+	public Utilisateur authentificationUtilisateur(Utilisateur utilisateur) throws  DalException {
 
-		BusinessException businessException = new BusinessException();
+		DalException dalException = new DalException();
 		if (utilisateur == null) {
-			businessException.ajouterErreur(CodesResultatDAL.INSERT_UTILISATEUR_NULL);
+			dalException.ajouterErreur(CodesResultatDAL.INSERT_UTILISATEUR_NULL);
 		} else {
 			try (Connection cnx = ConnectionProvider.getConnection()) {
 				PreparedStatement pstmt = cnx.prepareStatement(SELECT_UTILISATEUR);
@@ -136,32 +131,31 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 					utilisateur.setMdp(rs.getNString(10));
 					utilisateur.setCredit(rs.getInt(11));
 				} else {
-					businessException.ajouterErreur(CodesResultatDAL.SELECT_UTILISATEUR_MDP_ECHEC);
+					dalException.ajouterErreur(CodesResultatDAL.SELECT_UTILISATEUR_MDP_ECHEC);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 
-				businessException.ajouterErreur(CodesResultatDAL.SELECT_UTILISATEUR_ECHEC);
+				dalException.ajouterErreur(CodesResultatDAL.SELECT_UTILISATEUR_ECHEC);
 			}
 		}
-		if (businessException.hasErreurs())
-			throw businessException;
-		
+		if (dalException.hasErreurs())
+			throw dalException;
+
 		return utilisateur;
 	}
-	
+
 	@Override
 	public void deconnexionUtilisateur(Utilisateur utilisateur) {
 	}
 
-	
 	public Utilisateur selectByNoUtilisateur(Integer noUtilisateur) {
 		Utilisateur utilisateur = new Utilisateur();
-		try(Connection cnx = ConnectionProvider.getConnection()){
+		try (Connection cnx = ConnectionProvider.getConnection()) {
 			PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_ID);
 			pstmt.setInt(1, noUtilisateur);
 			ResultSet rs = pstmt.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				utilisateur.setNoUtilisateur(noUtilisateur);
 				utilisateur.setPseudo(rs.getString("pseudo"));
 				utilisateur.setNom(rs.getString("nom"));
@@ -174,15 +168,12 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 				utilisateur.setMdp(rs.getString("mots_passe"));
 				utilisateur.setCredit(rs.getInt("credit"));
 			}
-					
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return utilisateur;
-	}  
-	
+	}
 
-	
-	
 }
