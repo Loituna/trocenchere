@@ -29,6 +29,12 @@
 		<label for="idVille">Ville : </label> ${utilisateur.ville}	
 		<br>
 		
+		<label for="nom">Nom :</label>
+		  <input type="text" id="nom" name="nom"><br><br>
+		  <label for="prenom">Prénom :</label>
+		  <input type="text" id="prenom" name="prenom"><br><br>
+		  <input type="submit" value="Envoyer">
+		
 		<input type="submit" onclick="alert('Compte supprimé !')" value="Supprimer mon compte"/>
 		<a href="./ServletAccueilCoo"> <button  type="button">Retourner à l'accueil</button> </a>
 </form>
