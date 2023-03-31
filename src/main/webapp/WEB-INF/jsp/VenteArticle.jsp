@@ -36,7 +36,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		<br>
 		
 		<label>Photo de l'article </label>
-		<input type="file" id="photoArticle" name="Bouton cliquable pour uloader la Photo de votre Article" >
+		<input type="file" id="photoArticle" name="photoArticle" >
 		<br>
 		<input type="number" id="credit" name ="credit" min ="100" max="1000">
 		<br>

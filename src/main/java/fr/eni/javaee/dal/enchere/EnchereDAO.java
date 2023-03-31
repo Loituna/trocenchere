@@ -1,4 +1,4 @@
-package fr.eni.javaee.dal;
+package fr.eni.javaee.dal.enchere;
 
 import fr.eni.javaee.bo.Enchere;
 import fr.eni.javaee.bo.Utilisateur;

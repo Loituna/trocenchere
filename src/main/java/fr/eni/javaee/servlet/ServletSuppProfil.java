@@ -39,6 +39,8 @@ public class ServletSuppProfil extends HttpServlet {
 		try {
 			util = UserManagerSingleton.getInstance().getUserById(5);
 			request.setAttribute("utilisateur", util);
+			System.out.println("utilisateur : " + util);
+			
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -68,6 +70,7 @@ public class ServletSuppProfil extends HttpServlet {
 			util.setCP(request.getParameter("cp"));
 			util.setVille(request.getParameter("ville"));
 			util.setMdp(request.getParameter("MDP"));
+			util.setNoUtilisateur(Integer.parseInt(request.getParameter("identifiant")));
 			
 			try {
 				UserManagerSingleton.getInstance().modificationUtilisateur(util);
