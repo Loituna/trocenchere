@@ -19,20 +19,28 @@ class RetraitDAOJDBCImpl implements RetraitDao {
 		if (retrait == null) {
 			BusinessException businessException = new BusinessException();
 			businessException.ajouterErreur(CodesResultatDAL.INSERT_RETRAIT_NULL);
+			System.out.println("Retrait Null");
 			throw businessException;
 		}
 		PreparedStatement pstmt = null;
 		try (Connection cnx = ConnectionProvider.getConnection()) {
 			pstmt = cnx.prepareStatement(INSERT, PreparedStatement.RETURN_GENERATED_KEYS);
+		
 			pstmt.setString(1, retrait.getRue());
-			pstmt.setString(1, retrait.getCodePostal());
-			pstmt.setString(1, retrait.getVille());
+			pstmt.setString(2, retrait.getCodePostal());
+			pstmt.setString(3, retrait.getVille());
+			System.out.println(retrait.toString()+"Debug avant exe");
+			pstmt.executeUpdate();
+			System.out.println("Ici debug avant rsnext");
 			ResultSet rs = pstmt.getGeneratedKeys();
+		
+			
 			if (rs.next()) {
 				retrait.setNoArticle(rs.getInt(1));
 				retrait.setRue(rs.getString(2));
 				retrait.setCodePostal(rs.getString(3));
 				retrait.setVille(rs.getString(4));
+				System.out.println("Debug aprés rs next");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

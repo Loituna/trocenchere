@@ -31,16 +31,18 @@ public class ServletTestRetrait extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
-		Retrait RRRrrr = new Retrait("5 rue de la retraite", "35000", "Rennes");
+		Retrait RRRrrr = new Retrait("6 rue de la retraite", "35000", "Rennes");
 		
 		try {
+		
 			DAOFactory.getRetraitDao().insert(RRRrrr);
+			System.out.println("test aprés");
 			
 		}catch(BusinessException e) {
 			e.printStackTrace();
 		}
 		
-		System.out.println(RRRrrr);
+		System.out.println(RRRrrr+"Test servlet");
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		

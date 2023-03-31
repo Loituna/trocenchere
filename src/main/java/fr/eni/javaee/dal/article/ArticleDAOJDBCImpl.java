@@ -24,7 +24,7 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 			throw businessException;
 
 		}
-		System.out.println(article.toString());
+		System.out.println(article.toString()+"Avant Insert DAL");
 		PreparedStatement pstmt = null;
 		try (Connection cnx = ConnectionProvider.getConnection()) {
 			pstmt = cnx.prepareStatement(INSERT_ARTICLE, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -34,21 +34,25 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 			pstmt.setDate(4, Date.valueOf(article.getDateFinEnchere().toLocalDate()));
 			pstmt.setInt(5, article.getPrixInitial());
 			pstmt.setInt(6, article.getPrixInitial());
-
+			pstmt.executeUpdate();
 			ResultSet rs = pstmt.getGeneratedKeys();
-
+			System.out.println("Ca passe peut etre la");
 			if (rs.next()) {
+				System.out.println("Ici on sais que ça passe pas !");
 				article.setNoArticle(rs.getInt(1));
 				article.setNomArticle(rs.getNString(2));
 				article.setDescription(rs.getNString(3));
+				System.out.println("Ca passe la");
 				article.setDateDebutEnchere(LocalDateTime.parse(rs.getNString(4)));
+				System.out.println("Ca passe ici");
 				article.setDateFinEnchere(LocalDateTime.parse(rs.getNString(5)));
 				article.setPrixInitial(rs.getInt(6));
 				article.setPrixVente(rs.getInt(7));
-
+				System.out.println(article.toString()+"Aprés Insert DAL");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("Echec insert catch");
 			BusinessException businessException = new BusinessException();
 
 			businessException.ajouterErreur(CodesResultatDAL.INSERT_UTILISATEUR_ECHEC);
@@ -59,8 +63,10 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 				try {
 					pstmt.close();
 				} catch (SQLException e) {
+					System.out.println("Echec on sais pas trop");
 					e.printStackTrace();/* , PreparedStatement.RETURN_GENERATED_KEYS */
 				}
+			System.out.println("on repasse direct ici");
 		}
 	}
 }

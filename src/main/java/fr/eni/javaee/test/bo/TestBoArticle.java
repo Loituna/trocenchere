@@ -3,11 +3,12 @@ package fr.eni.javaee.test.bo;
 import java.time.LocalDateTime;
 
 import fr.eni.javaee.bo.Article;
+import fr.eni.javaee.bo.Retrait;
 
 public class TestBoArticle {
 
 	public static void main(String[] args) {
-		
+		/*
 	// Création des dateDebutEnchere et dateFinEnchere
 	
 	// dateDebutEnchere initialisée à la date actuelle
@@ -31,5 +32,12 @@ public class TestBoArticle {
 	
 	System.out.println(article.toString());
 	
+	*/
+	Retrait EssaiInsert = new Retrait();
+	EssaiInsert.setCodePostal("35520");
+	EssaiInsert.setRue("La rue des patates");
+	EssaiInsert.setVille("La ville des patates");
+	
+	System.out.print(EssaiInsert.toString());
 	}
 }

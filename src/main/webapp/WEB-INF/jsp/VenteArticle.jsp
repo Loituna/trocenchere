@@ -61,15 +61,15 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
        <h2>Retrait</h2>
        <label for="rueRetrait">Rue :  </label><input type="text"
 			id="rueRetrait" name="rueRetrait" required="required"
-			value="<%=listeMessagesErreur != null ? request.getParameter("adresseRetrait") : "Adresse par default a completer"%>" />
+			value="<%=listeMessagesErreur != null ? request.getParameter("adresseRetrait") : "Adresse"%>" />
 			<br>
 			<label for="CPRetrait">Rue :  </label><input type="text"
 			id="CPRetrait" name="CPRetrait" required="required"
-			value="<%=listeMessagesErreur != null ? request.getParameter("CPRetrait") : "CP par default a completer"%>" />
+			value="<%=listeMessagesErreur != null ? request.getParameter("CPRetrait") : "CP"%>" />
 			<br>
 				<label for="VilleRetrait">Rue :  </label><input type="text"
 			id="VilleRetrait" name="VilleRetrait" required="required"
-			value="<%=listeMessagesErreur != null ? request.getParameter("VilleRetrait") : "Ville par default a completer"%>" />
+			value="<%=listeMessagesErreur != null ? request.getParameter("VilleRetrait") : "Ville"%>" />
 			<br>
        
        </div>

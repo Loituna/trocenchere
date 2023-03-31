@@ -68,7 +68,17 @@ public class ServletVenteArticle extends HttpServlet {
 		retraitcreation.setVille(request.getParameter("VilleRetrait"));
 		retraitcreation.setCodePostal(request.getParameter("CPRetrait"));
 		
-		System.out.println(creation.toString()+"Article HIM");
+		try {
+			System.out.println("Patate");
+			DAOFactory.getRetraitDao().insert(retraitcreation);
+		} catch (BusinessException e1) {
+	 
+			e1.printStackTrace();
+		}
+		
+		
+		System.out.println(creation.toString()+"Article Servlet");
+		System.out.println(retraitcreation.toString()+"Retrait Servlet");
 		try {
 			DAOFactory.getArticleDao().insertArticle(creation);
 		} catch (BusinessException e) {
