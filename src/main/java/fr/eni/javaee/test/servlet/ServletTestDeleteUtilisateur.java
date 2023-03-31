@@ -1,6 +1,7 @@
-package fr.eni.javaee.servlet.test;
+package fr.eni.javaee.test.servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,43 +9,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.javaee.bll.BusinessException;
-import fr.eni.javaee.bo.Retrait;
-import fr.eni.javaee.dal.DAOFactory;
+import fr.eni.javaee.bll.UserManagerSingleton;
+import fr.eni.javaee.bo.Utilisateur;
 
 /**
- * Servlet implementation class ServletTestRetrait
+ * Servlet implementation class ServletTestDeleteUtilisateur
  */
-@WebServlet("/ServletTestRetrait")
-public class ServletTestRetrait extends HttpServlet {
+@WebServlet("/ServletTestDeleteUtilisateur")
+public class ServletTestDeleteUtilisateur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletTestRetrait() {
+    public ServletTestDeleteUtilisateur() {
         super();
         // TODO Auto-generated constructor stub
     }
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
-			throws ServletException, IOException {
-		
-		Retrait RRRrrr = new Retrait("5 rue de la retraite", "35000", "Rennes");
-		
-		try {
-			DAOFactory.getRetraitDao().insert(RRRrrr);
-			
-		}catch(BusinessException e) {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		Utilisateur util = new Utilisateur();
+		try { UserManagerSingleton.getInstance().suppressionUtilisateur(util);
+
+		} catch (BusinessException e){
 			e.printStackTrace();
 		}
 		
-		System.out.println(RRRrrr);
-		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
-		
 	}
 
 	/**
