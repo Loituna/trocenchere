@@ -92,7 +92,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			pstmt.setString(7, utilisateur.getCP());
 			pstmt.setString(8, utilisateur.getVille());
 			pstmt.setString(9, utilisateur.getMdp());
-			pstmt.setInt(10, utilisateur.getNoUtilisateur());
+			pstmt.setInt(10, utilisateur.getNoUtilisateur());			
 			pstmt.executeUpdate();
 		}catch (Exception e) {
 			e.printStackTrace();;
