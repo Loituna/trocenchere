@@ -18,7 +18,7 @@ public class Utilisateur {
 	private String mdp;
 	private Integer Credit;
 	private List<Enchere> ListeEnchereUser;
-	private List<Article> ListArticleUser;
+	private List<Article> ListeArticleUser;
 	
 	
 	public Utilisateur() {
@@ -71,11 +71,11 @@ public class Utilisateur {
 	}
 
 	public List<Article> getListArticleUser() {
-		return ListArticleUser;
+		return ListeArticleUser;
 	}
 
-	public void setListArticleUser(List<Article> listArticleUser) {
-		ListArticleUser = listArticleUser;
+	public void setListArticleUser(List<Article> listeArticleUser) {
+		ListeArticleUser = listeArticleUser;
 	}
 
 	public Integer getNoUtilisateur() {
