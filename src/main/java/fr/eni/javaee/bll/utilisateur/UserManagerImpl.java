@@ -6,23 +6,24 @@ import fr.eni.javaee.dal.DAOFactory;
 import fr.eni.javaee.dal.utilisateur.UtilisateurDAO;
 
 public class UserManagerImpl implements UserManager {
-	private UtilisateurDAO dao = DAOFactory.getUtilisateurDAO();
+
 
 	@Override
 	public void creationUtilisateur(Utilisateur utilisateur) throws BusinessException {
-		dao.creationUtilisateur(utilisateur);
+		DAOFactory.getUtilisateurDAO().creationUtilisateur(utilisateur);
+	
 
 	}
 
 	@Override
 	public void modificationUtilisateur(Utilisateur utilisateur) throws BusinessException {
-		dao.modificationUtilisateur(utilisateur);
+		DAOFactory.getUtilisateurDAO().modificationUtilisateur(utilisateur);
 
 	}
 
 	@Override
 	public void suppressionUtilisateur(Utilisateur utilisateur) throws BusinessException {
-		dao.suppressionUtilisateur(utilisateur);
+		DAOFactory.getUtilisateurDAO().suppressionUtilisateur(utilisateur);
 
 	}
 
@@ -36,7 +37,7 @@ public class UserManagerImpl implements UserManager {
 		instance.setMdp(mdp);
 		instance.setPseudo(pseudo);
 		try {
-			dao.authentificationUtilisateur(instance);
+			DAOFactory.getUtilisateurDAO().authentificationUtilisateur(instance);
 			System.out.println(instance.getMdp());
 			System.out.println(instance.getPseudo());
 		} catch (BusinessException e) {
@@ -66,6 +67,6 @@ public class UserManagerImpl implements UserManager {
 
 	@Override
 	public Utilisateur getUserById(int id) throws BusinessException {
-		return dao.selectByNoUtilisateur (id);
+		return DAOFactory.getUtilisateurDAO().selectByNoUtilisateur(id);
 	}
 }
