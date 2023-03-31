@@ -47,6 +47,12 @@ public class Article {
 		this.noCategorie = noCategorie;
 		this.noUtilisateur = noUtilisateur;
 	}
+	
+	// constructeur utilisé pour le TestBOUtilisateur
+	public Article(String nomArticle) {
+		super();
+		this.nomArticle = nomArticle;
+	}
 	public Integer getNoArticle() {
 		return noArticle;
 	}
@@ -130,10 +136,16 @@ public class Article {
 	}
 	@Override
 	public String toString() {
-		return "Article [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description=" + description
-				+ ", dateDebutEnchere=" + dateDebutEnchere + ", dateFinEnchere=" + dateFinEnchere + ", prixInitial="
-				+ prixInitial + ", prixVente=" + prixVente + ", etatVente=" + etatVente + ", noCategorie=" + noCategorie
-				+ ", noUtilisateur=" + noUtilisateur + "]";
+		return "Article noArticle=" + noArticle 
+				+ "\nnomArticle=" + nomArticle 
+				+ "\ndescription=" + description
+				+ "\ndateDebutEnchere=" + dateDebutEnchere 
+				+ "\ndateFinEnchere=" + dateFinEnchere 
+				+ "\nprixInitial=" + prixInitial 
+				+ "\nprixVente=" + prixVente 
+				+ "\netatVente=" + etatVente 
+				+ "\nnoCategorie=" + noCategorie
+				+ "\nnoUtilisateur=" + noUtilisateur;
 	}
 	
 }
