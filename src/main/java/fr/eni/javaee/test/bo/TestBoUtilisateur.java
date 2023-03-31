@@ -1,18 +1,24 @@
 package fr.eni.javaee.test.bo;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import fr.eni.javaee.bo.Article;
+import fr.eni.javaee.bo.Enchere;
 import fr.eni.javaee.bo.Utilisateur;
 
 public class TestBoUtilisateur {
 
 	
 	public static void main(String[] args) {
-		// création de deux utilisateur
+		// création de deux utilisateurs
 	Utilisateur utilisateur = new Utilisateur(1, "Jackouille", "Line","Jacky","jackouille@gmail.com","456789","Avenue Poland","35000","Rennes","6969");
 	Utilisateur utilisateur2 = new Utilisateur(2, "Michou", "Ine","Michel","michou@gmail.com","123456","Avenue Saint Michel","35000","Rennes","1234");
 	// set le nombre de crédit en brut a 100
 	utilisateur.setCredit(100);
 	
 	// test getters premier utilisateur
+	System.out.println("Numero : " + utilisateur.getNoUtilisateur());
 	System.out.println("Pseudo : " + utilisateur.getPseudo());
 	System.out.println("Nom : " + utilisateur.getNom());
 	System.out.println("Prenom : " + utilisateur.getPrenom());
@@ -35,12 +41,65 @@ public class TestBoUtilisateur {
 	System.out.println("Code Postal : " + utilisateur2.getCP());
 	System.out.println("Ville : " + utilisateur2.getVille());
 	System.out.println("Mot de passe : " + utilisateur2.getMdp());
+	
+	System.out.println();
+	
+	
+	//test getter et setter de la List<Article>
+	
+	List<Article> listeArticle = new ArrayList<Article>();	
+	Article article = new Article();
+	Article article2 = new Article();
+	article.setNomArticle("gtx 2080");
+	article2.setNomArticle("gtw 740");
+	
+	listeArticle.add(article);
+	listeArticle.add(article2);
+	
+	utilisateur.setListArticleUser(listeArticle);
+	List<Article> resultat = utilisateur.getListArticleUser();
+	
+	System.out.println(listeArticle);
+	
+	System.out.println();
+	
+	if(resultat.equals(listeArticle)) {
+		System.out.println("les getter et setter de la listeArticle fonctionnent");
+	}else {
+		System.out.println("les getter et setter de la listeArticle ne fonctionnent pas");
+	}
 
 	System.out.println();
 	
-	//test setters
+	
+	//test getter et setter de la List<Enchere>
+	List<Enchere> listeEnchere = new ArrayList<Enchere>();	
+	Enchere enchere = new Enchere();
+	Enchere enchere2 = new Enchere();
+	enchere.setNoEnchere(2);
+	enchere2.setNoEnchere(3);
+	
+	listeEnchere.add(enchere);
+	listeEnchere.add(enchere2);
+	
+	utilisateur.setListeEnchereUser(listeEnchere);
+	List<Enchere> resultat2 = utilisateur.getListeEnchereUser();
+	
+	System.out.println(listeEnchere);
+	
+	System.out.println();
+	
+	if(resultat2.equals(listeEnchere)) {
+		System.out.println("les getter et setter de la listeEnchere fonctionnent");
+	}else {
+		System.out.println("les getter et setter de la listeEnchere ne fonctionnent pas");
+	}
+
+	System.out.println();
+	//test setter pseudo
 	Utilisateur utilisateur3 = new Utilisateur();
 	utilisateur3.setPseudo("Beber");
+		// sysout de debogage
 	System.out.println("Pseudo utilisateur : " + utilisateur3.getPseudo());
 	if(!utilisateur3.getPseudo().equals("Beber")) {
 		System.out.println("le setter ne fonctionne pas bien");
