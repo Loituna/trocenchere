@@ -48,11 +48,6 @@ public class Article {
 		this.noUtilisateur = noUtilisateur;
 	}
 	
-	// constructeur utilisé pour le TestBOUtilisateur
-	public Article(String nomArticle) {
-		super();
-		this.nomArticle = nomArticle;
-	}
 	public Integer getNoArticle() {
 		return noArticle;
 	}

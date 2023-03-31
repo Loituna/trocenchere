@@ -47,8 +47,10 @@ public class TestBoUtilisateur {
 	//test getter et setter de la List<Article>
 	
 	List<Article> listeArticle = new ArrayList<Article>();	
-	Article article = new Article("GTX 3070");
-	Article article2 = new Article("GTX 2999");
+	Article article = new Article();
+	Article article2 = new Article();
+	article.setNomArticle("gtx 2080");
+	article2.setNomArticle("gtw 740");
 	
 	listeArticle.add(article);
 	listeArticle.add(article2);
