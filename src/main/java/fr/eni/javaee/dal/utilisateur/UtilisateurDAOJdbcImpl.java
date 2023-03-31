@@ -18,14 +18,7 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEUR set pseudo = ?, nom =? , prenom =? ,email =?,telephone =? ,rue =? ,code_postal =? ,ville =? , mots_passe =? WHERE no_utilisateur =?";
 	private static final String SELECT_BY_ID = "SELECT pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mots_passe, credit FROM utilisateur where no_utilisateur=?";
 	
-	private static UtilisateurDAOJdbcImpl instance ;
-	
-	public static UtilisateurDAOJdbcImpl getInstance() {
-		if (instance == null) {
-			instance = new UtilisateurDAOJdbcImpl();
-		}
-		return instance ;
-	}
+
 
 
 
