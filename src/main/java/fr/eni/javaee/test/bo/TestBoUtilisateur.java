@@ -1,4 +1,4 @@
-package fr.eni.javaee.bo.testbo;
+package fr.eni.javaee.test.bo;
 
 import fr.eni.javaee.bo.Utilisateur;
 
