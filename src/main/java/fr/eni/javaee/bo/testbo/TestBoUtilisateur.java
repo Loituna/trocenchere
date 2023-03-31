@@ -1,5 +1,9 @@
 package fr.eni.javaee.bo.testbo;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import fr.eni.javaee.bo.Article;
 import fr.eni.javaee.bo.Utilisateur;
 
 public class TestBoUtilisateur {
@@ -36,6 +40,31 @@ public class TestBoUtilisateur {
 	System.out.println("Code Postal : " + utilisateur2.getCP());
 	System.out.println("Ville : " + utilisateur2.getVille());
 	System.out.println("Mot de passe : " + utilisateur2.getMdp());
+	
+	System.out.println();
+	
+	
+	//test getter et setter de la List<Article>
+	
+	List<Article> listeArticle = new ArrayList<Article>();	
+	Article article = new Article("GTX 3070");
+	Article article2 = new Article("GTX 2999");
+	
+	listeArticle.add(article);
+	listeArticle.add(article2);
+	
+	utilisateur.setListArticleUser(listeArticle);
+	List<Article> resultat = utilisateur.getListArticleUser();
+	
+	System.out.println(listeArticle);
+	
+	System.out.println();
+	
+	if(resultat.equals(listeArticle)) {
+		System.out.println("les getter et setter de la listeArticle fonctionnent");
+	}else {
+		System.out.println("les getter et setter de la listeArticle ne fonctionnent pas");
+	}
 
 	System.out.println();
 	
