@@ -16,14 +16,14 @@ import fr.eni.javaee.bo.Utilisateur;
 /**
  * Servlet implementation class ServletSuppProfil
  */
-@WebServlet("/ServletSuppProfil")
-public class ServletSuppProfil extends HttpServlet {
+@WebServlet("/ServletModifProfil")
+public class ServletModifProfil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletSuppProfil() {
+    public ServletModifProfil() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,7 +37,7 @@ public class ServletSuppProfil extends HttpServlet {
 		
 		Utilisateur util;
 		try {
-			util = UserManagerSingleton.getInstance().getUserById(5);
+			util = UserManagerSingleton.getInstance().getUserById(1);
 			request.setAttribute("utilisateur", util);
 			System.out.println("utilisateur : " + util);
 			
@@ -47,7 +47,7 @@ public class ServletSuppProfil extends HttpServlet {
 		}
 		
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/suppProfil.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/modifProfil.jsp");
 		rd.forward(request, response);
 	}
 
@@ -85,7 +85,7 @@ public class ServletSuppProfil extends HttpServlet {
 			request.setAttribute("Erreur", "mauvaise confirmation du mot de passe");
 			//mot de passe pas bon
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/suppProfil.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/afficherUtilisateur.jsp");
 		rd.forward(request, response);	
 		
 	}
