@@ -1,24 +1,19 @@
-package fr.eni.javaee.dal;
+package fr.eni.javaee.dal.article;
 
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 
 import fr.eni.javaee.bll.BusinessException;
 import fr.eni.javaee.bo.Article;
+import fr.eni.javaee.dal.tools.CodesResultatDAL;
+import fr.eni.javaee.dal.tools.ConnectionProvider;
 
-public class ArticleDAOJDBCImpl implements ArticleDao {
-	private static ArticleDAOJDBCImpl instance;
+class ArticleDAOJDBCImpl implements ArticleDao {
 
-	public static ArticleDAOJDBCImpl getInstance() {
-		if (instance == null) {
-			instance = new ArticleDAOJDBCImpl();
-		}
-		return instance;
-	}
-	
 	
 	
 	private static final String INSERT_ARTICLE = "INSERT INTO article_vendu(nom_article,description,date_debut,date_fin,prix_initial,prix_vente) VALUES(?,?,?,?,?,?)";
@@ -45,8 +40,14 @@ public class ArticleDAOJDBCImpl implements ArticleDao {
 			
 			
 			if (rs.next()) {
+				article.setNoArticle(rs.getInt(1));
+				article.setNomArticle(rs.getNString(2));
+				article.setDescription(rs.getNString(3));
+				article.setDateDebutEnchere(LocalDateTime.parse(rs.getNString(4)));
+				article.setDateFinEnchere(LocalDateTime.parse(rs.getNString(5)));
+				article.setPrixInitial(rs.getInt(6));
+				article.setPrixVente(rs.getInt(7));
 				
-			
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

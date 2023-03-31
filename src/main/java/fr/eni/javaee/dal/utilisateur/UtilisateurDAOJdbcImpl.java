@@ -1,4 +1,4 @@
-package fr.eni.javaee.dal;
+package fr.eni.javaee.dal.utilisateur;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,8 +7,10 @@ import java.sql.SQLException;
 
 import fr.eni.javaee.bll.BusinessException;
 import fr.eni.javaee.bo.Utilisateur;
+import fr.eni.javaee.dal.tools.CodesResultatDAL;
+import fr.eni.javaee.dal.tools.ConnectionProvider;
 
-public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
+ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 	private static final String CREATION_UTILISATEUR = "INSERT INTO UTILISATEUR(pseudo, nom, prenom, email, telephone,rue,code_postal,ville,mots_passe) VALUES(?,?,?,?,?,?,?,?,?)";
 	private static final String SELECT_UTILISATEUR = "SELECT * FROM utilisateur WHERE pseudo = ? AND mots_passe = ?";
@@ -16,17 +18,8 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEUR set pseudo = ?, nom =? , prenom =. ,email =?,telephone =? ,rue =? ,code_postal =? ,ville =? , mots_passe =? , credit =?  WHERE no_utilisateur =?";
 	private static final String SELECT_BY_ID = "SELECT pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mots_passe, credit FROM utilisateur where no_utilisateur=?";
 	
-	private static UtilisateurDAOJdbcImpl instance ;
 	
-	public static UtilisateurDAOJdbcImpl getInstance() {
-		if (instance == null) {
-			instance = new UtilisateurDAOJdbcImpl();
-		}
-		return instance ;
-	}
 
-	private UtilisateurDAOJdbcImpl() {
-	}
 
 	@Override
 	public void creationUtilisateur(Utilisateur utilisateur) throws BusinessException {

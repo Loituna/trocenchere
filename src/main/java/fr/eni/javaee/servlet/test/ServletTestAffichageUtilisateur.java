@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import fr.eni.javaee.bll.BusinessException;
 import fr.eni.javaee.bll.UserManagerSingleton;
 import fr.eni.javaee.bo.Utilisateur;
+import fr.eni.javaee.dal.DAOFactory;
 
 /**
  * Servlet implementation class ServletTestAffichageUtilisateur
@@ -35,6 +36,8 @@ public class ServletTestAffichageUtilisateur extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+	
 		//TODO récupérer l'utilsateur dans la session
 		
 		try {

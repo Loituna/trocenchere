@@ -1,6 +1,7 @@
 package fr.eni.javaee.servlet.test;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.javaee.bll.BusinessException;
 import fr.eni.javaee.bo.Utilisateur;
-import fr.eni.javaee.dal.UtilisateurDAOJdbcImpl;
+import fr.eni.javaee.dal.DAOFactory;
 
 /**
  * Servlet implementation class ServletTestDal
@@ -37,9 +38,8 @@ public class ServletTestInsertUser extends HttpServlet {
 		Utilisateur u = new Utilisateur("Dell", "Bpm", "Toto", "azerty@gmail.com", "0685462929", "5 rue mendes",
 				"35000", "Rennes", "1234");
 
-		UtilisateurDAOJdbcImpl dao = UtilisateurDAOJdbcImpl.getInstance();
 		try {
-			dao.creationUtilisateur(u);
+			DAOFactory.getUtilisateurDAO().creationUtilisateur(u);
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

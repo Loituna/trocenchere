@@ -1,4 +1,4 @@
-package fr.eni.javaee.dal;
+package fr.eni.javaee.dal.article;
 
 import fr.eni.javaee.bll.BusinessException;
 import fr.eni.javaee.bo.Article;
