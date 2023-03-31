@@ -37,7 +37,7 @@ public class ServletSuppProfil extends HttpServlet {
 		
 		Utilisateur util;
 		try {
-			util = UserManagerSingleton.getInstance().getUserById(5);
+			util = UserManagerSingleton.getInstance().getUserById(3);
 			request.setAttribute("utilisateur", util);
 			System.out.println("utilisateur : " + util);
 			

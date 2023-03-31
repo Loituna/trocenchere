@@ -161,11 +161,7 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	}
 
 
-	@Override
-	public void afficherUtilisateur(Utilisateur utilisateur) {
-		// TODO Auto-generated method stub
-
-	}
+	
 
 	
 	public Utilisateur selectByNoUtilisateur(Integer noUtilisateur) {

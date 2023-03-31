@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.javaee.bll.BusinessException;
 import fr.eni.javaee.bo.Article;
@@ -45,19 +46,29 @@ public class ServletVenteArticle extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
+		
+		HttpSession session = request.getSession();
+	
+		
 		Article creation = new Article();
 		Retrait retraitcreation = new Retrait();
-		
+	//	creation.setNoUtilisateur(Integer.parseInt(session.getId()));
+		creation.setNoUtilisateur(3);
 		creation.setNomArticle(request.getParameter("nomArticle"));
 		creation.setDescription(request.getParameter("descriptionArticle"));
 		creation.setDateDebutEnchere(LocalDateTime.parse(request.getParameter("DebutEnchere")));
 		creation.setDateFinEnchere(LocalDateTime.parse(request.getParameter("FinEnchere")));
 		creation.setPrixInitial(Integer.parseInt(request.getParameter("credit")));
+		creation.setPrixVente(Integer.parseInt(request.getParameter("credit")));
+		creation.setEtatVente(true);
+		creation.setNoCategorie(Integer.parseInt(request.getParameter("ListeCategorie")));
+	
+		
 		retraitcreation.setRue(request.getParameter("rueRetrait"));
 		retraitcreation.setVille(request.getParameter("VilleRetrait"));
 		retraitcreation.setCodePostal(request.getParameter("CPRetrait"));
 		
-		
+		System.out.println(creation.toString()+"Article HIM");
 		try {
 			DAOFactory.getArticleDao().insertArticle(creation);
 		} catch (BusinessException e) {
