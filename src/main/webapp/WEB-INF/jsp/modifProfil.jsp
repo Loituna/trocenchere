@@ -18,7 +18,7 @@
 <h1>Mon profil</h1>
 <br>
 
-<form action="<%=request.getContextPath()%>/ServletSuppProfil" method="post">
+<form action="<%=request.getContextPath()%>/ServletModifProfil" method="post">
 
 		<label for="id">Votre identifiant : </label><input name="identifiant" value="${utilisateur.noUtilisateur}"/>
 		<br>
@@ -49,9 +49,10 @@
 		<br>
 		<br>
 		<input type="submit" onclick="alert('Modifié !')" value="Enregistrer"/>
-		<button type="button" onclick="alert('Compte supprimé !')">Supprimer mon compte</button>
 		
 </form>
+
+
 	<a href="./ServletAccueilCoo"> <button  type="button">Retourner à l'accueil</button> </a>
 
 
