@@ -28,6 +28,10 @@ public abstract class CodesResultatDAL {
 
 	public static final int INSERT_ARTICLE_NULL = 10006;
 
+	public static final int INSERT_RETRAIT_NULL = 10007;
+
+	public static final int INSERT_RETRAIT_ECHEC = 10008;
+
 
 	
 	

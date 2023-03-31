@@ -1,7 +1,11 @@
 package fr.eni.javaee.dal.retrait;
 
+import fr.eni.javaee.bll.BusinessException;
+import fr.eni.javaee.bo.Retrait;
+
 public interface RetraitDao {
 	
-	//TODO Contrat Retrait
+	public void insert(Retrait retrait) throws BusinessException;
+
 
 }
