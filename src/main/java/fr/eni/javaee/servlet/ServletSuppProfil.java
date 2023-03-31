@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.javaee.bll.BusinessException;
+import fr.eni.javaee.bll.UserManagerSingleton;
+import fr.eni.javaee.bo.Utilisateur;
+
 /**
  * Servlet implementation class ServletSuppProfil
  */
@@ -29,6 +33,18 @@ public class ServletSuppProfil extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		//TODO récupérer l'utilsateur dans la session
+		
+				Utilisateur util;
+				try {
+					util = UserManagerSingleton.getInstance().getUserById(1);
+					request.setAttribute("utilisateur", util);
+					System.out.println("utilisateur : " + util);
+					
+				} catch (BusinessException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/supprimerProfil.jsp");
 		rd.forward(request, response);
@@ -39,6 +55,16 @@ public class ServletSuppProfil extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		Utilisateur util = new Utilisateur();
+		
+		util.setNoUtilisateur(Integer.parseInt(request.getParameter("identifiant")));
+		
+		try {
+			UserManagerSingleton.getInstance().suppressionUtilisateur(util);
+		} catch (BusinessException e) {
+			System.out.println("Erreur de suppression");
+			e.printStackTrace();
+		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueil.jsp");
 		rd.forward(request, response);	
