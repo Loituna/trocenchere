@@ -6,13 +6,14 @@ public class TestBoUtilisateur {
 
 	
 	public static void main(String[] args) {
-		// création de deux utilisateur
+		// création de deux utilisateurs
 	Utilisateur utilisateur = new Utilisateur(1, "Jackouille", "Line","Jacky","jackouille@gmail.com","456789","Avenue Poland","35000","Rennes","6969");
 	Utilisateur utilisateur2 = new Utilisateur(2, "Michou", "Ine","Michel","michou@gmail.com","123456","Avenue Saint Michel","35000","Rennes","1234");
 	// set le nombre de crédit en brut a 100
 	utilisateur.setCredit(100);
 	
 	// test getters premier utilisateur
+	System.out.println("Numero : " + utilisateur.getNoUtilisateur());
 	System.out.println("Pseudo : " + utilisateur.getPseudo());
 	System.out.println("Nom : " + utilisateur.getNom());
 	System.out.println("Prenom : " + utilisateur.getPrenom());
@@ -41,6 +42,7 @@ public class TestBoUtilisateur {
 	//test setter pseudo
 	Utilisateur utilisateur3 = new Utilisateur();
 	utilisateur3.setPseudo("Beber");
+		// sysout de debogage
 	System.out.println("Pseudo utilisateur : " + utilisateur3.getPseudo());
 	if(!utilisateur3.getPseudo().equals("Beber")) {
 		System.out.println("le setter ne fonctionne pas bien");
