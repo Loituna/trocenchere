@@ -38,34 +38,35 @@ public class ServletTestAffichageUtilisateur extends HttpServlet {
 		
 		
 	
-		//TODO récupérer l'utilsateur dans la session
-/*
-		HttpSession session = request.getSession();
-		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
-		
-		System.out.println(utilisateur);
-	*/	
-		
-		
-		
+//		//TODO récupérer l'utilsateur dans la session
+//
+//		HttpSession session = request.getSession();
+//		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
+//		
+//		System.out.println(utilisateur);
+
+	
 		try {
 			Utilisateur util = UserManagerSingleton.getInstance().getUserById(3);
 			request.setAttribute("utilisateur", util);
-		
+
+			
 			System.out.println("utilisateur : " + util);
 			HttpSession session = request.getSession();
 			
 			//session.setAttribute(SESSION_UTILISATEUR, util);
+			Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
 			
-			System.out.println(util);
-		/*	
+			System.out.println(utilisateur);
+			/*
 			if (util!=null) {
 				HttpSession session = request.getSession();
 				session.setAttribute(SESSION_UTILISATEUR, util);
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/afficherUtilisateur.jsp");
-			rd.forward(request, response);;
+				rd.forward(request, response);;
 			}
-		*/	
+			*/
+
 			
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block

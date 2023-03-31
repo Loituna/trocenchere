@@ -5,7 +5,7 @@ import fr.eni.javaee.bo.Utilisateur;
 
 public interface EnchereDAO {
 
-	public void venteAricle (Enchere enchere);
+	public void venteArticle (Enchere enchere);
 	
 	public void listerEnchereDeco ();
 	
