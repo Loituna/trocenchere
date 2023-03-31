@@ -10,7 +10,7 @@ import fr.eni.javaee.bo.Utilisateur;
 	
 
 	@Override
-	public void venteAricle(Enchere enchere) {
+	public void venteArticle(Enchere enchere) {
 		// TODO Auto-generated method stub
 
 	}

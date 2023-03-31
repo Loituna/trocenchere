@@ -35,6 +35,7 @@ public class ServletSuppProfil extends HttpServlet {
 		
 		//TODO récupérer l'utilsateur dans la session
 		
+
 				Utilisateur util;
 				try {
 					util = UserManagerSingleton.getInstance().getUserById(1);
@@ -45,6 +46,7 @@ public class ServletSuppProfil extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/supprimerProfil.jsp");
 		rd.forward(request, response);

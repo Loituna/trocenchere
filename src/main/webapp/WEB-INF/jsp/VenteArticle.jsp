@@ -25,12 +25,14 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 			type="text" id="descriptionArticle" name="descriptionArticle" required="required"
 			value="<%=listeMessagesErreur != null ? request.getParameter("descriptionArticle") : ""%>" />
 			<br>
-		<select name="Liste Categorie" id="listcate">
-			<option value="Informatique">Informatique</option>
-			<option value="Ameublement">Ameublement</option>
-			<option value="Vetement">Vetement</option>
-			<option value="Sport">Sport</option>
-			<option value="Loisir">Loisir</option>
+			
+			
+		<select name="ListeCategorie" id="listcate">
+			<option value="1">Informatique</option>
+			<option value="2">Ameublement</option>
+			<option value="3">Vetement</option>
+			<option value="4">Sport</option>
+			<option value="5">Loisir</option>
 	
 		</select>
 		<br>
