@@ -1,17 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="fr.eni.javaee.bo.Utilisateur" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Profil utilisateur</title>
+<title>Supprimer Profil</title>
 </head>
-<h3>Site d'enchere en ligne le plus beau de la promo</h3>
 <body>
-	
-	<form action="<%=request.getContextPath()%>/ServletTestAffichageUtilisateur method="post">
+
+<form action="<%=request.getContextPath()%>/ServletSuppProfil" method="post">
+
+
 		<label for="idPseudo">Pseudo : </label>${utilisateur.pseudo}
 		<br>
 		<label for="idNom">Nom : </label>${utilisateur.nom}
@@ -29,12 +28,9 @@
 		<label for="idVille">Ville : </label> ${utilisateur.ville}	
 		<br>
 		
+		<input type="submit" onclick="alert('Compte supprimé !')" value="Supprimer mon compte"/>
+		
 </form>
-
-<div class ="boutton modifier">
-	<a href="ServletModifProfil"><button class = "modifier">Modifier</button></a>
-	<a href="ServletSuppProfil"> <button>Supprimer mon compte</button> </a>
-</div>
 
 
 </body>
