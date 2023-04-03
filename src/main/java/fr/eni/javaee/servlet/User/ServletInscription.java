@@ -1,4 +1,4 @@
-package fr.eni.javaee.servlet;
+package fr.eni.javaee.servlet.User;
 
 import java.io.IOException;
 

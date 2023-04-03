@@ -1,4 +1,4 @@
-package fr.eni.javaee.servlet;
+package fr.eni.javaee.servlet.Coo;
 
 import java.io.IOException;
 
@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ServletEnchere
+ * Servlet implementation class ServletAccueuil
  */
-@WebServlet("/ServletEnchere")
-public class ServletEnchere extends HttpServlet {
+@WebServlet("/ServletAccueil")
+public class ServletAccueil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletEnchere() {
+    public ServletAccueil() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,7 +28,7 @@ public class ServletEnchere extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/NouvelleEnchere.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueil.jsp");
 		rd.forward(request, response);
 	}
 

@@ -1,4 +1,4 @@
-package fr.eni.javaee.servlet;
+package fr.eni.javaee.servlet.Coo;
 
 import java.io.IOException;
 import java.util.stream.Collectors;
