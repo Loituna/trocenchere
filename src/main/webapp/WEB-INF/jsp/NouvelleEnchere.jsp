@@ -19,7 +19,7 @@
 
 	<h3>Site d'enchere en ligne le plus beau de la promo</h3>
 	<h1>Détails Vente </h1>
-	
+		<h4>${utilisateur.pseudo} à remporté l'enchère</h4>
 	<label for="nomArticle">Article</label><input type="text" id="nomArticle" name="Nom de l'article"   value=""/>
 	<label for="DescriptionArtcile">Description : </label>
 	

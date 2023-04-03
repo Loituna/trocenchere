@@ -110,7 +110,7 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 		DalException dalException = new DalException();
 		if (utilisateur == null) {
-			dalException.ajouterErreur(CodesResultatDAL.INSERT_UTILISATEUR_NULL);
+			dalException.ajouterErreur(CodesResultatDAL.SELECT_UTILISATEUR_NULL);
 		} else {
 			try (Connection cnx = ConnectionProvider.getConnection()) {
 				PreparedStatement pstmt = cnx.prepareStatement(SELECT_UTILISATEUR);
