@@ -8,7 +8,6 @@ public class TestBoArticle {
 
 	public static void main(String[] args) {
 		
-	// Création des dateDebutEnchere et dateFinEnchere
 	
 	// dateDebutEnchere initialisée à la date actuelle
 	LocalDateTime dateDebutEnchere = LocalDateTime.now();
