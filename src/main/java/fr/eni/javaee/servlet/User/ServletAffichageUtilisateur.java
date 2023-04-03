@@ -47,7 +47,7 @@ public class ServletAffichageUtilisateur extends HttpServlet {
 
 	
 		try {
-			Utilisateur util = UserManagerSingleton.getInstance().getUserById(4);
+			Utilisateur util = UserManagerSingleton.getInstance().getUserById(1);
 			request.setAttribute("utilisateur", util);
 
 			
