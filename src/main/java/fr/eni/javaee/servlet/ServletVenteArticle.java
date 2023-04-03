@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Article;
 import fr.eni.javaee.bo.Retrait;
@@ -54,7 +55,7 @@ public class ServletVenteArticle extends HttpServlet {
 		Article creation = new Article();
 		Retrait retraitcreation = new Retrait();
 	//	creation.setNoUtilisateur(Integer.parseInt(session.getId()));
-		creation.setNoUtilisateur(3);
+		creation.setNoUtilisateur(1);
 		creation.setNomArticle(request.getParameter("nomArticle"));
 		creation.setDescription(request.getParameter("descriptionArticle"));
 		creation.setDateDebutEnchere(LocalDateTime.parse(request.getParameter("DebutEnchere")));
@@ -63,30 +64,22 @@ public class ServletVenteArticle extends HttpServlet {
 		creation.setPrixVente(Integer.parseInt(request.getParameter("credit")));
 		creation.setEtatVente(true);
 		creation.setNoCategorie(Integer.parseInt(request.getParameter("ListeCategorie")));
-	
 		
 		retraitcreation.setRue(request.getParameter("rueRetrait"));
 		retraitcreation.setVille(request.getParameter("VilleRetrait"));
-		retraitcreation.setCodePostal(request.getParameter("CPRetrait"));
+		retraitcreation.setCodePostal(request.getParameter("CPRetrait"));	
 		
 		try {
-			System.out.println("Patate");
-			DAOFactory.getRetraitDao().insert(retraitcreation);
-		} catch (BusinessException e1) {
-	 
-			e1.printStackTrace();
-		}
-		
-		
-		System.out.println(creation.toString()+"Article Servlet");
-		System.out.println(retraitcreation.toString()+"Retrait Servlet");
-		try {
-			DAOFactory.getArticleDao().insertArticle(creation);
-		} catch (SQLException e) {
-			request.setAttribute("Erreur", "PATATE");
-			System.out.println("PATATE");
+			BLLFactory.getArticleManager().insert(creation, retraitcreation);
+		} catch (BusinessException e) {
+			System.out.println("Echec Insert Article Servlet");
 			e.printStackTrace();
 		}
+	
+		
+		
+		
+	
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueilConnecte.jsp");
 		rd.forward(request, response);	
 	}
