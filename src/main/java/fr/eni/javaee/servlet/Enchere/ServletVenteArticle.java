@@ -1,7 +1,6 @@
 package fr.eni.javaee.servlet.Enchere;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.time.LocalDateTime;
 
 import javax.servlet.RequestDispatcher;
@@ -15,8 +14,8 @@ import javax.servlet.http.HttpSession;
 import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Article;
+import fr.eni.javaee.bo.Enchere;
 import fr.eni.javaee.bo.Retrait;
-import fr.eni.javaee.dal.DAOFactory;
 
 /**
  * Servlet implementation class ServletVenteArticle
@@ -52,8 +51,10 @@ public class ServletVenteArticle extends HttpServlet {
 		HttpSession session = request.getSession();
 	
 		
+	
+	
+		
 		Article creation = new Article();
-		Retrait retraitcreation = new Retrait();
 	//	creation.setNoUtilisateur(Integer.parseInt(session.getId()));
 		creation.setNoUtilisateur(1);
 		creation.setNomArticle(request.getParameter("nomArticle"));
@@ -65,9 +66,14 @@ public class ServletVenteArticle extends HttpServlet {
 		creation.setEtatVente(true);
 		creation.setNoCategorie(Integer.parseInt(request.getParameter("ListeCategorie")));
 		
+		Retrait retraitcreation = new Retrait();
 		retraitcreation.setRue(request.getParameter("rueRetrait"));
 		retraitcreation.setVille(request.getParameter("VilleRetrait"));
-		retraitcreation.setCodePostal(request.getParameter("CPRetrait"));	
+		retraitcreation.setCodePostal(request.getParameter("CPRetrait"));
+		
+		Enchere encherecreation = new Enchere();
+		
+	
 		
 		try {
 			BLLFactory.getArticleManager().insert(creation, retraitcreation);
