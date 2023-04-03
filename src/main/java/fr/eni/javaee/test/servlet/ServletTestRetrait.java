@@ -1,6 +1,7 @@
 package fr.eni.javaee.test.servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Retrait;
-import fr.eni.javaee.dal.DAOFactory;
 
 /**
  * Servlet implementation class ServletTestRetrait
@@ -32,15 +32,14 @@ public class ServletTestRetrait extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
-		Retrait RRRrrr = new Retrait("6 rue de la retraite", "35000", "Rennes");
-		
+		Retrait RRRrrr = new Retrait("6 rue de la retraite", "35000", "Rennes",2);		
 	
-			try {
-				BLLFactory.getRetraitManager().insert(RRRrrr);
-			} catch (BusinessException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		try {
+			BLLFactory.getRetraitManager().insert(RRRrrr);
+		} catch (BusinessException e) {
+			System.out.println("Echec Insert Retrait Servlet");
+			e.printStackTrace();
+		}
 			
 			
 			

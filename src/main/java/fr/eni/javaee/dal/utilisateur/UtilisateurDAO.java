@@ -1,8 +1,5 @@
 package fr.eni.javaee.dal.utilisateur;
 
-import java.sql.SQLException;
-
-import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Utilisateur;
 import fr.eni.javaee.dal.tools.DalException;
 

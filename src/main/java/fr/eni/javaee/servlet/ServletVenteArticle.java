@@ -1,6 +1,7 @@
 package fr.eni.javaee.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 
 import javax.servlet.RequestDispatcher;
@@ -81,7 +82,7 @@ public class ServletVenteArticle extends HttpServlet {
 		System.out.println(retraitcreation.toString()+"Retrait Servlet");
 		try {
 			DAOFactory.getArticleDao().insertArticle(creation);
-		} catch (BusinessException e) {
+		} catch (SQLException e) {
 			request.setAttribute("Erreur", "PATATE");
 			System.out.println("PATATE");
 			e.printStackTrace();
