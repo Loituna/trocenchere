@@ -34,7 +34,7 @@ public class ServletVenteRemportee extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
-			Utilisateur util = UserManagerSingleton.getInstance().getUserById(3);
+			Utilisateur util = UserManagerSingleton.getInstance().getUserById(1);
 			request.setAttribute("utilisateur", util);
 			
 			System.out.println("utilisateur : " + util);
@@ -52,8 +52,8 @@ public class ServletVenteRemportee extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/VenteRemportee.jsp");
+		rd.forward(request, response);
 	}
 
 }

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Article;
+import fr.eni.javaee.dal.tools.DalException;
 
 /**
  * Servlet implementation class ServletEnchere
@@ -37,10 +38,10 @@ public class ServletEnchereVendeur extends HttpServlet {
 		Article article;
 		
 		try {
-			article = BLLFactory.getArticleManager();
+			article = BLLFactory.getArticleManager().selectByNoArticle(1);
 			request.setAttribute("article", article);
 			System.out.println("article"+ article);
-		} catch (BusinessException e) {
+		} catch ( DalException e) {
 			System.out.println("Echec Recuperation Article Servlet");
 			e.printStackTrace();
 		}

@@ -9,4 +9,6 @@ import fr.eni.javaee.bo.Retrait;
 public interface ArticleDao {
 	
 	public void insertArticle(Article article, Retrait retrait)throws SQLException ;
+	
+	public Article selectByNoArticle (Integer Article) throws SQLException;
 }
