@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bll.tools.BusinessException;
@@ -24,6 +25,7 @@ import fr.eni.javaee.bo.Utilisateur;
 @WebServlet("/ServletVenteArticle")
 public class ServletVenteArticle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final String SESSION_UTILISATEUR= "utilisateur";
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -40,16 +42,11 @@ public class ServletVenteArticle extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		Utilisateur util;
-		try {
-			util = BLLFactory.getUserManager().getUserById(1);
-			request.setAttribute("utilisateur", util);
-			System.out.println("utilisateur : " + util);
-			
-		} catch (BusinessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		HttpSession session = request.getSession();
+		
+		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
+		request.setAttribute(SESSION_UTILISATEUR,utilisateur);
+		System.out.println(utilisateur);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/VenteArticle.jsp");
 		rd.forward(request, response);
