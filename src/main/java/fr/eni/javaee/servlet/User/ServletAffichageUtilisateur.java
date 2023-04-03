@@ -10,11 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fr.eni.javaee.bll.BLLFactory;
-import fr.eni.javaee.bll.tools.BusinessException;
-import fr.eni.javaee.bll.utilisateur.UserManagerSingleton;
 import fr.eni.javaee.bo.Utilisateur;
-import fr.eni.javaee.dal.DAOFactory;
 
 /**
  * Servlet implementation class ServletTestAffichageUtilisateur
@@ -36,49 +32,16 @@ public class ServletAffichageUtilisateur extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
 		
-		
+		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
+		request.setAttribute(SESSION_UTILISATEUR,utilisateur);
+		System.out.println(utilisateur);
 	
-		//TODO récupérer l'utilsateur dans la session
-
-//		HttpSession session = request.getSession();
-//		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
-//		
-//		System.out.println(utilisateur);
-
-	
-		try {
-			
-			Utilisateur util = BLLFactory.getUserManager().getUserById(1);
-		
-			
-			System.out.println("utilisateur : " + util);
-			HttpSession session = request.getSession();
-			
-			//session.setAttribute(SESSION_UTILISATEUR, util);
-			Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
-			
-			System.out.println(utilisateur);
-			/*
-			if (util!=null) {
-				HttpSession session = request.getSession();
-				session.setAttribute(SESSION_UTILISATEUR, util);
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/afficherUtilisateur.jsp");
-				rd.forward(request, response);;
-			}
-			*/
-
-			
-		} catch (BusinessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/afficherUtilisateur.jsp");
 		rd.forward(request, response);
-
+		
+		
 	}
   
 	/**
