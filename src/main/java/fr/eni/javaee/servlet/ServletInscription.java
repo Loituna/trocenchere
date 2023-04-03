@@ -47,8 +47,12 @@ public class ServletInscription extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
+		
+		System.out.println();
 		if ((request.getParameter("MDP")).equals(request.getParameter("MDPconfirm"))) {
 			
+			
+			System.out.println("Creation utilisateur");
 			Utilisateur creation = new Utilisateur();
 	
 			creation.setPseudo(request.getParameter("pseudo"));
@@ -72,13 +76,14 @@ public class ServletInscription extends HttpServlet {
 			
 		}
 		else {
+			System.out.println("Erreur 500 ?");
 			//erreur à gérer !!!
 			
 			request.setAttribute("Erreur", "mauvaise confirmation du mot de passe");
 			//mot de passe pas bon
 		}
 		
-		
+		System.out.println("Page coo");
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueilConnecte.jsp");
 		rd.forward(request, response);	

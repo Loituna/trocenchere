@@ -24,6 +24,7 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		if (utilisateur == null) {
 			DalException dalException = new DalException();
 			dalException.ajouterErreur(CodesResultatDAL.INSERT_UTILISATEUR_NULL);
+			System.out.println("Utilisateur NULL DAL");
 
 		}
 
@@ -39,25 +40,22 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			pstmt.setString(7, utilisateur.getCP());
 			pstmt.setString(8, utilisateur.getVille());
 			pstmt.setString(9, utilisateur.getMdp());
+			System.out.println("Utilisateur Insert DAL B4 pstmt ");
 			pstmt.executeUpdate();
+			
+			
 			ResultSet rs = pstmt.getGeneratedKeys();
+			System.out.println("Utilisateur Insert DAL After pstmt ");
 			if (rs.next()) {
+				System.out.println("Get Utilisateur via BDD");
 				utilisateur.setNoUtilisateur(rs.getInt(1));
-				utilisateur.setPseudo(rs.getString(2));
-				utilisateur.setNom(rs.getString(3));
-				utilisateur.setPrenom(rs.getNString(4));
-				utilisateur.setEmail(rs.getNString(5));
-				utilisateur.setTelephone(rs.getNString(6));
-				utilisateur.setRue(rs.getNString(7));
-				utilisateur.setCP(rs.getNString(8));
-				utilisateur.setVille(rs.getNString(9));
-				utilisateur.setMdp(rs.getNString(10));
+			
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			DalException dalException = new DalException();
-
 			dalException.ajouterErreur(CodesResultatDAL.INSERT_UTILISATEUR_ECHEC);
+			System.out.println("Erreur E ");
 
 		}
 	}
