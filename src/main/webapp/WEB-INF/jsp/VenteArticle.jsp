@@ -63,11 +63,11 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 			id="rueRetrait" name="rueRetrait" required="required"
 			value="<%=listeMessagesErreur != null ? request.getParameter("adresseRetrait") : "Adresse"%>" />
 			<br>
-			<label for="CPRetrait">Rue :  </label><input type="text"
+			<label for="CPRetrait">Code Postal :  </label><input type="text"
 			id="CPRetrait" name="CPRetrait" required="required"
 			value="<%=listeMessagesErreur != null ? request.getParameter("CPRetrait") : "CP"%>" />
 			<br>
-				<label for="VilleRetrait">Rue :  </label><input type="text"
+				<label for="VilleRetrait">Ville :  </label><input type="text"
 			id="VilleRetrait" name="VilleRetrait" required="required"
 			value="<%=listeMessagesErreur != null ? request.getParameter("VilleRetrait") : "Ville"%>" />
 			<br>
