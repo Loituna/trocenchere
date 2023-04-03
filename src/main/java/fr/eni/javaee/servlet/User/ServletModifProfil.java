@@ -13,7 +13,6 @@ import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bll.utilisateur.UserManagerSingleton;
 import fr.eni.javaee.bo.Utilisateur;
-import fr.eni.javaee.dal.DAOFactory;
 
 /**
  * Servlet implementation class ServletSuppProfil
