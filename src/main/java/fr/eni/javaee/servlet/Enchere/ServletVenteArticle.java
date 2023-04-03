@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bll.tools.BusinessException;
+import fr.eni.javaee.bll.utilisateur.UserManagerSingleton;
 import fr.eni.javaee.bo.Article;
 import fr.eni.javaee.bo.Retrait;
+import fr.eni.javaee.bo.Utilisateur;
 
 /**
  * Servlet implementation class ServletVenteArticle
@@ -36,6 +38,18 @@ public class ServletVenteArticle extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		Utilisateur util;
+		try {
+			util = UserManagerSingleton.getInstance().getUserById(1);
+			request.setAttribute("utilisateur", util);
+			System.out.println("utilisateur : " + util);
+			
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/VenteArticle.jsp");
 		rd.forward(request, response);
 
