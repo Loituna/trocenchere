@@ -45,21 +45,6 @@ public class ServletModifProfil extends HttpServlet {
 		request.setAttribute(SESSION_UTILISATEUR,utilisateur);
 		System.out.println(utilisateur);
 		
-		
-//		Utilisateur util;
-//		try {
-//
-//			util = BLLFactory.getUserManager().getUserById(1);
-//
-//			request.setAttribute("utilisateur", util);
-//			System.out.println("utilisateur : " + util);
-//			
-//		} catch (BusinessException e) {
-//			System.out.println("Echec Recuperation Utilisateur Servlet ");
-//			e.printStackTrace();
-//		}
-		
-		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/modifProfil.jsp");
 		rd.forward(request, response);
 	}
