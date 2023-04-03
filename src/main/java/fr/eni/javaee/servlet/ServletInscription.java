@@ -47,7 +47,7 @@ public class ServletInscription extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
-		if ((request.getParameter("MDP")).equalsIgnoreCase(request.getParameter("MDPconfirm"))) {
+		if ((request.getParameter("MDP")).equals(request.getParameter("MDPconfirm"))) {
 			
 			Utilisateur creation = new Utilisateur();
 	
@@ -61,6 +61,7 @@ public class ServletInscription extends HttpServlet {
 			creation.setVille(request.getParameter("Ville"));
 			creation.setMdp(request.getParameter("MDP"));
 			
+			
 			try {
 				UserManagerSingleton.getInstance().creationUtilisateur(creation);
 			} catch (BusinessException e) {
@@ -72,7 +73,7 @@ public class ServletInscription extends HttpServlet {
 		}
 		else {
 			//erreur à gérer !!!
-
+			
 			request.setAttribute("Erreur", "mauvaise confirmation du mot de passe");
 			//mot de passe pas bon
 		}
