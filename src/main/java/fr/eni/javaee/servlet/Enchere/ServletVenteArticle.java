@@ -42,7 +42,7 @@ public class ServletVenteArticle extends HttpServlet {
 		
 		Utilisateur util;
 		try {
-			util = UserManagerSingleton.getInstance().getUserById(1);
+			util = BLLFactory.getUserManager().getUserById(1);
 			request.setAttribute("utilisateur", util);
 			System.out.println("utilisateur : " + util);
 			
