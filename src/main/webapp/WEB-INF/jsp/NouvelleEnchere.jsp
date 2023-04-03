@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ page import="fr.eni.javaee.bo.Enchere" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/VenteRemportee.css">
-<title>Remporter l'enchère</title>
+<title>Enchérir</title>
 
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
@@ -24,7 +25,7 @@
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="index.html">Accueil</a></li>
+					aria-current="page" href="ServletAccueilCoo">Accueil</a></li>
 
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" role="button"
@@ -52,15 +53,20 @@
 
 </head>
 <body>
+<form action=""></form>
 	<div class="article">
 		<div>
-			<h5>Nouvelle vente</h5><br>
-			Article : <input type="text" id="idArticle" name="article"  required="required" >
-			génération.<br> <br> Meilleur offre : 210 pts pat Pseudo<br>
-			Mise à prix : 185 pts<br> Fin de l'enchère : 09/03/2023<br>
-			Retrait : 5 rue Saint-Louis 35000 Rennes<br> <br> Vendeur :
-			pseudo<br> <br> <a href="ServletAccueilCoo"><button
-					class="bouton">Retrait</button></a>
+			<h5>Nouvelle</h5><br>
+			<label for="idArticle">Article : </label><input name="identifiant" value="${article.nomArticle}"/>	<br>
+			
+		
+			 <br> Meilleur offre : 210 pts par Pseudo<br>
+			Mise à prix : 185 pts
+			<br> Fin de l'enchère : 09/03/2023<br>
+			Retrait : 5 rue Saint-Louis 35000 Rennes<br> 
+			<br> Vendeur :	pseudo<br> <br> 
+			<a href="ServletAccueilCoo"><button
+					class="bouton">Confirmer </button></a>
 
 		</div>
 	</div>

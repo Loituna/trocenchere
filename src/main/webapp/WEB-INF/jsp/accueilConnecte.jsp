@@ -26,7 +26,7 @@
 
 <p>Filtres : </p> <br>
 <form action="<%=request.getContextPath()%>/ServletAcceuil"method="post">
-<input type="texte" id="searchart" name="barre de recherche article" value = "Le nom de l'article contient">
+<input type="texte" id="searchart" name="barrearticle" value = "Le nom de l'article contient">
 
  </form>
 
