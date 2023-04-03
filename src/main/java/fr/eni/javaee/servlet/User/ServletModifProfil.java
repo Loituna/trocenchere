@@ -37,7 +37,7 @@ public class ServletModifProfil extends HttpServlet {
 		
 		Utilisateur util;
 		try {
-			util = UserManagerSingleton.getInstance().getUserById(4);
+			util = UserManagerSingleton.getInstance().getUserById(1);
 			request.setAttribute("utilisateur", util);
 			System.out.println("utilisateur : " + util);
 			
