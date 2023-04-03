@@ -38,8 +38,8 @@ public class ServletAffichageUtilisateur extends HttpServlet {
 		
 		
 	
-//		//TODO récupérer l'utilsateur dans la session
-//
+		//TODO récupérer l'utilsateur dans la session
+
 //		HttpSession session = request.getSession();
 //		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
 //		
@@ -47,7 +47,7 @@ public class ServletAffichageUtilisateur extends HttpServlet {
 
 	
 		try {
-			Utilisateur util = UserManagerSingleton.getInstance().getUserById(4);
+			Utilisateur util = UserManagerSingleton.getInstance().getUserById(1);
 			request.setAttribute("utilisateur", util);
 
 			

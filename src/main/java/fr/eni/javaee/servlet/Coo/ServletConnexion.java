@@ -63,6 +63,7 @@ public class ServletConnexion extends HttpServlet {
 				rd.forward(request, response);
 			}
 			else {
+				System.out.println("probleme l'utilisateur n'est pas correctmenet recuperé ");
 				//TODO gestion erreur!!!!
 			}
 
@@ -79,9 +80,5 @@ public class ServletConnexion extends HttpServlet {
 			rd.forward(request, response);
 			return;
 		}
-
-
-		response.sendRedirect("./ServletAccueil");
 	}
-
 }
