@@ -9,5 +9,6 @@ public interface ArticleManager {
 	public void insert (Article article , Retrait retrait)throws BusinessException;
 
 
+	
 
 }

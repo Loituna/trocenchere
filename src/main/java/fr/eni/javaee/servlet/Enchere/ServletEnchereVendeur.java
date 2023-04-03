@@ -37,7 +37,7 @@ public class ServletEnchereVendeur extends HttpServlet {
 		Article article;
 		
 		try {
-			article = BLLFactory.getArticleManager().getArticlebyID();
+			article = BLLFactory.getArticleManager();
 			request.setAttribute("article", article);
 			System.out.println("article"+ article);
 		} catch (BusinessException e) {
