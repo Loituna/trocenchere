@@ -27,7 +27,7 @@
 		<br>
 		<label for="idPrenom">Prenom : </label><input type="text" id="idPrenom" name="Prenom" required="required" value="<%=listeMessagesErreur!=null?request.getParameter("Prenom"):""%>"/>
 		<br>
-		<label for="idEmail">Email : </label><input type="email" id="idEmail" name="Email"  required="required" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value="<%=listeMessagesErreur!=null?request.getParameter("Email"):""%>"/>
+		<label for="idEmail">Email : </label><input type="email" id="idEmail" name="Email"  required="required" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value="<%=listeMessagesErreur!=null?request.getParameter("Email"):"  "%>"/>
 		<br>
 		<label for="idTelephone">Téléphone : </label><input type="tel" id="idTelephone" name="Telephone" required="required" pattern="[0-9][0-9] [0-9][0-9] [0-9][0-9] [0-9][0-9] [0-9][0-9]" title="Veuillez entrer un numéro de téléphone valide de type 01 23 45 67 89." value="<%=listeMessagesErreur!=null?request.getParameter("Telephone"):""%>"/>
 		<br>
