@@ -55,8 +55,8 @@
 	<div class="article">
 		<div>
 		<img src="./images/RTX-SD.jpg" alt="Ma superbe image">
-		
-			Nvidia 4090 RTX <br> Description : Carte graphique nouvelle
+		<form action="<%=request.getContextPath()%>/ServletVenteRemportee method="post">
+			${article_vendu.nom_article} <br> Description : Carte graphique nouvelle
 			génération.<br>
 			<br>
 			Meilleur offre : 210 pts pat Pseudo<br>
