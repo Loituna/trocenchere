@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bll.utilisateur.UserManagerSingleton;
 import fr.eni.javaee.bo.Utilisateur;
@@ -47,9 +48,9 @@ public class ServletAffichageUtilisateur extends HttpServlet {
 
 	
 		try {
-			Utilisateur util = UserManagerSingleton.getInstance().getUserById(1);
-			request.setAttribute("utilisateur", util);
-
+			
+			Utilisateur util = BLLFactory.getUserManager().getUserById(1);
+		
 			
 			System.out.println("utilisateur : " + util);
 			HttpSession session = request.getSession();

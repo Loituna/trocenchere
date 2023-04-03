@@ -17,14 +17,14 @@ import fr.eni.javaee.dal.tools.DalException;
 /**
  * Servlet implementation class ServletEnchere
  */
-@WebServlet("/ServletEnchere")
+@WebServlet("/ServletEnchereVendeur")
 public class ServletEnchereVendeur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
-     */
-    public ServletEnchereVendeur() {
+	     */
+	    public ServletEnchereVendeur() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,7 +33,7 @@ public class ServletEnchereVendeur extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		//TODO recuperer l'id de larticle à afficher
 		
 		Article article;
 		

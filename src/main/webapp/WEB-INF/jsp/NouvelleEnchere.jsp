@@ -53,22 +53,20 @@
 
 </head>
 <body>
-<form action=""></form>
+
 	<div class="article">
+	<form action="<%request.getContextPath();%>/ServletEnchereVendeur">
 		<div>
 			<h5>Nouvelle</h5><br>
 			<label for="idArticle">Article : </label><input name="identifiant" value="${article.nomArticle}"/>	<br>
-			
+			<br>
+			<label for="idDescription ">Description : </label><input name="Description" value = "${article.descriptionArticle}"/>
 		
-			 <br> Meilleur offre : 210 pts par Pseudo<br>
-			Mise à prix : 185 pts
-			<br> Fin de l'enchère : 09/03/2023<br>
-			Retrait : 5 rue Saint-Louis 35000 Rennes<br> 
-			<br> Vendeur :	pseudo<br> <br> 
-			<a href="ServletAccueilCoo"><button
-					class="bouton">Confirmer </button></a>
+			
+			<input type="submit" onclick="alert('Modifié !')" value="Enregistrer"/>
 
 		</div>
+		</form>
 	</div>
 </body>
 <script
