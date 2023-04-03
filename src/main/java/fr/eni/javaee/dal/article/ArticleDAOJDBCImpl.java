@@ -16,12 +16,12 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 
 	private static final String INSERT_ARTICLE = "INSERT INTO `article_vendu` (`nom_article`, `description`, `date_debut`, `date_fin`, `prix_initial`, `prix_vente`, `no_utilisateur`, `retrait_no_article`, `categorie_no_categorie`) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	@Override
-	public void insertArticle(Article article) throws BusinessException {
+	public void insertArticle(Article article) throws SQLException {
 		
 		if (article == null) {
-			BusinessException businessException = new BusinessException();
-			businessException.ajouterErreur(CodesResultatDAL.INSERT_ARTICLE_NULL);
-			throw businessException;
+			SQLException SQLException = new SQLException();
+			SQLException.addSuppressed(SQLException);
+			throw SQLException;
 
 		}
 		System.out.println(article.toString()+"Avant Insert DAL");
@@ -56,18 +56,15 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Echec insert catch");
-			BusinessException businessException = new BusinessException();
-
-			businessException.ajouterErreur(CodesResultatDAL.INSERT_UTILISATEUR_ECHEC);
-
-			throw businessException;
+			SQLException SQLException = new SQLException();
+			throw SQLException;
 		} finally {
 			if (pstmt != null)
 				try {
 					pstmt.close();
-				} catch (SQLException e) {
-					System.out.println("Echec on sais pas trop");
-					e.printStackTrace();/* , PreparedStatement.RETURN_GENERATED_KEYS */
+				} catch (SQLException e) {					
+					e.printStackTrace();
+					throw new SQLException("");
 				}
 			System.out.println("on repasse direct ici");
 		}

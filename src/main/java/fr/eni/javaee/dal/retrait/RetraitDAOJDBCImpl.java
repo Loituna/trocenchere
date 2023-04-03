@@ -12,7 +12,7 @@ import fr.eni.javaee.dal.tools.ConnectionProvider;
 
 class RetraitDAOJDBCImpl implements RetraitDao {
 
-	private static final String INSERT = "INSERT INTO RETRAIT(rue, code_postal, ville) VALUES (?,?,?)";
+	private static final String INSERT = "INSERT INTO RETRAIT(no_article,rue, code_postal, ville) VALUES (?,?,?,?)";
 	private static final String SELECT_POUR_RETRAIT = "SELECT rue, code_postal, ville  FROM utilisateur where no_utilisateur=?";
 
 	@Override
@@ -26,18 +26,19 @@ class RetraitDAOJDBCImpl implements RetraitDao {
 		PreparedStatement pstmt = null;
 		try (Connection cnx = ConnectionProvider.getConnection()) {
 			pstmt = cnx.prepareStatement(INSERT, PreparedStatement.RETURN_GENERATED_KEYS);
-		
-			pstmt.setString(1, retrait.getRue());
-			pstmt.setString(2, retrait.getCodePostal());
-			pstmt.setString(3, retrait.getVille());			
-			pstmt.executeUpdate();		
-			ResultSet rs = pstmt.getGeneratedKeys();		
-			
+
+			pstmt.setInt(1, retrait.getNoArticle());
+			pstmt.setString(2, retrait.getRue());
+			pstmt.setString(3, retrait.getCodePostal());
+			pstmt.setString(4, retrait.getVille());
+			pstmt.executeUpdate();
+			ResultSet rs = pstmt.getGeneratedKeys();
+
 			if (rs.next()) {
 				retrait.setNoArticle(rs.getInt(1));
 				retrait.setRue(rs.getString(2));
 				retrait.setCodePostal(rs.getString(3));
-				retrait.setVille(rs.getString(4));			
+				retrait.setVille(rs.getString(4));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -45,35 +46,31 @@ class RetraitDAOJDBCImpl implements RetraitDao {
 			BusinessException businessException = new BusinessException();
 			businessException.ajouterErreur(CodesResultatDAL.INSERT_RETRAIT_ECHEC);
 			throw businessException;
-		} 
-		
+		}
 
 	}
-	
+
 	@Override
 
 	public Retrait selectByIdRetrait(Integer noUtilisateur) {
-		
-		
+
 		Retrait retrait = new Retrait();
-		try(Connection cnx = ConnectionProvider.getConnection()){
+		try (Connection cnx = ConnectionProvider.getConnection()) {
 			PreparedStatement pstmt = cnx.prepareStatement(SELECT_POUR_RETRAIT);
 			pstmt.setInt(1, noUtilisateur);
 			ResultSet rs = pstmt.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				retrait.setNoArticle(noUtilisateur);
 				retrait.setRue(rs.getString("rue"));
 				retrait.setCodePostal("code_postal");
-				retrait.setVille(rs.getString("ville"));				
+				retrait.setVille(rs.getString("ville"));
 			}
-					
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return retrait;
-	} 
-	
-
+	}
 
 }
