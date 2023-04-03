@@ -73,7 +73,7 @@ public class ServletInscription extends HttpServlet {
 		}
 		else {
 			//erreur à gérer !!!
-
+			
 			request.setAttribute("Erreur", "mauvaise confirmation du mot de passe");
 			//mot de passe pas bon
 		}
