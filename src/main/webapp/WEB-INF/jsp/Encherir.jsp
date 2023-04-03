@@ -58,7 +58,7 @@
 		
 			Nvidia 4090 RTX <br> Description : Carte graphique nouvelle
 			génération.<br>
-			<br>
+			Catégorie : Informatique<br>
 			Meilleur offre : 210 pts pat Pseudo<br>
 			Mise à prix : 185 pts<br>
 			Fin de l'enchère : 09/03/2023<br>
@@ -67,12 +67,11 @@
 			
 			Vendeur : pseudo<br>
 			<br>
-			
-			<a href="ServletAccueilCoo"><button class="bouton">Retrait</button></a>
+			Ma proposition : <input type="number" id="credit" name ="credit" min ="100" max="1000"><br>
+			<br>
+			<a href="ServletEncherir"><button class="bouton">Enchérir</button></a>
 
 		</div>
-
-
 
 	</div>
 </body>
