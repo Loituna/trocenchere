@@ -19,6 +19,9 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 	private static final String INSERT_ARTICLE = "INSERT INTO `article_vendu` "
 			+ "(`nom_article`, `description`, `date_debut`, `date_fin`, `prix_initial`, `prix_vente`, `etat_vente`, `no_utilisateur`, `no_categorie`)"
 			+ " VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	private static final String SELECT_BY_ID = "SELECT nom_article, description, date_debut, date_fin, prix_initial, prix_vente, etat_vente, no_utilisateur, no_categorie FROM Article_vendu WHERE no_article=?";
+	
+
 	@Override
 	public void insertArticle(Article article,Retrait retrait) throws SQLException {
 		
@@ -68,9 +71,31 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 		System.out.println("Echec Insert Retrait Depuis Insert Article DAO");
 			e.printStackTrace();
 		}
-			
-			
-
+	}
+	
+	public Article selectByNoArticle(Integer noArticle) throws SQLException{
+		Article article = new Article();
+		try (Connection cnx = ConnectionProvider.getConnection()){
+			PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_ID);
+			pstmt.setInt(1, noArticle);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				article.setNoArticle(noArticle);
+				article.setNomArticle(rs.getString("nom_Article"));
+				article.setDescription(rs.getString("description"));
+				article.setDateDebutEnchere(rs.getTimestamp("date_debut").toLocalDateTime());
+				article.setDateFinEnchere(rs.getTimestamp("date_fin").toLocalDateTime());
+				article.setPrixInitial(rs.getInt("prix_initial"));
+				article.setPrixVente(rs.getInt("prix_vente"));
+				article.setEtatVente(rs.getBoolean("etat_vente"));
+				article.setNoCategorie(rs.getInt("no_categorie"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return article;
 		
 	}
+	
 }

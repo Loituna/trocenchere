@@ -34,7 +34,7 @@ public class ServletVenteRemportee extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
-			Utilisateur util = UserManagerSingleton.getInstance().getUserById(3);
+			Utilisateur util = UserManagerSingleton.getInstance().getUserById(1);
 			request.setAttribute("utilisateur", util);
 			
 			System.out.println("utilisateur : " + util);
