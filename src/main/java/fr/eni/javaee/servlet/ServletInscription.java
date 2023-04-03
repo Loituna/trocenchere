@@ -47,7 +47,7 @@ public class ServletInscription extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
-		if ((request.getParameter("MDP")).equalsIgnoreCase(request.getParameter("MDPconfirm"))) {
+		if ((request.getParameter("MDP")).equals(request.getParameter("MDPconfirm"))) {
 			
 			Utilisateur creation = new Utilisateur();
 	
@@ -60,6 +60,7 @@ public class ServletInscription extends HttpServlet {
 			creation.setCP(request.getParameter("CodePostal"));
 			creation.setVille(request.getParameter("Ville"));
 			creation.setMdp(request.getParameter("MDP"));
+			
 			
 			try {
 				UserManagerSingleton.getInstance().creationUtilisateur(creation);
