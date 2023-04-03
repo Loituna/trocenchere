@@ -1,4 +1,4 @@
-package fr.eni.javaee.servlet;
+package fr.eni.javaee.servlet.Enchere;
 
 import java.io.IOException;
 import java.sql.SQLException;
