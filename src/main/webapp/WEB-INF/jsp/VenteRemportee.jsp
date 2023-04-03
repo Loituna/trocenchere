@@ -55,7 +55,7 @@
 	<div class="article">
 		<div>
 		<img src="./images/RTX-SD.jpg" alt="Ma superbe image">
-		<form action="<%=request.getContextPath()%>/ServletVenteRemportee method="post">
+		<form action="<%=request.getContextPath()%>/ServletVenteRemportee" method="post">
 			${article_vendu.nom_article} 
 			<br> Description : ${article_vendu.description}
 			<br>
