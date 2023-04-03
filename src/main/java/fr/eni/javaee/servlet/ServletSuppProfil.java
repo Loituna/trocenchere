@@ -38,12 +38,12 @@ public class ServletSuppProfil extends HttpServlet {
 
 				Utilisateur util;
 				try {
-					util = UserManagerSingleton.getInstance().getUserById(1);
+					util = UserManagerSingleton.getInstance().getUserById(4);
 					request.setAttribute("utilisateur", util);
 					System.out.println("utilisateur : " + util);
 					
 				} catch (BusinessException e) {
-					// TODO Auto-generated catch block
+					System.out.println("Erreur Recuperation UserByID servlet");
 					e.printStackTrace();
 				}
 

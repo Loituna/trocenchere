@@ -11,7 +11,7 @@
 <h3>Site d'enchere en ligne le plus beau de la promo</h3>
 <body>
 	
-	<form action="<%=request.getContextPath()%>/ServletTestAffichageUtilisateur method="post">
+	<form action="<%=request.getContextPath()%>/ServletAffichageUtilisateur method="post">
 		<label for="idPseudo">Pseudo : </label>${utilisateur.pseudo}
 		<br>
 		<label for="idNom">Nom : </label>${utilisateur.nom}

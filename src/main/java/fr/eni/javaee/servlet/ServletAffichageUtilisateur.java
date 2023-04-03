@@ -1,4 +1,4 @@
-package fr.eni.javaee.test.servlet;
+package fr.eni.javaee.servlet;
 
 import java.io.IOException;
 
@@ -19,14 +19,14 @@ import fr.eni.javaee.dal.DAOFactory;
  * Servlet implementation class ServletTestAffichageUtilisateur
  */
 @WebServlet("/ServletTestAffichageUtilisateur")
-public class ServletTestAffichageUtilisateur extends HttpServlet {
+public class ServletAffichageUtilisateur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String SESSION_UTILISATEUR= "utilisateur";
    
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletTestAffichageUtilisateur() {
+    public ServletAffichageUtilisateur() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -47,7 +47,7 @@ public class ServletTestAffichageUtilisateur extends HttpServlet {
 
 	
 		try {
-			Utilisateur util = UserManagerSingleton.getInstance().getUserById(3);
+			Utilisateur util = UserManagerSingleton.getInstance().getUserById(4);
 			request.setAttribute("utilisateur", util);
 
 			

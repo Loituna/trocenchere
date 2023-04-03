@@ -89,17 +89,19 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	public void suppressionUtilisateur(Utilisateur utilisateur) throws DalException {
 		DalException dalException = new DalException();
 		if (utilisateur == null) {
-			dalException.ajouterErreur(CodesResultatDAL.SUPPRESSION_UTILISATEUR_NULL);
+			dalException.ajouterErreur(CodesResultatDAL.SUPPRESSION_UTILISATEUR_NULL);}
+			
+			
 		try (Connection cnx = ConnectionProvider.getConnection()) {
 			PreparedStatement pstmt = cnx.prepareStatement(DELETE_UTILISATEUR);
 			pstmt.setInt(1, utilisateur.getNoUtilisateur());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
-			
+			System.out.println("Echec Suppression Utilisateur via DAL");
 			dalException.ajouterErreur(CodesResultatDAL.DELETE_UTILISATEUR_ECHEC);
 		}
-		if (dalException.hasErreurs())
+		if (dalException.hasErreurs()) {
 			throw dalException;}
 		
 	}
