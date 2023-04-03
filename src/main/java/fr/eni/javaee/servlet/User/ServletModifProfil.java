@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bll.tools.BusinessException;
@@ -20,7 +21,8 @@ import fr.eni.javaee.bo.Utilisateur;
 @WebServlet("/ServletModifProfil")
 public class ServletModifProfil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private static final String SESSION_UTILISATEUR= "utilisateur";
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -36,20 +38,25 @@ public class ServletModifProfil extends HttpServlet {
 		
 		//TODO récupérer l'utilsateur dans la session
 		
-		Utilisateur util;
-		try {
-
-			//util = UserManagerSingleton.getInstance().getUserById(1);
-
-			util = BLLFactory.getUserManager().getUserById(1);
-
-			request.setAttribute("utilisateur", util);
-			System.out.println("utilisateur : " + util);
-			
-		} catch (BusinessException e) {
-			System.out.println("Echec Recuperation Utilisateur Servlet ");
-			e.printStackTrace();
-		}
+		HttpSession session = request.getSession();
+		
+		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
+		request.setAttribute(SESSION_UTILISATEUR,utilisateur);
+		System.out.println(utilisateur);
+		
+		
+//		Utilisateur util;
+//		try {
+//
+//			util = BLLFactory.getUserManager().getUserById(1);
+//
+//			request.setAttribute("utilisateur", util);
+//			System.out.println("utilisateur : " + util);
+//			
+//		} catch (BusinessException e) {
+//			System.out.println("Echec Recuperation Utilisateur Servlet ");
+//			e.printStackTrace();
+//		}
 		
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/modifProfil.jsp");
