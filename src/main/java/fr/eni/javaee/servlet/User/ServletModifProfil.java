@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bll.utilisateur.UserManagerSingleton;
 import fr.eni.javaee.bo.Utilisateur;
+import fr.eni.javaee.dal.DAOFactory;
 
 /**
  * Servlet implementation class ServletSuppProfil
@@ -37,12 +39,13 @@ public class ServletModifProfil extends HttpServlet {
 		
 		Utilisateur util;
 		try {
-			util = UserManagerSingleton.getInstance().getUserById(4);
+			util = BLLFactory.getUserManager().getUserById(4);
+			
 			request.setAttribute("utilisateur", util);
 			System.out.println("utilisateur : " + util);
 			
 		} catch (BusinessException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Echec Recuperation Utilisateur Servlet ");
 			e.printStackTrace();
 		}
 		
@@ -60,7 +63,7 @@ public class ServletModifProfil extends HttpServlet {
 		if ((request.getParameter("MDP")).equals(request.getParameter("MDPconfirm"))) {
 		
 			Utilisateur util = new Utilisateur();
-			
+			util.setNoUtilisateur(Integer.parseInt(request.getParameter("identifiant")));
 			util.setPseudo(request.getParameter("pseudo"));
 			util.setNom(request.getParameter("nom"));
 			util.setPrenom(request.getParameter("prenom"));
@@ -70,7 +73,7 @@ public class ServletModifProfil extends HttpServlet {
 			util.setCP(request.getParameter("cp"));
 			util.setVille(request.getParameter("ville"));
 			util.setMdp(request.getParameter("MDP"));
-			util.setNoUtilisateur(Integer.parseInt(request.getParameter("identifiant")));
+			
 			
 			try {
 				UserManagerSingleton.getInstance().modificationUtilisateur(util);

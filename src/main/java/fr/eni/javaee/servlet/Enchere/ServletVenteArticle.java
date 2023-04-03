@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Article;
+import fr.eni.javaee.bo.Enchere;
 import fr.eni.javaee.bo.Retrait;
 
 /**
@@ -65,7 +66,12 @@ public class ServletVenteArticle extends HttpServlet {
 		retraitcreation.setRue(request.getParameter("rueRetrait"));
 		retraitcreation.setVille(request.getParameter("VilleRetrait"));
 		retraitcreation.setCodePostal(request.getParameter("CPRetrait"));
-
+		
+		
+		
+		
+		
+		
 		try {
 			BLLFactory.getArticleManager().insert(creation, retraitcreation);
 		} catch (BusinessException e) {

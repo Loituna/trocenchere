@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.javaee.bll.BLLFactory;
+import fr.eni.javaee.bll.tools.BusinessException;
+import fr.eni.javaee.bo.Article;
+
 /**
  * Servlet implementation class ServletEnchere
  */
@@ -28,6 +32,20 @@ public class ServletEnchereVendeur extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		Article article;
+		
+		try {
+			article = BLLFactory.getArticleManager().getArticlebyID();
+			request.setAttribute("article", article);
+			System.out.println("article"+ article);
+		} catch (BusinessException e) {
+			System.out.println("Echec Recuperation Article Servlet");
+			e.printStackTrace();
+		}
+		
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/NouvelleEnchere.jsp");
 		rd.forward(request, response);
 	}
@@ -36,7 +54,7 @@ public class ServletEnchereVendeur extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 	}
 

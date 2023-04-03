@@ -5,13 +5,12 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Article;
+import fr.eni.javaee.bo.Enchere;
 import fr.eni.javaee.bo.Retrait;
 import fr.eni.javaee.dal.DAOFactory;
-import fr.eni.javaee.dal.tools.CodesResultatDAL;
 import fr.eni.javaee.dal.tools.ConnectionProvider;
 
 class ArticleDAOJDBCImpl implements ArticleDao {
@@ -69,7 +68,8 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 			e.printStackTrace();
 		}
 			
-			
+		Enchere nouvelleEnchere = new Enchere();
+		
 
 		
 	}
