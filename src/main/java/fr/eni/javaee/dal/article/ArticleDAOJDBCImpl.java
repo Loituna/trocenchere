@@ -49,15 +49,7 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 			if (rs.next()) {
 				System.out.println("Ici on sais que ça passe pas !");
 				article.setNoArticle(rs.getInt(1));
-				article.setNomArticle(rs.getNString(2));
-				article.setDescription(rs.getNString(3));				
-				article.setDateDebutEnchere(LocalDateTime.parse(rs.getNString(4)));			
-				article.setDateFinEnchere(LocalDateTime.parse(rs.getNString(5)));
-				article.setPrixInitial(rs.getInt(6));
-				article.setPrixVente(rs.getInt(7));
-				article.setEtatVente(rs.getBoolean(8));
-				article.setNoUtilisateur(rs.getInt(9));
-				article.setNoCategorie(rs.getInt(10));
+				
 				System.out.println(article.toString()+"Aprés Insert DAL");
 			}
 		} catch (Exception e) {

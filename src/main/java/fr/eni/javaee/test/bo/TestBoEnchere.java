@@ -1,6 +1,7 @@
 package fr.eni.javaee.test.bo;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import fr.eni.javaee.bo.Enchere;
 
@@ -8,11 +9,11 @@ public class TestBoEnchere {
 
 	public static void main(String[] args) {
 		
-		LocalDate dateEnchere  = LocalDate.now();
+		LocalDateTime dateEnchere  = LocalDateTime.now();
 		Enchere enchere = new Enchere();
 		
 		enchere.setNoEnchere(1);
-		enchere.setDateEnchere(dateEnchere);
+		enchere.setDatedebutEnchere(dateEnchere);
 		enchere.setMontant(100);
 		enchere.setNoArticle(1);
 		enchere.setNoUtilisateur(1);
@@ -20,7 +21,7 @@ public class TestBoEnchere {
 		Enchere enchere2 = new Enchere();
 		
 		enchere2.setNoEnchere(2);
-		enchere2.setDateEnchere(dateEnchere);
+		enchere2.setDatedebutEnchere(dateEnchere);
 		enchere2.setMontant(200);
 		enchere2.setNoArticle(2);
 		enchere2.setNoUtilisateur(1);
@@ -38,7 +39,7 @@ public class TestBoEnchere {
 		// test getters 
 		
 		System.out.println("Numero : " + enchere.getNoEnchere());
-		System.out.println("Date enchere : " + enchere.getDateEnchere());
+		System.out.println("Date enchere : " + enchere.getDatedebutEnchere());
 		System.out.println("Montant de depart : " + enchere.getMontant());
 		System.out.println("Article : " + enchere.getNoArticle());
 		System.out.println("Uilisateur : " + enchere.getNoUtilisateur());

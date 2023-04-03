@@ -36,9 +36,7 @@ class RetraitDAOJDBCImpl implements RetraitDao {
 
 			if (rs.next()) {
 				retrait.setNoArticle(rs.getInt(1));
-				retrait.setRue(rs.getString(2));
-				retrait.setCodePostal(rs.getString(3));
-				retrait.setVille(rs.getString(4));
+			
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
