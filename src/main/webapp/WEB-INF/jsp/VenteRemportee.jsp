@@ -56,8 +56,8 @@
 		<div>
 		<img src="./images/RTX-SD.jpg" alt="Ma superbe image">
 		<form action="<%=request.getContextPath()%>/ServletVenteRemportee" method="post">
-			${article_vendu.nom_article} 
-			<br> Description : ${article_vendu.description}
+			${article.nom_article} 
+			<br> Description : ${article.description}
 			<br>
 			Meilleur offre : 210 pts pat Pseudo<br>
 			Mise à prix : 185 pts<br>
