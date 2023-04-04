@@ -43,22 +43,15 @@ public class ServletVenteRemportee extends HttpServlet {
 		try {
 			Utilisateur util = BLLFactory.getUserManager().getUserById(1);
 			request.setAttribute("utilisateur", util);
-
 			System.out.println("utilisateur : " + util);
-		} catch (BusinessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/VenteRemportee.jsp");
-		rd.forward(request, response);
-
-		
-		try {
+			
 			Article art = BLLFactory.getArticleManager().selectByNoArticle(1);
 			request.setAttribute("article", art);
 			System.out.println("article : " + art);
 		} catch (DalException e) {
+			e.printStackTrace();
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		RequestDispatcher rd1 = request.getRequestDispatcher("/WEB-INF/jsp/VenteRemportee.jsp");
