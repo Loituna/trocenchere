@@ -14,7 +14,7 @@
 List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMessagesErreur");
 %>
 
-<body>
+<div class="article">
 	<h1>Nouvelle Vente</h1>
 	<form action="<%=request.getContextPath()%>/ServletVenteArticle"
 		method="post">
@@ -77,6 +77,6 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 	<a href="ServletAccueilCoo">
 			<input type="submit" value="Annulation"/>
 		</a>
-		
+	</div>	
 		
 <jsp:include page="./fragments/foot.jsp"></jsp:include>

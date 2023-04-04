@@ -3,7 +3,7 @@
 
 
 <jsp:include page="./fragments/head.jsp">
-	<jsp:param name="title" value="Vente Article" />
+	<jsp:param name="title" value="Modifier Article" />
 </jsp:include>
 
 	<!-- RESTER CONNECTE -->

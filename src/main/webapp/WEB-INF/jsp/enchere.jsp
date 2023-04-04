@@ -2,46 +2,41 @@
 	pageEncoding="UTF-8"%>
 
 <jsp:include page="./fragments/head.jsp">
-	<jsp:param name="title" value="Accueil" />
+	<jsp:param name="title" value="Enchère" />
 </jsp:include>
 
-	<h1>Détails de la vente</h1>
-	
-	<div class="article" >
+<!-- RESTER CONNECTE -->
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="java.util.List"%>
+<%@page import="fr.eni.javaee.bo.Utilisateur"%>
+<%
+List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMessagesErreur");
+%>
+
+
+<h1>Détails de la vente</h1>
+
+<div class="article">
 	<div>
-	
+
+		<br> <img src="./images/RTX-SD.jpg" alt="Ma superbe image">
+		<br> <br> ${article.nomArticle} <br> Description :
+		${article.description} <br> Catégorie : ${article.noCategorie} <br>
+		Meilleur offre : ${enchere.montant} <br> Mise à prix :
+		${article.prixInitial} points <br> Fin de l'enchère :
+		${article.dateFinEnchere} <br> Retrait : ${utilisateur.rue}
+		${utilisateur.CP} ${utilisateur.ville} <br> Vendeur
+		:${utilisateur.nom} <br> Tel : ${utilisateur.telephone} <br>
 		<br>
-		<img src="./images/RTX-SD.jpg" alt="Ma superbe image">
-		<br>
-		<br>
-			${article.nomArticle} 
-			<br>
-			Description : ${article.description}
-			<br>
-			Catégorie : ${article.noCategorie}
-			<br>
-			Meilleur offre : ${enchere.montant}
-			<br>
-			Mise à prix : ${article.prixInitial} points
-			<br>
-			Fin de l'enchère : ${article.dateFinEnchere}
-			<br>
-			Retrait : ${utilisateur.rue} ${utilisateur.CP} ${utilisateur.ville}
-			<br>
-			Vendeur :${utilisateur.nom} 
-			<br>
-			Tel : ${utilisateur.telephone} 
-			<br>
-			<br>
-			
-			<form action="<%=request.getContextPath()%>/ServletEnchere" method="post">
-				
-				<label for="newPrix">Ma proposition : </label><input name="newPrix" value=""/>
-				<br>
-				<input type="submit" value="Enchérir"/>
-			</form>
-		</div>
+
+		<form action="<%=request.getContextPath()%>/ServletEnchere"
+			method="post">
+
+			<label for="newPrix">Ma proposition : </label><input name="newPrix"
+				value="" /> <br> <input type="submit" value="Enchérir" />
+		</form>
 	</div>
+</div>
 
 
 

@@ -13,7 +13,9 @@
 <%
 List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMessagesErreur");
 %>
-	
+
+
+<div class="article">	
 	<h1>Mon profil</h1>
 	
 	<form action="<%=request.getContextPath()%>/ServletInscription"method="post">
@@ -38,11 +40,12 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		<label for="idMDPconfirm">Confirmation Mot de Passe : </label><input type="password" id="idMDPconfirm" name="MDPconfirm" required="required" value="<%=listeMessagesErreur!=null?request.getParameter("MDPConfirm"):""%>"/>
 		<br>
 		<input type="submit" value="Validation Inscription"/>
-		
-			
-	
+
 	</form>
 		<a href="ServletAccueil">
 			<input type="submit" value="Annulation"/>
 		</a>
+</div>		
+		
+		
 <jsp:include page="./fragments/foot.jsp"></jsp:include>

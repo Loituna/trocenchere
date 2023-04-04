@@ -38,11 +38,13 @@
 						class="nav-link dropdown-toggle" href="#" role="button"
 						data-bs-toggle="dropdown" aria-expanded="false"> Article </a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="test.html">Vendre</a></li>
-							<li><a class="dropdown-item" href="index.html">Modifier</a></li>
+							<li><a class="dropdown-item" href="ServletVenteArticle">Vendre</a></li>
+							<li><a class="dropdown-item" href="ServletModifArticle">Modifier</a></li>
 						</ul></li>
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="ServletAccueilCoo">Mon Profil</a></li>
+						aria-current="page" href="ServletAffichageUtilisateur">Mon Profil</a></li>
+						<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="ServletInscription">Inscription</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="ServletConnexion">Connexion</a></li>
 					<li class="nav-item"><a class="nav-link active"

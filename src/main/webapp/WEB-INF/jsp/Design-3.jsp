@@ -71,7 +71,7 @@ body {
 		<button>OK</button>
 	</div>
 
-	<!-- ENCHERE -->
+	<!-- Code de la page -->
 	<div class="block1">
 		<div class="article">
 			<div>
