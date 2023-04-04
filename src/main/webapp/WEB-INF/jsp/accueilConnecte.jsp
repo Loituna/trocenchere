@@ -13,7 +13,7 @@
 <ul>
 <a href="ServletVenteArticle">Vendre un article</a>
 
-<a href="ServletAccueilCoo">Enchères</a>
+<a href="ServletEnchere">Enchères</a>
 
 <a href="ServletAffichageUtilisateur">Mon profil</a>
 

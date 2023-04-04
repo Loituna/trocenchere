@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Article;
+import fr.eni.javaee.bo.Enchere;
 import fr.eni.javaee.bo.Retrait;
 import fr.eni.javaee.bo.Utilisateur;
 
@@ -80,10 +81,12 @@ public class ServletVenteArticle extends HttpServlet {
 		retraitcreation.setVille(request.getParameter("VilleRetrait"));
 		retraitcreation.setCodePostal(request.getParameter("CPRetrait"));
 		
-		
-		
-		
-		
+//		Enchere insertEnchere = new Enchere();
+//		insertEnchere.setDatedebutEnchere(LocalDateTime.parse(request.getParameter("DebutEnchere")));
+//		insertEnchere.setDatefinEnchere(LocalDateTime.parse(request.getParameter("FinEnchere")));
+//		insertEnchere.setMontant(Integer.parseInt(request.getParameter("credit")));
+//		insertEnchere.setNoUtilisateur(utilisateur.getNoUtilisateur());
+//		insertEnchere.setNoArticle(creation.getNoArticle());
 		
 		try {
 			BLLFactory.getArticleManager().insert(creation, retraitcreation);
@@ -91,6 +94,13 @@ public class ServletVenteArticle extends HttpServlet {
 			System.out.println("Echec Insert Article Servlet");
 			e.printStackTrace();
 		}
+		
+//		try {
+//			BLLFactory.getEnchereManager().creationEnchere(insertEnchere);
+//		} catch (BusinessException e) {
+//			System.out.println("Echec Insert Enchere Servlet");
+//			e.printStackTrace();
+//		}
 
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueilConnecte.jsp");
 		rd.forward(request, response);

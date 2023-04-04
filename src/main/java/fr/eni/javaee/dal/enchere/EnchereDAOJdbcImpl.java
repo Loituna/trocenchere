@@ -48,9 +48,10 @@ class EnchereDAOJdbcImpl implements EnchereDAO {
 			Connection cnx = ConnectionProvider.getConnection();
 			pstmt = cnx.prepareStatement(INSERT_ENCHERE, PreparedStatement.RETURN_GENERATED_KEYS);
 			pstmt.setTimestamp(1, java.sql.Timestamp.valueOf(enchere.getDatedebutEnchere()));
-			pstmt.setInt(2, enchere.getMontant());
-			pstmt.setInt(3, enchere.getNoUtilisateur());
-			pstmt.setInt(4, enchere.getNoArticle());
+			pstmt.setTimestamp(2, java.sql.Timestamp.valueOf(enchere.getDatefinEnchere()));
+			pstmt.setInt(3, enchere.getMontant());
+			pstmt.setInt(4, enchere.getNoUtilisateur());
+			pstmt.setInt(5, enchere.getNoArticle());
 			pstmt.executeUpdate();
 
 			ResultSet rs = pstmt.getGeneratedKeys();
