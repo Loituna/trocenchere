@@ -44,12 +44,10 @@ public class ServletVenteRemporteeUser extends HttpServlet {
 			Article art = BLLFactory.getArticleManager().selectByNoArticle(1);
 			request.setAttribute("article", art);
 			System.out.println("article : " + art);
-		} catch (DalException e) {
-			e.printStackTrace();
 		} catch (BusinessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} 
+		
 		RequestDispatcher rd1 = request.getRequestDispatcher("/WEB-INF/jsp/VenteRemporteeUser.jsp");
 		rd1.forward(request, response);
 	}

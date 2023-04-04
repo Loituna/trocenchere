@@ -9,7 +9,7 @@ public interface ArticleManager {
 	
 	public void insert (Article article , Retrait retrait)throws BusinessException;
 
-	public Article selectByNoArticle (Integer Article) throws DalException;
+	public Article selectByNoArticle (Integer Article) throws BusinessException;
 
 	public void updateArticleByUser(Article article, Retrait retrait)throws BusinessException;
 }

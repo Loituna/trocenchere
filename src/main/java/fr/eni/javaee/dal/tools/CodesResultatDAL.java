@@ -38,6 +38,10 @@ public abstract class CodesResultatDAL {
 	public static final int INSERT_RETRAIT_ECHEC = 10008;
 
 	public static final int SUPPRESSION_UTILISATEUR_NULL = 10009;
+	
+	public static final int INSERT_ENCHERE = 10010;
+	
+	
 
 	public static final int UPDATE_ARTICLE_NULL =10010;
 
