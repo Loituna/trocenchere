@@ -91,7 +91,7 @@ public class ServletEnchere extends HttpServlet {
 		enchere.setNoArticle(1);
 		System.out.println(enchere + " enchere servlet no_article");
 		try {
-			BLLFactory.getEnchereManager().creationEnchere(enchere);
+			BLLFactory.getEnchereManager().updateEnchere(enchere);
 	
 		} catch (BusinessException e) {
 			System.out.println("Erreur creation enchere Servlet");

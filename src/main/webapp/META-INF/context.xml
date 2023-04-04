@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+
+
 <Context>
-	<Resource
-		name="jdbc/pool_cnx"
-		driverClassName="com.mysql.cj.jdbc.Driver"
-		type="javax.sql.DataSource"
-	
-		url="jdbc:mysql://127.0.0.1:3306/mydb"
-		username="root"
-		password="root"
-		
-		maxTotal="20"
-		maxIdle="10"
-		maxWaitMillis="10000"
-	/>
+
+	 
+
+	<Resource maxWaitMillis="10000" maxIdle="10" maxTotal="20"
+		username="root" url="jdbc:mysql://127.0.0.1:3306/mydb"
+		type="javax.sql.DataSource" driverClassName="com.mysql.cj.jdbc.Driver"
+		name="jdbc/pool_cnx" />
+
+	 
+
 </Context>
 
