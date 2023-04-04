@@ -22,7 +22,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 			value="<%=listeMessagesErreur != null ? request.getParameter("nomArticle") : ""%>" />
 			<br>
 		<label for="descriptionArticle">Description : </label><input
-			type="text" id="descriptionArticle" name="descriptionArticle" required="required"
+			type="text" id="descriptionArticle" name="descriptionArticle" required="required" style="width: 300px; height: 100px;"
 			value="<%=listeMessagesErreur != null ? request.getParameter("descriptionArticle") : ""%>" />
 			<br>
 			

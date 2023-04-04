@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/VenteRemportee.css">
-<title>Enchérir</title>
+<title>Modification de votre article</title>
 
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
@@ -58,12 +58,40 @@
 	<form action="<%request.getContextPath();%>/ServletEnchereVendeur">
 		<div>
 			<h5>Nouvelle</h5><br>
-			<label for="idArticle">Article : </label><input name="identifiant" value="${article.nomArticle}"/>	<br>
+			<label for="idArticle">Article : </label><input name="nomArticle" value="${article.nomArticle}"/>	<br>
 			<br>
-			<label for="idDescription ">Description : </label><input name="Description" value = ""/>
-		
+			<label for="idDescription ">Description : </label><input name="descriptionArticle" value = "${article.description}"style="width: 300px; height: 100px;"/>
+			<br>
+			<label for="idDateDebut">Debut de votre enchère </label><input name="DateDebut" value= "${article.dateDebutEnchere }"/>
+			<label for="idDatefin">Fin de votre enchère </label><input name="Datefin" value= "${article.dateFinEnchere }"/>
 			
-			<input type="submit" onclick="alert('Modifié !')" value="Enregistrer"/>
+			
+			
+			<select name="ListeCategorie" id="listcate">			
+			<option value="1">Informatique</option>
+			<option value="2">Ameublement</option>
+			<option value="3">Vetement</option>
+			<option value="4">Sport</option>
+			<option value="5">Loisir</option>
+	
+		</select>
+			
+			
+			<div>
+       <h2>Retrait</h2>
+       		<label for="rueRetrait">Rue :  </label><input type="text" name="rueRetrait" required="required"
+			value="${utilisateur.rue}" />
+			<br>
+			<label for="CPRetrait">Code Postal :  </label><input type="text" name="CPRetrait" required="required"
+			value="${utilisateur.CP}" />
+			<br>
+			<label for="VilleRetrait">Ville :  </label><input type="text" name="VilleRetrait" required="required"
+			value="${utilisateur.ville}" />
+			<br>
+       
+       </div>
+			
+			<input  type="submit" onclick="alert('Enchere Modifié !')" value="Enregistrer"/>
 
 		</div>
 		</form>

@@ -8,6 +8,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Modification du profil</title>
+<ul>
+<a href="ServletVenteArticle">Vendre un article</a>
+
+<a href="ServletAccueilCoo">Enchères</a>
+
+<a href="ServletAffichageUtilisateur">Mon profil</a>
+
+<a href="ServletAccueil">Deconnexion</a>
+
+
+</ul>
 </head>
 <body>
 <%

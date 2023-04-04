@@ -15,7 +15,7 @@
 
 <a href="ServletAccueilCoo">Enchères</a>
 
-<a href="ServletTestAffichageUtilisateur">Mon profil</a>
+<a href="ServletAffichageUtilisateur">Mon profil</a>
 
 <a href="ServletAccueil">Deconnexion</a>
 
