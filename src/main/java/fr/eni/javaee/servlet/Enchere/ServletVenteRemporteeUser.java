@@ -9,9 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bll.utilisateur.UserManagerSingleton;
+import fr.eni.javaee.bo.Article;
 import fr.eni.javaee.bo.Utilisateur;
+import fr.eni.javaee.dal.tools.DalException;
 
 /**
  * Servlet implementation class ServletVenteRemportee
@@ -34,26 +37,29 @@ public class ServletVenteRemporteeUser extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
-			Utilisateur util = UserManagerSingleton.getInstance().getUserById(3);
+			Utilisateur util = BLLFactory.getUserManager().getUserById(1);
 			request.setAttribute("utilisateur", util);
-			
 			System.out.println("utilisateur : " + util);
+			
+			Article art = BLLFactory.getArticleManager().selectByNoArticle(1);
+			request.setAttribute("article", art);
+			System.out.println("article : " + art);
+		} catch (DalException e) {
+			e.printStackTrace();
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/VenteRemporteeUser.jsp");
-		rd.forward(request, response);
+		RequestDispatcher rd1 = request.getRequestDispatcher("/WEB-INF/jsp/VenteRemporteeUser.jsp");
+		rd1.forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		RequestDispatcher rd1 = request.getRequestDispatcher("/WEB-INF/jsp/VenteRemporteeUser.jsp");
+		rd1.forward(request, response);
 	}
 
 }

@@ -34,36 +34,30 @@
     </div>
   </div>
 </nav>
-
-
-
 </head>
+
 <body>
-	<h4>Vous avez remporté l'enchère</h4>
+	<h4>{utilisateur.gagant} a remporté l'enchère</h4>
 	<div class="article">
 		<div>
 		<img src="./images/RTX-SD.jpg" alt="Ma superbe image">
-		
-			Nvidia 4090 RTX <br> Description : Carte graphique nouvelle
-			génération.<br>
-			<br>
-			Meilleur offre : 210 pts pat Pseudo<br>
-			Mise à prix : 185 pts<br>
-			<br>
-			Retrait : 5 rue Saint-Louis 35000 Rennes<br>
-			<br>
+		<br>
+		<br>
+			${article.nomArticle} 
+			<br> Description : ${article.description}<br>
 			
-			Vendeur : pseudo<br>
+			Meilleur offre : 210 pts par {utilisateur.gagant}<br>
+			Mise à prix : ${article.prixInitial} pts<br>
+			Retrait : ${utilisateur.rue} ${utilisateur.CP} ${utilisateur.ville}
+			<br>
+			Vendeur : {vendeur.pseudo}<br>
 			Tel : 0606060606
 			<br>
-			
+			<br>
 			<a href="ServletAccueilCoo"><button class="bouton">Back</button></a>
-
 		</div>
-
-
-
 	</div>
 </body>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </html>

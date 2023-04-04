@@ -46,35 +46,31 @@
     </div>
   </div>
 </nav>
-
-
-
 </head>
+
+
 <body>
 	<h4>${utilisateur.pseudo} à remporté l'enchère</h4>
 	<div class="article">
 		<div>
 		<img src="./images/RTX-SD.jpg" alt="Ma superbe image">
-		<form action="<%=request.getContextPath()%>/ServletVenteRemportee" method="post">
-			${article.nomArticle} 
-			<br> Description : ${article.description}
-			<br>
-			Meilleur offre : 210 pts pat Pseudo<br>
-			Mise à prix : 185 pts<br>
-			Fin de l'enchère : 09/03/2023<br>
-			Retrait : 5 rue Saint-Louis 35000 Rennes<br>
-			<br>
-			
-			Vendeur : pseudo<br>
-			<br>
-			
-			<a href="ServletAccueilCoo"><button class="bouton">Retrait</button></a>
-
+			<form action="<%=request.getContextPath()%>/ServletVenteRemportee"
+				method="post"><br>
+				${article.nomArticle} 
+				<br> Description : ${article.description}
+				<br> Meilleur offre : 210 pts par ${utilisateur.pseudo}
+				<br> Mise à prix : ${article.prixInitial} pts
+				<br> Fin de l'enchère : ${article.dateFinEnchere}
+				<br> Retrait : ${utilisateur.rue} ${utilisateur.CP} ${utilisateur.ville}
+				<br> <br>
+				Vendeur : pseudo<br> 
+				<br> <a href="ServletAccueilCoo"><button
+						class="bouton">Retrait</button></a>
+			</form>
 		</div>
-
-
-
 	</div>
 </body>
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </html>
