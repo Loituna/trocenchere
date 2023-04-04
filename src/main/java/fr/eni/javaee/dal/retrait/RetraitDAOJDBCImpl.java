@@ -5,10 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Retrait;
 import fr.eni.javaee.dal.tools.CodesResultatDAL;
 import fr.eni.javaee.dal.tools.ConnectionProvider;
+import fr.eni.javaee.dal.tools.DalException;
 
 class RetraitDAOJDBCImpl implements RetraitDao {
 
@@ -16,12 +16,12 @@ class RetraitDAOJDBCImpl implements RetraitDao {
 	private static final String SELECT_POUR_RETRAIT = "SELECT rue, code_postal, ville  FROM utilisateur where no_utilisateur=?";
 
 	@Override
-	public void insert(Retrait retrait) throws BusinessException {
+	public void insert(Retrait retrait) throws DalException {
 		if (retrait == null) {
-			BusinessException businessException = new BusinessException();
-			businessException.ajouterErreur(CodesResultatDAL.INSERT_RETRAIT_NULL);
+			DalException DalException = new DalException();
+			DalException.ajouterErreur(CodesResultatDAL.INSERT_RETRAIT_NULL);
 			System.out.println("Retrait Null");
-			throw businessException;
+			throw DalException;
 		}
 		PreparedStatement pstmt = null;
 		try (Connection cnx = ConnectionProvider.getConnection()) {
@@ -41,9 +41,9 @@ class RetraitDAOJDBCImpl implements RetraitDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			BusinessException businessException = new BusinessException();
-			businessException.ajouterErreur(CodesResultatDAL.INSERT_RETRAIT_ECHEC);
-			throw businessException;
+			DalException DalException = new DalException();
+			DalException.ajouterErreur(CodesResultatDAL.INSERT_RETRAIT_ECHEC);
+			throw DalException;
 		}
 
 	}
@@ -69,6 +69,12 @@ class RetraitDAOJDBCImpl implements RetraitDao {
 			e.printStackTrace();
 		}
 		return retrait;
+	}
+
+	@Override
+	public void updateArticleByUser() throws DalException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

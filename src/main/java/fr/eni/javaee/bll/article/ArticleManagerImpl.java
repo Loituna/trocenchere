@@ -1,7 +1,5 @@
 package fr.eni.javaee.bll.article;
 
-import java.sql.SQLException;
-
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Article;
 import fr.eni.javaee.bo.Retrait;
@@ -16,7 +14,7 @@ class ArticleManagerImpl implements ArticleManager {
 		try {
 			DAOFactory.getArticleDao().insertArticle(article, retrait);
 
-		} catch (SQLException e) {
+		} catch (DalException e) {
 
 			e.printStackTrace();
 			System.out.println("Echec Insert Article Manager");
@@ -27,17 +25,29 @@ class ArticleManagerImpl implements ArticleManager {
 	public Article selectByNoArticle(Integer Article) throws DalException {
 		Article art = null;
 		try {
-			art=DAOFactory.getArticleDao().selectByNoArticle(Article);
-		} catch (SQLException e) {
+			art = DAOFactory.getArticleDao().selectByNoArticle(Article);
+		} catch (DalException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("Echec selectByNoArticle Manager");;
+			System.out.println("Echec selectByNoArticle Manager");
+			;
 		}
-		
-		
+
 		return art;
 	}
-	
-	
-	
+
+	@Override
+	public void updateArticleByUser(Article article, Retrait retrait) throws BusinessException {
+		try {
+			DAOFactory.getArticleDao().updateArticleByUser(article, retrait);
+
+		} catch (DalException e) {
+
+			e.printStackTrace();
+			System.out.println("Echec Update Article Manager");
+			;
+		}
+
+	}
+
 }

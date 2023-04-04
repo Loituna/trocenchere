@@ -44,7 +44,7 @@ public class ServletVenteRemportee extends HttpServlet {
 		request.setAttribute(SESSION_UTILISATEUR,utilisateur);
 		System.out.println(utilisateur);
 		try {
-			utilisateur = BLLFactory.getUserManager().getUserById(utilisateur.getNoUtilisateur());
+			utilisateur = BLLFactory.getUserManager().getUserById(1);
 			request.setAttribute("utilisateur", utilisateur);
 			System.out.println("utilisateur : " + utilisateur);
 			
