@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.text.html.HTMLDocument.HTMLReader.PreAction;
+
 import fr.eni.javaee.bo.Retrait;
 import fr.eni.javaee.dal.tools.CodesResultatDAL;
 import fr.eni.javaee.dal.tools.ConnectionProvider;
@@ -70,10 +72,27 @@ class RetraitDAOJDBCImpl implements RetraitDao {
 		}
 		return retrait;
 	}
+	private static final String UPDATE_RETRAIT = "UPDATE "
+			+ "RETRAIT"
+			+ "set rue=?,code_postal=?,ville=?"
+			+ "WHERE no_article=?";
+			
 
 	@Override
-	public void updateArticleByUser() throws DalException {
-		// TODO Auto-generated method stub
+	public void updateArticleByUser(Retrait retrait) throws DalException {
+		if (retrait==null) {
+			DalException DalException = new DalException();
+			DalException.ajouterErreur(CodesResultatDAL.UPDATE_RETRAIT_NULL);
+			System.out.println("Retrait Update DAL Null");	
+		}
+		try {
+			Connection cnx = ConnectionProvider.getConnection();
+			PreparedStatement pstmt = cnx.prepareStatement(UPDATE_RETRAIT);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
 
