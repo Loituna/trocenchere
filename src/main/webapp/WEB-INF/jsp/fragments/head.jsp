@@ -47,6 +47,10 @@
 							<li><a class="dropdown-item" href="test.html">Vendre</a></li>
 							<li><a class="dropdown-item" href="index.html">Acheter</a></li>
 						</ul></li>
+						<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="ServletConnexion">Connexion</a></li>
+						<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="ServletAccueil">Deconnexion</a></li>
 				</ul>
 			</div>
 		</div>
