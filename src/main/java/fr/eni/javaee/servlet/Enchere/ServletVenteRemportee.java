@@ -68,8 +68,6 @@ public class ServletVenteRemportee extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/VenteRemportee.jsp");
-		rd.forward(request, response);
 		
 		RequestDispatcher rd1 = request.getRequestDispatcher("/WEB-INF/jsp/VenteRemportee.jsp");
 		rd1.forward(request, response);
