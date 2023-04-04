@@ -16,7 +16,6 @@ import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Article;
 import fr.eni.javaee.bo.Retrait;
 import fr.eni.javaee.bo.Utilisateur;
-import fr.eni.javaee.dal.tools.DalException;
 
 /**
  * Servlet implementation class ServletEnchere
@@ -51,7 +50,7 @@ public class ServletEnchereVendeur extends HttpServlet {
 			article = BLLFactory.getArticleManager().selectByNoArticle(1);
 			request.setAttribute("article", article);
 			System.out.println("article" + article);
-		} catch (DalException e) {
+		} catch (BusinessException e) {
 			System.out.println("Echec Recuperation Article Servlet");
 			e.printStackTrace();
 		}

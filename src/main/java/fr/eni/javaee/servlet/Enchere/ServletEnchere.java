@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.javaee.bll.BLLFactory;
+import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Article;
 import fr.eni.javaee.dal.tools.DalException;
 
@@ -35,10 +36,17 @@ public class ServletEnchere extends HttpServlet {
 		
 		try {
 			Article art = BLLFactory.getArticleManager().selectByNoArticle(3);
-			request.setAttribute("article", art);
 			System.out.println("article : " + art);
-			} catch (DalException e) {
-				// TODO Auto-generated catch block
+			request.setAttribute("article", art);
+			try {
+		
+				request.setAttribute("utilisateur", BLLFactory.getUserManager().getUserById(art.getNoUtilisateur()));
+			} catch (BusinessException e) {
+				System.out.println("erreur servlet getByIdUtilisateur");
+				e.printStackTrace();
+			}
+			} catch (BusinessException e) {
+				System.out.println("erreur servlet selecte idArticle");
 				e.printStackTrace();
 			}
 		

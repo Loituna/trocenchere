@@ -16,6 +16,7 @@ public class Article {
 	
 	private Integer noCategorie;
 	private Integer noUtilisateur;
+	
 	public Article() {
 		super();
 	}

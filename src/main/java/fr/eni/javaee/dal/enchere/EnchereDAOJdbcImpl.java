@@ -42,7 +42,9 @@ import fr.eni.javaee.dal.tools.DalException;
 		
 		PreparedStatement pstmt = null;
 		try { Connection cnx = ConnectionProvider.getConnection();
-		
+		pstmt = cnx.prepareStatement(INSERT_ENCHERE, PreparedStatement.RETURN_GENERATED_KEYS);
+		pstmt.setTimestamp(1, java.sql.Timestamp.valueOf(enchere.getDatedebutEnchere()));
+		pstmt.setInt(2, enchere.getMontant());
 		
 		
 		

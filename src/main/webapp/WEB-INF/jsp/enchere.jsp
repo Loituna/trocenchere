@@ -23,7 +23,7 @@
 			Mise à prix : ${article.prixInitial} points<br>
 			Retrait : ${utilisateur.rue} ${utilisateur.CP} ${utilisateur.ville}
 			<br>
-			Vendeur : <br>
+			Vendeur :${utilisateur.nom} <br>
 			Tel : 
 			<br>
 			<br>

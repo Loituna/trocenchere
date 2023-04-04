@@ -22,12 +22,12 @@ class ArticleManagerImpl implements ArticleManager {
 	}
 
 	@Override
-	public Article selectByNoArticle(Integer Article) throws DalException {
+	public Article selectByNoArticle(Integer Article) throws BusinessException {
 		Article art = null;
 		try {
 			art = DAOFactory.getArticleDao().selectByNoArticle(Article);
 		} catch (DalException e) {
-			// TODO Auto-generated catch block
+			System.out.println(art.toString());
 			e.printStackTrace();
 			System.out.println("Echec selectByNoArticle Manager");
 			;
