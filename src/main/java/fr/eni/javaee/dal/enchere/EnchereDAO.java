@@ -20,4 +20,6 @@ public interface EnchereDAO {
 	public void encherePerdue (Enchere enchere)throws DalException;
 	
 	public void afficherDetail (Enchere enchere)throws DalException;
+
+	public void updateEnchere(Enchere enchere)throws DalException;
 }

@@ -80,4 +80,10 @@ import fr.eni.javaee.dal.tools.DalException;
 
 	}
 
+	@Override
+	public void updateEnchere(Enchere enchere) throws DalException {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
