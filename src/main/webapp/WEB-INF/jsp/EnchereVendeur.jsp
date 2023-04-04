@@ -17,7 +17,7 @@
 			<label for="idArticle">Article : </label><input name="nomArticle" value="${article.nomArticle}"/>	<br>
 			<br>
 			<label for="idDescription ">Description : </label><input name="descriptionArticle" value = "${article.description}"style="width: 300px; height: 100px;"/>
-			<br>
+			<br> 
 			<label>Modifié date de fin d'enchere</label>
 				<input type="datetime-local" id="FinEnchere"
        name="FinEnchere" value="2023-03-12T6:53"
