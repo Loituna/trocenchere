@@ -5,7 +5,13 @@
 	<jsp:param name="title" value="Vente Remportée par l'utilisateur" />
 </jsp:include>
 
-<link rel="stylesheet" href="./css/VenteRemportee.css">
+	<!-- RESTER CONNECTE -->
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="java.util.List"%>
+<%@page import="fr.eni.javaee.bo.Utilisateur"%>
+<%
+List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMessagesErreur");
+%>
 
 	<h4>{utilisateur.gagant} a remporté l'enchère</h4>
 	<div class="article" >

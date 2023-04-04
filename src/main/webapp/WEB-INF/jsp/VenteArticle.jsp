@@ -6,14 +6,14 @@
 	<jsp:param name="title" value="Vente Article" />
 </jsp:include>
 
-<link rel="stylesheet" href="./css/VenteRemportee.css">
-
+	<!-- RESTER CONNECTE -->
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.util.List"%>
-<link href="./css/style.css" el="stylesheet">
-<h3>Site d'enchere en ligne le plus beau de la promo</h3>
+<%@page import="fr.eni.javaee.bo.Utilisateur"%>
 <%
 List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMessagesErreur");
 %>
+
 <body>
 	<h1>Nouvelle Vente</h1>
 	<form action="<%=request.getContextPath()%>/ServletVenteArticle"

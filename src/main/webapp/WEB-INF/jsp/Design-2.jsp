@@ -52,6 +52,7 @@ body {
 
 
 <!-- NAVIGATION -->
+
 	<nav>
 		<ul class="menu">
 			<li class="accueil"><a href="#">Accueil</a></li>

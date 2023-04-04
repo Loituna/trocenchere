@@ -1,22 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+	pageEncoding="UTF-8"%>
+
+<jsp:include page="./fragments/head.jsp">
+	<jsp:param name="title" value="Inscription" />
+</jsp:include>
+
+
+	<!-- RESTER CONNECTE -->
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.util.List"%>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Formulaire d'inscription</title>
-
-
-<link href="./css/style1.css" rel="stylesheet">
-
-<h3>Site d'enchere en ligne le plus beau de la promo</h3>
-
-</head>
-<body>
+<%@page import="fr.eni.javaee.bo.Utilisateur"%>
 <%
-		List<String> listeMessagesErreur = (List<String>)request.getAttribute("listeMessagesErreur");
-	%>
+List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMessagesErreur");
+%>
 	
 	<h1>Mon profil</h1>
 	
@@ -49,5 +45,4 @@
 		<a href="ServletAccueil">
 			<input type="submit" value="Annulation"/>
 		</a>
-</body>
-</html>
+<jsp:include page="./fragments/foot.jsp"></jsp:include>
