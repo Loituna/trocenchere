@@ -51,9 +51,9 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 			ResultSet rs = pstmt.getGeneratedKeys();
 			
 			
-			System.out.println("Ca passe peut etre la");
+		
 			if (rs.next()) {
-				System.out.println("Ici on sais que ça passe pas !");
+	
 				article.setNoArticle(rs.getInt(1));
 				
 				System.out.println(article.toString()+"Aprés Insert DAL");
@@ -112,8 +112,8 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 	}
 
 	private static final String UPDATE_ARTICLE_BY_USER = "UPDATE "
-			+ "ARTICLE_VENDU "
-			+ "set nom_article=?,description=?,date_fin=?,no_categorie=?"
+			+ "article_vendu "
+			+ "set nom_article=?, description=?, date_fin=?, no_categorie=? "
 			+ "WHERE no_article=?";
 	@Override
 	public void updateArticleByUser(Article article, Retrait retrait) throws DalException {
@@ -123,12 +123,13 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 			System.out.println("Article Update DAL Null");			
 		}
 		
-		
+		retrait.setNoArticle(article.getNoArticle());
+		System.out.println(retrait+"retrait DAL article");
 		try (Connection cnx = ConnectionProvider.getConnection()) {
 			PreparedStatement pstmt = cnx.prepareStatement(UPDATE_ARTICLE_BY_USER);
 			
-			pstmt.setNString(1, article.getNomArticle());
-			pstmt.setNString(2, article.getDescription());
+			pstmt.setString(1, article.getNomArticle());
+			pstmt.setString(2, article.getDescription());
 			pstmt.setDate(3, Date.valueOf(article.getDateFinEnchere().toLocalDate()));
 			pstmt.setInt(4, article.getNoCategorie());
 			pstmt.setInt(5, article.getNoArticle());
@@ -142,7 +143,10 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 			dalException.ajouterErreur(CodesResultatDAL.ECHEC_UPDATE_ARTICLE);
 		}
 		
+		System.out.println("patate");
+		
 		try {
+			System.out.println("2 patate");
 			DAOFactory.getRetraitDao().updateArticleByUser(retrait);
 		} catch (DalException e) {
 			System.out.println("Echec Insert Retrait Dans updateArticleByUser");

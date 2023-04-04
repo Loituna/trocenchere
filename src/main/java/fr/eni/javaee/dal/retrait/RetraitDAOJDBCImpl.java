@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.swing.text.html.HTMLDocument.HTMLReader.PreAction;
-
 import fr.eni.javaee.bo.Retrait;
 import fr.eni.javaee.dal.tools.CodesResultatDAL;
 import fr.eni.javaee.dal.tools.ConnectionProvider;
@@ -71,27 +69,30 @@ class RetraitDAOJDBCImpl implements RetraitDao {
 			e.printStackTrace();
 		}
 		return retrait;
-	}
+	} 
 	private static final String UPDATE_RETRAIT = "UPDATE "
-			+ "RETRAIT"
-			+ "set rue=?,code_postal=?,ville=?"
+			+ "RETRAIT "
+			+ "set rue=? , code_postal=? , ville=? "
 			+ "WHERE no_article=?";
 			
 
 	@Override
 	public void updateArticleByUser(Retrait retrait) throws DalException {
+		System.out.println("2eme patate");
 		if (retrait==null) {
 			DalException DalException = new DalException();
 			DalException.ajouterErreur(CodesResultatDAL.UPDATE_RETRAIT_NULL);
 			System.out.println("Retrait Update DAL Null");	
 		}
 		try {
+			System.out.println("3eme patate");
 			Connection cnx = ConnectionProvider.getConnection();
 			PreparedStatement pstmt = cnx.prepareStatement(UPDATE_RETRAIT);
-			pstmt.setNString(1, retrait.getRue());
-			pstmt.setNString(2, retrait.getCodePostal());
-			pstmt.setNString(3,retrait.getVille());
+			pstmt.setString(1, retrait.getRue());
+			pstmt.setString(2, retrait.getCodePostal());
+			pstmt.setString(3,retrait.getVille());
 			pstmt.setInt(4, retrait.getNoArticle());
+			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("SQL Exception Update Retrait DAL");
 			e.printStackTrace();

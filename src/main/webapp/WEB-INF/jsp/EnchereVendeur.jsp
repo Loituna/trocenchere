@@ -55,7 +55,8 @@
 <body>
 
 	<div class="article">
-	<form action="<%request.getContextPath();%>/ServletEnchereVendeur">
+	<form action="<%=request.getContextPath()%>/ServletEnchereVendeur"method="post">
+	
 		<div>
 			<h5>Modification Article</h5><br>
 			<label for="idArticle">Article : </label><input name="nomArticle" value="${article.nomArticle}"/>	<br>

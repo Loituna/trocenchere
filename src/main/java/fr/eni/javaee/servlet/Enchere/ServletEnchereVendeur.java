@@ -47,14 +47,13 @@ public class ServletEnchereVendeur extends HttpServlet {
 		Article article;
 
 		try {
-			article = BLLFactory.getArticleManager().selectByNoArticle(1);
+			article = BLLFactory.getArticleManager().selectByNoArticle(20);
 			request.setAttribute("article", article);
 			System.out.println("article" + article);
 		} catch (BusinessException e) {
 			System.out.println("Echec Recuperation Article Servlet");
 			e.printStackTrace();
 		}
-		
 
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/EnchereVendeur.jsp");
 		rd.forward(request, response);
@@ -67,41 +66,37 @@ public class ServletEnchereVendeur extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		
+
 		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
-		request.setAttribute(SESSION_UTILISATEUR,utilisateur);
-		System.out.println(utilisateur);
+		request.setAttribute(SESSION_UTILISATEUR, utilisateur);
 	
 
 		request.setCharacterEncoding("UTF-8");
 
 		Article creation = new Article();
 		
-		creation.setNoUtilisateur(utilisateur.getNoUtilisateur());
+		creation.setNoArticle(20);
+		
 		creation.setNomArticle(request.getParameter("nomArticle"));
-		creation.setDescription(request.getParameter("descriptionArticle"));	
-		creation.setDateFinEnchere(LocalDateTime.parse(request.getParameter("FinEnchere")));	
+		creation.setDescription(request.getParameter("descriptionArticle"));
+		creation.setDateFinEnchere(LocalDateTime.parse(request.getParameter("FinEnchere")));
 		creation.setNoCategorie(Integer.parseInt(request.getParameter("ListeCategorie")));
 
 		Retrait retraitcreation = new Retrait();
+		retraitcreation.setNoArticle(creation.getNoArticle());
 		retraitcreation.setRue(request.getParameter("rueRetrait"));
 		retraitcreation.setVille(request.getParameter("VilleRetrait"));
 		retraitcreation.setCodePostal(request.getParameter("CPRetrait"));
 		
-		
-		
-		
-		
-		
-		
-			try {
-				BLLFactory.getArticleManager().updateArticleByUser(creation, retraitcreation);
-			} catch (BusinessException e) {
-				System.out.println("Echec Update Serlvet");
-				e.printStackTrace();
-			}
-		
-	
+		System.out.println(utilisateur + "Utilisateur Servlet");
+		System.out.println(creation + "Article Servlet");
+		System.out.println(retraitcreation+"Retrait Servlet");
+		try {
+			BLLFactory.getArticleManager().updateArticleByUser(creation, retraitcreation);
+		} catch (BusinessException e) {
+			System.out.println("Echec Update Serlvet");
+			e.printStackTrace();
+		}
 
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueilConnecte.jsp");
 		rd.forward(request, response);
