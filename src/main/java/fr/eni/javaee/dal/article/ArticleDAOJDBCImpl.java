@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import fr.eni.javaee.bo.Article;
+import fr.eni.javaee.bo.Enchere;
 import fr.eni.javaee.bo.Retrait;
 import fr.eni.javaee.dal.DAOFactory;
 import fr.eni.javaee.dal.tools.CodesResultatDAL;
@@ -35,7 +36,7 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 
 		}
 		System.out.println(article.toString()+"Avant Insert DAL");
-		 
+		 System.out.println(article);
 		try (Connection cnx = ConnectionProvider.getConnection()) {
 			PreparedStatement	pstmt = cnx.prepareStatement(INSERT_ARTICLE, PreparedStatement.RETURN_GENERATED_KEYS);
 			pstmt.setString(1, article.getNomArticle());
@@ -58,6 +59,7 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 				
 				System.out.println(article.toString()+"Aprés Insert DAL");
 			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Echec insert catch");
@@ -75,8 +77,19 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 			e.printStackTrace();
 		}
 
-			
-
+		Enchere enchere = new Enchere();
+		enchere.setDatedebutEnchere(article.getDateDebutEnchere());
+		enchere.setDatefinEnchere(article.getDateFinEnchere());
+		enchere.setMontant(article.getPrixInitial());
+		enchere.setNoArticle(article.getNoArticle());
+		enchere.setNoUtilisateur(article.getNoUtilisateur());
+		
+		try {
+		DAOFactory.getEnchereDAO().creerEnchere(enchere);
+		} catch (DalException e) {
+			System.out.println("Echec Insert Enchere Depuis Insert Article DAO");
+			e.printStackTrace();
+		}
 		
 
 

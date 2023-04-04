@@ -40,11 +40,10 @@ public class ServletVenteArticle extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		HttpSession session = request.getSession();
-		
+		HttpSession session = request.getSession();		
 		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
 		request.setAttribute(SESSION_UTILISATEUR,utilisateur);
-		System.out.println(utilisateur);
+	
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/VenteArticle.jsp");
 		rd.forward(request, response);
@@ -59,10 +58,14 @@ public class ServletVenteArticle extends HttpServlet {
 			throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
+		
+		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
+		request.setAttribute(SESSION_UTILISATEUR,utilisateur);
 
 		Article creation = new Article();
 		// creation.setNoUtilisateur(Integer.parseInt(session.getId()));
-		creation.setNoUtilisateur(1);
+		creation.setNoUtilisateur(utilisateur.getNoUtilisateur());
 		creation.setNomArticle(request.getParameter("nomArticle"));
 		creation.setDescription(request.getParameter("descriptionArticle"));
 		creation.setDateDebutEnchere(LocalDateTime.parse(request.getParameter("DebutEnchere")));

@@ -34,7 +34,7 @@
 
 
 <select id="maListe" onchange="afficherOption()">
-		<option value="option">Selection</option>
+		
 		<option value="option1">Toutes les enchères</option>
 		<option value="option2">Informatique</option>
 		<option value="option3">Ameublement</option>
@@ -76,6 +76,10 @@
 			}
 		}
 </script>
+
+
+
+
 
 
 
