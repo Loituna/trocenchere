@@ -10,24 +10,30 @@
 	<div class="article" >
 	<div>
 	
-		
-		${article.nomArticle} 
 		<br>
 		<img src="./images/RTX-SD.jpg" alt="Ma superbe image">
 		<br>
 		<br>
-			
-			<br> Description : ${article.description}<br>
-			
-			Meilleur offre :<br>
-			Mise à prix : ${article.prixInitial} points<br>
+			${article.nomArticle} 
+			<br>
+			Description : ${article.description}
+			<br>
+			Catégorie : ${article.noCategorie}
+			<br>
+			Meilleur offre : ${enchere.montant}
+			<br>
+			Mise à prix : ${article.prixInitial} points
+			<br>
+			Fin de l'enchère : ${article.dateFinEnchere}
+			<br>
 			Retrait : ${utilisateur.rue} ${utilisateur.CP} ${utilisateur.ville}
 			<br>
-			Vendeur :${utilisateur.nom} <br>
-			Tel : 
+			Vendeur :${utilisateur.nom} 
+			<br>
+			Tel : ${utilisateur.telephone} 
 			<br>
 			<br>
-			<a href="ServletAccueilCoo"><button class="bouton">Back</button></a>
+			<a href="ServletAccueilCoo"><button class="bouton">Enchérir</button></a>
 		</div>
 	</div>
 
