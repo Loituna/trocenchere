@@ -33,7 +33,13 @@
 			Tel : ${utilisateur.telephone} 
 			<br>
 			<br>
-			<a href="ServletAccueilCoo"><button class="bouton">Enchérir</button></a>
+			
+			<form action="<%=request.getContextPath()%>/ServletEnchere" method="post">
+				
+				<label for="newPrix">Ma proposition : </label><input name="newPrix" value=""/>
+				<br>
+				<input type="submit" value="Enchérir"/>
+			</form>
 		</div>
 	</div>
 

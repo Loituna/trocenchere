@@ -1,14 +1,15 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<!DOCTYPE html>
+
+<jsp:include page="./fragments/head.jsp">
+	<jsp:param name="title" value="Vente Article" />
+</jsp:include>
+
+<link rel="stylesheet" href="./css/VenteRemportee.css">
+
 <%@page import="java.util.List"%>
-<link href="./css/style.css" rel="stylesheet">
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Vente Article</title>
-</head>
+<link href="./css/style.css" el="stylesheet">
 <h3>Site d'enchere en ligne le plus beau de la promo</h3>
 <%
 List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMessagesErreur");
@@ -76,5 +77,6 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 	<a href="ServletAccueilCoo">
 			<input type="submit" value="Annulation"/>
 		</a>
-</body>
-</html>
+		
+		
+<jsp:include page="./fragments/foot.jsp"></jsp:include>
