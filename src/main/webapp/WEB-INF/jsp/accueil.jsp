@@ -6,8 +6,6 @@
 <meta charset="UTF-8">
 <title>Accueil</title>
 
-
-
 </head>
 <body>
 

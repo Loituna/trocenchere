@@ -15,7 +15,7 @@ import fr.eni.javaee.bo.Utilisateur;
 /**
  * Servlet implementation class ServletTestAffichageUtilisateur
  */
-@WebServlet("/ServletTestAffichageUtilisateur")
+@WebServlet("/ServletAffichageUtilisateur")
 public class ServletAffichageUtilisateur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String SESSION_UTILISATEUR= "utilisateur";
