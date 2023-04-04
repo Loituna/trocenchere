@@ -88,8 +88,12 @@ class RetraitDAOJDBCImpl implements RetraitDao {
 		try {
 			Connection cnx = ConnectionProvider.getConnection();
 			PreparedStatement pstmt = cnx.prepareStatement(UPDATE_RETRAIT);
+			pstmt.setNString(1, retrait.getRue());
+			pstmt.setNString(2, retrait.getCodePostal());
+			pstmt.setNString(3,retrait.getVille());
+			pstmt.setInt(4, retrait.getNoArticle());
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.out.println("SQL Exception Update Retrait DAL");
 			e.printStackTrace();
 		}
 		
