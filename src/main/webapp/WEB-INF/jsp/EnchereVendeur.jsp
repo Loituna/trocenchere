@@ -57,13 +57,15 @@
 	<div class="article">
 	<form action="<%request.getContextPath();%>/ServletEnchereVendeur">
 		<div>
-			<h5>Nouvelle</h5><br>
+			<h5>Modification Article</h5><br>
 			<label for="idArticle">Article : </label><input name="nomArticle" value="${article.nomArticle}"/>	<br>
 			<br>
 			<label for="idDescription ">Description : </label><input name="descriptionArticle" value = "${article.description}"style="width: 300px; height: 100px;"/>
 			<br>
-			<label for="idDateDebut">Debut de votre enchère </label><input name="DateDebut" value= "${article.dateDebutEnchere }"/>
-			<label for="idDatefin">Fin de votre enchère </label><input name="Datefin" value= "${article.dateFinEnchere }"/>
+			<label>Modifié date de fin d'enchere</label>
+				<input type="datetime-local" id="FinEnchere"
+       name="FinEnchere" value="2023-03-12T6:53"
+       min="2023-03-12T6:53" max="2030-06-14T00:00">
 			
 			
 			

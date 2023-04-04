@@ -20,6 +20,9 @@ public abstract class CodesResultatDAL {
 	 */
 	public static final int SELECT_UTILISATEUR_ECHEC = 10002;
 	
+	/**
+	 * Utilisateur Null
+	 */
 	public static final int SELECT_UTILISATEUR_NULL = 10010;
 	
 	public static final int DELETE_UTILISATEUR_ECHEC = 10003;
@@ -39,5 +42,9 @@ public abstract class CodesResultatDAL {
 	public static final int INSERT_ENCHERE = 10010;
 	
 	
+
+	public static final int UPDATE_ARTICLE_NULL =10010;
+
+	public static final int ECHEC_UPDATE_ARTICLE = 10011;
 
 }

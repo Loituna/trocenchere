@@ -77,11 +77,10 @@ public class ServletEnchereVendeur extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		Article creation = new Article();
-		// creation.setNoUtilisateur(Integer.parseInt(session.getId()));
+		
 		creation.setNoUtilisateur(utilisateur.getNoUtilisateur());
 		creation.setNomArticle(request.getParameter("nomArticle"));
-		creation.setDescription(request.getParameter("descriptionArticle"));
-		creation.setDateDebutEnchere(LocalDateTime.parse(request.getParameter("DebutEnchere")));
+		creation.setDescription(request.getParameter("descriptionArticle"));	
 		creation.setDateFinEnchere(LocalDateTime.parse(request.getParameter("FinEnchere")));	
 		creation.setNoCategorie(Integer.parseInt(request.getParameter("ListeCategorie")));
 
@@ -95,12 +94,15 @@ public class ServletEnchereVendeur extends HttpServlet {
 		
 		
 		
-		try {
-			BLLFactory.getArticleManager().insert(creation, retraitcreation);
-		} catch (BusinessException e) {
-			System.out.println("Echec Insert Article Servlet");
-			e.printStackTrace();
-		}
+		
+			try {
+				BLLFactory.getArticleManager().updateArticleByUser(creation, retraitcreation);
+			} catch (BusinessException e) {
+				System.out.println("Echec Update Serlvet");
+				e.printStackTrace();
+			}
+		
+	
 
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueilConnecte.jsp");
 		rd.forward(request, response);
