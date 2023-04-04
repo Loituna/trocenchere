@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bll.utilisateur.UserManager;
 import fr.eni.javaee.bll.utilisateur.UserManagerSingleton;
@@ -51,9 +52,9 @@ public class ServletConnexion extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		try {
 
-			UserManager instance = UserManagerSingleton.getInstance();
+		
 
-			Utilisateur util = instance.authentificationUtilisateur(request.getParameter("pseudo"), 
+			Utilisateur util = BLLFactory.getUserManager().authentificationUtilisateur(request.getParameter("pseudo"), 
 																	request.getParameter("mdp"));
 			
 			if (util != null) { 

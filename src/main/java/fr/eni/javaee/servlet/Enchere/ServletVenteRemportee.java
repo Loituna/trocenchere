@@ -2,18 +2,16 @@ package fr.eni.javaee.servlet.Enchere;
 
 import java.io.IOException;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.javaee.bll.BLLFactory;
-import fr.eni.javaee.bll.article.ArticleManagerSingleton;
 import fr.eni.javaee.bll.tools.BusinessException;
-import fr.eni.javaee.bll.utilisateur.UserManagerSingleton;
 import fr.eni.javaee.bo.Article;
 import fr.eni.javaee.bo.Utilisateur;
 import fr.eni.javaee.dal.tools.DalException;
@@ -24,6 +22,7 @@ import fr.eni.javaee.dal.tools.DalException;
 @WebServlet("/ServletVenteRemportee")
 public class ServletVenteRemportee extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final String SESSION_UTILISATEUR= "utilisateur";
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -38,12 +37,16 @@ public class ServletVenteRemportee extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	
 			throws ServletException, IOException {
-
+		HttpSession session = request.getSession();
+		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
+		request.setAttribute(SESSION_UTILISATEUR,utilisateur);
+		System.out.println(utilisateur);
 		try {
-			Utilisateur util = BLLFactory.getUserManager().getUserById(1);
-			request.setAttribute("utilisateur", util);
-			System.out.println("utilisateur : " + util);
+			utilisateur = BLLFactory.getUserManager().getUserById(utilisateur.getNoUtilisateur());
+			request.setAttribute("utilisateur", utilisateur);
+			System.out.println("utilisateur : " + utilisateur);
 			
 			Article art = BLLFactory.getArticleManager().selectByNoArticle(1);
 			request.setAttribute("article", art);
