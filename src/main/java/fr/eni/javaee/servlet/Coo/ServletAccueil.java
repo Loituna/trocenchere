@@ -35,11 +35,10 @@ public class ServletAccueil extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-		
 		try {
-		Article art = BLLFactory.getArticleManager().selectByNoArticle(3);
-		request.setAttribute("article", art);
-		System.out.println("article : " + art);
+		Article article = BLLFactory.getArticleManager().selectByNoArticle(1);
+		request.setAttribute("article", article);
+		System.out.println("article : " + article);
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -35,7 +35,7 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 
 		}
 		System.out.println(article.toString()+"Avant Insert DAL");
-		 
+		 System.out.println(article);
 		try (Connection cnx = ConnectionProvider.getConnection()) {
 			PreparedStatement	pstmt = cnx.prepareStatement(INSERT_ARTICLE, PreparedStatement.RETURN_GENERATED_KEYS);
 			pstmt.setString(1, article.getNomArticle());

@@ -59,10 +59,14 @@ public class ServletVenteArticle extends HttpServlet {
 			throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
+		
+		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
+		request.setAttribute(SESSION_UTILISATEUR,utilisateur);
 
 		Article creation = new Article();
 		// creation.setNoUtilisateur(Integer.parseInt(session.getId()));
-		creation.setNoUtilisateur(1);
+		creation.setNoUtilisateur(utilisateur.getNoUtilisateur());
 		creation.setNomArticle(request.getParameter("nomArticle"));
 		creation.setDescription(request.getParameter("descriptionArticle"));
 		creation.setDateDebutEnchere(LocalDateTime.parse(request.getParameter("DebutEnchere")));

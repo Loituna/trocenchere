@@ -27,7 +27,7 @@ class ArticleManagerImpl implements ArticleManager {
 		try {
 			art = DAOFactory.getArticleDao().selectByNoArticle(Article);
 		} catch (DalException e) {
-			System.out.println(art.toString());
+			
 			e.printStackTrace();
 			System.out.println("Echec selectByNoArticle Manager");
 			;

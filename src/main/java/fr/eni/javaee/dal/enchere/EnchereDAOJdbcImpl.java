@@ -40,7 +40,7 @@ import fr.eni.javaee.dal.tools.DalException;
 			dalException.ajouterErreur(CodesResultatDAL.INSERT_ENCHERE);
 			System.out.println("Utilisateur NULL DAL");
 		}
-		
+		System.out.println(enchere+"Insert Enchere Avant PSTMT DAL");
 		PreparedStatement pstmt = null;
 		try { Connection cnx = ConnectionProvider.getConnection();
 		pstmt = cnx.prepareStatement(INSERT_ENCHERE, PreparedStatement.RETURN_GENERATED_KEYS);
