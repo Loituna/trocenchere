@@ -6,8 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import fr.eni.javaee.bll.tools.BusinessException;
-import fr.eni.javaee.bll.tools.CodesResultatBLL;
 import fr.eni.javaee.bo.Article;
 import fr.eni.javaee.bo.Retrait;
 import fr.eni.javaee.dal.DAOFactory;
@@ -91,7 +89,7 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 			pstmt.setInt(1, noArticle);
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next()) {
-				article.setNoArticle(noArticle);
+				
 				article.setNomArticle(rs.getString("nom_Article"));
 				article.setDescription(rs.getString("description"));
 				article.setDateDebutEnchere(rs.getTimestamp("date_debut").toLocalDateTime());
@@ -99,10 +97,13 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 				article.setPrixInitial(rs.getInt("prix_initial"));
 				article.setPrixVente(rs.getInt("prix_vente"));
 				article.setEtatVente(rs.getBoolean("etat_vente"));
+				article.setNoUtilisateur(rs.getInt("no_utilisateur"));
 				article.setNoCategorie(rs.getInt("no_categorie"));
+				
+				
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Echec Select Article BY ID DAL");
 			e.printStackTrace();
 		}
 		return article;
@@ -142,7 +143,7 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 		}
 		
 		try {
-			DAOFactory.getRetraitDao().updateArticleByUser();
+			DAOFactory.getRetraitDao().updateArticleByUser(retrait);
 		} catch (DalException e) {
 			System.out.println("Echec Insert Retrait Dans updateArticleByUser");
 			e.printStackTrace();

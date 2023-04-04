@@ -57,6 +57,7 @@ public class ServletVenteArticle extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		request.setCharacterEncoding("UTF-8");
 
 		Article creation = new Article();

@@ -9,7 +9,7 @@ public interface RetraitDao {
 	
 	public Retrait selectByIdRetrait(Integer noUtilisateur) throws DalException;
 
-	public void updateArticleByUser()throws DalException;
+	public void updateArticleByUser(Retrait retrait)throws DalException;
 
 
 }
