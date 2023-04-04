@@ -41,9 +41,11 @@ public class ServletModifArticle extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO recuperer l'id de larticle à afficher
 		HttpSession session = request.getSession();
-
 		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
 		request.setAttribute(SESSION_UTILISATEUR, utilisateur);
+		
+		
+		
 		Article article;
 
 		try {

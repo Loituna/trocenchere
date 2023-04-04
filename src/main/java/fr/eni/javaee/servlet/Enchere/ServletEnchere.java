@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import fr.eni.javaee.bll.BLLFactory;
-import fr.eni.javaee.bll.enchere.EnchereManagerSingleton;
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Article;
 import fr.eni.javaee.bo.Enchere;
@@ -41,12 +40,11 @@ public class ServletEnchere extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-
 		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
 		request.setAttribute(SESSION_UTILISATEUR, utilisateur);
 
 		try {
-			Article art = BLLFactory.getArticleManager().selectByNoArticle(23);
+			Article art = BLLFactory.getArticleManager().selectByNoArticle(1);
 			System.out.println("article : " + art);
 			request.setAttribute("article", art);
 			try {
@@ -90,10 +88,11 @@ public class ServletEnchere extends HttpServlet {
 		enchere.setNoUtilisateur(utilisateur.getNoUtilisateur());
 		System.out.println(enchere + " enchere servlet no_Util");
 	//	enchere.setNoArticle(Integer.parseInt(request.getParameter("")));
-		enchere.setNoArticle(23);
+		enchere.setNoArticle(1);
 		System.out.println(enchere + " enchere servlet no_article");
 		try {
-			EnchereManagerSingleton.getInstance().creationEnchere(enchere);
+			BLLFactory.getEnchereManager().creationEnchere(enchere);
+	
 		} catch (BusinessException e) {
 			System.out.println("Erreur creation enchere Servlet");
 			e.printStackTrace();

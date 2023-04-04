@@ -16,29 +16,29 @@ import fr.eni.javaee.dal.tools.DalException;
 	 private static final String INSERT_ENCHERE = "INSERT INTO enchere (date_debut_enchere, montant_enchere,no_utilisateur,no_article) VALUES (?,?,?,?)";
 
 	@Override
-	public void venteArticle(Enchere enchere) {
+	public void venteArticle(Enchere enchere) throws DalException{
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void listerEnchereDeco() {
+	public void listerEnchereDeco() throws DalException{
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void listerEnchereCo(Utilisateur utilisateur) {
+	public void listerEnchereCo(Utilisateur utilisateur)throws DalException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void creerEnchere(Enchere enchere) {
+	public void creerEnchere(Enchere enchere) throws DalException{
 		if (enchere == null) {
 			DalException dalException = new DalException();
 			dalException.ajouterErreur(CodesResultatDAL.INSERT_ENCHERE);
-			System.out.println("Utilisateur NULL DAL");
+			System.out.println("Enchere NULL DAL");
 		}
 		System.out.println(enchere+"Insert Enchere Avant PSTMT DAL");
 		PreparedStatement pstmt = null;

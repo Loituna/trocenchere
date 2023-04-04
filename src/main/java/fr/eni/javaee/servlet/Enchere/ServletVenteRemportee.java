@@ -14,7 +14,6 @@ import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Article;
 import fr.eni.javaee.bo.Utilisateur;
-import fr.eni.javaee.dal.tools.DalException;
 
 /**
  * Servlet implementation class ServletVenteRemportee
@@ -22,7 +21,7 @@ import fr.eni.javaee.dal.tools.DalException;
 @WebServlet("/ServletVenteRemportee")
 public class ServletVenteRemportee extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String SESSION_UTILISATEUR= "utilisateur";
+	private static final String SESSION_UTILISATEUR = "utilisateur";
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -37,17 +36,18 @@ public class ServletVenteRemportee extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-	
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
-		request.setAttribute(SESSION_UTILISATEUR,utilisateur);
-		System.out.println(utilisateur);
+		request.setAttribute(SESSION_UTILISATEUR, utilisateur);
+	
+		
+		
 		try {
-			utilisateur = BLLFactory.getUserManager().getUserById(1);
+			utilisateur = BLLFactory.getUserManager().getUserById(utilisateur.getNoUtilisateur());
 			request.setAttribute("utilisateur", utilisateur);
 			System.out.println("utilisateur : " + utilisateur);
-			
+
 			Article art = BLLFactory.getArticleManager().selectByNoArticle(1);
 			request.setAttribute("article", art);
 			System.out.println("article : " + art);
@@ -65,7 +65,7 @@ public class ServletVenteRemportee extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		RequestDispatcher rd1 = request.getRequestDispatcher("/WEB-INF/jsp/VenteRemportee.jsp");
 		rd1.forward(request, response);
 	}

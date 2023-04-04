@@ -40,11 +40,10 @@ public class ServletVenteArticle extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		HttpSession session = request.getSession();
-		
+		HttpSession session = request.getSession();		
 		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
 		request.setAttribute(SESSION_UTILISATEUR,utilisateur);
-		System.out.println(utilisateur);
+	
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/VenteArticle.jsp");
 		rd.forward(request, response);
