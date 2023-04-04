@@ -5,7 +5,7 @@ import fr.eni.javaee.bo.Utilisateur;
 import fr.eni.javaee.dal.DAOFactory;
 import fr.eni.javaee.dal.tools.DalException;
 
-public class UserManagerImpl implements UserManager {
+class UserManagerImpl implements UserManager {
 
 	@Override
 	public void creationUtilisateur(Utilisateur utilisateur) throws BusinessException {

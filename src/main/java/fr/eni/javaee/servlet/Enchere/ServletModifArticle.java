@@ -20,15 +20,15 @@ import fr.eni.javaee.bo.Utilisateur;
 /**
  * Servlet implementation class ServletEnchere
  */
-@WebServlet("/ServletEnchereVendeur")
-public class ServletEnchereVendeur extends HttpServlet {
+@WebServlet("/ServletModifArticle")
+public class ServletModifArticle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String SESSION_UTILISATEUR = "utilisateur";
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ServletEnchereVendeur() {
+	public ServletModifArticle() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -55,7 +55,7 @@ public class ServletEnchereVendeur extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/EnchereVendeur.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/ModifieArticle.jsp");
 		rd.forward(request, response);
 	}
 
@@ -98,7 +98,7 @@ public class ServletEnchereVendeur extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueilConnecte.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/ModifieArticle.jsp");
 		rd.forward(request, response);
 	}
 
