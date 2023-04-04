@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Supprimer Profil</title>
-</head>
-<body>
+	pageEncoding="UTF-8"%>
 
-<form action="<%=request.getContextPath()%>/ServletSuppProfil" method="post">
+
+<jsp:include page="./fragments/head.jsp">
+	<jsp:param name="title" value="Supprimer Profil" />
+</jsp:include>
+
+<link rel="stylesheet" href="./css/VenteRemportee.css">
+
+<form class="article" action="<%=request.getContextPath()%>/ServletSuppProfil" method="post">
 
 		<label for="id">Votre identifiant :</label><input type="text" id="id" name="identifiant" value="${utilisateur.noUtilisateur}">
 		<br>
@@ -33,5 +33,4 @@
 </form>
 
 
-</body>
-</html>
+<jsp:include page="./fragments/foot.jsp"></jsp:include>

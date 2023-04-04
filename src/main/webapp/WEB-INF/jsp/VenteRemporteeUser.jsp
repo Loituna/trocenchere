@@ -2,8 +2,10 @@
 	pageEncoding="UTF-8"%>
 
 <jsp:include page="./fragments/head.jsp">
-	<jsp:param name="title" value="Vente Remportée" />
+	<jsp:param name="title" value="Vente Remportée par l'utilisateur" />
 </jsp:include>
+
+<link rel="stylesheet" href="./css/VenteRemportee.css">
 
 	<h4>{utilisateur.gagant} a remporté l'enchère</h4>
 	<div class="article" >
