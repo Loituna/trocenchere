@@ -13,8 +13,6 @@ import javax.servlet.http.HttpSession;
 
 import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bll.tools.BusinessException;
-import fr.eni.javaee.bll.utilisateur.UserManager;
-import fr.eni.javaee.bll.utilisateur.UserManagerSingleton;
 import fr.eni.javaee.bo.Utilisateur;
 
 /**

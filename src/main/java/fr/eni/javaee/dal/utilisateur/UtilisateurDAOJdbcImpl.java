@@ -13,19 +13,32 @@ import fr.eni.javaee.dal.tools.DalException;
 
 class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
-	private static final String CREATION_UTILISATEUR = "INSERT INTO UTILISATEUR(pseudo, nom, prenom, email, telephone,rue,code_postal,ville,mots_passe) VALUES(?,?,?,?,?,?,?,?,?)";
-	private static final String SELECT_UTILISATEUR = "SELECT no_utilisateur, pseudo, nom, prenom, email, telephone, "
-			+ "rue, code_postal, ville, mots_passe, credit FROM utilisateur WHERE pseudo = ? AND mots_passe = ?";
-	private static final String DELETE_UTILISATEUR = "DELETE FROM UTILISATEUR where no_utilisateur =?";
-	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEUR set pseudo = ?, nom =? , prenom =? ,email =?,telephone =? ,rue =? ,code_postal =? ,ville =? , mots_passe =? WHERE no_utilisateur =?";
-	private static final String SELECT_BY_ID = "SELECT pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mots_passe, credit FROM utilisateur where no_utilisateur=?";
+	private static final String CREATION_UTILISATEUR = "INSERT "
+			+ "INTO UTILISATEUR"
+			+ "(pseudo, nom, prenom, email, telephone,rue,code_postal,ville,mots_passe) "
+			+ "VALUES(?,?,?,?,?,?,?,?,?)";
+	private static final String SELECT_UTILISATEUR = "SELECT "
+			+ "no_utilisateur, pseudo, nom, prenom, email, telephone,rue, code_postal, ville, mots_passe, credit "
+			+ "FROM utilisateur "
+			+ "WHERE pseudo = ? AND mots_passe = ?";
+	private static final String DELETE_UTILISATEUR = "DELETE "
+			+ "FROM UTILISATEUR "
+			+ "WHERE no_utilisateur =?";
+	private static final String UPDATE_UTILISATEUR = "UPDATE "
+			+ "UTILISATEUR "
+			+ "set pseudo = ?, nom =? , prenom =? ,email =?,telephone =? ,rue =? ,code_postal =? ,ville =? , mots_passe =? "
+			+ "WHERE no_utilisateur =?";
+	private static final String SELECT_BY_ID = "SELECT"
+			+ " pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mots_passe, credit "
+			+ "FROM utilisateur "
+			+ "WHERE no_utilisateur=?";
 
 	@Override
 	public void creationUtilisateur(Utilisateur utilisateur) throws DalException {
 		if (utilisateur == null) {
 			DalException dalException = new DalException();
 			dalException.ajouterErreur(CodesResultatDAL.INSERT_UTILISATEUR_NULL);
-			System.out.println("Utilisateur NULL DAL");
+			System.out.println("Creation Utilisateur NULL DAL");
 
 		}
 
@@ -79,7 +92,7 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
-			;
+			
 			DalException dalException = new DalException();
 			dalException.ajouterErreur(CodesResultatDAL.ECHEC_UPDATE_UTILISATEUR);
 
