@@ -16,7 +16,7 @@
 	<form action="<%=request.getContextPath()%>/ServletConnexion" method="post">
 		<label for="idPseudo">Pseudo : </label><input type="text" id="idPseudo" name="pseudo" value="<%=listeMessagesErreur!=null?request.getParameter("pseudo"):""%>"/>
 		<br/>
-		<label for="idPass">Mot de passe : </label><input type="text" id="idPass" name="mdp" value="<%=listeMessagesErreur!=null?request.getParameter("mdp"):""%>"/>
+		<label for="idPass">Mot de passe : </label><input type="password" id="idPass" name="mdp" value="<%=listeMessagesErreur!=null?request.getParameter("mdp"):""%>"/>
 		<br/>
 		<input type="submit" value="Connexion"/>
 	</form>

@@ -1,8 +1,8 @@
 package fr.eni.javaee.test.dal;
 
-import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Retrait;
 import fr.eni.javaee.dal.DAOFactory;
+import fr.eni.javaee.dal.tools.DalException;
 
 public class TestDAL {
 	
@@ -18,7 +18,7 @@ public class TestDAL {
 		try {
 			DAOFactory.getRetraitDao().insert(EssaiInsert);
 			System.out.println("Reussite De l'insert dans la classe de test");
-		} catch (BusinessException e) {
+		} catch (DalException e) {
 			System.out.println("Echec De l'insert dans la classe de test");
 			e.printStackTrace();
 		}

@@ -1,18 +1,19 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<!DOCTYPE html>
+
+<jsp:include page="./fragments/head.jsp">
+	<jsp:param name="title" value="Vente Article" />
+</jsp:include>
+
+	<!-- RESTER CONNECTE -->
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.util.List"%>
-<link href="./css/style.css" rel="stylesheet">
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Vente Article</title>
-</head>
-<h3>Site d'enchere en ligne le plus beau de la promo</h3>
+<%@page import="fr.eni.javaee.bo.Utilisateur"%>
 <%
 List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMessagesErreur");
 %>
+
 <body>
 	<h1>Nouvelle Vente</h1>
 	<form action="<%=request.getContextPath()%>/ServletVenteArticle"
@@ -22,7 +23,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 			value="<%=listeMessagesErreur != null ? request.getParameter("nomArticle") : ""%>" />
 			<br>
 		<label for="descriptionArticle">Description : </label><input
-			type="text" id="descriptionArticle" name="descriptionArticle" required="required"
+			type="text" id="descriptionArticle" name="descriptionArticle" required="required" style="width: 300px; height: 100px;"
 			value="<%=listeMessagesErreur != null ? request.getParameter("descriptionArticle") : ""%>" />
 			<br>
 			
@@ -59,17 +60,14 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
        
        <div>
        <h2>Retrait</h2>
-       <label for="rueRetrait">Rue :  </label><input type="text"
-			id="rueRetrait" name="rueRetrait" required="required"
-			value="<%=listeMessagesErreur != null ? request.getParameter("adresseRetrait") : "Adresse"%>" />
+       		<label for="rueRetrait">Rue :  </label><input type="text" name="rueRetrait" required="required"
+			value="${utilisateur.rue}" />
 			<br>
-			<label for="CPRetrait">Rue :  </label><input type="text"
-			id="CPRetrait" name="CPRetrait" required="required"
-			value="<%=listeMessagesErreur != null ? request.getParameter("CPRetrait") : "CP"%>" />
+			<label for="CPRetrait">Code Postal :  </label><input type="text" name="CPRetrait" required="required"
+			value="${utilisateur.CP}" />
 			<br>
-				<label for="VilleRetrait">Rue :  </label><input type="text"
-			id="VilleRetrait" name="VilleRetrait" required="required"
-			value="<%=listeMessagesErreur != null ? request.getParameter("VilleRetrait") : "Ville"%>" />
+			<label for="VilleRetrait">Ville :  </label><input type="text" name="VilleRetrait" required="required"
+			value="${utilisateur.ville}" />
 			<br>
        
        </div>
@@ -79,5 +77,6 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 	<a href="ServletAccueilCoo">
 			<input type="submit" value="Annulation"/>
 		</a>
-</body>
-</html>
+		
+		
+<jsp:include page="./fragments/foot.jsp"></jsp:include>

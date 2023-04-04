@@ -21,6 +21,7 @@
 	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 	crossorigin="anonymous">
 <!-- BACKGROUND -->
+
 <style class="fond">
 body {
 	background-image: url('./images/vert.jpg');
@@ -31,12 +32,11 @@ body {
 	/* centre l'image horizontalement et verticalement */
 }
 </style>
-
-
 </head>
 
 
 <body>
+<!--LOGO ET ONNECTEION -->
 	<header>
 		<div class="logo">
 			<img src="./images/logo.png" alt="Ma superbe image">
@@ -51,6 +51,7 @@ body {
 
 
 
+<!-- NAVIGATION -->
 
 	<nav>
 		<ul class="menu">

@@ -1,4 +1,4 @@
-package fr.eni.javaee.servlet;
+package fr.eni.javaee.servlet.Enchere;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -11,10 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Article;
 import fr.eni.javaee.bo.Retrait;
-import fr.eni.javaee.dal.DAOFactory;
+import fr.eni.javaee.bo.Utilisateur;
 
 /**
  * Servlet implementation class ServletVenteArticle
@@ -22,38 +23,46 @@ import fr.eni.javaee.dal.DAOFactory;
 @WebServlet("/ServletVenteArticle")
 public class ServletVenteArticle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletVenteArticle() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	private static final String SESSION_UTILISATEUR= "utilisateur";
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/VenteArticle.jsp");
-		rd.forward(request, response);
-		
+	public ServletVenteArticle() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
-	
 		
+		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
+		request.setAttribute(SESSION_UTILISATEUR,utilisateur);
+		System.out.println(utilisateur);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/VenteArticle.jsp");
+		rd.forward(request, response);
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		request.setCharacterEncoding("UTF-8");
+
 		Article creation = new Article();
-		Retrait retraitcreation = new Retrait();
-	//	creation.setNoUtilisateur(Integer.parseInt(session.getId()));
-		creation.setNoUtilisateur(3);
+		// creation.setNoUtilisateur(Integer.parseInt(session.getId()));
+		creation.setNoUtilisateur(1);
 		creation.setNomArticle(request.getParameter("nomArticle"));
 		creation.setDescription(request.getParameter("descriptionArticle"));
 		creation.setDateDebutEnchere(LocalDateTime.parse(request.getParameter("DebutEnchere")));
@@ -62,32 +71,26 @@ public class ServletVenteArticle extends HttpServlet {
 		creation.setPrixVente(Integer.parseInt(request.getParameter("credit")));
 		creation.setEtatVente(true);
 		creation.setNoCategorie(Integer.parseInt(request.getParameter("ListeCategorie")));
-	
-		
+
+		Retrait retraitcreation = new Retrait();
 		retraitcreation.setRue(request.getParameter("rueRetrait"));
 		retraitcreation.setVille(request.getParameter("VilleRetrait"));
 		retraitcreation.setCodePostal(request.getParameter("CPRetrait"));
 		
-		try {
-			System.out.println("Patate");
-			DAOFactory.getRetraitDao().insert(retraitcreation);
-		} catch (BusinessException e1) {
-	 
-			e1.printStackTrace();
-		}
 		
 		
-		System.out.println(creation.toString()+"Article Servlet");
-		System.out.println(retraitcreation.toString()+"Retrait Servlet");
+		
+		
+		
 		try {
-			DAOFactory.getArticleDao().insertArticle(creation);
+			BLLFactory.getArticleManager().insert(creation, retraitcreation);
 		} catch (BusinessException e) {
-			request.setAttribute("Erreur", "PATATE");
-			System.out.println("PATATE");
+			System.out.println("Echec Insert Article Servlet");
 			e.printStackTrace();
 		}
+
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueilConnecte.jsp");
-		rd.forward(request, response);	
+		rd.forward(request, response);
 	}
 
 }

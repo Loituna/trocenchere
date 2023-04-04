@@ -1,15 +1,15 @@
 package fr.eni.javaee.dal.retrait;
 
-import java.sql.SQLException;
-
-import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Retrait;
+import fr.eni.javaee.dal.tools.DalException;
 
 public interface RetraitDao {
 	
-	public void insert(Retrait retrait) throws BusinessException;
+	public void insert(Retrait retrait) throws DalException;
 	
-	public Retrait selectByIdRetrait(Integer noUtilisateur) throws SQLException;
+	public Retrait selectByIdRetrait(Integer noUtilisateur) throws DalException;
+
+	public void updateArticleByUser(Retrait retrait)throws DalException;
 
 
 }

@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Accueil</title>
+
 </head>
 <body>
 
@@ -24,20 +25,59 @@
 <form action="<%=request.getContextPath()%>/ServletAcceuil"method="post">
 <input type="texte" id="searchart" name="barre de recherche article" value = "Le nom de l'article contient">
 
+<input type = "submit" value="Rechercher">
+
  </form>
 
-<form class="Formcate" action="<%=request.getContextPath()%>/ServletInscription"method="post">
-	<select name="Liste Categorie" id="listcate">
-	<option value="Informatique">Informatique</option>
-	<option value="Ameublement">Ameublement</option>
-	<option value="Vetement">Vetement</option>
-	<option value="Sport">Sport</option>
-	<option value="Loisir">Loisir</option>
+<br>
+<br>
+
+
+<select id="maListe" onchange="afficherOption()">
+		<option value="option">Selection</option>
+		<option value="option1">Toutes les enchères</option>
+		<option value="option2">Informatique</option>
+		<option value="option3">Ameublement</option>
+		<option value="option4">Vetement</option>
+		<option value="option5">Sport & Loisir</option>
+</select>
 	
-	</select>
+	<div>
+		<p id="resultat"></p>
+		<p id="article-nom"></p>
+		
+	</div>
+	<script>
 	
-	<input type = "submit" value"Rechercher">
-</form>
+		function afficherOption() {
+			// récupérer la liste déroulante
+			var liste = document.getElementById("maListe");
+			
+			// récupérer la valeur sélectionnée
+			var option = liste.options[liste.selectedIndex].value;
+			
+			// afficher le résultat
+			var resultat = document.getElementById("resultat");
+			var articleNomElement = document.getElementById('article-nom');
+			
+			if (option === "option1") {
+				resultat.innerHTML = "Option 1";
+				articleNomElement.innerHTML = "Intitulé : " + '${article.nomArticle}' 
+												+ ". Prix : " + '${article.prixVente}' + "crédits. "
+												+ "Fin de l'enchère : " + '${article.dateFinEnchere}';
+			} else if (option === "option2") {
+				resultat.innerHTML = "Option 2 sélectionnée.";
+			} else if (option === "option3") {
+				resultat.innerHTML = "Option 3";
+			}	else if (option === "option4") {
+				resultat.innerHTML = "Option 4";
+			}	else if (option === "option5") {
+				resultat.innerHTML = "Option 5";
+			}
+		}
+</script>
+
+
 
 </body>
 </html>

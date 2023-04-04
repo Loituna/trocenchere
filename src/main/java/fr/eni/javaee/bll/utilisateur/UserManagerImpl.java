@@ -1,14 +1,11 @@
 package fr.eni.javaee.bll.utilisateur;
 
-import java.sql.SQLException;
-
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Utilisateur;
 import fr.eni.javaee.dal.DAOFactory;
 import fr.eni.javaee.dal.tools.DalException;
-import fr.eni.javaee.dal.utilisateur.UtilisateurDAO;
 
-public class UserManagerImpl implements UserManager {
+class UserManagerImpl implements UserManager {
 
 	@Override
 	public void creationUtilisateur(Utilisateur utilisateur) throws BusinessException {

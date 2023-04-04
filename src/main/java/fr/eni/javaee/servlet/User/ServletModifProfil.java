@@ -1,4 +1,4 @@
-package fr.eni.javaee.servlet;
+package fr.eni.javaee.servlet.User;
 
 import java.io.IOException;
 
@@ -8,7 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bll.utilisateur.UserManagerSingleton;
 import fr.eni.javaee.bo.Utilisateur;
@@ -19,7 +21,8 @@ import fr.eni.javaee.bo.Utilisateur;
 @WebServlet("/ServletModifProfil")
 public class ServletModifProfil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private static final String SESSION_UTILISATEUR= "utilisateur";
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -32,20 +35,12 @@ public class ServletModifProfil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		HttpSession session = request.getSession();
 		
-		//TODO récupérer l'utilsateur dans la session
-		
-		Utilisateur util;
-		try {
-			util = UserManagerSingleton.getInstance().getUserById(1);
-			request.setAttribute("utilisateur", util);
-			System.out.println("utilisateur : " + util);
-			
-		} catch (BusinessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
+		request.setAttribute(SESSION_UTILISATEUR,utilisateur);
+		System.out.println(utilisateur);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/modifProfil.jsp");
 		rd.forward(request, response);
@@ -60,7 +55,7 @@ public class ServletModifProfil extends HttpServlet {
 		if ((request.getParameter("MDP")).equals(request.getParameter("MDPconfirm"))) {
 		
 			Utilisateur util = new Utilisateur();
-			
+			util.setNoUtilisateur(Integer.parseInt(request.getParameter("identifiant")));
 			util.setPseudo(request.getParameter("pseudo"));
 			util.setNom(request.getParameter("nom"));
 			util.setPrenom(request.getParameter("prenom"));
@@ -70,7 +65,7 @@ public class ServletModifProfil extends HttpServlet {
 			util.setCP(request.getParameter("cp"));
 			util.setVille(request.getParameter("ville"));
 			util.setMdp(request.getParameter("MDP"));
-			util.setNoUtilisateur(Integer.parseInt(request.getParameter("identifiant")));
+			
 			
 			try {
 				UserManagerSingleton.getInstance().modificationUtilisateur(util);

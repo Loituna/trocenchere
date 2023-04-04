@@ -1,4 +1,4 @@
-package fr.eni.javaee.servlet;
+package fr.eni.javaee.servlet.User;
 
 import java.io.IOException;
 
@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bll.utilisateur.UserManagerSingleton;
@@ -19,7 +20,8 @@ import fr.eni.javaee.bo.Utilisateur;
 @WebServlet("/ServletSuppProfil")
 public class ServletSuppProfil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private static final String SESSION_UTILISATEUR= "utilisateur";
+   
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -36,17 +38,11 @@ public class ServletSuppProfil extends HttpServlet {
 		//TODO récupérer l'utilsateur dans la session
 		
 
-				Utilisateur util;
-				try {
-					util = UserManagerSingleton.getInstance().getUserById(1);
-					request.setAttribute("utilisateur", util);
-					System.out.println("utilisateur : " + util);
-					
-				} catch (BusinessException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-
+		HttpSession session = request.getSession();
+		
+		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
+		request.setAttribute(SESSION_UTILISATEUR,utilisateur);
+		System.out.println(utilisateur);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/supprimerProfil.jsp");
 		rd.forward(request, response);

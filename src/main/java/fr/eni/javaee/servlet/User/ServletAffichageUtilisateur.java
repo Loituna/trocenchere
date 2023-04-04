@@ -1,4 +1,4 @@
-package fr.eni.javaee.servlet;
+package fr.eni.javaee.servlet.User;
 
 import java.io.IOException;
 
@@ -8,22 +8,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import fr.eni.javaee.bll.tools.BusinessException;
-import fr.eni.javaee.bll.utilisateur.UserManagerSingleton;
 import fr.eni.javaee.bo.Utilisateur;
 
 /**
- * Servlet implementation class ServletVenteRemportee
+ * Servlet implementation class ServletTestAffichageUtilisateur
  */
-@WebServlet("/ServletVenteRemportee")
-public class ServletVenteRemportee extends HttpServlet {
+@WebServlet("/ServletAffichageUtilisateur")
+public class ServletAffichageUtilisateur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private static final String SESSION_UTILISATEUR= "utilisateur";
+   
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletVenteRemportee() {
+    public ServletAffichageUtilisateur() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,28 +32,25 @@ public class ServletVenteRemportee extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
 		
-		try {
-			Utilisateur util = UserManagerSingleton.getInstance().getUserById(3);
-			request.setAttribute("utilisateur", util);
-			
-			System.out.println("utilisateur : " + util);
-		} catch (BusinessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/VenteRemportee.jsp");
+		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
+		request.setAttribute(SESSION_UTILISATEUR,utilisateur);
+		System.out.println(utilisateur);
+	
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/afficherUtilisateur.jsp");
 		rd.forward(request, response);
+		
+		
 	}
-
+  
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/suppProfil.jsp");
+		rd.forward(request, response);
+
 	}
 
 }
