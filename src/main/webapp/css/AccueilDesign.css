@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+h4 {
+	text-align: center;
+}
+
+/*CONNECTION ET LOGO*/
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-image: url('./images/moderne.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+
+.logo {
+	margin-left: 250px; 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 1;
+}
+
+.connection, .deconnection {
+	
+	text-decoration: none;
+	font-family: "VP Next", arial, sans-serif;
+	font-weight: 400;
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #ffffff;
+}
+
+/*BARRE DE NAVIGATION */
+.menu {
+	color: #fff;
+	list-style: none; /* supprime les puces de liste */
+	display: flex;
+	justify-content: center; /* centre horizontalement les liens */
+	padding: 10px; /* espace autour du texte des liens */
+}
+
+.menu a {
+	font-family: "VP Next", arial, sans-serif;
+	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+	font-weight: 400;
+	font-size: 1rem;
+	color: #fff;
+	text-decoration: none;
+	padding: 10px;
+}
+
+.articleMenu{
+	display: none;
+}
+
+.deroulant{
+	display: block;
+}	
+	
+	
+/*BARRE DE RECHERCHE */
+.search {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.search input {
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	width: 300px;
+}
+
+.search button {
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	background-color: #4CAF50;
+	color: #fff;
+	margin-left: 10px;
+}
+
+/*ENCHERE */
+.article {
+	position: relative;
+	text-align: center;
+	/*border : solid 0.1px;*/
+	/*box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);*/
+	width: 500px;
+	height: 200px;
+	/*border-radius: 6px;*/
+	margin: 20px;
+	/*background-color: white;*/
+	backdrop-filter: blur(8px); /* ajustez la valeur de flou souhaitée */
+	filter: brightness(150%);
+	/* ajustez la valeur de luminosité souhaitée */
+}
+
+.vignette {
+	display: flex;
+	align-items: left;
+	justify-content: flex-start;
+}
+
+.description {
+	font-size: 15px;
+	display: flex;
+	align-items: right;
+	justify-content: flex-end;
+}
+
+.alignement {
+	display: flex;
+	justify-content: center;
+}
+
+.block1 {
+	display: flex;
+	justify-content: center;
+}
