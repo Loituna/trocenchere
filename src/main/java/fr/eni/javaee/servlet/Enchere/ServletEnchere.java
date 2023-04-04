@@ -1,6 +1,7 @@
 package fr.eni.javaee.servlet.Enchere;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Article;
+import fr.eni.javaee.bo.Enchere;
 import fr.eni.javaee.dal.tools.DalException;
 
 /**
@@ -58,7 +60,17 @@ public class ServletEnchere extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		
+		System.out.println("Insertion d'une enchère");
+		
+		Enchere enchere = new Enchere();
+		
+		enchere.setDatedebutEnchere(LocalDateTime.now());
+		enchere.setMontant(Integer.parseInt(request.getParameter("newPrix")));
+		//enchere.setNoUtilisateur(request.getParameter(""));
+		
+		
 		doGet(request, response);
 	}
 
