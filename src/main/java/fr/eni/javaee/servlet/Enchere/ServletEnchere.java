@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.javaee.bll.BLLFactory;
+import fr.eni.javaee.bll.enchere.EnchereManagerSingleton;
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Article;
 import fr.eni.javaee.bo.Enchere;
@@ -70,6 +71,12 @@ public class ServletEnchere extends HttpServlet {
 		enchere.setMontant(Integer.parseInt(request.getParameter("newPrix")));
 		//enchere.setNoUtilisateur(request.getParameter(""));
 		
+		try {
+			EnchereManagerSingleton.getInstance().creationEnchere(enchere);
+		} catch (BusinessException e) {
+			System.out.println("Erreur creation enchere Servlet");
+			e.printStackTrace();
+		}
 		
 		doGet(request, response);
 	}
