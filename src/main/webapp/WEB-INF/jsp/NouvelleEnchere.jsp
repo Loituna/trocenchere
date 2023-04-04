@@ -60,7 +60,7 @@
 			<h5>Nouvelle</h5><br>
 			<label for="idArticle">Article : </label><input name="identifiant" value="${article.nomArticle}"/>	<br>
 			<br>
-			<label for="idDescription ">Description : </label><input name="Description" value = "${article.descriptionArticle}"/>
+			<label for="idDescription ">Description : </label><input name="Description" value = ""/>
 		
 			
 			<input type="submit" onclick="alert('Modifié !')" value="Enregistrer"/>
