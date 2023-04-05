@@ -36,7 +36,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 			<br>
 			
 			
-		<select name="ListeCategorie" id="listcate">
+		<select name="ListeCategorie" id="listcate"required="required">
 			<option value="1">Informatique</option>
 			<option value="2">Ameublement</option>
 			<option value="3">Vetement</option>
@@ -50,14 +50,14 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		<input type="file" id="photoArticle" name="photoArticle" >
 		<br>
 		<label>Prix de l'article </label>
-		<input type="number" id="credit" name ="credit" min ="100" max="1000">
+		<input type="number" id="credit" name ="credit" min ="100" max="1000"required="required">
 		<br>
 		
 		<label for="DebutEnchere">Debut de votre enchère</label>
 
 		<input type="datetime-local" id="DebutEnchere"
        name="DebutEnchere" value="2023-03-12T6:53"
-       min="2023-03-12T6:53" max="2023-06-14T00:00">
+       min="2023-03-12T6:53" max="2023-06-14T00:00"required="required">
 		
 		<br>
 		
@@ -65,7 +65,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 
 		<input type="datetime-local" id="FinEnchere"
        name="FinEnchere" value="2023-03-12T6:53"
-       min="2023-03-12T6:53" max="2030-06-14T00:00">
+       min="2023-03-12T6:53" max="2030-06-14T00:00"required="required">
        
        <div>
        <br>
