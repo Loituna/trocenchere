@@ -20,16 +20,29 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 <div class="block1">
 	<div class="article">
 		<div>
-			<h4>${utilisateur.pseudo}à remporté l'enchère</h4>
+			<h4>Ventes en cours</h4>
 			<div class="alignement">
 				<img class="vignette" src="./images/RTX-SD-ALPHA.png"
 					alt="Ma superbe image">
 				<div class="description">
-					Nvidia 4090 RTX <br> Description : Carte graphique nouvelle
-					génération.<br> <br> Meilleur offre : 210 pts pat Pseudo<br>
-					Mise à prix : 185 pts<br> Fin de l'enchère : 09/03/2023<br>
-					Retrait : 5 rue Saint-Louis 35000 Rennes<br> <br> Vendeur
-					: pseudo<br>
+					
+					<br>
+					Nom article : ${article.nomArticle}
+					<br> 
+					Description : ${article.description}
+					
+					<br> 
+					Meilleur offre actuellement : ${enchere.montant} points
+					<br>
+					Mise à prix : ${article.prixInitial} points
+					<br> 
+					Fin de l'enchère : ${article.dateFinEnchere}
+					<br>
+					Retrait : ${utilisateur.rue} ${utilisateur.CP} ${utilisateur.ville}
+					<br> 
+					<br> 
+					Vendeur: ${utilisateur.nom} 
+					<br>
 				</div>
 			</div>
 		</div>

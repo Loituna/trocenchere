@@ -46,7 +46,7 @@ public class ServletEnchere extends HttpServlet {
 		
 		
 		Article article = new Article() ;
-		article.setNoArticle(1);
+		article.setNoArticle(3);
 		System.out.println(SESSION_ARTICLE + article + "Servlet");
 		request.setAttribute(SESSION_ARTICLE, article);
 		try {
