@@ -15,11 +15,13 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 
 <!-- LIEN CSS -->
 <link rel="stylesheet" href="./css/AccueilDesign.css">
+<link rel="stylesheet" href="./css/style1.css">
 
 <!-- FONCTION DE LA PAGE, CODE A CHANGER -->
 <div class="block1">
-<div class="article">	
-	<h1>Mon profil</h1>
+<div class="article2">	
+	<br>
+	<h4>Mon profil</h4>
 	
 	<form action="<%=request.getContextPath()%>/ServletInscription"method="post">
 		<label for="idPseudo">Pseudo : </label><input type="text" id="idPseudo" name="pseudo"  required="required" value="<%=listeMessagesErreur!=null?request.getParameter("pseudo"):""%>"/>
@@ -41,6 +43,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		<label for="idMDP">Mot de passe : </label><input type="password" id="idMDP" name="MDP" required="required" value="<%=listeMessagesErreur!=null?request.getParameter("MDP"):""%>"/>
 		<br>
 		<label for="idMDPconfirm">Confirmation Mot de Passe : </label><input type="password" id="idMDPconfirm" name="MDPconfirm" required="required" value="<%=listeMessagesErreur!=null?request.getParameter("MDPConfirm"):""%>"/>
+		<br>
 		<br>
 		<input type="submit" value="Validation Inscription"/>
 
