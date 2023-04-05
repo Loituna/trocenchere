@@ -34,16 +34,7 @@ public class ServletAccueil extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		try {
-		Article article = BLLFactory.getArticleManager().selectByNoArticle(1);
-		request.setAttribute("article", article);
-		System.out.println("article : " + article);
-		} catch (BusinessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueil.jsp");
 		rd.forward(request, response);

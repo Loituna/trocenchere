@@ -5,8 +5,6 @@ import fr.eni.javaee.bo.Utilisateur;
 import fr.eni.javaee.dal.tools.DalException;
 
 public interface EnchereDAO {
-
-	public void venteArticle (Enchere enchere)throws DalException;
 	
 	public void listerEnchereDeco ()throws DalException;
 	

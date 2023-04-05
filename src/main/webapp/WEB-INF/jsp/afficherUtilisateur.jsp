@@ -17,15 +17,16 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 	<form
 		action="<%=request.getContextPath()%>/ServletAffichageUtilisateur"
 		method="post">
-		<label for="idPseudo">Pseudo : </label>${utilisateur.pseudo} <br>
-		<label for="idNom">Nom : </label>${utilisateur.nom} <br> <label
-			for="idPrenom">Prenom : </label>${utilisateur.prenom} <br> <label
-			for="idEmail">Email : </label> ${utilisateur.email} <br> <label
-			for="idTelephone">Téléphone : </label> ${utilisateur.telephone} <br>
-		<label for="idRue">Rue : </label>${utilisateur.rue} <br> <label
-			for="idCodePostal">Code Postal : </label>${utilisateur.CP} <br>
-		<label for="idVille">Ville : </label> ${utilisateur.ville} <br>
-
+		<div class="aligne">
+		<label class="gauche" for="idPseudo">Pseudo : </label><label class="droite"> ${utilisateur.pseudo}</label><br>
+		<label class="gauche" for="idNom">Nom : </label><label class="droite"> ${utilisateur.nom}</label><br> 
+		<label class="gauche" for="idPrenom">Prenom : </label><label class="droite"> ${utilisateur.prenom}</label><br> 
+		<label class="gauche" for="idEmail">Email : </label><label class="droite"> ${utilisateur.email}</label> <br> 
+		<label class="gauche" for="idTelephone">Téléphone : </label><label class="droite"> ${utilisateur.telephone}</label><br>
+		<label class="gauche" for="idRue">Rue : </label><label class="droite"> ${utilisateur.rue}</label><br> 
+		<label class="gauche" for="idCodePostal">Code Postal : </label><label class="droite"> ${utilisateur.CP}</label><br>
+		<label class="gauche" for="idVille">Ville : </label><label class="droite"> ${utilisateur.ville}</label><br>
+		</div>
 	</form>
 
 	<div class="boutton modifier">

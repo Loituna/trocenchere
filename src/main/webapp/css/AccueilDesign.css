@@ -54,14 +54,15 @@ header {
 	padding: 10px;
 }
 
-.articleMenu{
-	display: none;
+.deroulant {
+  display: none;
 }
 
-.deroulant{
-	display: block;
-}	
-	
+/* Afficher le sous-menu lorsqu'on clique sur le lien "Article" */
+.articleMenu:hover .deroulant,
+.articleMenu:focus-within .deroulant {
+  display: block;
+}
 	
 /*BARRE DE RECHERCHE */
 .search {
