@@ -22,6 +22,7 @@ body {
 	/* adapte la taille de l'image pour qu'elle tienne entièrement dans le conteneur, sans déformation */
 	background-position: center center;
 	/* centre l'image horizontalement et verticalement */
+	min-height: 100vh;
 }
 </style>
 
@@ -33,7 +34,7 @@ body {
 			<img src="./images/logo.png" alt="Ma superbe image">
 		</div>
 		<div class="connection">
-			<a href="ServletAffichageUtilisateur">${tuilisateur.pseudo</a>
+			<a href="ServletAffichageUtilisateur">Mon Profil</a>
 		</div>
 		<div class="deconnection">
 			<a href="ServletDeconnexion">Deconnection</a>
