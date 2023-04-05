@@ -22,6 +22,7 @@ body {
 	/* adapte la taille de l'image pour qu'elle tienne entièrement dans le conteneur, sans déformation */
 	background-position: center center;
 	/* centre l'image horizontalement et verticalement */
+	min-height: 100vh;
 }
 </style>
 
