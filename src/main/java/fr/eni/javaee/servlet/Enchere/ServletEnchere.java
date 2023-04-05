@@ -44,7 +44,7 @@ public class ServletEnchere extends HttpServlet {
 		request.setAttribute(SESSION_UTILISATEUR, utilisateur);
 
 		try {
-			Article art = BLLFactory.getArticleManager().selectByNoArticle(1);
+			Article art = BLLFactory.getArticleManager().selectByNoArticle(3);
 			System.out.println(SESSION_ARTICLE + art);
 			request.setAttribute(SESSION_ARTICLE, art);
 			//try {
@@ -59,7 +59,15 @@ public class ServletEnchere extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		//Enchere enchere = BLLFactory.getEnchereManager().
+		Enchere enchere = new Enchere();
+		enchere.setNoEnchere(1);
+		 try {
+			BLLFactory.getEnchereManager().selectByIdEnchere(enchere);
+		} catch (BusinessException e) {
+			System.out.println(enchere);
+			System.out.println("Echec get by ID servlet");
+			e.printStackTrace();
+		}
 
 		RequestDispatcher rd1 = request.getRequestDispatcher("/WEB-INF/jsp/enchere.jsp");
 		rd1.forward(request, response);
