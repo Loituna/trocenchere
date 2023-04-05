@@ -8,4 +8,6 @@ public interface EnchereManager {
 
 	public void creationEnchere(Enchere enchere) throws BusinessException;
 
+	
+	public void updateEnchere (Enchere enchere) throws BusinessException;
 }

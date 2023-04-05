@@ -9,14 +9,28 @@ class EnchereManagerImpl implements EnchereManager {
 
 	@Override
 	public void creationEnchere(Enchere enchere) throws BusinessException {
-		
-		
+
 		try {
 			DAOFactory.getEnchereDAO().creerEnchere(enchere);
 		} catch (DalException e) {
-			System.out.println("Erreur Enchere Manager");
+			System.out.println("Erreur Insert Enchere Manager");
 			e.printStackTrace();
 		}
 	}
 
+	@Override
+	public void updateEnchere (Enchere enchere) throws BusinessException{
+		
+	
+			try {
+				DAOFactory.getEnchereDAO().updateEnchere(enchere);
+			} catch (DalException e) {
+				System.out.println("Erreur Update Enchere Manager");
+				e.printStackTrace();
+			}
+		 
+		
+		
+		
+	}
 }
