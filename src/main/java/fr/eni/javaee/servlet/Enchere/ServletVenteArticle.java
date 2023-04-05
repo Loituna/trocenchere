@@ -81,13 +81,6 @@ public class ServletVenteArticle extends HttpServlet {
 		retraitcreation.setVille(request.getParameter("VilleRetrait"));
 		retraitcreation.setCodePostal(request.getParameter("CPRetrait"));
 		
-//		Enchere insertEnchere = new Enchere();
-//		insertEnchere.setDatedebutEnchere(LocalDateTime.parse(request.getParameter("DebutEnchere")));
-//		insertEnchere.setDatefinEnchere(LocalDateTime.parse(request.getParameter("FinEnchere")));
-//		insertEnchere.setMontant(Integer.parseInt(request.getParameter("credit")));
-//		insertEnchere.setNoUtilisateur(utilisateur.getNoUtilisateur());
-//		insertEnchere.setNoArticle(creation.getNoArticle());
-		
 		try {
 			BLLFactory.getArticleManager().insert(creation, retraitcreation);
 		} catch (BusinessException e) {
@@ -95,13 +88,6 @@ public class ServletVenteArticle extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-//		try {
-//			BLLFactory.getEnchereManager().creationEnchere(insertEnchere);
-//		} catch (BusinessException e) {
-//			System.out.println("Echec Insert Enchere Servlet");
-//			e.printStackTrace();
-//		}
-
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueilConnecte.jsp");
 		rd.forward(request, response);
 	}

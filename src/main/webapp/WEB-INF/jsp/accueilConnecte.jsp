@@ -15,9 +15,8 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 %>
 
 
+
 <a href="ServletEnchere">Enchères</a>
-
-
 
 <div class="article">
 	<p>Filtres :</p>
