@@ -3,9 +3,7 @@ package fr.eni.javaee.dal.utilisateur;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
-import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Utilisateur;
 import fr.eni.javaee.dal.tools.CodesResultatDAL;
 import fr.eni.javaee.dal.tools.ConnectionProvider;
@@ -17,21 +15,8 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			+ "INTO UTILISATEUR"
 			+ "(pseudo, nom, prenom, email, telephone,rue,code_postal,ville,mots_passe) "
 			+ "VALUES(?,?,?,?,?,?,?,?,?)";
-	private static final String SELECT_UTILISATEUR = "SELECT "
-			+ "no_utilisateur, pseudo, nom, prenom, email, telephone,rue, code_postal, ville, mots_passe, credit "
-			+ "FROM utilisateur "
-			+ "WHERE pseudo = ? AND mots_passe = ?";
-	private static final String DELETE_UTILISATEUR = "DELETE "
-			+ "FROM UTILISATEUR "
-			+ "WHERE no_utilisateur =?";
-	private static final String UPDATE_UTILISATEUR = "UPDATE "
-			+ "UTILISATEUR "
-			+ "set pseudo = ?, nom =? , prenom =? ,email =?,telephone =? ,rue =? ,code_postal =? ,ville =? , mots_passe =? "
-			+ "WHERE no_utilisateur =?";
-	private static final String SELECT_BY_ID = "SELECT"
-			+ " pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mots_passe, credit "
-			+ "FROM utilisateur "
-			+ "WHERE no_utilisateur=?";
+
+
 
 	@Override
 	public void creationUtilisateur(Utilisateur utilisateur) throws DalException {
@@ -73,7 +58,10 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 		}
 	}
-
+	private static final String UPDATE_UTILISATEUR = "UPDATE "
+			+ "UTILISATEUR "
+			+ "set pseudo = ?, nom =? , prenom =? ,email =?,telephone =? ,rue =? ,code_postal =? ,ville =? , mots_passe =? "
+			+ "WHERE no_utilisateur =?";
 	@Override
 	public void modificationUtilisateur(Utilisateur utilisateur) throws DalException {
 		try (Connection cnx = ConnectionProvider.getConnection()) {
@@ -98,7 +86,9 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 		}
 	}
-
+	private static final String DELETE_UTILISATEUR = "DELETE "
+			+ "FROM UTILISATEUR "
+			+ "WHERE no_utilisateur =?";
 	@Override
 	public void suppressionUtilisateur(Utilisateur utilisateur) throws DalException {
 		DalException dalException = new DalException();
@@ -120,6 +110,10 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		
 	}
 
+	private static final String SELECT_UTILISATEUR = "SELECT "
+			+ "no_utilisateur, pseudo, nom, prenom, email, telephone,rue, code_postal, ville, mots_passe, credit "
+			+ "FROM utilisateur "
+			+ "WHERE pseudo = ? AND mots_passe = ?";
 	@Override
 	public Utilisateur authentificationUtilisateur(Utilisateur utilisateur) throws  DalException {
 
@@ -160,9 +154,11 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		return utilisateur;
 	}
 
-	@Override
-	public void deconnexionUtilisateur(Utilisateur utilisateur) {
-	}
+
+	private static final String SELECT_BY_ID = "SELECT"
+			+ " pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mots_passe, credit "
+			+ "FROM utilisateur "
+			+ "WHERE no_utilisateur=?";
 
 	public Utilisateur selectByNoUtilisateur(Integer noUtilisateur) {
 		Utilisateur utilisateur = new Utilisateur();

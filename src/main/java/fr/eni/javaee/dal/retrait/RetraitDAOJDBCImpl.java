@@ -12,8 +12,10 @@ import fr.eni.javaee.dal.tools.DalException;
 
 class RetraitDAOJDBCImpl implements RetraitDao {
 
-	private static final String INSERT = "INSERT INTO RETRAIT(no_article,rue, code_postal, ville) VALUES (?,?,?,?)";
-	private static final String SELECT_POUR_RETRAIT = "SELECT rue, code_postal, ville  FROM utilisateur where no_utilisateur=?";
+	private static final String INSERT = "INSERT "
+			+ "INTO RETRAIT"
+			+ "(no_article,rue, code_postal, ville) "
+			+ "VALUES (?,?,?,?)";
 
 	@Override
 	public void insert(Retrait retrait) throws DalException {
@@ -47,9 +49,12 @@ class RetraitDAOJDBCImpl implements RetraitDao {
 		}
 
 	}
+	private static final String SELECT_POUR_RETRAIT = "SELECT "
+			+ "rue, code_postal, ville  "
+			+ "FROM utilisateur "
+			+ "WHERE no_utilisateur=?";
 
 	@Override
-
 	public Retrait selectByIdRetrait(Integer noUtilisateur) {
 
 		Retrait retrait = new Retrait();

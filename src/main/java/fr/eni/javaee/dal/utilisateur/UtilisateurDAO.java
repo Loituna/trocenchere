@@ -11,9 +11,7 @@ public interface UtilisateurDAO {
 
 	public void suppressionUtilisateur(Utilisateur utilisateur) throws DalException;
 
-	public Utilisateur authentificationUtilisateur(Utilisateur utilisateur) throws  DalException;
-
-	public void deconnexionUtilisateur(Utilisateur utilisateur)throws DalException ;	
+	public Utilisateur authentificationUtilisateur(Utilisateur utilisateur) throws  DalException;		
 	
 	public Utilisateur selectByNoUtilisateur (Integer noUtilisateur)throws DalException ;
 

@@ -60,23 +60,7 @@ class EnchereDAOJdbcImpl implements EnchereDAO {
 		}
 	}
 
-	@Override
-	public void enchereGagnee(Enchere enchere) {
-		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public void encherePerdue(Enchere enchere) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void afficherDetail(Enchere enchere) {
-		// TODO Auto-generated method stub
-
-	}
 
 	private static final String UPDATE_ENCHERE = "UPDATE "
 			+ "enchere "
