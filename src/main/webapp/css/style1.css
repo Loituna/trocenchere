@@ -32,7 +32,20 @@ input {
 
 .container{
 	display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+ 	align-items : center;
+  	margin-bottom: 10px;
 }
 
+.container input {
+  width: 250px; /* largeur personnalisée */
+}
+
+.div1 {
+  width: 125px; /* largeur de l'étiquette */
+  text-align: right; /* alignement du texte à droite */
+  margin-right: -40px; /* espace à droite du texte */
+}
+
+.div2 {
+  flex: 1; /* largeur de l'input */
+}

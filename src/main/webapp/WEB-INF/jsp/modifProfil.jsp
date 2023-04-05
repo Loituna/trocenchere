@@ -29,30 +29,57 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 				<div class="div1"> <label for="idPseudo">Pseudo : </label></div>
 				<div class="div2"> <input name="pseudo" value="${utilisateur.pseudo}" /></div>
 			</div>
-		<br> 
-			<label for="idNom">Nom: </label>
-			<input name="nom" value=" ${utilisateur.nom}" /> 
-		<br> 
-			<label for="idPrenom">Prenom : </label> 
-			<input name="prenom" value="${utilisateur.prenom}" /> 
-		<br> 
-			<label for="idEmail">Email: </label> <input name="email" value=" ${utilisateur.email}" /> 
-		<br> 
-			<label for="idTelephone">Téléphone : </label> <input name="telephone"value="${utilisateur.telephone}" /> 
-		<br> 
-			<label for="idRue">Rue: </label> <input name="rue" value="${utilisateur.rue}" /> 
-		<br>
-			<label for="idCodePostal">Code Postal : </label> <input name="cp" value="${utilisateur.CP}" /> 
-		<br> 
-			<label for="idVille">Ville: </label> <input name="ville" value="${utilisateur.ville}" /> 
-		<br> 
-			<label for="idMotsPasse">Mots de passe actuel : </label> <input type="text" required="required" value="" /> 
-		<br> 
-			<label for="idMDP">Nouveaumots de passe : </label> <input type="text" id="idMDP" name="MDP" required="required" value="<%=listeMessagesErreur != null ? request.getParameter("MDP") : ""%>" />
-		<br> 
-			<label for="idMDPconfirm">Confirmez le mots de passe : </label> <input type="text" id="idMDPconfirm" name="MDPconfirm" required="required"
-		value="<%=listeMessagesErreur != null ? request.getParameter("MDPConfirm") : ""%>" />
-		<br> 
+		
+			<div class="container"> 
+				<div class="div1"> <label for="idNom">Nom : </label></div>
+				<div class="div2"> <input name="nom" value=" ${utilisateur.nom}" /> </div>
+			</div>
+		
+			<div class="container">
+				<div class="div1"> <label for="idPrenom">Prenom : </label> </div>
+				<div class="div2"> <input name="prenom" value="${utilisateur.prenom}" /> </div>
+			</div>
+		
+			<div class="container"> 
+				<div class="div1"> <label for="idEmail">Email: </label></div>
+				<div class="div2"> <input name="email" value=" ${utilisateur.email}" /> </div>
+			</div>
+		
+			<div class="container">  
+				<div class="div1"> <label for="idTelephone">Téléphone : </label> </div>
+				<div class="div2"> <input name="telephone"value="${utilisateur.telephone}" /> </div>
+			</div>
+			
+			<div class="container">  
+				<div class="div1"> <label for="idRue">Rue: </label></div>
+				<div class="div2"> <input name="rue" value="${utilisateur.rue}" /> </div>
+			</div>
+		
+			<div class="container"> 
+				<div class="div1"> <label for="idCodePostal">Code Postal : </label></div>
+				<div class="div2"> <input name="cp" value="${utilisateur.CP}" /> </div>
+			</div>
+			
+			<div class="container"> 
+				<div class="div1"> <label for="idVille">Ville: </label></div>
+				<div class="div2"> <input name="ville" value="${utilisateur.ville}" /> </div>
+			</div>
+		
+			<div class="container"> 
+				<div class="div1"> <label for="idMotsPasse">Mots de passe actuel : </label> </div>
+				<div class="div2"> <input type="text" required="required" value="" /> </div>
+			</div>
+			
+			<div class="container"> 
+				<div class="div1"> <label for="idMDP">Nouveau mots de passe : </label> </div>
+				<div class="div2"> <input type="text" id="idMDP" name="MDP" required="required" value="<%=listeMessagesErreur != null ? request.getParameter("MDP") : ""%>" /> </div>
+			</div>
+			
+			<div class="container"> 
+				<div class="div1"> <label for="idMDPconfirm">Confirmez le mots de passe : </label> </div>
+				<div class="div2"> <input type="text" id="idMDPconfirm" name="MDPconfirm" required="required" value="<%=listeMessagesErreur != null ? request.getParameter("MDPConfirm") : ""%>" /> </div>
+			</div>
+	 
 		<br> 
 			<label for="credit">Credit : </label>${utilisateur.credit}
 		<br> 
