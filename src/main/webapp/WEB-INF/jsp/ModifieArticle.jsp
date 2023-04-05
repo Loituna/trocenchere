@@ -15,15 +15,17 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 
 <!-- LIEN CSS -->
 <link rel="stylesheet" href="./css/AccueilDesign.css">
+<link rel="stylesheet" href="./css/style1.css">
 
 <!-- FONCTION DE LA PAGE, CODE A CHANGER -->
 <div class="block1">
-<div class="article">
+<div class="article2">
 	<form action="<%=request.getContextPath()%>/ServletEnchereVendeur"
 		method="post">
 
 		<div>
-			<h5>Modification Article</h5>
+		<br>
+			<h4>Modification Article</h4>
 			<br> <label for="idArticle">Article : </label><input
 				name="nomArticle" value="${article.nomArticle}" /> <br> <br>
 			<label for="idDescription ">Description : </label><input
@@ -42,7 +44,9 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 
 
 			<div>
-				<h2>Retrait</h2>
+			<br>
+			<br>
+				<h4>Retrait</h4>
 				<label for="rueRetrait">Rue : </label><input type="text"
 					name="rueRetrait" required="required" value="${utilisateur.rue}" />
 				<br> <label for="CPRetrait">Code Postal : </label><input

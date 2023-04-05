@@ -9,21 +9,24 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.util.List"%>
 <%@page import="fr.eni.javaee.bo.Utilisateur"%>
+
 <%
 List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMessagesErreur");
 %>
 
 <!-- LIEN CSS -->
 <link rel="stylesheet" href="./css/AccueilDesign.css">
+<link rel="stylesheet" href="./css/style1.css">
 
 
 
 <!-- CONTENU DE LA PAGE -->
 <div class="block1">
-<div class="article">
-	<div>
-
-		<h3>Détails de la vente</h3>
+<div >
+	<div class="article2">
+		
+		<br>
+		<h4>Détails de la vente</h4>
 		<br> <img src="./images/RTX-SD.jpg" alt="Ma superbe image">
 		<br> 
 		<br> 
@@ -51,6 +54,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 
 			<label for="newPrix">Ma proposition : </label><input type="number"
 				name="newPrix" min="${enchere.montant}" max="1000" /> <br>
+			<br>
 			<input type="submit" value="Enchérir" />
 		</form>
 	</div>
