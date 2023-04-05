@@ -15,13 +15,14 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 
 <!-- LIEN CSS -->
 <link rel="stylesheet" href="./css/AccueilDesign.css">
-
+<link rel="stylesheet" href="./css/style1.css">
 
 
 <!-- CONTENU DE LA PAGE -->
 <div class="block1">
-<div class="article">
-	<h5>Nouvelle Vente</h5>
+<div class="article2">
+	<br>
+	<h4>Nouvelle Vente</h4>
 	<br>
 	<form action="<%=request.getContextPath()%>/ServletVenteArticle"
 		method="post">
@@ -48,6 +49,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		<label>Photo de l'article </label>
 		<input type="file" id="photoArticle" name="photoArticle" >
 		<br>
+		<label>Prix de l'article </label>
 		<input type="number" id="credit" name ="credit" min ="100" max="1000">
 		<br>
 		
@@ -70,7 +72,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
        <br>
 
        
-       <h6>Retrait</h6>
+       <h4>Retrait</h4>
        		<label for="rueRetrait">Rue :  </label><input type="text" name="rueRetrait" required="required"
 			value="${utilisateur.rue}" />
 			<br>
@@ -82,9 +84,11 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 			<br>
        
        </div>
+       <br>
        <input type="submit" value="Validation Enchere"/>
        
 	</form>
+	
 	<a href="ServletAccueilCoo">
 			<input type="submit" value="Annulation"/>
 		</a>

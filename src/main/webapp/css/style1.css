@@ -4,3 +4,19 @@ h1{
 	display : flex;
 	justify-content: center
 }
+
+.article2 {
+	position: relative;
+	text-align: center;
+	/*border : solid 0.1px;*/
+	/*box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);*/
+	width: 450px;
+	height: 670px;
+	border-radius: 6px;
+	margin: 20px;
+	/*background-color: white;*/
+	backdrop-filter: blur(8px); /* ajustez la valeur de flou souhaitée */
+	filter: brightness(150%);
+	overflow: visible;
+	/* ajustez la valeur de luminosité souhaitée */
+}
