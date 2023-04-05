@@ -20,8 +20,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 <form class="article" action="<%=request.getContextPath()%>/ServletModifProfil"
 	method="post">
 
-	<label for="id">Votre identifiant : </label><input name="identifiant"
-		value="${utilisateur.noUtilisateur}" /> 
+		<input type="hidden" name="identifiant" value="${utilisateur.noUtilisateur}" /> 
 		<br> 
 		
 		<label for="idPseudo">Pseudo : </label><input name="pseudo"
