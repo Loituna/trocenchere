@@ -26,6 +26,7 @@ public class ServletEnchere extends HttpServlet {
 	private static final String SESSION_UTILISATEUR = "utilisateur";
 	private static final String SESSION_ARTICLE = "article";
 	private static final String SESSION_ENCHERE = "enchere";
+	private static final String SESSION_RETRAIT = "retrait";
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -39,16 +40,17 @@ public class ServletEnchere extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
-		request.setAttribute(SESSION_UTILISATEUR, utilisateur);
-		
-		
+			throws ServletException, IOException {	
+		HttpSession session = request.getSession();	
+		Utilisateur utilisateur = new Utilisateur();
 		Article article = new Article() ;
+		Enchere enchere = new Enchere();
+		
+		utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);		
+		
 		article.setNoArticle(1);
 		System.out.println(SESSION_ARTICLE + article + "Servlet");
-		request.setAttribute(SESSION_ARTICLE, article);
+	
 		try {
 		
 			article = BLLFactory.getArticleManager().selectByNoArticle(article);				
@@ -59,13 +61,12 @@ public class ServletEnchere extends HttpServlet {
 			e.printStackTrace();
 		}		
 		
-		// Recuperation enchere		
+		// Recuperation enchere			
 		
-		Enchere enchere = new Enchere();
 		enchere.setNoEnchere(1);
 		enchere.setNoArticle(article.getNoArticle());
 		System.out.println(enchere+ "Servlet");
-		request.setAttribute(SESSION_ENCHERE, enchere);
+		
 		 try {
 			enchere = BLLFactory.getEnchereManager().selectByIdEnchere(enchere);
 		} catch (BusinessException e) {
@@ -74,8 +75,24 @@ public class ServletEnchere extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		RequestDispatcher rd1 = request.getRequestDispatcher("/WEB-INF/jsp/enchere.jsp");
-		rd1.forward(request, response);
+		 
+		 // Recuperation retrait
+		 
+		 
+		 		 
+		 
+		 
+		
+		
+		
+		
+		
+		
+		request.setAttribute(SESSION_ARTICLE, article);
+		request.setAttribute(SESSION_UTILISATEUR, utilisateur);
+		request.setAttribute(SESSION_ENCHERE, enchere);
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/enchere.jsp");	
+		rd.forward(request, response);
 	}
 
 	/**
