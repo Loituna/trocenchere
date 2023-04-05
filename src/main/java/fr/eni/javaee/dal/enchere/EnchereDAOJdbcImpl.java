@@ -14,16 +14,9 @@ import fr.eni.javaee.dal.tools.DalException;
 
 class EnchereDAOJdbcImpl implements EnchereDAO {
 
-	
-	@Override
-	public void venteArticle(Enchere enchere) throws DalException {
-		// TODO Auto-generated method stub
-
-	}
-
 	@Override
 	public void listerEnchereDeco() throws DalException {
-		// TODO Auto-generated method stub
+		
 
 	}
 
