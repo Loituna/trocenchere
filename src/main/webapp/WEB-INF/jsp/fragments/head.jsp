@@ -11,11 +11,11 @@
 	rel="stylesheet"
 	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 	crossorigin="anonymous">
-	
-	
 
-	
-	
+
+
+
+
 </head>
 <body>
 
@@ -38,18 +38,21 @@
 						class="nav-link dropdown-toggle" href="#" role="button"
 						data-bs-toggle="dropdown" aria-expanded="false"> Article </a>
 						<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="ServletEnchere">Acheter</a></li>
+							<li><a class="dropdown-item" href="ServletEnchere">Acheter</a></li>
 							<li><a class="dropdown-item" href="ServletVenteArticle">Vendre</a></li>
 							<li><a class="dropdown-item" href="ServletModifArticle">Modifier</a></li>
 						</ul></li>
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="ServletAffichageUtilisateur">Mon Profil</a></li>
-						<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="ServletAffichageUtilisateur">Mon
+							Profil</a></li>
+							<ul></ul>
+					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="ServletInscription">Inscription</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="ServletConnexion">Connexion</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="ServletDeconnexion">Deconnexion</a></li>
+
 				</ul>
 			</div>
 		</div>

@@ -35,7 +35,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 			<button>Supprimer mon compte</button>
 		</a>
 	</div>
-	</div>
+</div>
 
 
 <jsp:include page="./fragments/foot.jsp"></jsp:include>

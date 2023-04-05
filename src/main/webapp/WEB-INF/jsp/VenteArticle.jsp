@@ -6,6 +6,8 @@
 	<jsp:param name="title" value="Vente Article" />
 </jsp:include>
 
+<link rel="stylesheet" href="./css/VenteRemportee.css">
+
 	<!-- RESTER CONNECTE -->
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.util.List"%>
