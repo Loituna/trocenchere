@@ -105,6 +105,11 @@ header {
 	/* ajustez la valeur de luminosité souhaitée */
 }
 
+/*ALIGNER TEXTE DANS LA BOX*/
+
+
+
+
 .vignette {
 	display: flex;
 	align-items: left;
