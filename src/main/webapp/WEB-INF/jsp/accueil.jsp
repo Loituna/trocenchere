@@ -24,7 +24,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		<div>
 			<h4>Ventes en cours</h4>
 			<div class="alignement">
-				<img class="vignette" src="./images/RTX-SD-ALPHA.png"
+				<img class="vignette" src="./images/1.png"
 					alt="Ma superbe image">
 				<div class="description">
 					
@@ -53,7 +53,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		<div>
 			<h4>Ventes en cours</h4>
 			<div class="alignement">
-				<img class="vignette" src="./images/RTX-SD-ALPHA.png"
+				<img class="vignette" src="./images/2.png"
 					alt="Ma superbe image">
 				<div class="description">
 				<br>
@@ -84,7 +84,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		<div>
 			<h4>Ventes en cours</h4>
 			<div class="alignement">
-				<img class="vignette" src="./images/RTX-SD-ALPHA.png"
+				<img class="vignette" src="./images/3.png"
 					alt="Ma superbe image">
 				<div class="description">
 					<br>
@@ -112,7 +112,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		<div>
 			<h4>Ventes en cours</h4>
 			<div class="alignement">
-				<img class="vignette" src="./images/RTX-SD-ALPHA.png"
+				<img class="vignette" src="./images/4.png"
 					alt="Ma superbe image">
 				<div class="description">
 					<br>
@@ -142,7 +142,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		<div>
 			<h4>Ventes en cours</h4>
 			<div class="alignement">
-				<img class="vignette" src="./images/RTX-SD-ALPHA.png"
+				<img class="vignette" src="./images/5.png"
 					alt="Ma superbe image">
 				<div class="description">
 					<br>
@@ -170,7 +170,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		<div>
 			<h4>Ventes en cours</h4>
 			<div class="alignement">
-				<img class="vignette" src="./images/RTX-SD-ALPHA.png"
+				<img class="vignette" src="./images/6.png"
 					alt="Ma superbe image">
 				<div class="description">
 				<br>
