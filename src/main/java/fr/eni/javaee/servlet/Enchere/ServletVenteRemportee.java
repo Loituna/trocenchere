@@ -44,13 +44,15 @@ public class ServletVenteRemportee extends HttpServlet {
 		
 		
 		try {
-			utilisateur = BLLFactory.getUserManager().getUserById(utilisateur.getNoUtilisateur());
+			utilisateur = BLLFactory.getUserManager().getUserById(utilisateur);
 			request.setAttribute("utilisateur", utilisateur);
 			System.out.println("utilisateur : " + utilisateur);
 
-			Article art = BLLFactory.getArticleManager().selectByNoArticle(1);
-			request.setAttribute("article", art);
-			System.out.println("article : " + art);
+			Article article = new Article();
+			article.setNoArticle(1);
+					BLLFactory.getArticleManager().selectByNoArticle(article);
+			request.setAttribute("article", article );
+			System.out.println("article : " + article + "Servlet");
 		} catch (BusinessException e) {
 			e.printStackTrace();
 		}

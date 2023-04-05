@@ -13,7 +13,7 @@ public interface UserManager {
 
 	public void modificationUtilisateur(Utilisateur utilisateur) throws BusinessException;
 
-	public Utilisateur getUserById(int id) throws BusinessException;
+	public Utilisateur getUserById(Utilisateur utilisateur) throws BusinessException;
 
 	public void deconnexionUtilisateur(Utilisateur utilisateur) throws BusinessException;
 

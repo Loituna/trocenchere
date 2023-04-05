@@ -33,10 +33,12 @@ public class ServletAccueilDesign extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		Article article = new Article();
+			article.setNoArticle(1);
 		
 		try {
-		Article article = BLLFactory.getArticleManager().selectByNoArticle(1);
+		
+		BLLFactory.getArticleManager().selectByNoArticle(article);
 		request.setAttribute("article", article);
 		System.out.println("article : " + article);
 		} catch (BusinessException e) {

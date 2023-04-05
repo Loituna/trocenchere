@@ -9,7 +9,7 @@ class EnchereManagerImpl implements EnchereManager {
 
 	@Override
 	public void creationEnchere(Enchere enchere) throws BusinessException {
-
+		System.out.println(enchere+"creation Enchere Manager ");
 		try {
 			DAOFactory.getEnchereDAO().creerEnchere(enchere);
 		} catch (DalException e) {
@@ -21,7 +21,7 @@ class EnchereManagerImpl implements EnchereManager {
 	@Override
 	public void updateEnchere (Enchere enchere) throws BusinessException{
 		
-	
+		System.out.println(enchere+"Update Enchere Manager ");
 			try {
 				DAOFactory.getEnchereDAO().updateEnchere(enchere);
 			} catch (DalException e) {
@@ -32,13 +32,15 @@ class EnchereManagerImpl implements EnchereManager {
 	}
 
 	@Override
-	public void selectByIdEnchere(Enchere enchere) throws BusinessException {
+	public Enchere selectByIdEnchere(Enchere enchere) throws BusinessException {
+		System.out.println(enchere+"SelectById Enchere Manager ");
 		try {
 			DAOFactory.getEnchereDAO().selectByIdEnchere(enchere);
 		} catch (DalException e) {
 			System.out.println("Erreur Select By Id Manager");
 			e.printStackTrace();
 		}
+		return enchere;
 		
 	}
 }

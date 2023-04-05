@@ -46,10 +46,10 @@ public class ServletModifArticle extends HttpServlet {
 		
 		
 		
-		Article article;
-
+		Article article= new Article();
+		article.setNoArticle(20);
 		try {
-			article = BLLFactory.getArticleManager().selectByNoArticle(20);
+			article = BLLFactory.getArticleManager().selectByNoArticle(article);
 			request.setAttribute("article", article);
 			System.out.println("article" + article);
 		} catch (BusinessException e) {

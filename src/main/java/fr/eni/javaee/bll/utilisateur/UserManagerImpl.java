@@ -67,14 +67,14 @@ class UserManagerImpl implements UserManager {
 	}
 
 	@Override
-	public Utilisateur getUserById(int id)  throws BusinessException {
-		Utilisateur User = null;
+	public Utilisateur getUserById(Utilisateur utilisateur)  throws BusinessException {
+	
 		try {
-			 User =DAOFactory.getUtilisateurDAO().selectByNoUtilisateur(id);
+			utilisateur =DAOFactory.getUtilisateurDAO().selectByNoUtilisateur(utilisateur.getNoUtilisateur());
 		} catch (DalException e) {
 			e.printStackTrace();
 			System.out.println("Echec Authentification UserManager");
 		}
-		return User;
+		return utilisateur;
 	}
 }

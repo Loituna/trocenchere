@@ -27,30 +27,43 @@ class EnchereDAOJdbcImpl implements EnchereDAO {
 	}
 	
 	private static final String SELECT_ENCHERE_BY_ID_ARTICLE = "SELECT "
-			+ "no_enchere, date_debut_enchere, date_fin_enchere, montant_enchere, no_utilisateur, no_article "
+			+ "no_enchere, date_debut_enchere,date_fin_enchere,montant_enchere, no_utilisateur, no_article "
 			+ "FROM enchere "
 			+ "WHERE no_article=?";
 	
 	public void selectByIdEnchere (Enchere enchere) throws DalException {
+		
+		
 		if (enchere == null) {
+			
 			DalException dalException = new DalException();
 			dalException.ajouterErreur(CodesResultatDAL.ECHEC_SELECT_ID_ENCHERE);
 			System.out.println("ERREUR SELECT BY ID ENCHERE DAL");
-		}
-		
-		PreparedStatement pstmt = null;
-		try {
-			Connection cnx = ConnectionProvider.getConnection();
-			pstmt = cnx.prepareStatement(SELECT_ENCHERE_BY_ID_ARTICLE, PreparedStatement.RETURN_GENERATED_KEYS);
+			}	
+		try (
+			Connection cnx = ConnectionProvider.getConnection()){			
+			PreparedStatement pstmt = cnx.prepareStatement(SELECT_ENCHERE_BY_ID_ARTICLE);
+			
+			
+			
 			pstmt.setInt(1, enchere.getNoEnchere());
-			pstmt.setTimestamp(2, java.sql.Timestamp.valueOf(enchere.getDatedebutEnchere()));
-			pstmt.setTimestamp(3, java.sql.Timestamp.valueOf(enchere.getDatefinEnchere()));
-			pstmt.setInt(4, enchere.getMontant());
-			pstmt.setInt(5, enchere.getNoUtilisateur());
-			pstmt.setInt(6, enchere.getNoArticle());
-			pstmt.executeUpdate();
+		
+			ResultSet rs = pstmt.executeQuery();
+			
+	
+			if(rs.next()) {
+		
+				enchere.setNoEnchere(rs.getInt(1));
+				enchere.setDatedebutEnchere(rs.getTimestamp(2).toLocalDateTime());
+				enchere.setDatefinEnchere(rs.getTimestamp(3).toLocalDateTime());
+				enchere.setMontant(rs.getInt(4));
+				enchere.setNoUtilisateur(rs.getInt(5));
+				enchere.setNoArticle(rs.getInt(6));
+				
+			}
 			
 		} catch (SQLException e) {
+			System.out.println(enchere);
 			System.out.println("Erreur select by ID EnchereDAOJdbcImpl");
 			e.printStackTrace();
 		}
@@ -60,7 +73,8 @@ class EnchereDAOJdbcImpl implements EnchereDAO {
 	
 	private static final String INSERT_ENCHERE = "INSERT "
 	+ "INTO enchere "
-	+ "(date_debut_enchere,date_fin_enchere, montant_enchere,no_utilisateur,no_article)" + " VALUES (?,?,?,?,?)";
+	+ "(date_debut_enchere,date_fin_enchere, montant_enchere,no_utilisateur,no_article)" 
+	+ " VALUES (?,?,?,?,?)";
 
 	@Override
 	public void creerEnchere(Enchere enchere) throws DalException {

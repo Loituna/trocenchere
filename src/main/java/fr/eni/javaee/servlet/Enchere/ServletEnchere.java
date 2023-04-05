@@ -25,6 +25,7 @@ public class ServletEnchere extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String SESSION_UTILISATEUR = "utilisateur";
 	private static final String SESSION_ARTICLE = "article";
+	private static final String SESSION_ENCHERE = "enchere";
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -42,27 +43,31 @@ public class ServletEnchere extends HttpServlet {
 		HttpSession session = request.getSession();
 		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
 		request.setAttribute(SESSION_UTILISATEUR, utilisateur);
-
+		
+		
+		Article article = new Article() ;
+		article.setNoArticle(1);
+		System.out.println(SESSION_ARTICLE + article + "Servlet");
+		request.setAttribute(SESSION_ARTICLE, article);
 		try {
-			Article art = BLLFactory.getArticleManager().selectByNoArticle(3);
-			System.out.println(SESSION_ARTICLE + art);
-			request.setAttribute(SESSION_ARTICLE, art);
-			//try {
-
-				//request.setAttribute("utilisateur", BLLFactory.getUserManager().getUserById(art.getNoUtilisateur()));
-		//	} catch (BusinessException e) {
-//				System.out.println("erreur servlet getByIdUtilisateur");
-//				e.printStackTrace();
-//			}
+		
+			article = BLLFactory.getArticleManager().selectByNoArticle(article);				
+					
+					
 		} catch (BusinessException e) {
 			System.out.println("erreur servlet selecte idArticle");
 			e.printStackTrace();
-		}
+		}		
+		
+		// Recuperation enchere		
 		
 		Enchere enchere = new Enchere();
 		enchere.setNoEnchere(1);
+		enchere.setNoArticle(article.getNoArticle());
+		System.out.println(enchere+ "Servlet");
+		request.setAttribute(SESSION_ENCHERE, enchere);
 		 try {
-			BLLFactory.getEnchereManager().selectByIdEnchere(enchere);
+			enchere = BLLFactory.getEnchereManager().selectByIdEnchere(enchere);
 		} catch (BusinessException e) {
 			System.out.println(enchere);
 			System.out.println("Echec get by ID servlet");

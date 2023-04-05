@@ -58,10 +58,18 @@ class RetraitDAOJDBCImpl implements RetraitDao {
 	public Retrait selectByIdRetrait(Integer noUtilisateur) {
 
 		Retrait retrait = new Retrait();
+		
+		
 		try (Connection cnx = ConnectionProvider.getConnection()) {
 			PreparedStatement pstmt = cnx.prepareStatement(SELECT_POUR_RETRAIT);
+			
+			
 			pstmt.setInt(1, noUtilisateur);
+			
+			
 			ResultSet rs = pstmt.executeQuery();
+			
+			
 			if (rs.next()) {
 				retrait.setNoArticle(noUtilisateur);
 				retrait.setRue(rs.getString("rue"));

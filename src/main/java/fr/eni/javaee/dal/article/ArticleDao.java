@@ -8,7 +8,7 @@ public interface ArticleDao {
 	
 	public void insertArticle(Article article, Retrait retrait)throws DalException ;
 	
-	public Article selectByNoArticle (Integer Article) throws DalException;
+	public Article selectByNoArticle (Article article) throws DalException;
 
 	public void updateArticleByUser(Article article, Retrait retrait) throws DalException;
 }

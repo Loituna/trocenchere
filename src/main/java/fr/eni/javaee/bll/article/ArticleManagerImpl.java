@@ -22,10 +22,10 @@ class ArticleManagerImpl implements ArticleManager {
 	}
 
 	@Override
-	public Article selectByNoArticle(Integer Article) throws BusinessException {
-		Article art = null;
+	public Article selectByNoArticle(Article article) throws BusinessException {
+		System.out.println(article+"Select By No Article Manager");
 		try {
-			art = DAOFactory.getArticleDao().selectByNoArticle(Article);
+			 DAOFactory.getArticleDao().selectByNoArticle(article);
 		} catch (DalException e) {
 			
 			e.printStackTrace();
@@ -33,7 +33,7 @@ class ArticleManagerImpl implements ArticleManager {
 			;
 		}
 
-		return art;
+		return article;
 	}
 
 	@Override

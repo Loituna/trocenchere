@@ -11,5 +11,5 @@ public interface EnchereManager {
 	
 	public void updateEnchere (Enchere enchere) throws BusinessException;
 	
-	public void selectByIdEnchere (Enchere enchere) throws BusinessException;
+	public Enchere selectByIdEnchere (Enchere enchere) throws BusinessException;
 }

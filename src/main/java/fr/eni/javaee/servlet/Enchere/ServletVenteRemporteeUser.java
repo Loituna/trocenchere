@@ -22,40 +22,51 @@ import fr.eni.javaee.dal.tools.DalException;
 @WebServlet("/ServletVenteRemporteeUser")
 public class ServletVenteRemporteeUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletVenteRemporteeUser() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	private static final String SESSION_UTILISATEUR = "utilisateur";
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ServletVenteRemporteeUser() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+
+		Utilisateur utilisateur = new Utilisateur();
+		request.setAttribute(SESSION_UTILISATEUR, utilisateur);
 		
 		try {
-			Utilisateur util = BLLFactory.getUserManager().getUserById(1);
-			request.setAttribute("utilisateur", util);
-			System.out.println("utilisateur : " + util);
+			utilisateur = BLLFactory.getUserManager().getUserById(utilisateur);
 			
-			Article art = BLLFactory.getArticleManager().selectByNoArticle(1);
-			request.setAttribute("article", art);
-			System.out.println("article : " + art);
+			System.out.println(SESSION_UTILISATEUR + utilisateur+"Servlet");
+
+			Article article = new Article();
+			article.setNoArticle(1);
+			BLLFactory.getArticleManager().selectByNoArticle(article);
+			request.setAttribute("article", article);
+			System.out.println("article : " + article + "Servlet");
 		} catch (BusinessException e) {
 			e.printStackTrace();
-		} 
-		
+		}
+
 		RequestDispatcher rd1 = request.getRequestDispatcher("/WEB-INF/jsp/VenteRemporteeUser.jsp");
 		rd1.forward(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		RequestDispatcher rd1 = request.getRequestDispatcher("/WEB-INF/jsp/VenteRemporteeUser.jsp");
 		rd1.forward(request, response);
 	}

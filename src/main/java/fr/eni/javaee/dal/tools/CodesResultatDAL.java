@@ -43,7 +43,7 @@ public abstract class CodesResultatDAL {
 	
 	
 
-	public static final int UPDATE_ARTICLE_NULL =10010;
+	public static final int UPDATE_ARTICLE_NULL =10016;
 
 	public static final int ECHEC_UPDATE_ARTICLE = 10011;
 

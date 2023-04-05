@@ -95,12 +95,21 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 			+ "nom_article, description, date_debut, date_fin, prix_initial, prix_vente, etat_vente, no_utilisateur, no_categorie "
 			+ "FROM Article_vendu "
 			+ "WHERE no_article=?";
-	public Article selectByNoArticle(Integer noArticle) throws DalException{
-		Article article = new Article();
+	public Article selectByNoArticle(Article article) throws DalException{
+		
+		
+		System.out.println(article+"Select By No Article DAL 1rst print");
+		
+		
 		try (Connection cnx = ConnectionProvider.getConnection()){
 			PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_ID_ARTICLE);
-			pstmt.setInt(1, noArticle);
+			pstmt.setInt(1,article.getNoArticle());
+			
+			
+			System.out.println(article+"Select By No Article DAL B4 PSTMT");
+			
 			ResultSet rs = pstmt.executeQuery();
+			
 			if(rs.next()) {
 				
 				article.setNomArticle(rs.getString("nom_Article"));
@@ -116,6 +125,7 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 				
 			}
 		} catch (SQLException e) {
+			System.out.println(article);
 			System.out.println("Echec Select Article BY ID DAL");
 			e.printStackTrace();
 		}
