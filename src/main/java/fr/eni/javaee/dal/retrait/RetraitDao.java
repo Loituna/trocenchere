@@ -5,11 +5,11 @@ import fr.eni.javaee.dal.tools.DalException;
 
 public interface RetraitDao {
 	
-	public void insert(Retrait retrait) throws DalException;
-	
-	public Retrait selectByIdRetrait(Integer noUtilisateur) throws DalException;
+	public void insert(Retrait retrait) throws DalException;	
 
 	public void updateArticleByUser(Retrait retrait)throws DalException;
+	
+	public Retrait getRetraitVendeur (Retrait retrait)throws DalException;;
 
 
 }

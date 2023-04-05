@@ -7,4 +7,5 @@ public interface RetraitManager {
 
 	public void insert(Retrait retrait) throws BusinessException;
 
+	public Retrait GetRetraitByID (Retrait retrait) throws BusinessException;
 }

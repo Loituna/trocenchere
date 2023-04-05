@@ -49,40 +49,11 @@ class RetraitDAOJDBCImpl implements RetraitDao {
 		}
 
 	}
-	private static final String SELECT_POUR_RETRAIT = "SELECT "
+	private static final String SELECT_POUR_RETRAIT_PAR_DEFAUT = "SELECT "
 			+ "rue, code_postal, ville  "
 			+ "FROM utilisateur "
 			+ "WHERE no_utilisateur=?";
 
-	@Override
-	public Retrait selectByIdRetrait(Integer noUtilisateur) {
-
-		Retrait retrait = new Retrait();
-		
-		
-		try (Connection cnx = ConnectionProvider.getConnection()) {
-			PreparedStatement pstmt = cnx.prepareStatement(SELECT_POUR_RETRAIT);
-			
-			
-			pstmt.setInt(1, noUtilisateur);
-			
-			
-			ResultSet rs = pstmt.executeQuery();
-			
-			
-			if (rs.next()) {
-				retrait.setNoArticle(noUtilisateur);
-				retrait.setRue(rs.getString("rue"));
-				retrait.setCodePostal("code_postal");
-				retrait.setVille(rs.getString("ville"));
-			}
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return retrait;
-	} 
 	private static final String UPDATE_RETRAIT = "UPDATE "
 			+ "RETRAIT "
 			+ "set rue=? , code_postal=? , ville=? "
@@ -91,14 +62,14 @@ class RetraitDAOJDBCImpl implements RetraitDao {
 
 	@Override
 	public void updateArticleByUser(Retrait retrait) throws DalException {
-		System.out.println("2eme patate");
+		
 		if (retrait==null) {
 			DalException DalException = new DalException();
 			DalException.ajouterErreur(CodesResultatDAL.UPDATE_RETRAIT_NULL);
 			System.out.println("Retrait Update DAL Null");	
 		}
 		try {
-			System.out.println("3eme patate");
+		
 			Connection cnx = ConnectionProvider.getConnection();
 			PreparedStatement pstmt = cnx.prepareStatement(UPDATE_RETRAIT);
 			pstmt.setString(1, retrait.getRue());
@@ -112,6 +83,43 @@ class RetraitDAOJDBCImpl implements RetraitDao {
 		}
 		
 		
+	}
+
+	private static final String GET_RETRAIT_VENDEUR = "SELECT "
+			+ "rue, code_postal, ville "
+			+ "FROM retrait "			
+			+ "WHERE no_article=? ";
+	@Override
+	public Retrait getRetraitVendeur(Retrait retrait) throws DalException {
+		System.out.println(retrait+"getRetraitVendeur DAL");
+		
+		if (retrait==null) {
+			DalException DalException = new DalException();
+			DalException.ajouterErreur(CodesResultatDAL.GET_RETRAIT_NULL);
+			System.out.println("Retrait Update DAL Null");	}
+		try (
+			
+			Connection cnx = ConnectionProvider.getConnection()){
+			PreparedStatement pstmt = cnx.prepareStatement(GET_RETRAIT_VENDEUR);
+			
+			pstmt.setInt(1, retrait.getNoArticle());
+			ResultSet rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				
+				retrait.setRue(rs.getString("rue"));
+				retrait.setCodePostal("code_postal");
+				retrait.setVille(rs.getString("ville"));
+			
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("SQL Exception GETRetraitVendeur DAL");
+			e.printStackTrace();
+		}
+		
+		
+		return retrait;
 	}
 
 }

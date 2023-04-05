@@ -22,6 +22,17 @@ class RetraitManagerImpl implements RetraitManager {
 		
 	}
 
+	@Override
+	public Retrait GetRetraitByID(Retrait retrait) throws BusinessException {
+		try {
+			DAOFactory.getRetraitDao().getRetraitVendeur(retrait);
+		} catch (DalException e) {		
+			e.printStackTrace();
+		System.out.println("Echec GET Retrait By ID Manager");;
+		}
+		return retrait;
+	}
+
 
 	
 }
