@@ -46,7 +46,7 @@ public class ServletEnchere extends HttpServlet {
 		
 		
 		Article article = new Article() ;
-		article.setNoArticle(3);
+		article.setNoArticle(10);
 		System.out.println(SESSION_ARTICLE + article + "Servlet");
 		request.setAttribute(SESSION_ARTICLE, article);
 		try {
@@ -62,7 +62,7 @@ public class ServletEnchere extends HttpServlet {
 		// Recuperation enchere		
 		
 		Enchere enchere = new Enchere();
-		enchere.setNoEnchere(1);
+		enchere.setNoEnchere(2);
 		enchere.setNoArticle(article.getNoArticle());
 		System.out.println(enchere+ "Servlet");
 		request.setAttribute(SESSION_ENCHERE, enchere);

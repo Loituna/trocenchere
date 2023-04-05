@@ -22,6 +22,7 @@ import fr.eni.javaee.bo.Enchere;
 public class ServletAccueilDesign extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String SESSION_ARTICLE = "article";
+	private static final String SESSION_ENCHERE = "enchere";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -49,9 +50,19 @@ public class ServletAccueilDesign extends HttpServlet {
 		}
 		
 		//Session enchere
+		
 		Enchere enchere = new Enchere();
 		enchere.setNoEnchere(1);
-		
+		enchere.setNoArticle(article.getNoArticle());
+		System.out.println(enchere+ "Servlet");
+		request.setAttribute(SESSION_ENCHERE, enchere);
+		 try {
+			enchere = BLLFactory.getEnchereManager().selectByIdEnchere(enchere);
+		} catch (BusinessException e) {
+			System.out.println(enchere);
+			System.out.println("Echec get by ID servlet");
+			e.printStackTrace();
+		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueilDesign.jsp");
 		rd.forward(request, response);
