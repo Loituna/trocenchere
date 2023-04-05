@@ -33,7 +33,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 				style="width: 300px; height: 100px;" /> <br> <label>Modifié
 				date de fin d'enchere</label> <input type="datetime-local" id="FinEnchere"
 				name="FinEnchere" value="2023-03-12T6:53" min="2023-03-12T6:53"
-				max="2030-06-14T00:00"> <select name="ListeCategorie"
+				max="2030-06-14T00:00"required="required"> <select name="ListeCategorie"
 				id="listcate">
 				<option value="1">Informatique</option>
 				<option value="2">Ameublement</option>
