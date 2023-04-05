@@ -5,7 +5,7 @@
 	<jsp:param name="title" value="Enchère" />
 </jsp:include>
 
-<<<<<<< HEAD
+
 <!-- RESTER CONNECTE -->
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.util.List"%>
@@ -13,9 +13,9 @@
 <%
 List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMessagesErreur");
 %>
-=======
+
 <a href="ServletEnchere">Enchères</a>
->>>>>>> branch 'master' of https://github.com/Loituna/trocenchere
+
 
 <div class="article">
 	<p>Filtres :</p>

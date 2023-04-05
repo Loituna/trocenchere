@@ -24,7 +24,7 @@ import fr.eni.javaee.bo.Utilisateur;
 public class ServletEnchere extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String SESSION_UTILISATEUR = "utilisateur";
-
+	private static final String SESSION_ARTICLE = "article";
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -44,9 +44,9 @@ public class ServletEnchere extends HttpServlet {
 		request.setAttribute(SESSION_UTILISATEUR, utilisateur);
 
 		try {
-			Article art = BLLFactory.getArticleManager().selectByNoArticle(3);
-			System.out.println("article : " + art);
-			request.setAttribute("article", art);
+			Article art = BLLFactory.getArticleManager().selectByNoArticle(1);
+			System.out.println(SESSION_ARTICLE + art);
+			request.setAttribute(SESSION_ARTICLE, art);
 			//try {
 
 				//request.setAttribute("utilisateur", BLLFactory.getUserManager().getUserById(art.getNoUtilisateur()));
@@ -71,18 +71,20 @@ public class ServletEnchere extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();		
 		Utilisateur utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
+		Article article = (Article) session.getAttribute(SESSION_ARTICLE);
 		request.setAttribute(SESSION_UTILISATEUR, utilisateur);
+		request.setAttribute(SESSION_ARTICLE, article);
 		
 		Enchere enchere = new Enchere();
 		System.out.println("Insertion d'une enchère");
 		System.out.println(enchere + " enchere servlet VIDE");
 
 		
-
+		
 		enchere.setDatedebutEnchere(LocalDateTime.now());
-		System.out.println(enchere + " enchere servlet DATE");
+		
 		enchere.setMontant(Integer.parseInt(request.getParameter("newPrix")));
 		System.out.println(enchere + " enchere servlet PRIX");
 		enchere.setNoUtilisateur(utilisateur.getNoUtilisateur());
