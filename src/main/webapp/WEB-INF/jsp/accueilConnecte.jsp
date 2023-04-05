@@ -14,11 +14,7 @@
 List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMessagesErreur");
 %>
 
-<<<<<<< HEAD
-=======
-<a href="ServletEnchere">Enchères</a>
 
->>>>>>> branch 'master' of https://github.com/Loituna/trocenchere.git
 
 <div class="article">
 	<p>Filtres :</p>
