@@ -14,9 +14,7 @@ import fr.eni.javaee.dal.tools.DalException;
 
 class EnchereDAOJdbcImpl implements EnchereDAO {
 
-	private static final String INSERT_ENCHERE = "INSERT " + "INTO enchere "
-			+ "(date_debut_enchere, montant_enchere,no_utilisateur,no_article)" + " VALUES (?,?,?,?)";
-
+	
 	@Override
 	public void venteArticle(Enchere enchere) throws DalException {
 		// TODO Auto-generated method stub
@@ -34,6 +32,9 @@ class EnchereDAOJdbcImpl implements EnchereDAO {
 		// TODO Auto-generated method stub
 
 	}
+	private static final String INSERT_ENCHERE = "INSERT "
+	+ "INTO enchere "
+	+ "(date_debut_enchere,date_fin_enchere, montant_enchere,no_utilisateur,no_article)" + " VALUES (?,?,?,?,?)";
 
 	@Override
 	public void creerEnchere(Enchere enchere) throws DalException {
@@ -84,8 +85,10 @@ class EnchereDAOJdbcImpl implements EnchereDAO {
 
 	}
 
-	private static final String UPDATE_ENCHERE = "UPDATE " + "enchere"
-			+ "set date_debut_enchere=? , montant_enchere=? , no_utilisateur=?" + "WHERE no_article=?";
+	private static final String UPDATE_ENCHERE = "UPDATE "
+			+ "enchere "
+			+ "SET date_debut_enchere=?, montant_enchere=? , no_utilisateur=? " 
+			+ "WHERE no_article=? ";
 
 	@Override
 	public void updateEnchere(Enchere enchere) throws DalException {
@@ -94,10 +97,11 @@ class EnchereDAOJdbcImpl implements EnchereDAO {
 			DalException.ajouterErreur(CodesResultatDAL.UPDATE_ENCHERE_NULL);
 			System.out.println("Enchere Update DAL Null");
 		}
+		System.out.println(enchere+"Enchere avant pstmt DAL");
 		try (Connection cnx = ConnectionProvider.getConnection()) {
 			PreparedStatement pstmt = cnx.prepareStatement(UPDATE_ENCHERE);
 
-			pstmt.setDate(1, Date.valueOf(enchere.getDatedebutEnchere().toLocalDate()));
+			pstmt.setDate(1, Date.valueOf(enchere.getDatedebutEnchere().toLocalDate()));			
 			pstmt.setInt(2, enchere.getMontant());
 			pstmt.setInt(3,enchere.getNoUtilisateur());
 			pstmt.setInt(4, enchere.getNoArticle());

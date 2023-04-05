@@ -32,8 +32,8 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		<form action="<%=request.getContextPath()%>/ServletEnchere"
 			method="post">
 
-			<label for="newPrix">Ma proposition : </label><input name="newPrix"
-				value="" /> <br> <input type="submit" value="Enchérir" />
+			<label for="newPrix">Ma proposition : </label><input type="number"name="newPrix" min="${enchere.montant}" max="1000"
+				 /> <br> <input type="submit" value="Enchérir" />
 		</form>
 	</div>
 </div>
