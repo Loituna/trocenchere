@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<jsp:include page="./fragments/head.jsp">
-	<jsp:param name="title" value="Vente Remportée par l'utilisateur" />
+<jsp:include page="./fragments/headDesign.jsp">
+	<jsp:param name="title" value="Enchère" />
 </jsp:include>
 
 <!-- RESTER CONNECTE -->
@@ -13,6 +13,11 @@
 List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMessagesErreur");
 %>
 
+<!-- LIEN CSS -->
+<link rel="stylesheet" href="./css/AccueilDesign.css">
+
+<!-- FONCTION DE LA PAGE, CODE A CHANGER -->
+<div class="block1">
 <h4>{utilisateur.gagant} a remporté l'enchère</h4>
 <div class="article">
 	<div>
@@ -24,6 +29,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		Vendeur : {vendeur.pseudo}<br> Tel : 0606060606 <br> <br>
 		<a href="ServletAccueilCoo"><button class="bouton">Back</button></a>
 	</div>
+</div>
 </div>
 
 

@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<jsp:include page="./fragments/head.jsp">
-	<jsp:param name="title" value="Inscription" />
+<jsp:include page="./fragments/headDesign.jsp">
+	<jsp:param name="title" value="Enchère" />
 </jsp:include>
 
-
-	<!-- RESTER CONNECTE -->
+<!-- RESTER CONNECTE -->
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.util.List"%>
 <%@page import="fr.eni.javaee.bo.Utilisateur"%>
@@ -14,7 +13,11 @@
 List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMessagesErreur");
 %>
 
+<!-- LIEN CSS -->
+<link rel="stylesheet" href="./css/AccueilDesign.css">
 
+<!-- FONCTION DE LA PAGE, CODE A CHANGER -->
+<div class="block1">
 <div class="article">	
 	<h1>Mon profil</h1>
 	
@@ -46,6 +49,6 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 			<input type="submit" value="Annulation"/>
 		</a>
 </div>		
-		
+</div>	
 		
 <jsp:include page="./fragments/foot.jsp"></jsp:include>

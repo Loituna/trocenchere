@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<jsp:include page="./fragments/head.jsp">
+<jsp:include page="./fragments/headDesign.jsp">
 	<jsp:param name="title" value="Enchère" />
 </jsp:include>
 
@@ -13,6 +13,12 @@
 List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMessagesErreur");
 %>
 
+<!-- LIEN CSS -->
+<link rel="stylesheet" href="./css/AccueilDesign.css">
+
+<!-- FONCTION DE LA PAGE, CODE A CHANGER -->
+
+<div class="block1">
 <div class="article">
 	<form action="<%=request.getContextPath()%>/ServletConnexion" method="post">
 		<label for="idPseudo">Pseudo : </label><input type="text" id="idPseudo" name="pseudo" value="<%=listeMessagesErreur!=null?request.getParameter("pseudo"):""%>"/>
@@ -22,5 +28,8 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		<input type="submit" value="Connexion"/>
 	</form>
 </div>
+	</div>
+	
+	
 	
 <jsp:include page="./fragments/foot.jsp"></jsp:include>
