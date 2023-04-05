@@ -47,78 +47,41 @@ public class ServletEnchere extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {	
 		HttpSession session = request.getSession();	
+		//Recuperation Session
 		Utilisateur utilisateur = new Utilisateur();
-		Utilisateur vendeur = new Utilisateur();
+		utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);	
+		//Creation Article A Afficher
 		Article article = new Article() ;
 		Enchere enchere = new Enchere();
 		Retrait retrait = new Retrait();
-		
-		
-		utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);		
-		
+		Utilisateur vendeur = new Utilisateur();			
 		
 		// TODO à Hydrater avec valeur d'une div lié a larticle
 		article.setNoArticle(1);
-
-		System.out.println(SESSION_ARTICLE + article + "Servlet");
-	
-		try {
-		
-			article = BLLFactory.getArticleManager().selectByNoArticle(article);				
-					
-					
-		} catch (BusinessException e) {
-			System.out.println("erreur servlet selecte idArticle");
-			e.printStackTrace();
-		}		
-		
-		// Recuperation enchere	
-		//enchere.setNoEnchere(1);
-		enchere.setNoArticle(article.getNoArticle());
-		System.out.println(enchere+ "Servlet");
-		
-		 try {
+		System.out.println(SESSION_ARTICLE + article + "Servlet");	
+		try {		
+			//Recuperation de larticle dans la BDD
+			article = BLLFactory.getArticleManager().selectByNoArticle(article);
+			//Hydratation des valeurs necessaire via l'article recuperer précédement
+			enchere.setNoArticle(article.getNoArticle());
+			retrait.setNoArticle(article.getNoArticle());
+			vendeur.setNoUtilisateur(article.getNoUtilisateur());
 			enchere = BLLFactory.getEnchereManager().selectByIdArticle(enchere);
-		} catch (BusinessException e) {
-			System.out.println(enchere);
-			System.out.println("Echec select enchere by idarticle  servlet");
-			e.printStackTrace();
-		}
-
-		 
-		 // Recuperation retrait
-		 
-		 retrait.setNoArticle(article.getNoArticle());
-		 try {
 			retrait = BLLFactory.getRetraitManager().GetRetraitByID(retrait);
-		} catch (BusinessException e) {
-			System.out.println("Echec get retrait by ID servlet");
-			e.printStackTrace();
-		}
-		 
-		 		 
-		 System.out.println(retrait);
-		 
-		vendeur.setNoUtilisateur(article.getNoUtilisateur());
-		
-		
-		try {
 			BLLFactory.getUserManager().getUserById(vendeur);
+	
 		} catch (BusinessException e) {
-			System.out.println("Echec GETUSERBYID servlet");
+			
 			e.printStackTrace();
-		}
+		}	
 		
-		System.out.println(vendeur+"FKOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
-		
-		request.setAttribute(SESSION_ARTICLE, article);
-		
-		
-		
+		//Hydratation de la requete avec les objet recuperer , celle ci les donnera a la JSP
+		request.setAttribute(SESSION_ARTICLE, article);		
 		request.setAttribute(SESSION_UTILISATEUR, utilisateur);
 		request.setAttribute(SESSION_ENCHERE, enchere);
 		request.setAttribute(SESSION_RETRAIT, retrait);
 		request.setAttribute(SESSION_VENDEUR, vendeur);
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/enchere.jsp");	
 		rd.forward(request, response);
 	}
