@@ -85,8 +85,10 @@ class EnchereDAOJdbcImpl implements EnchereDAO {
 
 	}
 
-	private static final String UPDATE_ENCHERE = "UPDATE " + "enchere"
-			+ "set date_debut_enchere=?, montant_enchere=? , no_utilisateur=?" + "WHERE no_article=?";
+	private static final String UPDATE_ENCHERE = "UPDATE "
+			+ "enchere "
+			+ "SET date_debut_enchere=?, montant_enchere=? , no_utilisateur=? " 
+			+ "WHERE no_article=? ";
 
 	@Override
 	public void updateEnchere(Enchere enchere) throws DalException {
