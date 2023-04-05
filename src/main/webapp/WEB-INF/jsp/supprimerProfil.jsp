@@ -15,6 +15,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 
 <!-- LIEN CSS -->
 <link rel="stylesheet" href="./css/AccueilDesign.css">
+<link rel="stylesheet" href="./css/style1.css">
 
 <!-- FONCTION DE LA PAGE, CODE A CHANGER -->
 <div class="block1">

@@ -15,12 +15,13 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 
 <!-- LIEN CSS -->
 <link rel="stylesheet" href="./css/AccueilDesign.css">
+<link rel="stylesheet" href="./css/style1.css">
 
 <!-- FONCTION DE LA PAGE, CODE A CHANGER -->
 <h4>Mon profil</h4>
 <br>
 <div class="block1">
-<form class="article" action="<%=request.getContextPath()%>/ServletModifProfil"
+<form class="article2" action="<%=request.getContextPath()%>/ServletModifProfil"
 	method="post">
 
 		<input type="hidden" name="identifiant" value="${utilisateur.noUtilisateur}" /> 

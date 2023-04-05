@@ -159,13 +159,14 @@ nav > ul li:hover .sous{
 	/*border : solid 0.1px;*/
 	/*box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);*/
 	width: 500px;
-	height: 250px;
+	height: 280px;
 	border-radius: 6px;
 	margin: 20px;
 	/*background-color: white;*/
 	backdrop-filter: blur(8px); /* ajustez la valeur de flou souhaitée */
 	filter: brightness(150%);
 	/* ajustez la valeur de luminosité souhaitée */
+	overflow: visible;
 }
 
 .block1 {
