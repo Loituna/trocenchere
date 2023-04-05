@@ -32,11 +32,11 @@ body {
 		<div class="logo">
 			<img src="./images/logo.png" alt="Ma superbe image">
 		</div>
-		<div class="inscription">
-			<a href="ServletInscription">Inscription</a>
-		</div>
 		<div class="connection">
-			<a href="ServletConnexion">Connexion</a>
+			<a href="ServletAffichageUtilisateur">${tuilisateur.pseudo</a>
+		</div>
+		<div class="deconnection">
+			<a href="ServletDeconnexion">Deconnection</a>
 		</div>
 	</header>
 
@@ -47,11 +47,9 @@ body {
 			<li class="accueil"><a href="ServletAccueilCoo">Accueil</a></li>
 			<li class="deroulant"><a href="#">Article</a> 
 				<ul class="sous">
-					<li><a href="ServletVenteArticle">Acheter</a></li>
 					<li><a href="ServletVenteArticle">Vendre</a></li>
 					<li><a href="ServletModifArticle">Modifier</a></li>
-				</ul>
-			</li>
+				</ul></li>
 			<li class="profil"><a href="ServletAffichageUtilisateur">Mon Profil</a></li>
 		</ul>
 	</nav>

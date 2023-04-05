@@ -23,12 +23,11 @@ header {
 	flex: 1;
 }
 
-.connection, .deconnection {
-	
+.inscription, .connection, .deconnection {
+	padding: 10px;
 	text-decoration: none;
 	font-family: "VP Next", arial, sans-serif;
 	font-weight: 400;
-	padding: 10px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -54,16 +53,80 @@ header {
 	padding: 10px;
 }
 
-.deroulant {
-  display: none;
+/*MENU DEROULANT*/
+nav{
+    width: 100%;
+    margin: 0 auto;
+/*     background-color: white; */
+    position: sticky;
+    top: 0px;
 }
 
-/* Afficher le sous-menu lorsqu'on clique sur le lien "Article" */
-.articleMenu:hover .deroulant,
-.articleMenu:focus-within .deroulant {
-  display: block;
+nav ul{
+    list-style-type: none;
 }
-	
+
+nav ul li{
+    float: left;
+    width: 25%;
+    text-align: center;
+    position: relative;
+}
+
+nav ul::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+nav a{
+    display: block;
+    text-decoration: none;
+    color: black;
+    border-bottom: 2px solid transparent;
+    padding: 10px 0px;
+}
+
+nav a:hover{
+    color: orange;
+    border-bottom: 2px solid gold;
+}
+
+.sous{
+    display: none;
+    box-shadow: 0px 1px 2px #CCC;
+/*     background-color: white; */
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+nav > ul li:hover .sous{
+    display: block;
+}
+.sous li{
+    float: none;
+    width: 100%;
+    text-align: left;
+}
+.sous a{
+    padding: 10px;
+    border-bottom: none;
+}
+.sous a:hover{
+    border-bottom: none;
+    background-color: RGBa(200,200,200,0.1);
+}
+.deroulant > a::after{
+    content:" ▼";
+    font-size: 12px;
+}
+
+.conteneur{
+  margin: 50px 20px;
+  height: 1500px;
+}
+
+
 /*BARRE DE RECHERCHE */
 .search {
 	display: flex;
@@ -89,14 +152,14 @@ header {
 	margin-left: 10px;
 }
 
-/*ENCHERE */
+/*ENCHERE ARTICLE */
 .article {
 	position: relative;
 	text-align: center;
 	/*border : solid 0.1px;*/
 	/*box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);*/
 	width: 500px;
-	height: 200px;
+	height: 250px;
 	/*border-radius: 6px;*/
 	margin: 20px;
 	/*background-color: white;*/
@@ -105,15 +168,17 @@ header {
 	/* ajustez la valeur de luminosité souhaitée */
 }
 
-/*ALIGNER TEXTE DANS LA BOX*/
-
-
-
+.block1 {
+	display: flex;
+	justify-content: center;
+}
 
 .vignette {
 	display: flex;
 	align-items: left;
 	justify-content: flex-start;
+	height: 250;
+	width : 250;
 }
 
 .description {
@@ -128,7 +193,4 @@ header {
 	justify-content: center;
 }
 
-.block1 {
-	display: flex;
-	justify-content: center;
-}
+

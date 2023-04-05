@@ -22,7 +22,7 @@ h4{
 	border-radius: 6px;
 }
 
-.aligne {
+/* .aligne {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
@@ -30,14 +30,14 @@ h4{
 
 .gauche {
   grid-column: 1 / 2;
-  /* styles pour .gauche */
+  styles pour .gauche
 }
 
 .droite {
   grid-column: 2 / 3;
-  /* styles pour .droite */
+  styles pour .droite
 }
-
+ */
 .block1 {
 	display: flex;
 	justify-content: center;
