@@ -27,17 +27,16 @@ body {
 
 </head>
 <body>
-
 	<!--LOGO ET ONNECTEION -->
 	<header>
 		<div class="logo">
 			<img src="./images/logo.png" alt="Ma superbe image">
 		</div>
 		<div class="connection">
-			<a href="#">Connection</a>
+			<a href="ServletConnexion">Connexion</a>
 		</div>
 		<div class="deconnection">
-			<a href="#">Deconnection</a>
+			<a href="ServletDeconnexion">Deconnection</a>
 		</div>
 	</header>
 

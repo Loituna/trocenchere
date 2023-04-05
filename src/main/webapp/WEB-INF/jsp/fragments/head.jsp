@@ -48,7 +48,7 @@
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="ServletConnexion">Connexion</a></li>
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="ServletAccueil">Deconnexion</a></li>
+						aria-current="page" href="ServletDeconnexion">Deconnexion</a></li>
 				</ul>
 			</div>
 		</div>

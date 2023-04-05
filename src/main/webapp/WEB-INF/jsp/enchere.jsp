@@ -14,11 +14,11 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 %>
 
 
-<h1>Détails de la vente</h1>
 
 <div class="article">
 	<div>
 
+<h3>Détails de la vente</h3>
 		<br> <img src="./images/RTX-SD.jpg" alt="Ma superbe image">
 		<br> <br> ${article.nomArticle} <br> Description :
 		${article.description} <br> Catégorie : ${article.noCategorie} <br>
@@ -37,7 +37,6 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		</form>
 	</div>
 </div>
-
 
 
 
