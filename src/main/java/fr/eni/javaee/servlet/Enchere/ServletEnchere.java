@@ -24,10 +24,14 @@ import fr.eni.javaee.bo.Utilisateur;
 @WebServlet("/ServletEnchere")
 public class ServletEnchere extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	
+	
 	private static final String SESSION_UTILISATEUR = "utilisateur";
 	private static final String SESSION_ARTICLE = "article";
 	private static final String SESSION_ENCHERE = "enchere";
 	private static final String SESSION_RETRAIT = "retrait";
+	private static final String SESSION_VENDEUR = "vendeur";
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -44,13 +48,16 @@ public class ServletEnchere extends HttpServlet {
 			throws ServletException, IOException {	
 		HttpSession session = request.getSession();	
 		Utilisateur utilisateur = new Utilisateur();
+		Utilisateur vendeur = new Utilisateur();
 		Article article = new Article() ;
-
 		Enchere enchere = new Enchere();
 		Retrait retrait = new Retrait();
 		
+		
 		utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);		
 		
+		
+		// TODO à Hydrater avec valeur d'une div lié a larticle
 		article.setNoArticle(1);
 
 		System.out.println(SESSION_ARTICLE + article + "Servlet");
@@ -65,13 +72,8 @@ public class ServletEnchere extends HttpServlet {
 			e.printStackTrace();
 		}		
 		
-		// Recuperation enchere			
-
-	//	enchere.setNoEnchere(1);
-
-
-		enchere.setNoEnchere(1);
-
+		// Recuperation enchere	
+		//enchere.setNoEnchere(1);
 		enchere.setNoArticle(article.getNoArticle());
 		System.out.println(enchere+ "Servlet");
 		
@@ -90,23 +92,33 @@ public class ServletEnchere extends HttpServlet {
 		 try {
 			retrait = BLLFactory.getRetraitManager().GetRetraitByID(retrait);
 		} catch (BusinessException e) {
-			System.out.println("Echec get retrait  by ID servlet");
+			System.out.println("Echec get retrait by ID servlet");
 			e.printStackTrace();
 		}
 		 
 		 		 
 		 System.out.println(retrait);
 		 
+		vendeur.setNoUtilisateur(article.getNoUtilisateur());
 		
 		
+		try {
+			BLLFactory.getUserManager().getUserById(vendeur);
+		} catch (BusinessException e) {
+			System.out.println("Echec GETUSERBYID servlet");
+			e.printStackTrace();
+		}
 		
-		
-		
+		System.out.println(vendeur+"FKOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
 		
 		request.setAttribute(SESSION_ARTICLE, article);
+		
+		
+		
 		request.setAttribute(SESSION_UTILISATEUR, utilisateur);
 		request.setAttribute(SESSION_ENCHERE, enchere);
-		request.setAttribute(SESSION_RETRAIT, enchere);
+		request.setAttribute(SESSION_RETRAIT, retrait);
+		request.setAttribute(SESSION_VENDEUR, vendeur);
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/enchere.jsp");	
 		rd.forward(request, response);
 	}

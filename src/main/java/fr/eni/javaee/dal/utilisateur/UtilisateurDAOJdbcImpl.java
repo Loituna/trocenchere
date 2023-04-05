@@ -160,14 +160,14 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			+ "FROM utilisateur "
 			+ "WHERE no_utilisateur=?";
 
-	public Utilisateur selectByNoUtilisateur(Integer noUtilisateur) {
-		Utilisateur utilisateur = new Utilisateur();
+	public Utilisateur selectByNoUtilisateur(Utilisateur utilisateur) {
+	
 		try (Connection cnx = ConnectionProvider.getConnection()) {
 			PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_ID);
-			pstmt.setInt(1, noUtilisateur);
+			pstmt.setInt(1, utilisateur.getNoUtilisateur());
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
-				utilisateur.setNoUtilisateur(noUtilisateur);
+				
 				utilisateur.setPseudo(rs.getString("pseudo"));
 				utilisateur.setNom(rs.getString("nom"));
 				utilisateur.setPrenom(rs.getString("prenom"));
@@ -181,7 +181,7 @@ class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			}
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			System.out.println("Echec selectByID Utilisateur DAL");
 			e.printStackTrace();
 		}
 		return utilisateur;

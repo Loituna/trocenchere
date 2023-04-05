@@ -70,7 +70,7 @@ class UserManagerImpl implements UserManager {
 	public Utilisateur getUserById(Utilisateur utilisateur)  throws BusinessException {
 	
 		try {
-			utilisateur =DAOFactory.getUtilisateurDAO().selectByNoUtilisateur(utilisateur.getNoUtilisateur());
+			utilisateur =DAOFactory.getUtilisateurDAO().selectByNoUtilisateur(utilisateur);
 		} catch (DalException e) {
 			e.printStackTrace();
 			System.out.println("Echec Authentification UserManager");

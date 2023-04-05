@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<jsp:include page="./fragments/headDesign.jsp">
+<jsp:include page="./fragments/headDesignConnect.jsp">
 	<jsp:param name="title" value="Enchère" />
 </jsp:include>
 
@@ -42,11 +42,11 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		<br> 
 		Fin de l'enchère : ${article.dateFinEnchere}
 		<br>
-		Retrait : ${utilisateur.rue} ${utilisateur.CP} ${utilisateur.ville} 
+		Retrait : ${retrait.rue} ${retrait.codePostal} ${retrait.ville} 
 		<br>
-		Vendeur :${utilisateur.nom} 
+		Vendeur :${vendeur.nom} 
 		<br> 
-		Tel : ${utilisateur.telephone}
+		Tel : ${vendeur.telephone}
 		<br>
 		<br>
 
