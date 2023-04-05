@@ -57,7 +57,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 					alt="Ma superbe image">
 				<div class="description">
 					<br>
-					Nom de l'article : ${article.nomArticle}
+					Nom de l'article : ${article2.nomArticle}
 					<br> 
 					Description : ${article.description}
 					
@@ -88,7 +88,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 					alt="Ma superbe image">
 				<div class="description">
 					<br>
-					Nom de l'article : ${article.nomArticle}
+					Nom de l'article : ${article3.nomArticle}
 					<br> 
 					Description : ${article.description}
 					
@@ -116,7 +116,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 					alt="Ma superbe image">
 				<div class="description">
 					<br>
-					Nom de l'article : ${article.nomArticle}
+					Nom de l'article : ${article4.nomArticle}
 					<br> 
 					Description : ${article.description}
 					
@@ -146,7 +146,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 					alt="Ma superbe image">
 				<div class="description">
 					<br>
-					Nom de l'article : ${article.nomArticle}
+					Nom de l'article : ${article5.nomArticle}
 					<br> 
 					Description : ${article.description}
 					
@@ -174,7 +174,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 					alt="Ma superbe image">
 				<div class="description">
 				<br>
-					Nom de l'article : ${article.nomArticle}
+					Nom de l'article : ${article6.nomArticle}
 					<br> 
 					Description : ${article.description}
 					
