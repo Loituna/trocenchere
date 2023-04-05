@@ -57,7 +57,7 @@ public class ServletAccueilDesign extends HttpServlet {
 		System.out.println(enchere+ "Servlet");
 		request.setAttribute(SESSION_ENCHERE, enchere);
 		 try {
-			enchere = BLLFactory.getEnchereManager().selectByIdEnchere(enchere);
+			enchere = BLLFactory.getEnchereManager().selectByIdArticle(enchere);
 		} catch (BusinessException e) {
 			System.out.println(enchere);
 			System.out.println("Echec get by ID servlet");
