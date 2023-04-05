@@ -16,7 +16,7 @@ header {
 }
 
 .logo {
-	margin-left: 250px; 
+	margin-left: 230px; 
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -55,7 +55,7 @@ header {
 
 /*MENU DEROULANT*/
 nav{
-    width: 100%;
+    width: 50%;
     margin: 0 auto;
 /*     background-color: white; */
     position: sticky;
@@ -68,7 +68,7 @@ nav ul{
 
 nav ul li{
     float: left;
-    width: 25%;
+    width: 15%;
     text-align: center;
     position: relative;
 }
@@ -116,10 +116,10 @@ nav > ul li:hover .sous{
     border-bottom: none;
     background-color: RGBa(200,200,200,0.1);
 }
-.deroulant > a::after{
-    content:" ▼";
-    font-size: 12px;
-}
+/* .deroulant > a::after{ */
+/*     content:" ▼"; */
+/*     font-size: 12px; */
+/* } */
 
 .conteneur{
   margin: 50px 20px;
@@ -160,7 +160,7 @@ nav > ul li:hover .sous{
 	/*box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);*/
 	width: 500px;
 	height: 250px;
-	/*border-radius: 6px;*/
+	border-radius: 6px;
 	margin: 20px;
 	/*background-color: white;*/
 	backdrop-filter: blur(8px); /* ajustez la valeur de flou souhaitée */
