@@ -20,7 +20,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 <div class="block1">
 	<div class="article">
 		<div>
-			<h4>${utilisateur.pseudo}àremportél'enchère</h4>
+			<h4>${utilisateur.pseudo}à remporté l'enchère</h4>
 			<div class="alignement">
 				<img class="vignette" src="./images/RTX-SD-ALPHA.png"
 					alt="Ma superbe image">
@@ -36,7 +36,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 	</div>
 	<div class="article">
 		<div>
-			<h4>${utilisateur.pseudo}àremportél'enchère</h4>
+			<h4>${utilisateur.pseudo}à remporté l'enchère</h4>
 			<div class="alignement">
 				<img class="vignette" src="./images/RTX-SD-ALPHA.png"
 					alt="Ma superbe image">
