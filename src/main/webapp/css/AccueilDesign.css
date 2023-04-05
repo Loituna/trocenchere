@@ -24,14 +24,14 @@ header {
 }
 
 .inscription, .connection, .deconnection {
+	color: #ffffff !important;
+	text-decoration: none !important;
 	padding: 10px;
-	text-decoration: none;
 	font-family: "VP Next", arial, sans-serif;
 	font-weight: 400;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: #ffffff;
 }
 
 /*BARRE DE NAVIGATION */
