@@ -13,6 +13,7 @@ public interface EnchereDAO {
 	public void creerEnchere (Enchere enchere)throws DalException;
 
 	public void updateEnchere(Enchere enchere)throws DalException;
-	
+
+	public void selectByIdEnchere (Enchere enchere)throws DalException;
 
 }

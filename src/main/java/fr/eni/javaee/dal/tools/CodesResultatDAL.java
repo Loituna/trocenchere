@@ -50,5 +50,9 @@ public abstract class CodesResultatDAL {
 	public static final int UPDATE_RETRAIT_NULL = 10012;
 
 	public static final int UPDATE_ENCHERE_NULL = 10014;
+	
+	public static final int ECHEC_SELECT_ID_ENCHERE = 10015;
+	
+	
 
 }

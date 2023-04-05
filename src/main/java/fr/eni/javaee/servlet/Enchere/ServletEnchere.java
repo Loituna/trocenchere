@@ -58,6 +58,8 @@ public class ServletEnchere extends HttpServlet {
 			System.out.println("erreur servlet selecte idArticle");
 			e.printStackTrace();
 		}
+		
+		//Enchere enchere = BLLFactory.getEnchereManager().
 
 		RequestDispatcher rd1 = request.getRequestDispatcher("/WEB-INF/jsp/enchere.jsp");
 		rd1.forward(request, response);
