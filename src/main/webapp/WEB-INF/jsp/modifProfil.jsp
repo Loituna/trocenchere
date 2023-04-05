@@ -21,8 +21,10 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 	method="post">
 
 	<label for="id">Votre identifiant : </label><input name="identifiant"
-		value="${utilisateur.noUtilisateur}" /> <br> <label
-		for="idPseudo">Pseudo : </label><input name="pseudo"
+		value="${utilisateur.noUtilisateur}" /> 
+		<br> 
+		
+		<label for="idPseudo">Pseudo : </label><input name="pseudo"
 		value="${utilisateur.pseudo}" /> <br> <label for="idNom">Nom
 		: </label><input name="nom" value=" ${utilisateur.nom}" /> <br> <label
 		for="idPrenom">Prenom : </label> <input name="prenom"
