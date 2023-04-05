@@ -7,9 +7,8 @@ import fr.eni.javaee.bo.Enchere;
 public interface EnchereManager {
 
 	public void creationEnchere(Enchere enchere) throws BusinessException;
-
 	
 	public void updateEnchere (Enchere enchere) throws BusinessException;
-	
-	public Enchere selectByIdEnchere (Enchere enchere) throws BusinessException;
+
+	public Enchere selectByIdArticle(Enchere enchere) throws BusinessException;
 }

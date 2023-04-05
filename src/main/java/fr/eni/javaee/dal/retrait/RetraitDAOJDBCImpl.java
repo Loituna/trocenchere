@@ -49,10 +49,7 @@ class RetraitDAOJDBCImpl implements RetraitDao {
 		}
 
 	}
-	private static final String SELECT_POUR_RETRAIT_PAR_DEFAUT = "SELECT "
-			+ "rue, code_postal, ville  "
-			+ "FROM utilisateur "
-			+ "WHERE no_utilisateur=?";
+	
 
 	private static final String UPDATE_RETRAIT = "UPDATE "
 			+ "RETRAIT "

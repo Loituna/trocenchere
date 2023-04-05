@@ -46,7 +46,7 @@ class EnchereDAOJdbcImpl implements EnchereDAO {
 			
 			
 			
-			pstmt.setInt(1, enchere.getNoEnchere());
+			pstmt.setInt(1, enchere.getNoArticle());
 		
 			ResultSet rs = pstmt.executeQuery();
 			

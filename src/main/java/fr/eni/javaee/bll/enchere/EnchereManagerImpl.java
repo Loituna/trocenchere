@@ -32,7 +32,7 @@ class EnchereManagerImpl implements EnchereManager {
 	}
 
 	@Override
-	public Enchere selectByIdEnchere(Enchere enchere) throws BusinessException {
+	public Enchere selectByIdArticle(Enchere enchere) throws BusinessException {
 		System.out.println(enchere+"SelectById Enchere Manager ");
 		try {
 			DAOFactory.getEnchereDAO().selectByIdEnchere(enchere);

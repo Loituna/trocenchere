@@ -15,6 +15,7 @@ import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Article;
 import fr.eni.javaee.bo.Enchere;
+import fr.eni.javaee.bo.Retrait;
 import fr.eni.javaee.bo.Utilisateur;
 
 /**
@@ -45,6 +46,7 @@ public class ServletEnchere extends HttpServlet {
 		Utilisateur utilisateur = new Utilisateur();
 		Article article = new Article() ;
 		Enchere enchere = new Enchere();
+		Retrait retrait = new Retrait();
 		
 		utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);		
 		
@@ -63,24 +65,31 @@ public class ServletEnchere extends HttpServlet {
 		
 		// Recuperation enchere			
 		
-		enchere.setNoEnchere(1);
+	//	enchere.setNoEnchere(1);
 		enchere.setNoArticle(article.getNoArticle());
 		System.out.println(enchere+ "Servlet");
 		
 		 try {
-			enchere = BLLFactory.getEnchereManager().selectByIdEnchere(enchere);
+			enchere = BLLFactory.getEnchereManager().selectByIdArticle(enchere);
 		} catch (BusinessException e) {
 			System.out.println(enchere);
-			System.out.println("Echec get by ID servlet");
+			System.out.println("Echec select enchere by idarticle  servlet");
 			e.printStackTrace();
 		}
 
 		 
 		 // Recuperation retrait
 		 
+		 retrait.setNoArticle(article.getNoArticle());
+		 try {
+			retrait = BLLFactory.getRetraitManager().GetRetraitByID(retrait);
+		} catch (BusinessException e) {
+			System.out.println("Echec get retrait  by ID servlet");
+			e.printStackTrace();
+		}
 		 
 		 		 
-		 
+		 System.out.println(retrait);
 		 
 		
 		
@@ -91,6 +100,7 @@ public class ServletEnchere extends HttpServlet {
 		request.setAttribute(SESSION_ARTICLE, article);
 		request.setAttribute(SESSION_UTILISATEUR, utilisateur);
 		request.setAttribute(SESSION_ENCHERE, enchere);
+		request.setAttribute(SESSION_RETRAIT, enchere);
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/enchere.jsp");	
 		rd.forward(request, response);
 	}
