@@ -2,6 +2,8 @@ package fr.eni.javaee.dal;
 
 import fr.eni.javaee.dal.article.ArticleDao;
 import fr.eni.javaee.dal.article.ArticleSingleton;
+import fr.eni.javaee.dal.categorie.CategorieDao;
+import fr.eni.javaee.dal.categorie.CategorieSingleton;
 import fr.eni.javaee.dal.enchere.EnchereDAO;
 import fr.eni.javaee.dal.enchere.EnchereSingleton;
 import fr.eni.javaee.dal.retrait.RetraitDao;
@@ -27,5 +29,9 @@ public abstract class DAOFactory {
 
 	public static RetraitDao getRetraitDao() {
 		return RetraitSingleton.getInstance();
+	}
+
+	public static CategorieDao getCategorieDAO() {
+		return CategorieSingleton.getInstance();
 	}
 }
