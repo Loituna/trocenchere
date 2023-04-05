@@ -17,7 +17,8 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 %>
 
 <div class="article">
-	<h1>Nouvelle Vente</h1>
+	<h5>Nouvelle Vente</h5>
+	<br>
 	<form action="<%=request.getContextPath()%>/ServletVenteArticle"
 		method="post">
 		<label for="nomArticle">Article : </label><input type="text"
@@ -61,7 +62,11 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
        min="2023-03-12T6:53" max="2030-06-14T00:00">
        
        <div>
-       <h2>Retrait</h2>
+       <br>
+       <br>
+
+       
+       <h6>Retrait</h6>
        		<label for="rueRetrait">Rue :  </label><input type="text" name="rueRetrait" required="required"
 			value="${utilisateur.rue}" />
 			<br>

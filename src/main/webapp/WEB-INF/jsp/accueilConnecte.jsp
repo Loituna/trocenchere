@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<jsp:include page="./fragments/head.jsp">
+<jsp:include page="./fragments/headDesign.jsp">
 	<jsp:param name="title" value="Enchère" />
 </jsp:include>
-
 
 <!-- RESTER CONNECTE -->
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -14,72 +13,187 @@
 List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMessagesErreur");
 %>
 
+<!-- LIEN CSS -->
+<link rel="stylesheet" href="./css/AccueilDesign.css">
 
 
-
-<div class="article">
-	<p>Filtres :</p>
-	<br>
-	<form action="<%=request.getContextPath()%>/ServletAcceuil"
-		method="post">
-		<input type="texte" id="searchart" name="barrearticle"
-			value="Le nom de l'article contient">
-	</form>
-	<form class="Formcate"
-		action="<%=request.getContextPath()%>/ServletInscription"
-		method="post">
-		<select name="Liste Categorie" id="listcate">
-			<option value="Informatique">Informatique</option>
-			<option value="Ameublement">Ameublement</option>
-			<option value="Vetement">Vetement</option>
-			<option value="Sport">Sport</option>
-			<option value="Loisir">Loisir</option>
-		</select> <input type="submit" value="Rechercher">
-	</form>
-	<br>
-	<form action="">
+<!-- CONTENU DE LA PAGE -->
+<div class="block1">
+	<div class="article">
 		<div>
-			<input type="radio" name="achat" value="achats" id="achats-radio">
-			<label for="achats-radio">Achats</label> <input type="radio"
-				name="achat" value="mesVentes" id="ventes-radio"> <label
-				for="ventes-radio">Mes Ventes</label>
+			<h4>Ventes en cours</h4>
+			<div class="alignement">
+				<img class="vignette" src="./images/RTX-SD-ALPHA.png"
+					alt="Ma superbe image">
+				<div class="description">
+					
+					<br>
+					Nom de l'article : ${article.nomArticle}
+					<br> 
+					Description : ${article.description}
+					
+					<br> 
+					Meilleur offre actuellement : ${enchere.montant} points
+					<br>
+					Mise à prix : ${article.prixInitial} points
+					<br> 
+					Fin de l'enchère : ${article.dateFinEnchere}
+					<br>
+					Retrait : ${utilisateur.rue} ${utilisateur.CP} ${utilisateur.ville}
+					<br> 
+					<br> 
+					Vendeur: ${utilisateur.nom} 
+					<br>
+				</div>
+			</div>
 		</div>
-	</form>
-
-	<div id="achats-section" style="display: none;">
-		<br> <input type="radio" name="achat-item" value="item1"
-			id="achatItem1-radio"> <label for="item1-radio">Enchères
-			ouvertes</label> <br> <input type="radio" name="achat-item"
-			value="item2" id="achatItem2-radio"> <label for="item2-radio">Mes
-			enchères</label> <br> <input type="radio" name="achat-item"
-			value="item3" id="achatItem3-radio"> <label for="item3-radio">Mes
-			enchères remportées</label>
 	</div>
-
-	<div id="ventes-section" style="display: none;">
-		<br> <input type="radio" name="vente-item" value="vente1"
-			id="venteItem1-radio"> <label for="item4-radio">Mes
-			ventes en cours</label> <br> <input type="radio" name="vente-item"
-			value="vente2" id="venteItem2-radio"> <label
-			for="item5-radio">Ventes non débutées</label> <br> <input
-			type="radio" name="vente-item" value="vente3" id="venteItem3-radio">
-		<label for="item6-radio">Ventes terminées</label>
+	<div class="article">
+		<div>
+			<h4>Ventes en cours</h4>
+			<div class="alignement">
+				<img class="vignette" src="./images/RTX-SD-ALPHA.png"
+					alt="Ma superbe image">
+				<div class="description">
+					<br>
+					Nom de l'article : ${article.nomArticle}
+					<br> 
+					Description : ${article.description}
+					
+					<br> 
+					Meilleur offre actuellement : ${enchere.montant} points
+					<br>
+					Mise à prix : ${article.prixInitial} points
+					<br> 
+					Fin de l'enchère : ${article.dateFinEnchere}
+					<br>
+					Retrait : ${utilisateur.rue} ${utilisateur.CP} ${utilisateur.ville}
+					<br> 
+					<br> 
+					Vendeur: ${utilisateur.nom} 
+					<br>
+				</div>
+			</div>
+		</div>
 	</div>
-
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script>
-		$(document).ready(function() {
-			$('input[type=radio][name=achat]').change(function() {
-				if (this.value == 'achats') {
-					$('#achats-section').show();
-					$('#ventes-section').hide();
-				} else if (this.value == 'mesVentes') {
-					$('#achats-section').hide();
-					$('#ventes-section').show();
-				}
-			});
-		});
-	</script>
 </div>
+
+<div class="block1">
+	<div class="article">
+		<div>
+			<h4>Ventes en cours</h4>
+			<div class="alignement">
+				<img class="vignette" src="./images/RTX-SD-ALPHA.png"
+					alt="Ma superbe image">
+				<div class="description">
+					<br>
+					Nom de l'article : ${article.nomArticle}
+					<br> 
+					Description : ${article.description}
+					
+					<br> 
+					Meilleur offre actuellement : ${enchere.montant} points
+					<br>
+					Mise à prix : ${article.prixInitial} points
+					<br> 
+					Fin de l'enchère : ${article.dateFinEnchere}
+					<br>
+					Retrait : ${utilisateur.rue} ${utilisateur.CP} ${utilisateur.ville}
+					<br> 
+					<br> 
+					Vendeur: ${utilisateur.nom} 
+					<br>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="article">
+		<div>
+			<h4>Ventes en cours</h4>
+			<div class="alignement">
+				<img class="vignette" src="./images/RTX-SD-ALPHA.png"
+					alt="Ma superbe image">
+				<div class="description">
+					<br>
+					Nom de l'article : ${article.nomArticle}
+					<br> 
+					Description : ${article.description}
+					
+					<br> 
+					Meilleur offre actuellement : ${enchere.montant} points
+					<br>
+					Mise à prix : ${article.prixInitial} points
+					<br> 
+					Fin de l'enchère : ${article.dateFinEnchere}
+					<br>
+					Retrait : ${utilisateur.rue} ${utilisateur.CP} ${utilisateur.ville}
+					<br> 
+					<br> 
+					Vendeur: ${utilisateur.nom} 
+					<br>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="block1">
+	<div class="article">
+		<div>
+			<h4>Ventes en cours</h4>
+			<div class="alignement">
+				<img class="vignette" src="./images/RTX-SD-ALPHA.png"
+					alt="Ma superbe image">
+				<div class="description">
+					<br>
+					Nom de l'article : ${article.nomArticle}
+					<br> 
+					Description : ${article.description}
+					
+					<br> 
+					Meilleur offre actuellement : ${enchere.montant} points
+					<br>
+					Mise à prix : ${article.prixInitial} points
+					<br> 
+					Fin de l'enchère : ${article.dateFinEnchere}
+					<br>
+					Retrait : ${utilisateur.rue} ${utilisateur.CP} ${utilisateur.ville}
+					<br> 
+					<br> 
+					Vendeur: ${utilisateur.nom} 
+					<br>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="article">
+		<div>
+			<h4>Ventes en cours</h4>
+			<div class="alignement">
+				<img class="vignette" src="./images/RTX-SD-ALPHA.png"
+					alt="Ma superbe image">
+				<div class="description">
+				<br>
+					Nom de l'article : ${article.nomArticle}
+					<br> 
+					Description : ${article.description}
+					
+					<br> 
+					Meilleur offre actuellement : ${enchere.montant} points
+					<br>
+					Mise à prix : ${article.prixInitial} points
+					<br> 
+					Fin de l'enchère : ${article.dateFinEnchere}
+					<br>
+					Retrait : ${utilisateur.rue} ${utilisateur.CP} ${utilisateur.ville}
+					<br> 
+					<br> 
+					Vendeur: ${utilisateur.nom} 
+					<br>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 
 <jsp:include page="./fragments/foot.jsp"></jsp:include>

@@ -45,12 +45,14 @@ public class ServletEnchere extends HttpServlet {
 		HttpSession session = request.getSession();	
 		Utilisateur utilisateur = new Utilisateur();
 		Article article = new Article() ;
+
 		Enchere enchere = new Enchere();
 		Retrait retrait = new Retrait();
 		
 		utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);		
 		
 		article.setNoArticle(1);
+
 		System.out.println(SESSION_ARTICLE + article + "Servlet");
 	
 		try {
@@ -64,8 +66,12 @@ public class ServletEnchere extends HttpServlet {
 		}		
 		
 		// Recuperation enchere			
-		
+
 	//	enchere.setNoEnchere(1);
+
+
+		enchere.setNoEnchere(1);
+
 		enchere.setNoArticle(article.getNoArticle());
 		System.out.println(enchere+ "Servlet");
 		

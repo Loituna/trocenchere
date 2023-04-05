@@ -47,7 +47,7 @@ header {
 	font-family: "VP Next", arial, sans-serif;
 	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 	font-weight: 400;
-	font-size: 1rem;
+	font-size: 22px;
 	color: #fff;
 	text-decoration: none;
 	padding: 10px;
@@ -55,7 +55,7 @@ header {
 
 /*MENU DEROULANT*/
 nav{
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
 /*     background-color: white; */
     position: sticky;
@@ -132,7 +132,7 @@ nav > ul li:hover .sous{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-top: 20px;
+	margin-top: 18px;
 	margin-bottom: 20px;
 }
 
