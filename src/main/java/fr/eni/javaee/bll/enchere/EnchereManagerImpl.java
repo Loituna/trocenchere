@@ -29,8 +29,16 @@ class EnchereManagerImpl implements EnchereManager {
 				e.printStackTrace();
 			}
 		 
-		
-		
+	}
+
+	@Override
+	public void selectByIdEnchere(Enchere enchere) throws BusinessException {
+		try {
+			DAOFactory.getEnchereDAO().selectByIdEnchere(enchere);
+		} catch (DalException e) {
+			System.out.println("Erreur Select By Id Manager");
+			e.printStackTrace();
+		}
 		
 	}
 }
