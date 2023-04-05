@@ -16,16 +16,12 @@ import fr.eni.javaee.dal.tools.DalException;
 
 class ArticleDAOJDBCImpl implements ArticleDao {
 
+	
+	
 	private static final String INSERT_ARTICLE = "INSERT "
 			+ "INTO `article_vendu` "
 			+ "(`nom_article`, `description`, `date_debut`, `date_fin`, `prix_initial`, `prix_vente`, `etat_vente`, `no_utilisateur`, `no_categorie`)"
 			+ " VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	private static final String SELECT_BY_ID = "SELECT "
-			+ "nom_article, description, date_debut, date_fin, prix_initial, prix_vente, etat_vente, no_utilisateur, no_categorie "
-			+ "FROM Article_vendu "
-			+ "WHERE no_article=?";
-	
-
 	@Override
 	public void insertArticle(Article article,Retrait retrait) throws DalException {
 		
@@ -94,11 +90,15 @@ class ArticleDAOJDBCImpl implements ArticleDao {
 
 
 	}
-	
+
+	private static final String SELECT_BY_ID_ARTICLE = "SELECT "
+			+ "nom_article, description, date_debut, date_fin, prix_initial, prix_vente, etat_vente, no_utilisateur, no_categorie "
+			+ "FROM Article_vendu "
+			+ "WHERE no_article=?";
 	public Article selectByNoArticle(Integer noArticle) throws DalException{
 		Article article = new Article();
 		try (Connection cnx = ConnectionProvider.getConnection()){
-			PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_ID);
+			PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_ID_ARTICLE);
 			pstmt.setInt(1, noArticle);
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next()) {
