@@ -177,8 +177,8 @@ nav > ul li:hover .sous{
 	display: flex;
 	align-items: left;
 	justify-content: flex-start;
-	height: 250;
-	width : 250;
+/* 	height: 250px; */
+/* 	width : 250px; */
 }
 
 .description {
