@@ -16,7 +16,7 @@
 <!-- BACKGROUND -->
 <style class="fond">
 body {
-	background-image: url('./images/moderne.jpg');
+	background-image: url('./images/moderne3.jpg');
 	background-repeat: no-repeat; /* empêche la répétition de l'image */
 	background-size: cover;
 	/* adapte la taille de l'image pour qu'elle tienne entièrement dans le conteneur, sans déformation */

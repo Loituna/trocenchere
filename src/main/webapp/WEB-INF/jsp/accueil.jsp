@@ -40,10 +40,10 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 					<br> 
 					Fin de l'enchère : ${article.dateFinEnchere}
 					<br>
-					Retrait : ${utilisateur.rue} ${utilisateur.CP} ${utilisateur.ville}
+					Retrait : ${retrait.rue} ${retrait.codePostal} ${retrait.ville} 
 					<br> 
 					<br> 
-					Vendeur: ${utilisateur.nom} 
+					Vendeur: ${vendeur.pseudo} 
 					<br>
 				</div>
 			</div>
@@ -56,22 +56,22 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 				<img class="vignette" src="./images/RTX-SD-ALPHA.png"
 					alt="Ma superbe image">
 				<div class="description">
-					<br>
+				<br>
 					Nom de l'article : ${article2.nomArticle}
 					<br> 
-					Description : ${article.description}
+					Description : ${article2.description}
 					
 					<br> 
-					Meilleur offre actuellement : ${enchere.montant} points
+					Meilleur offre actuellement : ${enchere2.montant} points
 					<br>
-					Mise à prix : ${article.prixInitial} points
+					Mise à prix : ${article2.prixInitial} points
 					<br> 
-					Fin de l'enchère : ${article.dateFinEnchere}
+					Fin de l'enchère : ${article2.dateFinEnchere}
 					<br>
-					Retrait : ${utilisateur.rue} ${utilisateur.CP} ${utilisateur.ville}
+					Retrait : ${retrait2.rue} ${retrait2.codePostal} ${retrait2.ville} 
 					<br> 
 					<br> 
-					Vendeur: ${utilisateur.nom} 
+					Vendeur: ${vendeur2.pseudo} 
 					<br>
 				</div>
 			</div>
@@ -90,19 +90,19 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 					<br>
 					Nom de l'article : ${article3.nomArticle}
 					<br> 
-					Description : ${article.description}
+					Description : ${article3.description}
 					
 					<br> 
-					Meilleur offre actuellement : ${enchere.montant} points
+					Meilleur offre actuellement : ${enchere3.montant} points
 					<br>
-					Mise à prix : ${article.prixInitial} points
+					Mise à prix : ${article3.prixInitial} points
 					<br> 
-					Fin de l'enchère : ${article.dateFinEnchere}
+					Fin de l'enchère : ${article3.dateFinEnchere}
 					<br>
-					Retrait : ${utilisateur.rue} ${utilisateur.CP} ${utilisateur.ville}
+					Retrait : ${retrait3.rue} ${retrait3.codePostal} ${retrait3.ville} 
 					<br> 
 					<br> 
-					Vendeur: ${utilisateur.nom} 
+					Vendeur: ${vendeur3.pseudo} 
 					<br>
 				</div>
 			</div>
@@ -118,19 +118,19 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 					<br>
 					Nom de l'article : ${article4.nomArticle}
 					<br> 
-					Description : ${article.description}
+					Description : ${article4.description}
 					
 					<br> 
-					Meilleur offre actuellement : ${enchere.montant} points
+					Meilleur offre actuellement : ${enchere4.montant} points
 					<br>
-					Mise à prix : ${article.prixInitial} points
+					Mise à prix : ${article4.prixInitial} points
 					<br> 
-					Fin de l'enchère : ${article.dateFinEnchere}
+					Fin de l'enchère : ${article4.dateFinEnchere}
 					<br>
-					Retrait : ${utilisateur.rue} ${utilisateur.CP} ${utilisateur.ville}
+					Retrait : ${retrait4.rue} ${retrait4.codePostal} ${retrait4.ville} 
 					<br> 
 					<br> 
-					Vendeur: ${utilisateur.nom} 
+					Vendeur: ${vendeur4.pseudo} 
 					<br>
 				</div>
 			</div>
@@ -148,19 +148,19 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 					<br>
 					Nom de l'article : ${article5.nomArticle}
 					<br> 
-					Description : ${article.description}
+					Description : ${article5.description}
 					
 					<br> 
-					Meilleur offre actuellement : ${enchere.montant} points
+					Meilleur offre actuellement : ${enchere5.montant} points
 					<br>
-					Mise à prix : ${article.prixInitial} points
+					Mise à prix : ${article5.prixInitial} points
 					<br> 
-					Fin de l'enchère : ${article.dateFinEnchere}
+					Fin de l'enchère : ${article5.dateFinEnchere}
 					<br>
-					Retrait : ${utilisateur.rue} ${utilisateur.CP} ${utilisateur.ville}
+					Retrait : ${retrait5.rue} ${retrait5.codePostal} ${retrait5.ville} 
 					<br> 
 					<br> 
-					Vendeur: ${utilisateur.nom} 
+					Vendeur: ${vendeur5.pseudo} 
 					<br>
 				</div>
 			</div>
@@ -176,19 +176,19 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 				<br>
 					Nom de l'article : ${article6.nomArticle}
 					<br> 
-					Description : ${article.description}
+					Description : ${article6.description}
 					
 					<br> 
-					Meilleur offre actuellement : ${enchere.montant} points
+					Meilleur offre actuellement : ${enchere6.montant} points
 					<br>
-					Mise à prix : ${article.prixInitial} points
+					Mise à prix : ${article6.prixInitial} points
 					<br> 
-					Fin de l'enchère : ${article.dateFinEnchere}
+					Fin de l'enchère : ${article6.dateFinEnchere}
 					<br>
-					Retrait : ${utilisateur.rue} ${utilisateur.CP} ${utilisateur.ville}
+					Retrait : ${retrait6.rue} ${retrait6.codePostal} ${retrait6.ville} 
 					<br> 
 					<br> 
-					Vendeur: ${utilisateur.nom} 
+					Vendeur: ${vendeur6.pseudo} 
 					<br>
 				</div>
 			</div>
