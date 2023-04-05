@@ -38,6 +38,7 @@
 						class="nav-link dropdown-toggle" href="#" role="button"
 						data-bs-toggle="dropdown" aria-expanded="false"> Article </a>
 						<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="ServletEnchere">Acheter</a></li>
 							<li><a class="dropdown-item" href="ServletVenteArticle">Vendre</a></li>
 							<li><a class="dropdown-item" href="ServletModifArticle">Modifier</a></li>
 						</ul></li>

@@ -45,7 +45,7 @@ body {
 	<nav>
 		<ul class="menu">
 			<li class="accueil"><a href="ServletAccueilCoo">Accueil</a></li>
-			<li class="articleMenu"><a href="#">Article</a> <a href="#">Article</a>
+			<li class="articleMenu"><a href="#">Article</a> 
 				<ul class="deroulant">
 					<li><a href="ServletVenteArticle">Vendre</a></li>
 					<li><a href="ServletModifArticle">Modifier</a></li>
