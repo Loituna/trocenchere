@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<jsp:include page="./fragments/head.jsp">
+<jsp:include page="./fragments/headDesign.jsp">
 	<jsp:param name="title" value="Enchère" />
 </jsp:include>
 
@@ -13,8 +13,13 @@
 List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMessagesErreur");
 %>
 
+<!-- LIEN CSS -->
+<link rel="stylesheet" href="./css/AccueilDesign.css">
 
 
+
+<!-- CONTENU DE LA PAGE -->
+<div class="block1">
 <div class="article">
 	<div>
 
@@ -49,6 +54,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 			<input type="submit" value="Enchérir" />
 		</form>
 	</div>
+</div>
 </div>
 
 

@@ -22,6 +22,7 @@ body {
 	/* adapte la taille de l'image pour qu'elle tienne entièrement dans le conteneur, sans déformation */
 	background-position: center center;
 	/* centre l'image horizontalement et verticalement */
+	min-height: 100vh;
 }
 </style>
 
@@ -45,7 +46,6 @@ body {
 	<nav>
 		<ul class="menu">
 			<li class="accueil"><a href="ServletAccueilCoo">Accueil</a></li>
-			<li class="deroulant"><a href="#">Article</a> 
 			<li><a href="ServletEnchere">Acheter</a></li>
 			<li><a href="ServletVenteArticle">Vendre</a></li>
 			<li><a href="ServletModifArticle">Modifier</a></li>

@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<jsp:include page="./fragments/headDesign.jsp">
-	<jsp:param name="title" value="Enchère" />
-</jsp:include>
+<%-- <jsp:include page="./fragments/headDesign.jsp"> --%>
+<%-- 	<jsp:param name="title" value="Enchère" /> --%>
+<%-- </jsp:include> --%>
 
 <!-- RESTER CONNECTE -->
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -195,4 +195,4 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 </div>
 
 
-<jsp:include page="./fragments/foot.jsp"></jsp:include>
+<%-- <jsp:include page="./fragments/foot.jsp"></jsp:include> --%>
