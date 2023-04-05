@@ -26,11 +26,11 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 	<br>
 	<form action="<%=request.getContextPath()%>/ServletVenteArticle"
 		method="post">
-		<label for="nomArticle">Article : </label><input type="text"
+		<label for="nomArticle">Article : </label><input class="block2" type="text"
 			id="nomArticle" name="nomArticle" required="required"
 			value="<%=listeMessagesErreur != null ? request.getParameter("nomArticle") : ""%>" />
 			<br>
-		<label for="descriptionArticle">Description : </label><input
+		<label for="descriptionArticle">Description : </label><input class="block2"
 			type="text" id="descriptionArticle" name="descriptionArticle" required="required" style="width: 300px; height: 100px;"
 			value="<%=listeMessagesErreur != null ? request.getParameter("descriptionArticle") : ""%>" />
 			<br>
