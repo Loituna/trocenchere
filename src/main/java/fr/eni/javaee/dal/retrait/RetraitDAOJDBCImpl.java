@@ -41,7 +41,6 @@ class RetraitDAOJDBCImpl implements RetraitDao {
 			
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			DalException DalException = new DalException();
 			DalException.ajouterErreur(CodesResultatDAL.INSERT_RETRAIT_ECHEC);
@@ -105,7 +104,7 @@ class RetraitDAOJDBCImpl implements RetraitDao {
 			if (rs.next()) {
 				
 				retrait.setRue(rs.getString("rue"));
-				retrait.setCodePostal("code_postal");
+				retrait.setCodePostal(rs.getString("code_postal"));
 				retrait.setVille(rs.getString("ville"));
 			
 			}

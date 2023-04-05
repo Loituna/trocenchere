@@ -34,11 +34,11 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		<br> 
 		Fin de l'enchère : ${article.dateFinEnchere}
 		<br>
-		Retrait : ${utilisateur.rue} ${utilisateur.CP} ${utilisateur.ville} 
+		Retrait : ${retrait.rue} ${retrait.codePostal} ${retrait.ville} 
 		<br>
-		Vendeur :${utilisateur.nom} 
+		Vendeur :${vendeur.nom} 
 		<br> 
-		Tel : ${utilisateur.telephone}
+		Tel : ${vendeur.telephone}
 		<br>
 		<br>
 

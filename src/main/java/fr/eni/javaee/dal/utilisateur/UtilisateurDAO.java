@@ -13,6 +13,6 @@ public interface UtilisateurDAO {
 
 	public Utilisateur authentificationUtilisateur(Utilisateur utilisateur) throws  DalException;		
 	
-	public Utilisateur selectByNoUtilisateur (Integer noUtilisateur)throws DalException ;
+	public Utilisateur selectByNoUtilisateur (Utilisateur utilisateur)throws DalException ;
 
 }
