@@ -5,6 +5,24 @@ h4 {
 }
 
 /*CONNECTION ET LOGO*/
+.connect button {
+/* 	padding: 10px; */
+	border: none;
+	border-radius: 5px;
+	background-color: #4CAF50;
+	color: #fff;
+/* 	margin-left: 10px; */
+}
+.inscription, .connexion, .deconnexion {
+	color: #ffffff !important;
+	text-decoration: none !important;
+	padding: 10px;
+	font-family: "VP Next", arial, sans-serif;
+/* 	font-weight: 400; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 header {
 	display: flex;
 	justify-content: space-between;
@@ -14,24 +32,12 @@ header {
 	background-size: cover;
 	background-position: center center;
 }
-
 .logo {
 	margin-left: 230px; 
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex: 1;
-}
-
-.inscription, .connection, .deconnection {
-	color: #ffffff !important;
-	text-decoration: none !important;
-	padding: 10px;
-	font-family: "VP Next", arial, sans-serif;
-	font-weight: 400;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 
 /*BARRE DE NAVIGATION */
@@ -57,7 +63,6 @@ header {
 nav{
     width: 70%;
     margin: 0 auto;
-/*     background-color: white; */
     position: sticky;
     top: 0px;
 }
@@ -95,7 +100,6 @@ nav a:hover{
 .sous{
     display: none;
     box-shadow: 0px 1px 2px #CCC;
-/*     background-color: white; */
     position: absolute;
     width: 100%;
     z-index: 1000;
@@ -103,15 +107,16 @@ nav a:hover{
 nav > ul li:hover .sous{
     display: block;
 }
+
 .sous li{
     float: none;
     width: 100%;
     text-align: left;
 }
-.sous a{
-    padding: 10px;
-    border-bottom: none;
-}
+/* .sous a{ */
+/*     padding: 10px; */
+/*     border-bottom: none; */
+/* } */
 .sous a:hover{
     border-bottom: none;
     background-color: RGBa(200,200,200,0.1);
@@ -175,6 +180,8 @@ nav > ul li:hover .sous{
 }
 
 .vignette {
+	filter: saturate(80%);
+	filter: contrast(90%);
 	display: flex;
 	align-items: left;
 	justify-content: flex-start;

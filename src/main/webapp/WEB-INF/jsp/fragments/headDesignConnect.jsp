@@ -33,11 +33,11 @@ body {
 		<div class="logo">
 			<img src="./images/logo.png" alt="Ma superbe image">
 		</div>
-		<div class="connection">
+		<div class="connexion">
 			<a href="ServletAffichageUtilisateur">Mon Profil</a>
 		</div>
-		<div class="deconnection">
-			<a href="ServletDeconnexion">Deconnection</a>
+		<div class="deconnexion">
+			<a href="ServletDeconnexion">Deconnexion</a>
 		</div>
 	</header>
 

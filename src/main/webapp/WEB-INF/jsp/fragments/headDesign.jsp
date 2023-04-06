@@ -33,10 +33,10 @@ body {
 		<div class="logo">
 			<img src="./images/logo.png" alt="Ma superbe image">
 		</div>
-		<div class="inscription">
+		<div class="inscription" >
 			<a href="ServletInscription">Inscription</a>
 		</div>
-		<div class="connection">
+		<div class="connexion">
 			<a href="ServletConnexion">Connexion</a>
 		</div>
 	</header>
@@ -46,10 +46,10 @@ body {
 	<nav>
 		<ul class="menu">
 			<li class="accueil"><a href="ServletAccueilCoo">Accueil</a></li>
-			<li><a href="ServletEnchere">Acheter</a></li>
-			<li><a href="ServletVenteArticle">Vendre</a></li>
-			<li><a href="ServletModifArticle">Modifier</a></li>
-			<li class="profil"><a href="ServletAffichageUtilisateur">Mon Profil</a></li>
+			<li class="accueil"><a href="ServletEnchere">Acheter</a></li>
+			<li class="accueil"><a href="ServletVenteArticle">Vendre</a></li>
+			<li class="accueil"><a href="ServletModifArticle">Modifier</a></li>
+			<li class="accueil"><a href="ServletAffichageUtilisateur">Mon Profil</a></li>
 		</ul>
 	</nav>
 
