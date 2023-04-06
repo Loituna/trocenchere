@@ -50,7 +50,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		<input type="file" id="photoArticle" name="photoArticle" >
 		<br>
 		<label>Prix de l'article </label>
-		<input type="number" id="credit" name ="credit" min ="100" max="1000"required="required">
+		<input type="number" id="credit" name ="credit" min ="100" max="10000"required="required">
 		<br>
 		
 		<label for="DebutEnchere">Debut de votre enchère</label>

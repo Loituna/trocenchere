@@ -14,9 +14,12 @@ import javax.servlet.http.HttpSession;
 import fr.eni.javaee.bll.BLLFactory;
 import fr.eni.javaee.bll.tools.BusinessException;
 import fr.eni.javaee.bo.Article;
+import fr.eni.javaee.bo.Categorie;
 import fr.eni.javaee.bo.Enchere;
 import fr.eni.javaee.bo.Retrait;
 import fr.eni.javaee.bo.Utilisateur;
+import fr.eni.javaee.dal.DAOFactory;
+import fr.eni.javaee.dal.tools.DalException;
 
 /**
  * Servlet implementation class ServletEnchere
@@ -32,6 +35,7 @@ public class ServletEnchere extends HttpServlet {
 	private static final String SESSION_ENCHERE = "enchere";
 	private static final String SESSION_RETRAIT = "retrait";
 	private static final String SESSION_VENDEUR = "vendeur";
+	private static final String SESSION_CATEGORIE = "categorie";
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -54,10 +58,12 @@ public class ServletEnchere extends HttpServlet {
 		Article article = new Article() ;
 		Enchere enchere = new Enchere();
 		Retrait retrait = new Retrait();
-		Utilisateur vendeur = new Utilisateur();			
+		Utilisateur vendeur = new Utilisateur();
+		Categorie categorie = new Categorie();
+		
 		
 		// TODO à Hydrater avec valeur d'une div lié a larticle
-		article.setNoArticle(1);
+		article.setNoArticle(4);
 		System.out.println(SESSION_ARTICLE + article + "Servlet");	
 		try {		
 			//Recuperation de larticle dans la BDD
@@ -67,13 +73,22 @@ public class ServletEnchere extends HttpServlet {
 			retrait.setNoArticle(article.getNoArticle());
 			vendeur.setNoUtilisateur(article.getNoUtilisateur());
 			enchere = BLLFactory.getEnchereManager().selectByIdArticle(enchere);
-			retrait = BLLFactory.getRetraitManager().GetRetraitByID(retrait);
-			BLLFactory.getUserManager().getUserById(vendeur);
+			retrait = BLLFactory.getRetraitManager().GetRetraitByID(retrait);		
+			BLLFactory.getUserManager().getUserById(vendeur);			
 	
 		} catch (BusinessException e) {
 			
 			e.printStackTrace();
 		}	
+		
+		//PAS BIIIIIIIIIIIIIIIIEN
+		try {
+			categorie.setNoCategorie(article.getNoCategorie());
+			categorie = DAOFactory.getCategorieDAO().getCategorieByID(categorie);
+		} catch (DalException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		//Hydratation de la requete avec les objet recuperer , celle ci les donnera a la JSP
 		request.setAttribute(SESSION_ARTICLE, article);		
@@ -81,6 +96,7 @@ public class ServletEnchere extends HttpServlet {
 		request.setAttribute(SESSION_ENCHERE, enchere);
 		request.setAttribute(SESSION_RETRAIT, retrait);
 		request.setAttribute(SESSION_VENDEUR, vendeur);
+		request.setAttribute(SESSION_CATEGORIE, categorie);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/enchere.jsp");	
 		rd.forward(request, response);
@@ -113,7 +129,7 @@ public class ServletEnchere extends HttpServlet {
 		enchere.setNoUtilisateur(utilisateur.getNoUtilisateur());
 		System.out.println(enchere + " enchere servlet no_Util");
 	//	enchere.setNoArticle(Integer.parseInt(request.getParameter("")));
-		enchere.setNoArticle(1);
+		enchere.setNoArticle(4);
 		System.out.println(enchere + " enchere servlet no_article");
 		try {
 			BLLFactory.getEnchereManager().updateEnchere(enchere);
