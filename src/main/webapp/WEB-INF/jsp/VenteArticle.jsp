@@ -24,15 +24,16 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 	<br>
 	<h4>Nouvelle Vente</h4>
 	<br>
-	<form action="<%=request.getContextPath()%>/ServletVenteArticle"
-		method="post">
-		<label for="nomArticle">Article : </label><input class="block2" type="text"
-			id="nomArticle" name="nomArticle" required="required"
-			value="<%=listeMessagesErreur != null ? request.getParameter("nomArticle") : ""%>" />
+	<form action="<%=request.getContextPath()%>/ServletVenteArticle" method="post">
+		
+		<label for="nomArticle">Article : </label>
+		<input class="block2" type="text" id="nomArticle" name="nomArticle" required="required" value="<%=listeMessagesErreur != null ? request.getParameter("nomArticle") : ""%>" />
+			
 			<br>
-		<label for="descriptionArticle">Description : </label><input class="block2"
-			type="text" id="descriptionArticle" name="descriptionArticle" required="required" style="width: 300px; height: 100px;"
-			value="<%=listeMessagesErreur != null ? request.getParameter("descriptionArticle") : ""%>" />
+			
+		<label for="descriptionArticle">Description : </label>
+		<input class="block2" type="text" id="descriptionArticle" name="descriptionArticle" required="required" style="width: 300px; height: 100px;" value="<%=listeMessagesErreur != null ? request.getParameter("descriptionArticle") : ""%>" />
+			
 			<br>
 			
 			

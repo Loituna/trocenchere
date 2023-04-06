@@ -34,7 +34,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 					Description : ${article.description}
 					
 					<br> 
-					Meilleur offre actuellement : ${enchere.montant} points
+					Meilleur offre : ${enchere.montant} points
 					<br>
 					Mise à prix : ${article.prixInitial} points
 					<br> 
