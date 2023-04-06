@@ -88,6 +88,8 @@ public class ServletVenteArticle extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		//response.sendRedirect("/WEB-INF/jsp/accueilConnecte.jsp");
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueilConnecte.jsp");
 		rd.forward(request, response);
 	}
