@@ -24,6 +24,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		action="<%=request.getContextPath()%>/ServletAffichageUtilisateur"
 		method="post">
 		<div class="aligne">
+		<br>
 		<label class="gauche" for="idPseudo">Pseudo : </label><label class="droite"> ${utilisateur.pseudo}</label><br>
 		<label class="gauche" for="idNom">Nom : </label><label class="droite"> ${utilisateur.nom}</label><br> 
 		<label class="gauche" for="idPrenom">Prenom : </label><label class="droite"> ${utilisateur.prenom}</label><br> 
@@ -32,6 +33,7 @@ List<String> listeMessagesErreur = (List<String>) request.getAttribute("listeMes
 		<label class="gauche" for="idRue">Rue : </label><label class="droite"> ${utilisateur.rue}</label><br> 
 		<label class="gauche" for="idCodePostal">Code Postal : </label><label class="droite"> ${utilisateur.CP}</label><br>
 		<label class="gauche" for="idVille">Ville : </label><label class="droite"> ${utilisateur.ville}</label><br>
+		<br>
 		</div>
 	</form>
 
