@@ -81,7 +81,7 @@ public class ServletAccueil extends HttpServlet {
 		Retrait retrait = new Retrait();
 		Utilisateur vendeur = new Utilisateur();
 
-		// TODO à Hydrater avec valeur d'une div lié a larticle
+		// TODO à Hydrater avec valeur venant de la JSP
 		article.setNoArticle(1);
 		
 		try {
@@ -99,11 +99,14 @@ public class ServletAccueil extends HttpServlet {
 
 			e.printStackTrace();
 		}
-
+		// Parametre communication JSP
 		request.setAttribute(SESSION_ARTICLE, article);
 		request.setAttribute(SESSION_ENCHERE, enchere);
 		request.setAttribute(SESSION_RETRAIT, retrait);
 		request.setAttribute(SESSION_VENDEUR, vendeur);
+		
+		
+		//Nouvel Article
 
 		Article article2 = new Article();
 		Enchere enchere2 = new Enchere();
