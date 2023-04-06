@@ -73,7 +73,7 @@ public class ServletAccueil extends HttpServlet {
 		utilisateur = (Utilisateur) session.getAttribute(SESSION_UTILISATEUR);
 		request.setAttribute(SESSION_UTILISATEUR, utilisateur);
 
-		// Pattern De creation d'article a passé a la jsp 83 à 106
+		// Pattern De creation d'article a passé a la jsp 78 à 106
 
 		// Creation Article A Afficher
 		Article article = new Article();
